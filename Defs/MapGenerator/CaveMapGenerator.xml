@@ -21,6 +21,7 @@
       <li>Terrain</li>
       <!--<li>CavesTerrain</li>-->
       <li>ShashlichnikUndercave_ScatterRuinsSimple</li>
+			<li>ShashlichnikUndergroundLakes</li>
       <li>ShashlichnikFindCaveExit</li>
       <li>ShashlichnikUndercave_Caves</li>
       <li>RockChunks</li>
@@ -93,6 +94,12 @@
 				<max>0.25</max>
 			</countPer10kCellsRange>
 		</genStep>
+	</GenStepDef>
+
+	<GenStepDef>
+		<defName>ShashlichnikUndergroundLakes</defName>
+		<order>299</order>
+		<genStep Class="Shashlichnik.GenStep_UndergroundLakes"/>
 	</GenStepDef>
 
 

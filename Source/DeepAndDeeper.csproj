@@ -48,6 +48,7 @@
     <Compile Include="DefsOf.cs" />
     <Compile Include="GenStep_CaveInterest.cs" />
     <Compile Include="GenStep_FindCaveExit.cs" />
+    <Compile Include="GenStep_UndergroundLakes.cs" />
     <Compile Include="JobDriver_Dig.cs" />
     <Compile Include="Mod.cs" />
     <Compile Include="ModSettings.cs" />

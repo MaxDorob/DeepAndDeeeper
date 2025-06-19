@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+
+	<FleckDef ParentName="FleckBase_Thrown">
+		<defName>ShashlichnikCaveCollapseDust</defName>
+		<graphicData>
+			<texPath>Things/Mote/DustPuff</texPath>
+			<renderInstanced>true</renderInstanced>
+			<color>(.42, .33, .27, 1)</color>
+		</graphicData>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<fadeInTime>0.4</fadeInTime>
+		<solidTime>0.1</solidTime>
+		<fadeOutTime>2</fadeOutTime>
+		<growthRate>2</growthRate>
+	</FleckDef>
+
+
+	<FleckDef ParentName="FleckBase_Thrown">
+		<defName>ShashlichnikCaveCollapseDustThick</defName>
+		<graphicData>
+			<texPath>Things/Mote/DustPuff</texPath>
+			<renderInstanced>true</renderInstanced>
+			<color>(.42, .33, .27, 1)</color>
+		</graphicData>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<fadeInTime>0.25</fadeInTime>
+		<solidTime>1</solidTime>
+		<fadeOutTime>1.4</fadeOutTime>
+	</FleckDef>
+
+	<FleckDef ParentName="FleckBase_RandomGraphic_Thrown">
+		<defName>ShashlichnikCaveCollapseDustVeryFine</defName>
+		<randomGraphics>
+			<li>
+				<shaderType>Mote</shaderType>
+				<graphicClass>Graphic_Fleck</graphicClass>
+				<texPath>Things/Mote/DustPuff</texPath>
+				<renderInstanced>true</renderInstanced>
+				<color>(.21, .17, .13, 1)</color>
+			</li>
+		</randomGraphics>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<fadeInTime>0.25</fadeInTime>
+		<solidTime>2</solidTime>
+		<fadeOutTime>1</fadeOutTime>
+	</FleckDef>
+
+
+	<FleckDef ParentName="FleckBase_RandomGraphic_Thrown">
+		<defName>ShashlichnikSheetingDust</defName>
+		<randomGraphics>
+			<li>
+				<graphicClass>Graphic_Fleck</graphicClass>
+				<shaderType>Mote</shaderType>
+				<texPath>Things/Mote/DustPuff</texPath>
+				<renderInstanced>true</renderInstanced>
+				<drawSize>(.2,1)</drawSize>
+				<color>(.42, .33, .27, .8)</color>
+			</li>
+
+		</randomGraphics>
+		<unattachedDrawOffset>(0, 0, 8)</unattachedDrawOffset>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<fadeInTime>.5</fadeInTime>
+		<solidTime>.3</solidTime>
+		<fadeOutTime>.5</fadeOutTime>
+		<archHeight>12~16</archHeight>
+		<archDuration>1.15</archDuration>
+		<archCurve>
+			<points>
+				<li>(0,1)</li>
+				<li>(0.04,0.9756736)</li>
+				<li>(0.08,0.9500062)</li>
+				<li>(0.12,0.9230018)</li>
+				<li>(0.16,0.8946642)</li>
+				<li>(0.2,0.8649974)</li>
+				<li>(0.24,0.8340054)</li>
+				<li>(0.28,0.8016918)</li>
+				<li>(0.32,0.7680608)</li>
+				<li>(0.36,0.7331161)</li>
+				<li>(0.3999999,0.6968619)</li>
+				<li>(0.4399999,0.6593019)</li>
+				<li>(0.4799999,0.6204399)</li>
+				<li>(0.5199999,0.5802801)</li>
+				<li>(0.5599999,0.5388262)</li>
+				<li>(0.6,0.4960822)</li>
+				<li>(0.64,0.452052)</li>
+				<li>(0.68,0.4067395)</li>
+				<li>(0.72,0.3601486)</li>
+				<li>(0.7600001,0.3122832)</li>
+				<li>(0.8000001,0.2631474)</li>
+				<li>(0.8400001,0.2127448)</li>
+				<li>(0.8800001,0.1610795)</li>
+				<li>(0.9200001,0.1081554)</li>
+				<li>(0.9600002,0.05397642)</li>
+				<li>(1,0)</li>
+			</points>
+		</archCurve>
+	</FleckDef>
+
+	<FleckDef ParentName="FleckBase_Thrown">
+		<defName>ShashlichnikDustImpact</defName>
+		<graphicData>
+			<texPath>Things/Mote/DustPuff</texPath>
+			<shaderType>Transparent</shaderType>
+			<renderInstanced>false</renderInstanced>
+			<color>(0.41, .33, .27, .8)</color>
+		</graphicData>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<fadeInTime>.1</fadeInTime>
+		<solidTime>2</solidTime>
+		<fadeOutTime>1.5</fadeOutTime>
+	</FleckDef>
+
+
+	<FleckDef ParentName="FleckBase_Thrown">
+		<defName>ShashlichnikBouncingDebris</defName>
+		<graphicData>
+			<texPath>Things/Mote/ThrownDebris</texPath>
+			<shaderType>Transparent</shaderType>
+			<renderInstanced>false</renderInstanced>
+			<color>(0.41, 0.33, 0.24, .8)</color>
+		</graphicData>
+		<growthRate>-0.5</growthRate>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<fadeInTime>0.06</fadeInTime>
+		<solidTime>1</solidTime>
+		<fadeOutTime>0</fadeOutTime>
+		<archHeight>1~2</archHeight>
+		<archDuration>0.9~1.5</archDuration>
+		<archCurve>
+			<points>
+				<li>(0,0)</li>
+				<li>(0.04,0.06817785)</li>
+				<li>(0.08,0.1415976)</li>
+				<li>(0.12,0.2149889)</li>
+				<li>(0.16,0.2830812)</li>
+				<li>(0.2,0.3406042)</li>
+				<li>(0.24,0.3822875)</li>
+				<li>(0.28,0.4028607)</li>
+				<li>(0.32,0.3951005)</li>
+				<li>(0.36,0.3431725)</li>
+				<li>(0.3999999,0.2600614)</li>
+				<li>(0.4399999,0.1647919)</li>
+				<li>(0.4799999,0.0763886)</li>
+				<li>(0.5199999,0.01387611)</li>
+				<li>(0.5599999,0.01352741)</li>
+				<li>(0.6,0.02955473)</li>
+				<li>(0.64,0.04362636)</li>
+				<li>(0.68,0.05149278)</li>
+				<li>(0.72,0.04808952)</li>
+				<li>(0.7600001,0.03047059)</li>
+				<li>(0.8000001,0.009557847)</li>
+				<li>(0.8400001,0.003781316)</li>
+				<li>(0.8800001,0.01578983)</li>
+				<li>(0.9200001,0.01923234)</li>
+				<li>(0.9600002,0.01081114)</li>
+				<li>(1,0)</li>
+			</points>
+
+		</archCurve>
+
+	</FleckDef>
+
+
+	<FleckDef ParentName="FleckGlowDistortBackground">
+		<defName>ShashlichnikCollapsedDistortion</defName>
+		<fleckSystemClass>FleckSystemThrown</fleckSystemClass>
+		<altitudeLayer>MoteOverheadLow</altitudeLayer>
+		<fadeInTime>0.04</fadeInTime>
+		<solidTime>1</solidTime>
+		<fadeOutTime>2.5</fadeOutTime>
+		<growthRate>11.0</growthRate>
+		<graphicData>
+			<texPath>Things/Mote/Black</texPath>
+			<shaderParameters>
+				<_distortionIntensity>0.03</_distortionIntensity>
+				<_brightnessMultiplier>1.0</_brightnessMultiplier>
+				<_DistortionTex>/Things/Mote/MoteHellfireCannon_HeatWaveDistortion</_DistortionTex>
+			</shaderParameters>
+			<drawSize>(10, 10)</drawSize>
+		</graphicData>
+	</FleckDef>
+
+
+	<FleckDef ParentName="FleckBase_Thrown">
+		<defName>ShashlichnikCollapseForce</defName>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<fadeInTime>0.2</fadeInTime>
+		<solidTime>0.25</solidTime>
+		<fadeOutTime>1</fadeOutTime>
+		<growthRate>4</growthRate>
+		<graphicData>
+			<texPath>Things/Mote/HeatDiffusion</texPath>
+			<graphicClass>Graphic_FleckPulse</graphicClass>
+			<color>(1, 1, 1, .3)</color>
+			<shaderType>MoteHeatDiffusion</shaderType>
+			<shaderParameters>
+				<_MultiplyTex>/Things/Mote/RadiationDistortion_A</_MultiplyTex>
+				<_texBScale>0.2</_texBScale>
+				<_texBScrollSpeed>-2</_texBScrollSpeed>
+				<_Intensity>13</_Intensity>
+				<_Clip>0</_Clip>
+			</shaderParameters>
+			<drawSize>(10, 10)</drawSize>
+		</graphicData>
+	</FleckDef>
+
+</Defs>

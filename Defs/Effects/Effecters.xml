@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<EffecterDef>
+		<defName>ShashlichnikImpactDustCloud</defName>
+		<children>
+			<li>
+				<subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+				<fleckDef>DustPuffLong</fleckDef>
+				<positionRadius>2</positionRadius>
+				<scale>6</scale>
+				<burstCount>12</burstCount>
+				<fleckUsesAngleForVelocity>true</fleckUsesAngleForVelocity>
+				<rotationRate>-5~5</rotationRate>
+				<angle>0~360</angle>
+				<speed>0.5~3.0</speed>
+			</li>
+		</children>
+	</EffecterDef>
+
+
+	<EffecterDef>
+		<defName>ShashslichnikCaveCeilingDebris</defName>
+		<maintainTicks>130</maintainTicks>
+		<randomWeight>1</randomWeight>
+		<children>
+			<li>
+				<subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+				<fleckDef>ShashlichnikSheetingDust</fleckDef>
+				<burstCount>2~3</burstCount>
+				<positionRadius>.2</positionRadius>
+				<scale>7</scale>
+				<rotationRate>0</rotationRate>
+				<angle>180</angle>
+				<rotation>0</rotation>
+				<fleckUsesAngleForVelocity>True</fleckUsesAngleForVelocity>
+				<speed>0</speed>
+			</li>
+
+			<li>
+				<subEffecterClass>SubEffecter_SprayerTriggeredDelayed</subEffecterClass>
+				<fleckDef>ShashlichnikDustImpact</fleckDef>
+				<initialDelayTicks>69</initialDelayTicks>
+				<burstCount>6~10</burstCount>
+				<spawnLocType>OnSource</spawnLocType>
+				<positionRadius>2</positionRadius>
+				<scale>3~5</scale>
+				<rotationRate>-20~20</rotationRate>
+				<angle>0~360</angle>
+				<fleckUsesAngleForVelocity>true</fleckUsesAngleForVelocity>
+				<speed>1~2</speed>
+			</li>
+
+			<li>
+				<subEffecterClass>SubEffecter_SprayerTriggeredDelayed</subEffecterClass>
+				<fleckDef>ShashlichnikBouncingDebris</fleckDef>
+				<initialDelayTicks>69</initialDelayTicks>
+				<burstCount>3~5</burstCount>
+				<spawnLocType>OnSource</spawnLocType>
+				<positionRadius>2</positionRadius>
+				<scale>0.25~0.5</scale>
+				<rotationRate>-200~200</rotationRate>
+				<angle>0~360</angle>
+				<fleckUsesAngleForVelocity>true</fleckUsesAngleForVelocity>
+				<speed>1~3</speed>
+			</li>
+		</children>
+	</EffecterDef>
+
+	<EffecterDef>
+		<defName>ShashlichnikCaveEntranceCollapseStage1</defName>
+		<children>
+			<li>
+				<subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>
+				<fleckDef>ShashlichnikCaveCollapseDust</fleckDef>
+				<chancePerTick>0.01</chancePerTick>
+				<chancePeriodTicks>10</chancePeriodTicks>
+				<rotation>-150~150</rotation>
+				<scale>1~2</scale>
+				<positionOffset>(0, 0, -2)</positionOffset>
+				<positionRadius>1</positionRadius>
+				<speed>0.6~1.1</speed>
+				<fleckUsesAngleForVelocity>false</fleckUsesAngleForVelocity>
+				<spawnLocType>OnSource</spawnLocType>
+			</li>
+		</children>
+	</EffecterDef>
+	
+	<EffecterDef>
+		<defName>ShashlichnikCaveEntranceCollapseStage2</defName>
+		<children>
+			<li>
+				<subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>
+				<fleckDef>ShashlichnikCaveCollapseDust</fleckDef>
+				<chancePerTick>0.1</chancePerTick>
+				<chancePeriodTicks>5</chancePeriodTicks>
+				<rotation>-150~150</rotation>
+				<positionOffset>(0, 0, -2)</positionOffset>
+				<positionRadius>1</positionRadius>
+				<speed>1~2.1</speed>
+				<fleckUsesAngleForVelocity>false</fleckUsesAngleForVelocity>
+				<spawnLocType>OnSource</spawnLocType>
+			</li>
+
+			<li>
+				<subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>
+				<fleckDef>ShashlichnikCaveCollapseDustThick</fleckDef>
+				<chancePerTick>0.01</chancePerTick>
+				<chancePeriodTicks>10</chancePeriodTicks>
+				<rotation>-60~60</rotation>
+				<scale>3~10</scale>
+				<positionOffset>(0, 0, -1)</positionOffset>
+				<positionRadius>1</positionRadius>
+				<speed>0.6~3</speed>
+				<fleckUsesAngleForVelocity>false</fleckUsesAngleForVelocity>
+				<spawnLocType>OnSource</spawnLocType>
+			</li>
+
+			<li>
+				<subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>
+				<fleckDef>ShashlichnikCaveCollapseDustVeryFine</fleckDef>
+				<burstCount>2~5</burstCount>
+				<chancePerTick>0.05</chancePerTick>
+				<chancePeriodTicks>150</chancePeriodTicks>
+				<rotation>0~360</rotation>
+				<rotationRate>-100~100</rotationRate>
+				<scale>1</scale>
+				<positionOffset>(0, 0, -1)</positionOffset>
+				<positionRadius>1</positionRadius>
+				<speed>0.6~5</speed>
+				<angle>-20~20</angle>
+				<fleckUsesAngleForVelocity>true</fleckUsesAngleForVelocity>
+				<spawnLocType>OnSource</spawnLocType>
+			</li>
+		</children>
+	</EffecterDef>
+
+
+	<EffecterDef>
+		<defName>ShashlichnikCaveEntranceCollapsed</defName>
+		<children>
+			<li>
+				<subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+				<fleckDef>ShashlichnikCollapsedDistortion</fleckDef>
+				<chancePerTick>0.1</chancePerTick>
+				<chancePeriodTicks>10</chancePeriodTicks>
+				<rotation>-150~150</rotation>
+				<positionRadius>0</positionRadius>
+				<speed>0.6~1.1</speed>
+				<fleckUsesAngleForVelocity>false</fleckUsesAngleForVelocity>
+				<spawnLocType>OnSource</spawnLocType>
+			</li>
+
+			<li>
+				<subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+				<fleckDef>ShashlichnikCollapseForce</fleckDef>
+				<burstCount>1</burstCount>
+				<spawnLocType>OnSource</spawnLocType>
+			</li>
+		</children>
+	</EffecterDef>
+
+
+
+	<EffecterDef>
+		<defName>ShashlichnikBuryCave</defName>
+		<children>
+			<li>
+				<subEffecterClass>SubEffecter_Sustainer</subEffecterClass>
+				<soundDef>Interact_GraveDig</soundDef>
+			</li>
+			<li>
+				<subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>
+				<fleckDef>ShashlichnikCaveCollapseDust</fleckDef>
+				<chancePerTick>0.2</chancePerTick>
+				<chancePeriodTicks>100</chancePeriodTicks>
+				<positionLerpFactor>.3</positionLerpFactor>
+				<scale>0.4~1.2</scale>
+				<rotationRate>-60~60</rotationRate>
+				<speed>0.6~1</speed>
+			</li>
+			<li>
+				<subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>
+				<fleckDef>ShashlichnikCaveCollapseDustThick</fleckDef>
+				<chancePerTick>0.1</chancePerTick>
+				<chancePeriodTicks>100</chancePeriodTicks>
+				<positionLerpFactor>.3</positionLerpFactor>
+				<scale>0.4~1.2</scale>
+				<rotationRate>-60~60</rotationRate>
+				<speed>0.6~1</speed>
+			</li>
+			<li>
+				<subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>
+				<fleckDef>DirtBitsArching</fleckDef>
+				<spawnLocType>OnSource</spawnLocType>
+				<chancePerTick>0.05</chancePerTick>
+				<scale>0.5~1</scale>
+				<fleckUsesAngleForVelocity>true</fleckUsesAngleForVelocity>
+				<angle>-10~10</angle>
+				<rotation>0~360</rotation>
+				<positionOffset>(0, 0, -.2)</positionOffset>
+				<speed>5~6</speed>
+			</li>
+		</children>
+	</EffecterDef>
+
+
+</Defs>

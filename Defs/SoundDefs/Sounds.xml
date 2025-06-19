@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Defs>
+
+	<SoundDef>
+		<defName>ShashlichnikVanillaCollapsingStage1</defName>
+		<sustain>True</sustain>
+		<context>MapOnly</context>
+		<priorityMode>PrioritizeNearest</priorityMode>
+		<subSounds>
+			<li>
+				<onCamera>true</onCamera>
+				<grains>
+					<li Class="AudioGrain_Clip">
+						<clipPath>Misc/Tunnel/TunnelLoop</clipPath>
+					</li>
+				</grains>
+				<volumeRange>20~23</volumeRange>
+				<randomStartPoint>true</randomStartPoint>
+			</li>
+		</subSounds>
+	</SoundDef>
+
+	<SoundDef>
+		<defName>ShashlichnikVanillaCollapsingStage2</defName>
+		<sustain>True</sustain>
+		<context>MapOnly</context>
+		<priorityMode>PrioritizeNearest</priorityMode>
+		<subSounds>
+			<li>
+				<onCamera>true</onCamera>
+				<grains>
+					<li Class="AudioGrain_Clip">
+						<clipPath>Misc/Tunnel/TunnelLoop</clipPath>
+					</li>
+				</grains>
+				<volumeRange>24~24</volumeRange>
+				<randomStartPoint>true</randomStartPoint>
+			</li>
+		</subSounds>
+	</SoundDef>
+  
+</Defs>

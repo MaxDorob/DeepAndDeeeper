@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <WorkGiverDef>
+    <defName>ShashlichnikDigCaveEntrance</defName>
+    <label>dig cave entry</label>
+    <giverClass>Shashlichnik.WorkGiver_DigCaveEntrance</giverClass>
+    <workType>BasicWorker</workType>
+    <verb>dig</verb>
+    <gerund>digging</gerund>
+    <priorityInType>600</priorityInType>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+  </WorkGiverDef>
+
+</Defs>

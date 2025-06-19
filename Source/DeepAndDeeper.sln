@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35013.160
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeepAndDeeper", "DeepAndDeeper.csproj", "{C53B30BE-F1C7-4F67-8EC4-41DA926F817F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C53B30BE-F1C7-4F67-8EC4-41DA926F817F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C53B30BE-F1C7-4F67-8EC4-41DA926F817F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C53B30BE-F1C7-4F67-8EC4-41DA926F817F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C53B30BE-F1C7-4F67-8EC4-41DA926F817F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CEA2E2EF-5D8D-418B-AE41-EF2DC149D12B}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>CaveEntrance</defName>
+    <label>cave entrance</label>
+    <description>A hole that connects the surface with a dark network of underground caves. It is possible to climb down into the caverns below.</description>
+    <size>(4,4)</size>
+    <thingClass>Shashlichnik.CaveEntrance</thingClass>
+    <tickerType>Normal</tickerType>
+    <rotatable>false</rotatable>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <canOverlapZones>false</canOverlapZones>
+		<designationCategory>Misc</designationCategory>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+      <texPath>Things/Building/Natural/SteamGeyser</texPath>
+      <drawSize>(4,4)</drawSize>
+    </graphicData>
+    <altitudeLayer>FloorEmplacement</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <holdsRoof>true</holdsRoof>
+    <destroyable>true</destroyable>
+		<useHitPoints>true</useHitPoints>
+    <building>
+      <isEdifice>true</isEdifice>
+      <deconstructible>false</deconstructible>
+      <isTargetable>true</isTargetable>
+      <isInert>true</isInert>
+      <claimable>false</claimable>
+      <expandHomeArea>false</expandHomeArea>
+    </building>
+    <statBases>
+      <Flammability>0</Flammability>
+			<MaxHitPoints>500</MaxHitPoints>
+    </statBases>
+    <inspectorTabs>
+      <li>ITab_ContentsMapPortal</li>
+    </inspectorTabs>
+    <comps>
+      <li MayRequire="Ludeon.RimWorld.Anomaly" Class="CompProperties_LeaveFilthOnDestroyed">
+        <filthDef>Filth_LooseGround</filthDef>
+        <thickness>5</thickness>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>CaveExit</defName>
+    <label>cave exit</label>
+    <description>A rope line which links to the surface above.</description>
+    <size>(3,3)</size>
+    <useHitPoints>false</useHitPoints>
+    <thingClass>Shashlichnik.CaveExit</thingClass>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <canOverlapZones>false</canOverlapZones>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <rotatable>false</rotatable>
+    <tickerType>Normal</tickerType>
+    <destroyable>false</destroyable>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+      <texPath>Things/Building/Misc/MarriageSpot</texPath>
+      <drawSize>(3,3)</drawSize>
+    </graphicData>
+    <passability>Standable</passability>
+    <building>
+      <deconstructible>false</deconstructible>
+      <isTargetable>false</isTargetable>
+      <isInert>true</isInert>
+      <claimable>false</claimable>
+      <expandHomeArea>false</expandHomeArea>
+    </building>
+    <statBases>
+      <Flammability>0</Flammability>
+    </statBases>
+    <comps>
+      <li Class="CompProperties_Glower">
+        <glowRadius>10</glowRadius>
+        <glowColor>(140,160,184,0)</glowColor>
+      </li>
+      <li MayRequire="Ludeon.RimWorld.Anomaly" Class="CompProperties_Effecter">
+        <effecterDef>UndercaveMapExitLightshafts</effecterDef>
+      </li>
+    </comps>
+  </ThingDef>
+
+</Defs>

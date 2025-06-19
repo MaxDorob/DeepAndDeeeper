@@ -21,6 +21,7 @@
       <li>Terrain</li>
       <!--<li>CavesTerrain</li>-->
       <li>ShashlichnikUndercave_ScatterRuinsSimple</li>
+			<li>ShashlichnikUndergroundTorches</li>
 			<li>ShashlichnikUndergroundLakes</li>
       <li>ShashlichnikFindCaveExit</li>
       <li>ShashlichnikUndercave_Caves</li>
@@ -96,6 +97,12 @@
 		</genStep>
 	</GenStepDef>
 
+	<GenStepDef>
+		<defName>ShashlichnikUndergroundTorches</defName>
+		<order>298</order>
+		<genStep Class="Shashlichnik.GenStep_UndergroundTorches"/>
+	</GenStepDef>
+	
 	<GenStepDef>
 		<defName>ShashlichnikUndergroundLakes</defName>
 		<order>299</order>

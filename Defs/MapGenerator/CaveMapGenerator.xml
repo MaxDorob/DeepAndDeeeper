@@ -58,7 +58,7 @@
     <order>249</order>
     <genStep Class="GenStep_ScatterRuinsSimple">
       <allowInWaterBiome>false</allowInWaterBiome>
-      <countPer10kCellsRange>2~3</countPer10kCellsRange>
+      <countPer10kCellsRange>0~2</countPer10kCellsRange>
       <mustBeStandable>true</mustBeStandable>
       <canBeOnEdge>true</canBeOnEdge>
       <ruinSizeChanceCurve>
@@ -68,6 +68,7 @@
           <li>(10, 0)</li>
         </points>
       </ruinSizeChanceCurve>
+			<minSpacing>44</minSpacing>
       <destroyChanceExp>3</destroyChanceExp>
       <clearSurroundingArea>true</clearSurroundingArea>
     </genStep>

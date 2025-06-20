@@ -48,7 +48,7 @@ namespace Shashlichnik
             {
                 var potCell = CellFinderLoose.RandomCellWith(c => c.Standable(map), map, 70);
                 onWallLimit--;
-                if (other.Any(x => x.InHorDistOf(potCell, 8f)))
+                if (!potCell.InBounds(map) || other.Any(x => x.InHorDistOf(potCell, 8f)))
                 {
                     continue;
                 }

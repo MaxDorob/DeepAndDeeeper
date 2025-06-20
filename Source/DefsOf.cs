@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RimWorld;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,5 +24,6 @@ namespace Shashlichnik
         public static EffecterDef ShashlichnikBuryCave;
         public static SoundDef ShashlichnikVanillaCollapsingStage1;
         public static SoundDef ShashlichnikVanillaCollapsingStage2;
+        public static SitePartDef ShashlichnikCaveEnter;
     }
 }

@@ -330,7 +330,7 @@ namespace Shashlichnik
         public const int tickToOpenConst = GenDate.TicksPerHour * 36;
         private bool isCollapsing;
         public Map cave;
-        private CaveExit caveExit;
+        public CaveExit caveExit;
         internal bool beenEntered;
         internal Sustainer collapseSustainer;
         internal Effecter collapseEffecter1;

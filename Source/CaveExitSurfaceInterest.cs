@@ -25,6 +25,7 @@ namespace Shashlichnik
         };
         public override Map GetOtherMap()
         {
+            Map map = null;
             if (site == null)
             {
                 int limit = 30;
@@ -38,15 +39,28 @@ namespace Shashlichnik
                         return OriginalMap;
                     }
                 }
-                site = SiteMaker.MakeSite(sitesChances.RandomElementByWeight(x => x.Value).Key, tile, null);
+                site = SiteMaker.MakeSite([sitesChances.RandomElementByWeight(x => x.Value).Key, DefsOf.ShashlichnikCaveEnter], tile, null);
                 Find.WorldObjects.Add(site);
-
+                map = GetOrGenerateMapUtility.GetOrGenerateMap(site.Tile, null);
+                var caveEntrance = map.listerThings.ThingsOfDef(DefsOf.CaveEntrance).FirstOrDefault() as CaveEntrance;
+                if (caveEntrance != null)
+                {
+                    caveEntrance.caveExit = this;
+                    caveEntrance.cave = this.Map;
+                    caveEntrance.TicksToOpen = 0;
+                    this.caveEntrance = caveEntrance;
+                }
+                else
+                {
+                    Log.Error("Can't find a cave entrance after map generation");
+                }
             }
-            return GetOrGenerateMapUtility.GetOrGenerateMap(site.Tile, null);
+            return map ?? GetOrGenerateMapUtility.GetOrGenerateMap(site.Tile, null);
         }
         public override IntVec3 GetDestinationLocation()
         {
-            return new IntVec3(3, 0, 3);
+
+            return caveEntrance?.Position ?? new IntVec3(3, 0, 3);
         }
         protected Map OriginalMap => this.Map.GetComponent<CaveMapComponent>().caveEntrance.Map;
         public override void ExposeData()

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <SitePartDef>
+    <defName>ShashlichnikCaveEnter</defName>
+    <label>cave enter</label>
+    <description>A cave enter.</description>
+  </SitePartDef>
+
+  <GenStepDef>
+    <defName>ShashlichnikCaveEnter</defName>
+    <linkWithSite>ShashlichnikCaveEnter</linkWithSite>
+    <order>470</order>
+    <genStep Class="Shashlichnik.GenStep_CaveEntrance">
+    </genStep>
+  </GenStepDef>
+
+</Defs>

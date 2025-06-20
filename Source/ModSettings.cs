@@ -14,9 +14,13 @@ namespace Shashlichnik
         {
         }
         public bool AnomalyEffectsEnabled => ModsConfig.AnomalyActive;
+
+        public int mapSize = 150;
+
         public override void ExposeData()
         {
             base.ExposeData();
+            Scribe_Values.Look(ref mapSize, nameof(mapSize), 150);
         }
     }
 }

@@ -11,6 +11,7 @@ namespace Shashlichnik
     internal static class DefsOf
     {
         public static ThingDef CaveExit;
+        public static ThingDef CaveExitToSurfaceInterest;
         public static MapGeneratorDef ShashlichnikUndercave;
         public static ThingDef CaveEntrance;
         public static JobDef ShashlichnikDigCaveEntrance;

@@ -24,6 +24,7 @@
 			<li>ShashlichnikUndergroundTorches</li>
 			<li>ShashlichnikUndergroundLakes</li>
       <li>ShashlichnikFindCaveExit</li>
+			<li>ShashlichnikCaveExitToSurfaceInterest</li>
       <li>ShashlichnikUndercave_Caves</li>
       <li>RockChunks</li>
 			<li>ShashlichnikScatterShrines</li>
@@ -77,6 +78,12 @@
     <order>300</order>
     <genStep Class="Shashlichnik.GenStep_FindCaveExit"/>
   </GenStepDef>
+	
+	<GenStepDef>
+		<defName>ShashlichnikCaveExitToSurfaceInterest</defName>
+		<order>301</order>
+		<genStep Class="Shashlichnik.GenStep_ExitToSurfaceInterest"/>
+	</GenStepDef>
 
 
   <GenStepDef>

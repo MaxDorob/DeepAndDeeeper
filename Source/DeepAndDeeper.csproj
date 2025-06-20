@@ -44,9 +44,11 @@
     <Compile Include="Alert_CaveStability.cs" />
     <Compile Include="CaveEntrance.cs" />
     <Compile Include="CaveExit.cs" />
+    <Compile Include="CaveExitSurfaceInterest.cs" />
     <Compile Include="CaveMapComponent.cs" />
     <Compile Include="DefsOf.cs" />
     <Compile Include="GenStep_CaveInterest.cs" />
+    <Compile Include="GenStep_ExitToSurfaceInterest.cs" />
     <Compile Include="GenStep_FindCaveExit.cs" />
     <Compile Include="GenStep_UndergroundTorches.cs" />
     <Compile Include="GenStep_UndergroundLakes.cs" />

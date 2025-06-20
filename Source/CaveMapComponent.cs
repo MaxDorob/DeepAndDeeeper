@@ -63,15 +63,19 @@ namespace Shashlichnik
                 return initialRockCount;
             }
         }
-
+        private float stabilityPercentCached = 9999f;
         public float StabilityPercent
         {
             get
             {
-                var countToCollapse = InitialRockCount / 5f;
-                var minedCount = InitialRockCount - CurrentRockCount;
-                var tickPassed = Find.TickManager.TicksGame - caveEntrance.tickOpened;
-                return 1f - minedCount / countToCollapse - tickPassed / (GenDate.TicksPerDay * 12);
+                if (stabilityPercentCached >= 1000f)
+                {
+                    var countToCollapse = InitialRockCount / 5f;
+                    var minedCount = InitialRockCount - CurrentRockCount;
+                    var tickPassed = Find.TickManager.TicksGame - caveEntrance.tickOpened;
+                    stabilityPercentCached = 1f - minedCount / countToCollapse - tickPassed / (GenDate.TicksPerDay * 12);
+                }
+                return stabilityPercentCached;
             }
         }
 
@@ -79,6 +83,10 @@ namespace Shashlichnik
 
         public override void MapComponentTick()
         {
+            if (map.IsHashIntervalTick(GenDate.TicksPerHour))
+            {
+                stabilityPercentCached = 9999f;
+            }
             if (Find.CurrentMap != map)
             {
                 Sustainer sustainer = collapsingSustainer;

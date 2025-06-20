@@ -46,14 +46,7 @@ namespace Shashlichnik
         {
             get
             {
-                if (ModsConfig.AnomalyActive)
-                {
-                    return PitGate.EnterPitGateTex.Texture;
-                }
-                else
-                {
-                    return ContentFinder<Texture2D>.Get("Things/Building/Natural/SteamGeyser");
-                }
+                return enterTex;
             }
         }
 
@@ -278,21 +271,21 @@ namespace Shashlichnik
                 SoundDefOf.TraversePitGate?.PlayOneShot(caveExit);
             }
         }
-
+        private Texture2D enterTex = ContentFinder<Texture2D>.Get("UI/Buttons/Drop");
+        private Texture2D viewCaveTex = ContentFinder<Texture2D>.Get("UI/Widgets/Search");
         public override IEnumerable<Gizmo> GetGizmos()
         {
             foreach (Gizmo gizmo in base.GetGizmos())
             {
                 yield return gizmo;
             }
-            IEnumerator<Gizmo> enumerator = null;
             if (cave != null)
             {
                 yield return new Command_Action
                 {
                     defaultLabel = "ViewUndercave".Translate(),
                     defaultDesc = "ViewUndercaveDesc".Translate(),
-                    icon = BaseContent.BadTex,
+                    icon = viewCaveTex,
                     action = delegate ()
                     {
                         CameraJumper.TryJumpAndSelect(caveExit, CameraJumper.MovementMode.Pan);

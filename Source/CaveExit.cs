@@ -101,9 +101,9 @@ namespace Shashlichnik
             Scribe_References.Look(ref caveEntrance, nameof(caveEntrance), false);
         }
 
-        private static readonly CachedTexture ExitCaveTex = new CachedTexture("UI/Commands/ExitPitGate");
+        private static readonly CachedTexture ExitCaveTex = new CachedTexture("UI/Overlays/Arrow");
 
-        private static readonly CachedTexture ViewSurfaceTex = new CachedTexture("UI/Commands/ViewUndercave");
+        private static readonly CachedTexture ViewSurfaceTex = new CachedTexture("UI/Widgets/Search");
 
         private static readonly Vector3 RopeDrawOffset = new Vector3(0f, 1f, 1f);
 

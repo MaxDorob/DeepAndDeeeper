@@ -63,7 +63,7 @@ namespace Shashlichnik
         };
         protected abstract bool TrySpawnInterestAt(Map map, IntVec3 thingPos);
 
-        protected virtual bool CellValidator(Map map, IntVec3 c) => c.Standable(map) && c.DistanceToEdge(map) > 5 && !AllInterestCenters.Any((IntVec3 p) => c.InHorDistOf(p, MinDistApart));
+        protected virtual bool CellValidator(Map map, IntVec3 c) => c.Standable(map) && !c.InHorDistOf(MapGenerator.PlayerStartSpot, 5f) && c.DistanceToEdge(map) > 5 && !AllInterestCenters.Any((IntVec3 p) => c.InHorDistOf(p, MinDistApart));
         public override void Generate(Map map, GenStepParams parms)
         {
             int randomInRange = Count;

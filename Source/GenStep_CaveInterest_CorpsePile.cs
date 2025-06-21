@@ -27,7 +27,7 @@ namespace Shashlichnik
             int age = Mathf.RoundToInt((float)(CorpseAgeRangeDays.RandomInRange * 60000));
             for (int i = 0; i < randomInRange; i++)
             {                
-                if (CellFinder.TryFindRandomCellNear(cell, map, CorpseSpawnRadius, c => c.Standable(map), out var loc))
+                if (CellFinder.TryFindRandomCellNear(cell, map, CorpseSpawnRadius, c => c.Standable(map) && c.GetFirstThing<Thing>(map) == null, out var loc))
                 {
                     Spawn(GeneratePawnCorpse(faction, age), map, loc);
                 }

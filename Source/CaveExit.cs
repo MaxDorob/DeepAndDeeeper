@@ -29,25 +29,6 @@ namespace Shashlichnik
             }
         }
 
-        private Graphic RopeGraphic
-        {
-            get
-            {
-                if (cachedRopeGraphic == null)
-                {
-                    if (ModsConfig.AnomalyActive)
-                    {
-                        cachedRopeGraphic = GraphicDatabase.Get<Graphic_Single_AgeSecs>("Things/Building/PitGate/PitGateExit/PitGateExit_Rope", ShaderDatabase.CaveExitRope, def.graphicData.drawSize, Color.white);
-                    }
-                    else
-                    {
-                        cachedRopeGraphic = GraphicDatabase.Get<Graphic_Single>("Things/Building/Misc/MarriageSpot");
-                    }
-                }
-                return cachedRopeGraphic;
-            }
-        }
-
         public override Map GetOtherMap()
         {
             return caveEntrance.Map;
@@ -56,11 +37,6 @@ namespace Shashlichnik
         public override IntVec3 GetDestinationLocation()
         {
             return caveEntrance.Position;
-        }
-
-        public override void DrawAt(Vector3 drawLoc, bool flip = false)
-        {
-            RopeGraphic.Draw(DrawPos + CaveExit.RopeDrawOffset, Rot4.North, this, 0f);
         }
 
         public override void OnEntered(Pawn pawn)

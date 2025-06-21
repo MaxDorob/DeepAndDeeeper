@@ -14,6 +14,23 @@ namespace Shashlichnik
     [StaticConstructorOnStartup]
     public class CaveEntrance : MapPortal
     {
+        private Graphic graphicWithRope;
+        public override Graphic Graphic
+        {
+            get
+            {
+                if (ticksToOpen > tickToOpenConst * 0.7f)
+                {
+                    return base.Graphic;
+                }
+                if (graphicWithRope == null)
+                {
+                    var baseGraphic = base.Graphic;
+                    graphicWithRope = GraphicDatabase.Get<Graphic_Single>("Things/Buildings/CavernHoleRope", baseGraphic.Shader, baseGraphic.drawSize, baseGraphic.Color, baseGraphic.ColorTwo, def.graphicData, baseGraphic.maskPath);
+                }
+                return graphicWithRope;
+            }
+        }
         public bool IsCollapsing
         {
             get
@@ -220,7 +237,7 @@ namespace Shashlichnik
                 reason = "CaveNotDugYet".Translate();
                 return false;
             }
-            
+
             reason = "";
             return true;
         }

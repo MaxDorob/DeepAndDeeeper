@@ -14,7 +14,7 @@
 		<designationCategory>Misc</designationCategory>
 		<graphicData>
 			<graphicClass>Graphic_Single</graphicClass>
-			<texPath>Things/Building/Natural/SteamGeyser</texPath>
+			<texPath>Things/Buildings/CavernHole</texPath>
 			<drawSize>(4,4)</drawSize>
 		</graphicData>
 		<altitudeLayer>FloorEmplacement</altitudeLayer>
@@ -60,8 +60,9 @@
 		<destroyable>false</destroyable>
 		<graphicData>
 			<graphicClass>Graphic_Single</graphicClass>
-			<texPath>Things/Building/Misc/MarriageSpot</texPath>
-			<drawSize>(3,3)</drawSize>
+			<texPath>Things/Buildings/CavernRopeExit</texPath>
+			<drawSize>(4,4)</drawSize>
+			<drawOffset>(0,0,1.5)</drawOffset>
 		</graphicData>
 		<passability>Standable</passability>
 		<building>

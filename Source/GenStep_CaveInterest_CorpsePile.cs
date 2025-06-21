@@ -39,7 +39,7 @@ namespace Shashlichnik
             GenSpawn.Spawn(corpse, loc, map, WipeMode.Vanish);
         }
         public int CorpseSpawnRadius = 4;
-        public IntRange CorpseCountRange = new IntRange(3, 6);
+        public IntRange CorpseCountRange = new IntRange(1, 3);
         public IntRange CorpseAgeRangeDays = new IntRange(15, 120);
 
         public override int SeedPart => 8727653;

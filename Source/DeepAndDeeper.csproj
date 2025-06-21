@@ -49,6 +49,13 @@
     <Compile Include="DefsOf.cs" />
     <Compile Include="GenStep_CaveEntrance.cs" />
     <Compile Include="GenStep_CaveInterest.cs" />
+    <Compile Include="GenStep_CaveInterest_Anomaly.cs" />
+    <Compile Include="GenStep_CaveInterest_Chemfuel.cs" />
+    <Compile Include="GenStep_CaveInterest_CorpseGear.cs" />
+    <Compile Include="GenStep_CaveInterest_CorpsePile.cs" />
+    <Compile Include="GenStep_CaveInterest_Fleshbeasts.cs" />
+    <Compile Include="GenStep_CaveInterest_Hive.cs" />
+    <Compile Include="GenStep_CaveInterest_Mushrooms.cs" />
     <Compile Include="GenStep_ExitToSurfaceInterest.cs" />
     <Compile Include="GenStep_FindCaveExit.cs" />
     <Compile Include="GenStep_UndergroundTorches.cs" />

@@ -50,7 +50,7 @@ namespace Shashlichnik
                 return;
             }
         }
-        
+
         public int InitialRockCount
         {
             get
@@ -73,12 +73,22 @@ namespace Shashlichnik
                     var countToCollapse = InitialRockCount / 5f;
                     var minedCount = InitialRockCount - CurrentRockCount;
                     var tickPassed = Find.TickManager.TicksGame - caveEntrance.tickOpened;
-                    stabilityPercentCached = 1f - minedCount / countToCollapse - tickPassed / (GenDate.TicksPerDay * 12);
+                    var buildingsImpact = BuildingsImpact;
+                    stabilityPercentCached = Mathf.Min(1f + buildingsImpact - minedCount / countToCollapse - tickPassed / (GenDate.TicksPerDay * 12), 1.0f);
                 }
                 return stabilityPercentCached;
             }
         }
-
+        public IEnumerable<Building> StabilityBuildings
+        {
+            get
+            {
+                var stabilizers = map.listerBuildings.AllColonistBuildingsOfType<Building>().Where(x => x.def.HasModExtension<DefModExtension_CaveStabilizer>()).ToList();
+                return stabilizers;
+            }
+        }
+        public IEnumerable<IntVec3> StabilizedCells => StabilityBuildings.SelectMany(b=> GenRadial.RadialCellsAround(b.Position, b.def.GetModExtension<DefModExtension_CaveStabilizer>().effectiveRadius, true)).Distinct();
+        public float BuildingsImpact => StabilizedCells.Count() * 0.00065f;
         public float LandslideChance => landslideChancePerStability.Evaluate(StabilityPercent);
 
         public override void MapComponentTick()

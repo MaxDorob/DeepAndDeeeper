@@ -43,6 +43,9 @@
 				<thickness>5</thickness>
 			</li>
 		</comps>
+		<placeWorkers>
+			<li>Shashlichnik.PlaceWorker_Surface</li>
+		</placeWorkers>
 	</ThingDef>
 
 	<ThingDef Name="CaveExit" ParentName="BuildingBase">

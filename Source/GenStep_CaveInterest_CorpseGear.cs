@@ -15,7 +15,7 @@ namespace Shashlichnik
     {
 
         List<ThingDef> possibleDefs;
-        public IntRange GearStackCountRange = new IntRange(2, 5);
+        public IntRange GearStackCountRange = new IntRange(1, 3);
         public int GearDist = 1;
         protected override void Spawn(Corpse corpse, Map map, IntVec3 corpseCell)
         {

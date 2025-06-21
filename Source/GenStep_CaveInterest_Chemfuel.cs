@@ -33,8 +33,8 @@ namespace Shashlichnik
             }
             return true;
         }
-        public IntRange ChemfuelCountRange = new IntRange(3, 5);
-        public IntRange ChemfuelStackCountRange = new IntRange(10, 20);
+        public IntRange ChemfuelCountRange = new IntRange(1, 4);
+        public IntRange ChemfuelStackCountRange = new IntRange(3, 12);
         public int ChemfuelPuddleSize = 20;
         public int ChemfuelStackMaxDist = 2;
 

@@ -16,11 +16,13 @@ namespace Shashlichnik
         public bool AnomalyEffectsEnabled => ModsConfig.AnomalyActive;
 
         public int mapSize = 150;
+        public float undergroundTemperatureModifier = 0.6f;
 
         public override void ExposeData()
         {
             base.ExposeData();
             Scribe_Values.Look(ref mapSize, nameof(mapSize), 150);
+            Scribe_Values.Look(ref undergroundTemperatureModifier, nameof(undergroundTemperatureModifier), 0.6f);
         }
     }
 }

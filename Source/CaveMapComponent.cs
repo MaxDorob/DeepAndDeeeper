@@ -232,7 +232,7 @@ namespace Shashlichnik
             if (CellFinderLoose.TryGetRandomCellWith(c => (c.GetEdifice(map) == null || !IsRock(c)) && !queuedLandslides.ContainsKey(c), map, 1000, out var cell))
             {
                 queuedLandslides.Add(cell, ticks);
-                if (sendMessage)
+                if (sendMessage && !cell.Fogged(map))
                 {
                     Messages.Message("LandslideIncoming".Translate(), new LookTargets(cell, map), MessageTypeDefOf.ThreatSmall, false);
                 }

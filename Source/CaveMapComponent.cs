@@ -240,6 +240,16 @@ namespace Shashlichnik
                 {
                     Messages.Message("LandslideIncoming".Translate(), new LookTargets(cell, map), MessageTypeDefOf.ThreatSmall, false);
                 }
+                int subLandslidesCount = Rand.Range(0, 4);
+                for (int i = 0; i < subLandslidesCount; i++)
+                {
+                    var subLandslideCell = GenAdj.RandomAdjacentCell8Way(cell);
+                    if (!queuedLandslides.ContainsKey(subLandslideCell) && (subLandslideCell.GetEdifice(map)?.def.building.isNaturalRock ?? true))
+                    {
+                        queuedLandslides.Add(subLandslideCell, ticks + Rand.Range(-120, 120));
+                    }
+
+                }
             }
             else
             {

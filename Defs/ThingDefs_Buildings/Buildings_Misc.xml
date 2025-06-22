@@ -12,6 +12,7 @@
 		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
 		<canOverlapZones>false</canOverlapZones>
 		<designationCategory>Misc</designationCategory>
+		<drawerType>RealtimeOnly</drawerType>
 		<graphicData>
 			<graphicClass>Graphic_Single</graphicClass>
 			<texPath>Things/Buildings/CavernHole</texPath>

@@ -32,6 +32,10 @@ namespace Shashlichnik
                 graveDigEffect = Rand.Bool ? EffecterDefOf.BuryPawn.Spawn() : EffecterDefOf.Mine.Spawn();
                 graveDigEffect.Trigger(CaveEntrance, CaveEntrance, -1);
             }
+            if (CaveEntrance.TicksToOpen % 900 == 0)
+            {
+                Find.HistoryEventsManager.RecordEvent(new HistoryEvent(HistoryEventDefOf.Mined, pawn.Named(HistoryEventArgsNames.Doer)), true);
+            }
             graveDigEffect?.EffectTick(CaveEntrance, CaveEntrance);
         }
 

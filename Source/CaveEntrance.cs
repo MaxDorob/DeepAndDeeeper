@@ -202,17 +202,28 @@ namespace Shashlichnik
             Messages.Message("MessageCaveCollapsed".Translate(), new TargetInfo(base.Position, map, false), MessageTypeDefOf.NeutralEvent, true);
         }
 
-        public void BeginCollapsing(bool notify = true)
+
+        public void BeginCollapsing()
         {
-            int randomInRange = CaveEntrance.CollapseDurationTicks.RandomInRange;
+            if (!isCollapsing)
+            {
+                BeginCollapsing(CaveEntrance.CollapseDurationTicks.RandomInRange);
+            }
+        }
+        public void BeginCollapsing(int randomInRange)
+        {
+            if (isCollapsing)
+            {
+                return;
+            }
             randomInRange *= 1 - ticksToOpen / tickToOpenConst;
             collapseTick = Find.TickManager.TicksGame + randomInRange;
             Map map = cave;
-            if (notify && map != null)
+            isCollapsing = true;
+            if (map != null)
             {
                 map.GetComponent<CaveMapComponent>().Notify_BeginCollapsing(this, randomInRange);
             }
-            isCollapsing = true;
         }
 
 

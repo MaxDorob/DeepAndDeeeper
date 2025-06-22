@@ -164,14 +164,6 @@ namespace Shashlichnik
             }
             collapseEffecter1 = null;
             EffecterDefOf.PitGateAboveGroundCollapsed?.Spawn(base.Position, base.Map, 1f);
-            if (Find.CurrentMap == cave)
-            {
-                SoundDefOf.UndercaveCollapsing_End?.PlayOneShotOnCamera(null);
-            }
-            else
-            {
-                SoundDefOf.PitGateCollapsing_End?.PlayOneShot(new TargetInfo(base.Position, base.Map, false));
-            }
             if (cave != null && !cave.Disposed)
             {
                 DamageInfo damageInfo = new DamageInfo(DamageDefOf.Crush, 99999f, 999f, -1f, null, null, null, DamageInfo.SourceCategory.ThingOrUnknown, null, true, true, QualityCategory.Normal, true);

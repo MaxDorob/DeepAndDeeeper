@@ -21,10 +21,10 @@ namespace Shashlichnik
             yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.ClosestTouch);
             Toil digToil = ToilMaker.MakeToil("MakeNewToils");
             digToil.defaultCompleteMode = ToilCompleteMode.Never;
-            digToil.tickAction = DigEntry;
+            digToil.tickAction = DigCaveEntrance;
             yield return digToil.WithProgressBar(TargetIndex.A, () => 1f - ((float)CaveEntrance.TicksToOpen - 1) / CaveEntrance.tickToOpenConst);
         }
-        private void DigEntry()
+        private void DigCaveEntrance()
         {
             CaveEntrance.TicksToOpen--;
             if (pawn.IsHashIntervalTick(80))

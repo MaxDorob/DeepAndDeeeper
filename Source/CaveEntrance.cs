@@ -172,7 +172,7 @@ namespace Shashlichnik
             {
                 SoundDefOf.PitGateCollapsing_End?.PlayOneShot(new TargetInfo(base.Position, base.Map, false));
             }
-            if (cave != null)
+            if (cave != null && !cave.Disposed)
             {
                 DamageInfo damageInfo = new DamageInfo(DamageDefOf.Crush, 99999f, 999f, -1f, null, null, null, DamageInfo.SourceCategory.ThingOrUnknown, null, true, true, QualityCategory.Normal, true);
                 for (int i = cave.mapPawns.AllPawns.Count - 1; i >= 0; i--)
@@ -202,15 +202,15 @@ namespace Shashlichnik
             Messages.Message("MessageCaveCollapsed".Translate(), new TargetInfo(base.Position, map, false), MessageTypeDefOf.NeutralEvent, true);
         }
 
-        public void BeginCollapsing()
+        public void BeginCollapsing(bool notify = true)
         {
             int randomInRange = CaveEntrance.CollapseDurationTicks.RandomInRange;
             randomInRange *= 1 - ticksToOpen / tickToOpenConst;
             collapseTick = Find.TickManager.TicksGame + randomInRange;
             Map map = cave;
-            if (map != null)
+            if (notify && map != null)
             {
-                map.GetComponent<CaveMapComponent>().Notify_BeginCollapsing(randomInRange);
+                map.GetComponent<CaveMapComponent>().Notify_BeginCollapsing(this, randomInRange);
             }
             isCollapsing = true;
         }
@@ -328,14 +328,14 @@ namespace Shashlichnik
             yield return new Command_Action
             {
                 defaultLabel = "DEV: Collapse cave",
-                action = new Action(BeginCollapsing)
+                action = new Action(() => BeginCollapsing())
             };
         }
 
 
         private static readonly IntRange CollapseDurationTicks = new IntRange(GenDate.TicksPerHour * 3, GenDate.TicksPerHour * 7);
         public int tickOpened = -999999;
-        private int collapseTick = -999999;
+        public int collapseTick = -999999;
         private int ticksToOpen = tickToOpenConst;
         public const int tickToOpenConst = GenDate.TicksPerHour * 36;
         private bool isCollapsing;

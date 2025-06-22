@@ -219,8 +219,13 @@ namespace Shashlichnik
                 }
             }
         }
-        public new void Notify_BeginCollapsing(int collapseDurationTicks)
+        public new void Notify_BeginCollapsing(CaveEntrance sender, int collapseDurationTicks)
         {
+            foreach(var otherExit in this.map.listerThings.GetThingsOfType<CaveExit>().Where(x=>x.caveEntrance != sender && caveEntrance != null))
+            {
+                otherExit.caveEntrance.BeginCollapsing(false);
+                otherExit.caveEntrance.collapseTick = Find.TickManager.TicksGame + collapseDurationTicks;
+            }
             SoundDefOf.UndercaveRumble.PlayOneShotOnCamera(map);
             Find.CameraDriver.shaker.DoShake(0.2f, 120);
         }

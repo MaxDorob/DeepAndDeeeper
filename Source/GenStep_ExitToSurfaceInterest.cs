@@ -10,7 +10,7 @@ namespace Shashlichnik
     public class GenStep_ExitToSurfaceInterest : GenStep_FindCaveExit
     {
         public override int SeedPart => 424682;
-        public float chance = 0.1f;
+        public float chance = 1f;
         public override void Generate(Map map, GenStepParams parms)
         {
 

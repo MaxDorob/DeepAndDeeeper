@@ -84,6 +84,7 @@
 				<glowColor>(140,160,184,0)</glowColor>
 			</li>
 			<li MayRequire="Ludeon.RimWorld.Anomaly" Class="CompProperties_Effecter">
+				<compClass>Shashlichnik.CompEffecter_NonFogged</compClass>
 				<effecterDef>UndercaveMapExitLightshafts</effecterDef>
 			</li>
 		</comps>

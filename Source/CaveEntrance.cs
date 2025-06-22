@@ -116,7 +116,7 @@ namespace Shashlichnik
                 }
                 else if (CollapseStage == 2)
                 {
-                    if (collapseSustainer == null)
+                    if (collapseSustainer == null && Mod.Settings.AnomalyEffectsEnabled)
                     {
                         collapseSustainer = SoundDefOf.PitGateCollapsing?.TrySpawnSustainer(SoundInfo.InMap(this, MaintenanceType.PerTick));
                     }
@@ -163,7 +163,11 @@ namespace Shashlichnik
                 effecter2.Cleanup();
             }
             collapseEffecter1 = null;
-            EffecterDefOf.PitGateAboveGroundCollapsed?.Spawn(base.Position, base.Map, 1f);
+            if (Mod.Settings.AnomalyEffectsEnabled)
+            {
+                EffecterDefOf.PitGateAboveGroundCollapsed?.Spawn(base.Position, base.Map, 1f);
+            }
+
             if (cave != null && !cave.Disposed)
             {
                 DamageInfo damageInfo = new DamageInfo(DamageDefOf.Crush, 99999f, 999f, -1f, null, null, null, DamageInfo.SourceCategory.ThingOrUnknown, null, true, true, QualityCategory.Normal, true);

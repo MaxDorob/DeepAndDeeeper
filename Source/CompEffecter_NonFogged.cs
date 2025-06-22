@@ -12,7 +12,7 @@ namespace Shashlichnik
     {
         public override void CompTick()
         {
-            if (parent.Position.Fogged(parent.Map))
+            if (parent.Position.Fogged(parent.Map) || !Mod.Settings.AnomalyEffectsEnabled)
             {
                 return;
             }

@@ -13,8 +13,10 @@ namespace Shashlichnik
         public ModSettings() : base()
         {
         }
-        public bool AnomalyEffectsEnabled => ModsConfig.AnomalyActive;
+        public bool AnomalyEffectsEnabled => ModsConfig.AnomalyActive && enableAnomalyEffects;
 
+
+        public bool enableAnomalyEffects = true;
         public int mapSize = 150;
         public float undergroundTemperatureModifier = 0.6f;
 
@@ -23,6 +25,7 @@ namespace Shashlichnik
             base.ExposeData();
             Scribe_Values.Look(ref mapSize, nameof(mapSize), 150);
             Scribe_Values.Look(ref undergroundTemperatureModifier, nameof(undergroundTemperatureModifier), 0.6f);
+            Scribe_Values.Look(ref enableAnomalyEffects, nameof(enableAnomalyEffects), true);
         }
     }
 }

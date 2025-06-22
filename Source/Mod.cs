@@ -28,6 +28,11 @@ namespace Shashlichnik
         {
             base.DoSettingsWindowContents(inRect);
             var y = inRect.yMin;
+            if (ModsConfig.AnomalyActive)
+            {
+                Widgets.CheckboxLabeled(new Rect(inRect.x, y, inRect.width, buttonSize.y), "ShashlichnikEnableAnomalyEffects".Translate(), ref Settings.enableAnomalyEffects);
+                y += buttonSize.y + Margin;
+            }
 
             Settings.mapSize = (int)Widgets.HorizontalSlider(new Rect(inRect.x, y, inRect.width, buttonSize.y), Settings.mapSize, 100, 400, label: "ShashlichnikMapSize".Translate() + ": " + Settings.mapSize.ToString(), roundTo: 1);
             y += buttonSize.y + Margin;

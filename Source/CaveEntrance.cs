@@ -170,17 +170,7 @@ namespace Shashlichnik
 
             if (cave != null && !cave.Disposed)
             {
-                DamageInfo damageInfo = new DamageInfo(DamageDefOf.Crush, 99999f, 999f, -1f, null, null, null, DamageInfo.SourceCategory.ThingOrUnknown, null, true, true, QualityCategory.Normal, true);
-                for (int i = cave.mapPawns.AllPawns.Count - 1; i >= 0; i--)
-                {
-                    Pawn pawn = cave.mapPawns.AllPawns[i];
-                    pawn.TakeDamage(damageInfo);
-                    if (!pawn.Dead)
-                    {
-                        pawn.Kill(new DamageInfo?(damageInfo), null);
-                    }
-                }
-                PocketMapUtility.DestroyPocketMap(cave);
+                cave.GetComponent<CaveMapComponent>().Notify_ExitDestroyed(this);
             }
         }
 
@@ -195,7 +185,6 @@ namespace Shashlichnik
             Collapse();
             base.Destroy(mode);
             EffecterDefOf.ImpactDustCloud?.Spawn(base.Position, map, 1f).Cleanup();
-            Messages.Message("MessageCaveCollapsed".Translate(), new TargetInfo(base.Position, map, false), MessageTypeDefOf.NeutralEvent, true);
         }
 
 
@@ -206,7 +195,7 @@ namespace Shashlichnik
                 BeginCollapsing(CaveEntrance.CollapseDurationTicks.RandomInRange);
             }
         }
-        public void BeginCollapsing(int randomInRange)
+        public void BeginCollapsing(int randomInRange, bool notify = true)
         {
             if (isCollapsing)
             {

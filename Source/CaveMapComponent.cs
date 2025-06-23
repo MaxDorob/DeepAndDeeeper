@@ -223,19 +223,49 @@ namespace Shashlichnik
         {
             foreach (var otherExit in this.map.listerThings.GetThingsOfType<CaveExit>())
             {
-                otherExit.caveEntrance?.BeginCollapsing(collapseDurationTicks);
+                otherExit.caveEntrance?.BeginCollapsing(collapseDurationTicks, false);
             }
             SoundDefOf.UndercaveRumble.PlayOneShotOnCamera(map);
             Find.CameraDriver.shaker.DoShake(0.2f, 120);
         }
-
+        public void Notify_ExitDestroyed(CaveEntrance sender)
+        {
+            if (this.map.listerThings.GetThingsOfType<CaveExit>().Except(sender.caveExit).Any())
+            {
+                var cell = sender.caveExit.Position;
+                Messages.Message("MessageCaveExitCollapsed".Translate(), new TargetInfo(cell, map, false), MessageTypeDefOf.NeutralEvent, true);
+                Thing.allowDestroyNonDestroyable = true;
+                sender.caveExit.Destroy(DestroyMode.Vanish);
+                Thing.allowDestroyNonDestroyable = false;
+                QueueSingleLandslide(cell, Rand.Range(10, 120));
+                foreach (var landslideCell in GenAdj.CellsAdjacentCardinal(cell, Rot4.North, IntVec2.One))
+                {
+                    QueueSingleLandslide(landslideCell, Rand.Range(10, 120));
+                }
+            }
+            else
+            {
+                DamageInfo damageInfo = new DamageInfo(DamageDefOf.Crush, 99999f, 999f, -1f, null, null, null, DamageInfo.SourceCategory.ThingOrUnknown, null, true, true, QualityCategory.Normal, true);
+                for (int i = map.mapPawns.AllPawns.Count - 1; i >= 0; i--)
+                {
+                    Pawn pawn = map.mapPawns.AllPawns[i];
+                    pawn.TakeDamage(damageInfo);
+                    if (!pawn.Dead)
+                    {
+                        pawn.Kill(new DamageInfo?(damageInfo), null);
+                    }
+                }
+                PocketMapUtility.DestroyPocketMap(map);
+                Messages.Message("MessageCaveCollapsed".Translate(), new TargetInfo(sender.Position, sender.Map, false), MessageTypeDefOf.NeutralEvent, true);
+            }
+        }
         public static IntRange landslideTicksRange = new IntRange(GenDate.TicksPerHour, GenDate.TicksPerHour * 2);
         public static IntRange collapseTicksRange = new IntRange(GenDate.TicksPerHour / 10, GenDate.TicksPerHour);
         public void QueueLandslide(int ticks, bool sendMessage)
         {
             if (CellFinderLoose.TryGetRandomCellWith(c => (c.GetEdifice(map) == null || !IsRock(c)) && !queuedLandslides.ContainsKey(c), map, 1000, out var cell))
             {
-                queuedLandslides.Add(cell, ticks);
+                QueueSingleLandslide(cell, ticks);
                 if (sendMessage && !cell.Fogged(map))
                 {
                     Messages.Message("LandslideIncoming".Translate(), new LookTargets(cell, map), MessageTypeDefOf.ThreatSmall, false);
@@ -246,7 +276,7 @@ namespace Shashlichnik
                     var subLandslideCell = GenAdj.RandomAdjacentCell8Way(cell);
                     if (subLandslideCell.InBounds(map) && !queuedLandslides.ContainsKey(subLandslideCell) && (subLandslideCell.GetEdifice(map)?.def.building.isNaturalRock ?? true))
                     {
-                        queuedLandslides.Add(subLandslideCell, ticks + Rand.Range(-120, 120));
+                        QueueSingleLandslide(subLandslideCell, ticks + Rand.Range(-120, 120));
                     }
 
                 }
@@ -256,7 +286,13 @@ namespace Shashlichnik
                 Log.Warning("Can't find a cell for landslide");
             }
         }
-
+        public void QueueSingleLandslide(IntVec3 cell, int ticks)
+        {
+            if (!queuedLandslides.ContainsKey(cell))
+            {
+                queuedLandslides.Add(cell, ticks);
+            }
+        }
 
 
         public int CurrentRockCount

@@ -48,6 +48,7 @@ namespace Shashlichnik
                     caveEntrance.caveExit = this;
                     caveEntrance.cave = this.Map;
                     caveEntrance.TicksToOpen = 0;
+                    caveEntrance.SetFaction(RimWorld.Faction.OfPlayer);
                     this.caveEntrance = caveEntrance;
                 }
                 else

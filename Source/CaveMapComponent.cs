@@ -164,7 +164,7 @@ namespace Shashlichnik
             {
                 if (collapsingSustainer == null || collapsingSustainer.Ended)
                 {
-                    collapsingSustainer = SoundDefOf.UndercaveCollapsingStage2.TrySpawnSustainer(SoundInfo.OnCamera(MaintenanceType.PerTick)) ?? DefsOf.ShashlichnikVanillaCollapsingStage2.TrySpawnSustainer(SoundInfo.OnCamera(MaintenanceType.PerTick));
+                    collapsingSustainer = SoundDefOf.UndercaveCollapsingStage2?.TrySpawnSustainer(SoundInfo.OnCamera(MaintenanceType.PerTick)) ?? DefsOf.ShashlichnikVanillaCollapsingStage2.TrySpawnSustainer(SoundInfo.OnCamera(MaintenanceType.PerTick));
                 }
             }
             if (Find.CurrentMap == map && Rand.MTBEventOccurs(mtb, 1f, 1f))

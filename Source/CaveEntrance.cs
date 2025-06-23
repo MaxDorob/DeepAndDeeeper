@@ -284,8 +284,8 @@ namespace Shashlichnik
                 SoundDefOf.TraversePitGate?.PlayOneShot(caveExit);
             }
         }
-        private Texture2D enterTex = ContentFinder<Texture2D>.Get("UI/Buttons/Drop");
-        private Texture2D viewCaveTex = ContentFinder<Texture2D>.Get("UI/Widgets/Search");
+        private static Texture2D enterTex = ContentFinder<Texture2D>.Get("UI/Buttons/Drop");
+        private static Texture2D viewCaveTex = ContentFinder<Texture2D>.Get("UI/Widgets/Search");
         public override IEnumerable<Gizmo> GetGizmos()
         {
             foreach (Gizmo gizmo in base.GetGizmos())

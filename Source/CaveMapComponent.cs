@@ -87,7 +87,7 @@ namespace Shashlichnik
                 return stabilizers;
             }
         }
-        public IEnumerable<IntVec3> StabilizedCells => StabilityBuildings.SelectMany(b=> GenRadial.RadialCellsAround(b.Position, b.def.GetModExtension<DefModExtension_CaveStabilizer>().effectiveRadius, true)).Distinct();
+        public IEnumerable<IntVec3> StabilizedCells => StabilityBuildings.SelectMany(b => GenRadial.RadialCellsAround(b.Position, b.def.GetModExtension<DefModExtension_CaveStabilizer>().effectiveRadius, true)).Distinct();
         public float BuildingsImpact => StabilizedCells.Count() * 0.00065f;
         public float LandslideChance => landslideChancePerStability.Evaluate(StabilityPercent);
 
@@ -153,25 +153,28 @@ namespace Shashlichnik
         private void ProcessCollapsing()
         {
             float mtb = HoursToShakeMTBTicksCurve.Evaluate(caveEntrance.TicksUntilCollapse / 2500f);
-            if (caveEntrance.CollapseStage == 1)
+            if (map == Find.CurrentMap)
             {
-                if (collapsingSustainer == null || collapsingSustainer.Ended)
+                if (caveEntrance.CollapseStage == 1)
                 {
-                    collapsingSustainer = SoundDefOf.UndercaveCollapsingStage1?.TrySpawnSustainer(SoundInfo.OnCamera(MaintenanceType.PerTick)) ?? DefsOf.ShashlichnikVanillaCollapsingStage1.TrySpawnSustainer(SoundInfo.OnCamera(MaintenanceType.PerTick));
+                    if (collapsingSustainer == null || collapsingSustainer.Ended)
+                    {
+                        collapsingSustainer = SoundDefOf.UndercaveCollapsingStage1?.TrySpawnSustainer(SoundInfo.OnCamera(MaintenanceType.PerTick)) ?? DefsOf.ShashlichnikVanillaCollapsingStage1.TrySpawnSustainer(SoundInfo.OnCamera(MaintenanceType.PerTick));
+                    }
                 }
-            }
-            else
-            {
-                if (collapsingSustainer == null || collapsingSustainer.Ended)
+                else
                 {
-                    collapsingSustainer = SoundDefOf.UndercaveCollapsingStage2?.TrySpawnSustainer(SoundInfo.OnCamera(MaintenanceType.PerTick)) ?? DefsOf.ShashlichnikVanillaCollapsingStage2.TrySpawnSustainer(SoundInfo.OnCamera(MaintenanceType.PerTick));
+                    if (collapsingSustainer == null || collapsingSustainer.Ended)
+                    {
+                        collapsingSustainer = SoundDefOf.UndercaveCollapsingStage2?.TrySpawnSustainer(SoundInfo.OnCamera(MaintenanceType.PerTick)) ?? DefsOf.ShashlichnikVanillaCollapsingStage2.TrySpawnSustainer(SoundInfo.OnCamera(MaintenanceType.PerTick));
+                    }
                 }
+                collapsingSustainer.Maintain();
             }
             if (Find.CurrentMap == map && Rand.MTBEventOccurs(mtb, 1f, 1f))
             {
                 QueueLandslide(collapseTicksRange.RandomInRange, false);
             }
-            collapsingSustainer.Maintain();
         }
         private void ProcessAmbient()
         {

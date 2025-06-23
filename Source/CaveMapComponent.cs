@@ -244,7 +244,7 @@ namespace Shashlichnik
                 for (int i = 0; i < subLandslidesCount; i++)
                 {
                     var subLandslideCell = GenAdj.RandomAdjacentCell8Way(cell);
-                    if (!queuedLandslides.ContainsKey(subLandslideCell) && (subLandslideCell.GetEdifice(map)?.def.building.isNaturalRock ?? true))
+                    if (subLandslideCell.InBounds(map) && !queuedLandslides.ContainsKey(subLandslideCell) && (subLandslideCell.GetEdifice(map)?.def.building.isNaturalRock ?? true))
                     {
                         queuedLandslides.Add(subLandslideCell, ticks + Rand.Range(-120, 120));
                     }

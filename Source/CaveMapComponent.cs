@@ -230,6 +230,8 @@ namespace Shashlichnik
             }
             SoundDefOf.UndercaveRumble?.PlayOneShotOnCamera(map);
             Find.CameraDriver.shaker.DoShake(0.2f, 120);
+            var letter = LetterMaker.MakeLetter("CaveCollapsing".Translate(), "CaveCollapsingDesc".Translate(), LetterDefOf.ThreatBig, new LookTargets(caveExit));
+            Find.LetterStack.ReceiveLetter(letter);
         }
         public void Notify_ExitDestroyed(CaveEntrance sender)
         {

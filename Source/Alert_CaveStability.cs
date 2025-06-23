@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 using Verse;
 
 namespace Shashlichnik
@@ -45,7 +46,21 @@ namespace Shashlichnik
             }
             return sb.ToString();
         }
-        public override AlertPriority Priority => Find.CurrentMap.GetComponent<CaveMapComponent>()?.StabilityPercent < criticalStability ? AlertPriority.Critical : AlertPriority.Medium;
+        public override Color BGColor
+        {
+            get
+            {
+                if (Find.CurrentMap.GetComponent<CaveMapComponent>()?.StabilityPercent < criticalStability)
+                {
+                    float num = Pulser.PulseBrightness(0.5f, Pulser.PulseBrightness(0.5f, 0.6f));
+                    return new Color(num, num, num) * Color.red;
+                }
+                return base.BGColor;
+
+            }
+        }
+
+        public override AlertPriority Priority => (Find.CurrentMap.GetComponent<CaveMapComponent>()?.StabilityPercent < criticalStability) ? AlertPriority.Critical : AlertPriority.Medium;
         public override AlertReport GetReport()
         {
             var caveComp = Find.CurrentMap.GetComponent<CaveMapComponent>();

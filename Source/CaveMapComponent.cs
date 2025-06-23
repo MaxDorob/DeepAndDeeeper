@@ -225,7 +225,7 @@ namespace Shashlichnik
             {
                 otherExit.caveEntrance?.BeginCollapsing(collapseDurationTicks, false);
             }
-            SoundDefOf.UndercaveRumble.PlayOneShotOnCamera(map);
+            SoundDefOf.UndercaveRumble?.PlayOneShotOnCamera(map);
             Find.CameraDriver.shaker.DoShake(0.2f, 120);
         }
         public void Notify_ExitDestroyed(CaveEntrance sender)

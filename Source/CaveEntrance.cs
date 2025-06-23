@@ -205,7 +205,7 @@ namespace Shashlichnik
             collapseTick = Find.TickManager.TicksGame + randomInRange;
             Map map = cave;
             isCollapsing = true;
-            if (map != null)
+            if (notify && map != null)
             {
                 map.GetComponent<CaveMapComponent>().Notify_BeginCollapsing(this, randomInRange);
             }

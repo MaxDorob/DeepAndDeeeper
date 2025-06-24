@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<ShashlichnikCaveAboutToCollapse>Cave is about to collapse</ShashlichnikCaveAboutToCollapse>
+	<ShashlichnikCaveUnstable>Cave looks unstable</ShashlichnikCaveUnstable>
+	<ShashlichnikCaveStabilityAdvice>Cave becomes more unstable over time. Your mining can reduce cave stability as well.\nYou can build collumns to slightly improve stability.\nThe lower the stability, the more frequent landslides will occur.\nWhen stability hits zero the cave will collapse</ShashlichnikCaveStabilityAdvice>
+	<EnterCave>Enter cave</EnterCave>
+	<ExitCave>Exit cave</ExitCave>
+	<CaveCollapsing>Cave is collapsing.</CaveCollapsing>
+	<CaveCollapsingDesc>Cave is collapsing! Extract your colonitsts as fast as possible.</CaveCollapsingDesc>
+	<MessageCaveExitCollapsed>Exit collapsed, but there may be another way out...</MessageCaveExitCollapsed>
+	<MessageCaveCollapsed>Cave collapsed.</MessageCaveCollapsed>
+	<LandslideIncoming>The roof of the cave looks unstable, be aware of landslides.</LandslideIncoming>
+	<ShashlichnikEnableAnomalyEffects>Enable more effects from Anomaly</ShashlichnikEnableAnomalyEffects>
+	<ShashlichnikMapSize>Underground map size</ShashlichnikMapSize>
+	<ShashlichnikUndergroundTemperatureModifier>Underground temperature modifier</ShashlichnikUndergroundTemperatureModifier>
+	<MustBeOnSurface>Must be on surface.</MustBeOnSurface>
+</LanguageData>

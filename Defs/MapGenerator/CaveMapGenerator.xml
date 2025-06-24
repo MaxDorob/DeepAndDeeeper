@@ -3,7 +3,7 @@
 
 	<MapGeneratorDef Name="ShashlichnikUnderground">
 		<defName>ShashlichnikUnderground</defName>
-		<label>undercave</label>
+		<label>underground</label>
 		<isUnderground>true</isUnderground>
 		<forceCaves>true</forceCaves>
 		<ignoreAreaRevealedLetter>true</ignoreAreaRevealedLetter>
@@ -57,7 +57,7 @@
 		</genStep>
 	</GenStepDef>
 
-	<!-- Undercave ruins -->
+	<!-- Underground ruins -->
 	<GenStepDef>
 		<defName>ShashlichnikUnderground_ScatterRuinsSimple</defName>
 		<order>249</order>
@@ -161,7 +161,7 @@
 
 	<BiomeDef>
 		<defName>ShashlichnikUnderground</defName>
-		<label>undercave</label>
+		<label>underground</label>
 		<description>Ordinary caves, at least at first glance.</description>
 		<generatesNaturally>false</generatesNaturally>
 		<animalDensity>0</animalDensity>

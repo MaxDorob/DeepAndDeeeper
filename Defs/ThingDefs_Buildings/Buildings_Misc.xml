@@ -28,10 +28,11 @@
 			<deconstructible>false</deconstructible>
 			<isTargetable>true</isTargetable>
 			<isInert>true</isInert>
-			<claimable>false</claimable>
-			<expandHomeArea>false</expandHomeArea>
+			<claimable>true</claimable>
+			<expandHomeArea>true</expandHomeArea>
 		</building>
 		<statBases>
+			<WorkToBuild>5800</WorkToBuild>
 			<Flammability>0</Flammability>
 			<MaxHitPoints>500</MaxHitPoints>
 		</statBases>

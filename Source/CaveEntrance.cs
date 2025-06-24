@@ -71,7 +71,7 @@ namespace Shashlichnik
         {
             get
             {
-                return "EnterCave".Translate();
+                return "ShashlichnikEnterCave".Translate();
             }
         }
         public int TicksToOpen
@@ -217,7 +217,7 @@ namespace Shashlichnik
         {
             var mapSize = Mod.Settings.mapSize;
             cave = PocketMapUtility.GeneratePocketMap(new IntVec3(mapSize, 1, mapSize), DefsOf.ShashlichnikUndercave, null, base.Map);
-            caveExit = cave.listerThings.ThingsOfDef(DefsOf.CaveExit).First() as CaveExit;
+            caveExit = cave.listerThings.ThingsOfDef(DefsOf.ShashlichnikCaveExit).First() as CaveExit;
             caveExit.caveEntrance = this;
         }
 
@@ -225,7 +225,7 @@ namespace Shashlichnik
         {
             if (isCollapsing && !beenEntered)
             {
-                reason = "CaveCollapsing".Translate();
+                reason = "ShashlichnikCaveCollapsing".Translate();
                 return false;
             }
             if (TicksToOpen > 0)

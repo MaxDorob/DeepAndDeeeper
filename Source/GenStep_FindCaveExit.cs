@@ -31,7 +31,7 @@ namespace Shashlichnik
                     thing.Destroy(DestroyMode.Vanish);
                 }
             }
-            GenSpawn.Spawn(ThingMaker.MakeThing(DefsOf.CaveExit, null), intVec, map, WipeMode.Vanish);
+            GenSpawn.Spawn(ThingMaker.MakeThing(DefsOf.ShashlichnikCaveExit, null), intVec, map, WipeMode.Vanish);
             MapGenerator.PlayerStartSpot = intVec;
         }
 

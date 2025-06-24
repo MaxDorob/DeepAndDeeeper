@@ -17,7 +17,7 @@
 		</pocketMapProperties>
 		<genSteps>
 			<li>ElevationFertility</li>
-			<li>ShashlichnikUndercave_RocksFromGrid</li>
+			<li>ShashlichnikUnderground_RocksFromGrid</li>
 			<li>Terrain</li>
 			<!--<li>CavesTerrain</li>-->
 			<li>ShashlichnikUndercave_ScatterRuinsSimple</li>
@@ -50,7 +50,7 @@
 	</GenStepDef>
 
 	<GenStepDef>
-		<defName>ShashlichnikUndercave_RocksFromGrid</defName>
+		<defName>ShashlichnikUnderground_RocksFromGrid</defName>
 		<order>200</order>
 		<genStep Class="GenStep_RocksFromGrid">
 			<overrideBlotchesPer10kCells>10</overrideBlotchesPer10kCells>

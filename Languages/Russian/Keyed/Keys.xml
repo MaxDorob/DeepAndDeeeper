@@ -3,15 +3,15 @@
 	<ShashlichnikCaveAboutToCollapse>Пещера скоро обрушится</ShashlichnikCaveAboutToCollapse>
 	<ShashlichnikCaveUnstable>Пещера выглядит нестабильно</ShashlichnikCaveUnstable>
 	<ShashlichnikCaveStabilityAdvice>Пешера становится менее стабильное со временем. Горные работы в пещере также снижают ее стабильность.\nДля улучшения стабильности можно построить колонны.\nЧем меньше стабильность, тем чаще происходят обвалы.\nПещера начнет обрушаться когда окончательно потеряет стабильность.</ShashlichnikCaveStabilityAdvice>
-	<EnterCave>Войти в пещеру</EnterCave>
-	<ExitCave>Выйти из пещеры</ExitCave>
-	<CaveCollapsing>Пещера рушится.</CaveCollapsing>
-	<CaveCollapsingDesc>Пещера рушится! Колонистам следует выбраться из пещеры как можно быстрее.</CaveCollapsingDesc>
-	<MessageCaveExitCollapsed>Выход из пещеры обрушился, но должен быть еще один...</MessageCaveExitCollapsed>
-	<MessageCaveCollapsed>Пещера обрушилась.</MessageCaveCollapsed>
-	<LandslideIncoming>Потолок пещеры выглядит нестабильным, следует оласаться обвала.</LandslideIncoming>
+	<ShashlichnikEnterCave>Войти в пещеру</ShashlichnikEnterCave>
+	<ShashlichnikExitCave>Выйти из пещеры</ShashlichnikExitCave>
+	<ShashlichnikCaveCollapsing>Пещера рушится.</ShashlichnikCaveCollapsing>
+	<ShashlichnikCaveCollapsingDesc>Пещера рушится! Колонистам следует выбраться из пещеры как можно быстрее.</ShashlichnikCaveCollapsingDesc>
+	<ShashlichnikMessageCaveExitCollapsed>Выход из пещеры обрушился, но должен быть еще один...</ShashlichnikMessageCaveExitCollapsed>
+	<ShashlichnikMessageCaveCollapsed>Пещера обрушилась.</ShashlichnikMessageCaveCollapsed>
+	<ShashlichnikLandslideIncoming>Потолок пещеры выглядит нестабильным, следует оласаться обвала.</ShashlichnikLandslideIncoming>
 	<ShashlichnikEnableAnomalyEffects>Включить дополнительные эффекты из Anomaly</ShashlichnikEnableAnomalyEffects>
 	<ShashlichnikMapSize>Размер карты под землей</ShashlichnikMapSize>
 	<ShashlichnikUndergroundTemperatureModifier>Модификатор температуры под землей</ShashlichnikUndergroundTemperatureModifier>
-	<MustBeOnSurface>Должно быть установлено на поверхности.</MustBeOnSurface>
+	<ShashlichnikMustBeOnSurface>Должно быть установлено на поверхности.</ShashlichnikMustBeOnSurface>
 </LanguageData>

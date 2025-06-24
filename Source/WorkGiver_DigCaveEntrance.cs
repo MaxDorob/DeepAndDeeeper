@@ -16,12 +16,12 @@ namespace Shashlichnik
         {
             get
             {
-                return ThingRequest.ForDef(DefsOf.CaveEntrance);
+                return ThingRequest.ForDef(DefsOf.ShashlichnikCaveEntrance);
             }
         }
         public override bool ShouldSkip(Pawn pawn, bool forced = false)
         {
-            var entries = pawn.Map.listerBuildings.AllBuildingsColonistOfDef(DefsOf.CaveEntrance).OfType<CaveEntrance>();
+            var entries = pawn.Map.listerBuildings.AllBuildingsColonistOfDef(DefsOf.ShashlichnikCaveEntrance).OfType<CaveEntrance>();
             return !entries.Any(b => (b as CaveEntrance).TicksToOpen > 0 && !b.IsCollapsing);
         }
         public override bool HasJobOnThing(Pawn pawn, Thing t, bool forced = false)

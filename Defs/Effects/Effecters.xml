@@ -20,7 +20,7 @@
 
 
 	<EffecterDef>
-		<defName>ShashslichnikCaveCeilingDebris</defName>
+		<defName>ShashlichnikCaveCeilingDebris</defName>
 		<maintainTicks>130</maintainTicks>
 		<randomWeight>1</randomWeight>
 		<children>

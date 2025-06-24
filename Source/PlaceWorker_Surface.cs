@@ -12,7 +12,7 @@ namespace Shashlichnik
         public override AcceptanceReport AllowsPlacing(BuildableDef checkingDef, IntVec3 loc, Rot4 rot, Map map, Thing thingToIgnore = null, Thing thing = null)
         {
             if (map.IsPocketMap)
-                return new AcceptanceReport("MustBeOnSurface".Translate());
+                return new AcceptanceReport("ShashlichnikMustBeOnSurface".Translate());
             return true;
         }
     }

@@ -14,9 +14,9 @@ namespace Shashlichnik
 
         public override void Generate(Map map, GenStepParams parms)
         {
-            if (CellFinderLoose.TryGetRandomCellWith(c => c.DistanceToEdge(map) < 25 && c.Standable(map) && GenConstruct.CanPlaceBlueprintAt(DefsOf.CaveEntrance, c, Rot4.North, map, false), map, 150, out var result))
+            if (CellFinderLoose.TryGetRandomCellWith(c => c.DistanceToEdge(map) < 25 && c.Standable(map) && GenConstruct.CanPlaceBlueprintAt(DefsOf.ShashlichnikCaveEntrance, c, Rot4.North, map, false), map, 150, out var result))
             {
-                var cave = GenSpawn.Spawn(DefsOf.CaveEntrance, result, map) as CaveEntrance;
+                var cave = GenSpawn.Spawn(DefsOf.ShashlichnikCaveEntrance, result, map) as CaveEntrance;
                 cave.TicksToOpen = (int)(cave.TicksToOpen * Rand.Range(0.1f, 0.7f));
             }
             else

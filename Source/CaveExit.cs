@@ -17,7 +17,7 @@ namespace Shashlichnik
         {
             get
             {
-                return "ExitCave".Translate();
+                return "ShashlichnikExitCave".Translate();
             }
         }
 

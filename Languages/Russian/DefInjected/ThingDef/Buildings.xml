@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
-	<CaveEntrance.label>Вход в пещеру</CaveEntrance.label>
-	<CaveEntrance.description>Дыра в земле, соеденяющая поверхность и подземелье. В пещеру можно спуститься с помощью веревки.</CaveEntrance.description>
+	<ShashlichnikCaveEntrance.label>Вход в пещеру</ShashlichnikCaveEntrance.label>
+	<ShashlichnikCaveEntrance.description>Дыра в земле, соеденяющая поверхность и подземелье. В пещеру можно спуститься с помощью веревки.</ShashlichnikCaveEntrance.description>
 
-	<CaveExit.label>Выход на поверхность</CaveExit.label>
-	<CaveExit.description>Веревка, соеденяющая подземелье с поверхностью.</CaveExit.description>
+	<ShashlichnikCaveExit.label>Выход на поверхность</ShashlichnikCaveExit.label>
+	<ShashlichnikCaveExit.description>Веревка, соеденяющая подземелье с поверхностью.</ShashlichnikCaveExit.description>
 
 </LanguageData>

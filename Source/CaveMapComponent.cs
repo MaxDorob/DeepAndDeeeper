@@ -14,7 +14,7 @@ namespace Shashlichnik
 {
     public class CaveMapComponent : UndercaveMapComponent
     {
-        public List<EffecterDef> ambient = [DefsOf.ShashslichnikCaveCeilingDebris];
+        public List<EffecterDef> ambient = [DefsOf.ShashlichnikCaveCeilingDebris];
         public Map SourceMap
         {
             get
@@ -37,8 +37,8 @@ namespace Shashlichnik
         {
             Map sourceMap = SourceMap;
 
-            caveEntrance = sourceMap?.listerThings?.ThingsOfDef(DefsOf.CaveEntrance).FirstOrDefault() as CaveEntrance;
-            caveExit = map.listerThings.ThingsOfDef(DefsOf.CaveExit).FirstOrDefault() as CaveExit;
+            caveEntrance = sourceMap?.listerThings?.ThingsOfDef(DefsOf.ShashlichnikCaveEntrance).FirstOrDefault() as CaveEntrance;
+            caveExit = map.listerThings.ThingsOfDef(DefsOf.ShashlichnikCaveExit).FirstOrDefault() as CaveExit;
             if (caveEntrance == null)
             {
                 Log.Warning("Cave entrance was not found after generating cave, if this map was created via dev tools you can ignore this");
@@ -218,7 +218,7 @@ namespace Shashlichnik
                 else if (Rand.Chance(landslideEffecterChance.Evaluate(queuedLandslides[landslide.Key])))
                 {
 
-                    DefsOf.ShashslichnikCaveCeilingDebris.SpawnMaintained(landslide.Key, this.map, 1f);
+                    DefsOf.ShashlichnikCaveCeilingDebris.SpawnMaintained(landslide.Key, this.map, 1f);
                 }
             }
         }
@@ -230,7 +230,7 @@ namespace Shashlichnik
             }
             SoundDefOf.UndercaveRumble?.PlayOneShotOnCamera(map);
             Find.CameraDriver.shaker.DoShake(0.2f, 120);
-            var letter = LetterMaker.MakeLetter("CaveCollapsing".Translate(), "CaveCollapsingDesc".Translate(), LetterDefOf.ThreatBig, new LookTargets(caveExit));
+            var letter = LetterMaker.MakeLetter("ShashlichnikCaveCollapsing".Translate(), "ShashlichnikCaveCollapsingDesc".Translate(), LetterDefOf.ThreatBig, new LookTargets(caveExit));
             Find.LetterStack.ReceiveLetter(letter);
         }
         public void Notify_ExitDestroyed(CaveEntrance sender)
@@ -238,7 +238,7 @@ namespace Shashlichnik
             if (this.map.listerThings.GetThingsOfType<CaveExit>().Except(sender.caveExit).Any())
             {
                 var cell = sender.caveExit.Position;
-                Messages.Message("MessageCaveExitCollapsed".Translate(), new TargetInfo(cell, map, false), MessageTypeDefOf.NeutralEvent, true);
+                Messages.Message("ShashlichnikMessageCaveExitCollapsed".Translate(), new TargetInfo(cell, map, false), MessageTypeDefOf.NeutralEvent, true);
                 Thing.allowDestroyNonDestroyable = true;
                 sender.caveExit.Destroy(DestroyMode.Vanish);
                 Thing.allowDestroyNonDestroyable = false;
@@ -261,7 +261,7 @@ namespace Shashlichnik
                     }
                 }
                 PocketMapUtility.DestroyPocketMap(map);
-                Messages.Message("MessageCaveCollapsed".Translate(), new TargetInfo(sender.Position, sender.Map, false), MessageTypeDefOf.NeutralEvent, true);
+                Messages.Message("ShashlichnikMessageCaveCollapsed".Translate(), new TargetInfo(sender.Position, sender.Map, false), MessageTypeDefOf.NeutralEvent, true);
             }
         }
         public static IntRange landslideTicksRange = new IntRange(GenDate.TicksPerHour, GenDate.TicksPerHour * 2);
@@ -273,7 +273,7 @@ namespace Shashlichnik
                 QueueSingleLandslide(cell, ticks);
                 if (sendMessage && !cell.Fogged(map))
                 {
-                    Messages.Message("LandslideIncoming".Translate(), new LookTargets(cell, map), MessageTypeDefOf.ThreatSmall, false);
+                    Messages.Message("ShashlichnikLandslideIncoming".Translate(), new LookTargets(cell, map), MessageTypeDefOf.ThreatSmall, false);
                 }
                 int subLandslidesCount = Rand.Range(0, 4);
                 for (int i = 0; i < subLandslidesCount; i++)

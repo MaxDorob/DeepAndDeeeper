@@ -42,7 +42,7 @@ namespace Shashlichnik
                 site = SiteMaker.MakeSite([sitesChances.RandomElementByWeight(x => x.Value).Key, DefsOf.ShashlichnikCaveEnter], tile, null);
                 Find.WorldObjects.Add(site);
                 map = GetOrGenerateMapUtility.GetOrGenerateMap(site.Tile, null);
-                var caveEntrance = map.listerThings.ThingsOfDef(DefsOf.CaveEntrance).FirstOrDefault() as CaveEntrance;
+                var caveEntrance = map.listerThings.ThingsOfDef(DefsOf.ShashlichnikCaveEntrance).FirstOrDefault() as CaveEntrance;
                 if (caveEntrance != null)
                 {
                     caveEntrance.caveExit = this;

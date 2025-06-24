@@ -8,8 +8,6 @@ using System.Threading.Tasks;
 using UnityEngine;
 using Verse;
 using Verse.Noise;
-using Mono.Unix.Native;
-
 namespace Shashlichnik
 {
     public abstract class GenStep_CaveInterest : GenStep

@@ -13,7 +13,7 @@ namespace Shashlichnik
     {
         public static ThingDef          ShashlichnikCaveExit;
         public static ThingDef          ShashlichnikCaveExitToSurfaceInterest;
-        public static MapGeneratorDef   ShashlichnikUndercave;
+        public static MapGeneratorDef   ShashlichnikUnderground;
         public static ThingDef          ShashlichnikCaveEntrance;
         public static JobDef            ShashlichnikDigCaveEntrance;
         public static EffecterDef       ShashlichnikImpactDustCloud;

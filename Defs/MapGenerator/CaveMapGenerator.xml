@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-	<MapGeneratorDef Name="ShashlichnikUndercave">
-		<defName>ShashlichnikUndercave</defName>
+	<MapGeneratorDef Name="ShashlichnikUnderground">
+		<defName>ShashlichnikUnderground</defName>
 		<label>undercave</label>
 		<isUnderground>true</isUnderground>
 		<forceCaves>true</forceCaves>
@@ -12,7 +12,7 @@
 			<li>Shashlichnik.CaveMapComponent</li>
 		</customMapComponents>
 		<pocketMapProperties>
-			<biome>ShashlichnikUndercave</biome>
+			<biome>ShashlichnikUnderground</biome>
 			<temperature>15</temperature>
 		</pocketMapProperties>
 		<genSteps>
@@ -20,12 +20,12 @@
 			<li>ShashlichnikUnderground_RocksFromGrid</li>
 			<li>Terrain</li>
 			<!--<li>CavesTerrain</li>-->
-			<li>ShashlichnikUndercave_ScatterRuinsSimple</li>
+			<li>ShashlichnikUnderground_ScatterRuinsSimple</li>
 			<li>ShashlichnikUndergroundTorches</li>
 			<li>ShashlichnikUndergroundLakes</li>
 			<li>ShashlichnikFindCaveExit</li>
 			<li>ShashlichnikCaveExitToSurfaceInterest</li>
-			<li>ShashlichnikUndercave_Caves</li>
+			<li>ShashlichnikUnderground_Caves</li>
 			<li>RockChunks</li>
 			<li>ShashlichnikScatterShrines</li>
 			<li>ShashlichnikUndergroundInterest_Chemfuel</li>
@@ -40,7 +40,7 @@
 	</MapGeneratorDef>
 
 	<GenStepDef>
-		<defName>ShashlichnikUndercave_Caves</defName>
+		<defName>ShashlichnikUnderground_Caves</defName>
 		<order>11</order>
 		<genStep Class="GenStep_Caves">
 			<branchChance>0.001</branchChance>
@@ -59,7 +59,7 @@
 
 	<!-- Undercave ruins -->
 	<GenStepDef>
-		<defName>ShashlichnikUndercave_ScatterRuinsSimple</defName>
+		<defName>ShashlichnikUnderground_ScatterRuinsSimple</defName>
 		<order>249</order>
 		<genStep Class="GenStep_ScatterRuinsSimple">
 			<allowInWaterBiome>false</allowInWaterBiome>
@@ -160,7 +160,7 @@
 
 
 	<BiomeDef>
-		<defName>ShashlichnikUndercave</defName>
+		<defName>ShashlichnikUnderground</defName>
 		<label>undercave</label>
 		<description>Ordinary caves, at least at first glance.</description>
 		<generatesNaturally>false</generatesNaturally>

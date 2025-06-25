@@ -12,6 +12,7 @@
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <Configurations>Debug;Release;Release1.6</Configurations>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -58,6 +59,7 @@
     <Compile Include="GenStep_CaveInterest_Fleshbeasts.cs" />
     <Compile Include="GenStep_CaveInterest_Hive.cs" />
     <Compile Include="GenStep_CaveInterest_Mushrooms.cs" />
+    <Compile Include="GenStep_Caves.cs" />
     <Compile Include="GenStep_ExitToSurfaceInterest.cs" />
     <Compile Include="GenStep_FindCaveExit.cs" />
     <Compile Include="GenStep_UndergroundTorches.cs" />
@@ -78,9 +80,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="Krafs.Rimworld.Ref">
-      <Version>1.5.4409</Version>
-    </PackageReference>
     <PackageReference Include="Lib.Harmony">
       <Version>2.3.6</Version>
       <IncludeAssets>compile</IncludeAssets>
@@ -93,5 +92,26 @@
   <PropertyGroup>
     <LangVersion>12</LangVersion>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release1.6|AnyCPU'">
+    <OutputPath>..\v1.6\Assemblies\</OutputPath>
+    <DefineConstants>TRACE;v16</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>12</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Choose>
+    <When Condition="'$(Configuration)'=='Release1.6'">
+      <ItemGroup>
+        <PackageReference Include="Krafs.Rimworld.Ref" Version="1.6.4491-beta" GeneratePathProperty="true" />
+      </ItemGroup>
+    </When>
+    <Otherwise>
+      <ItemGroup>
+        <PackageReference Include="Krafs.Rimworld.Ref" Version="1.5.4063" GeneratePathProperty="true" />
+      </ItemGroup>
+    </Otherwise>
+  </Choose>
 </Project>

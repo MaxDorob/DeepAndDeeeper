@@ -13,7 +13,11 @@ namespace Shashlichnik
 {
     public class CaveExit : MapPortal
     {
+#if v16
+        public override string EnterString
+#else
         public override string EnterCommandString
+#endif
         {
             get
             {
@@ -40,7 +44,7 @@ namespace Shashlichnik
         }
 
         public override void OnEntered(Pawn pawn)
-        {
+        {   
             base.OnEntered(pawn);
             if (Find.CurrentMap == base.Map)
             {

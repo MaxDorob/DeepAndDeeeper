@@ -29,8 +29,12 @@ namespace Shashlichnik
             if (site == null)
             {
                 int limit = 30;
+#if v16
+                PlanetTile tile = default;
+#else
                 int tile = -1;
-                while (limit > 0 && !TileFinder.TryFindNewSiteTile(out tile, 2, 6, nearThisTile: OriginalMap.Tile))
+#endif
+                while (limit > 0 && !TileFinder.TryFindNewSiteTile(out tile, 2, 6))
                 {
                     limit--;
                     if (limit <= 0)
@@ -39,6 +43,7 @@ namespace Shashlichnik
                         return OriginalMap;
                     }
                 }
+
                 site = SiteMaker.MakeSite([sitesChances.RandomElementByWeight(x => x.Value).Key, DefsOf.ShashlichnikCaveEnter], tile, null);
                 Find.WorldObjects.Add(site);
                 map = GetOrGenerateMapUtility.GetOrGenerateMap(site.Tile, null);

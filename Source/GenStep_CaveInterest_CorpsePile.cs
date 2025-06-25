@@ -23,7 +23,7 @@ namespace Shashlichnik
         protected override bool TrySpawnInterestAt(Map map, IntVec3 cell)
         {
             int randomInRange = CorpseCountRange.RandomInRange;
-            Find.FactionManager.TryGetRandomNonColonyHumanlikeFaction(out var faction, true, false, TechLevel.Undefined, false);
+            Find.FactionManager.TryGetRandomNonColonyHumanlikeFaction(out var faction, true, false, TechLevel.Undefined);
             int age = Mathf.RoundToInt((float)(CorpseAgeRangeDays.RandomInRange * 60000));
             for (int i = 0; i < randomInRange; i++)
             {                

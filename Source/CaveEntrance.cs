@@ -67,7 +67,11 @@ namespace Shashlichnik
             }
         }
 
+#if v16
+        public override string EnterString
+#else
         public override string EnterCommandString
+#endif
         {
             get
             {
@@ -337,7 +341,9 @@ namespace Shashlichnik
         private bool isCollapsing;
         public Map cave;
         public CaveExit caveExit;
+#if !v16
         internal bool beenEntered;
+#endif
         internal Sustainer collapseSustainer;
         internal Effecter collapseEffecter1;
         internal Effecter collapseEffecter2;

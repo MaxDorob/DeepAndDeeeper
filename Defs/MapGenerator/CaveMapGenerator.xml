@@ -42,7 +42,7 @@
 	<GenStepDef>
 		<defName>ShashlichnikUnderground_Caves</defName>
 		<order>11</order>
-		<genStep Class="GenStep_Caves">
+		<genStep Class="Shashlichnik.GenStep_Caves">
 			<branchChance>0.001</branchChance>
 			<minTunnelWidth>3</minTunnelWidth>
 			<widthOffsetPerCell>0.008</widthOffsetPerCell>

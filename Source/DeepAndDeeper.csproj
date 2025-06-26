@@ -62,9 +62,11 @@
     <Compile Include="GenStep_Caves.cs" />
     <Compile Include="GenStep_ExitToSurfaceInterest.cs" />
     <Compile Include="GenStep_FindCaveExit.cs" />
+    <Compile Include="GenStep_CaveInterest_LostPawn.cs" />
     <Compile Include="GenStep_UndergroundTorches.cs" />
     <Compile Include="GenStep_UndergroundLakes.cs" />
     <Compile Include="JobDriver_Dig.cs" />
+    <Compile Include="JobGiver_ExitMap_Patch.cs" />
     <Compile Include="MapTemperature_Patch.cs" />
     <Compile Include="Mod.cs" />
     <Compile Include="ModSettings.cs" />

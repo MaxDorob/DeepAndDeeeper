@@ -2,7 +2,7 @@
 <Defs>
   <WorkGiverDef>
     <defName>ShashlichnikDigCaveEntrance</defName>
-    <label>dig cave entry</label>
+    <label>dig cave entrance</label>
     <giverClass>Shashlichnik.WorkGiver_DigCaveEntrance</giverClass>
     <workType>Mining</workType>
     <verb>dig</verb>

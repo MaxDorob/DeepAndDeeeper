@@ -234,7 +234,7 @@ namespace Shashlichnik
             }
             if (TicksToOpen > 0)
             {
-                reason = "CaveNotDugYet".Translate();
+                reason = "ShashlichnikCaveNotDugYet".Translate();
                 return false;
             }
 

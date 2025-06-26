@@ -2,10 +2,10 @@
 <LanguageData>
 	<ShashlichnikCaveAboutToCollapse>Пещера скоро обрушится</ShashlichnikCaveAboutToCollapse>
 	<ShashlichnikCaveUnstable>Пещера выглядит нестабильно</ShashlichnikCaveUnstable>
-	<ShashlichnikCaveStabilityAdvice>Пешера становится менее стабильное со временем. Горные работы в пещере также снижают ее стабильность.\nДля улучшения стабильности можно построить колонны.\nЧем меньше стабильность, тем чаще происходят обвалы.\nПещера начнет обрушаться когда окончательно потеряет стабильность.</ShashlichnikCaveStabilityAdvice>
+	<ShashlichnikCaveStabilityAdvice>Пешера становится менее стабильной со временем. Горные работы в пещере также снижают ее стабильность.\nДля улучшения стабильности можно построить колонны.\nЧем меньше стабильность, тем чаще происходят обвалы.\nПещера начнет обрушаться когда окончательно потеряет стабильность.</ShashlichnikCaveStabilityAdvice>
 	<ShashlichnikEnterCave>Войти в пещеру</ShashlichnikEnterCave>
 	<ShashlichnikExitCave>Выйти из пещеры</ShashlichnikExitCave>
-	<ShashlichnikCaveCollapsing>Пещера рушится.</ShashlichnikCaveCollapsing>
+	<ShashlichnikCaveCollapsing>Пещера рушится</ShashlichnikCaveCollapsing>
 	<ShashlichnikCaveCollapsingDesc>Пещера рушится! Колонистам следует выбраться из пещеры как можно быстрее.</ShashlichnikCaveCollapsingDesc>
 	<ShashlichnikMessageCaveExitCollapsed>Выход из пещеры обрушился, но должен быть еще один...</ShashlichnikMessageCaveExitCollapsed>
 	<ShashlichnikMessageCaveCollapsed>Пещера обрушилась.</ShashlichnikMessageCaveCollapsed>
@@ -14,4 +14,6 @@
 	<ShashlichnikMapSize>Размер карты под землей</ShashlichnikMapSize>
 	<ShashlichnikUndergroundTemperatureModifier>Модификатор температуры под землей</ShashlichnikUndergroundTemperatureModifier>
 	<ShashlichnikMustBeOnSurface>Должно быть установлено на поверхности.</ShashlichnikMustBeOnSurface>
+	<ShashlichnikCaveNotDugYet>Пещера еще не выкопана</ShashlichnikCaveNotDugYet>
+	<ShashlichnikCaveCollapsing>Пещера обрушается</ShashlichnikCaveCollapsing>
 </LanguageData>

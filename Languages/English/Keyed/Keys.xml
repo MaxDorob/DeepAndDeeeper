@@ -5,7 +5,7 @@
 	<ShashlichnikCaveStabilityAdvice>Cave becomes more unstable over time. Your mining can reduce cave stability as well.\nYou can build collumns to slightly improve stability.\nThe lower the stability, the more frequent landslides will occur.\nWhen stability hits zero the cave will collapse</ShashlichnikCaveStabilityAdvice>
 	<ShashlichnikEnterCave>Enter cave</ShashlichnikEnterCave>
 	<ShashlichnikExitCave>Exit cave</ShashlichnikExitCave>
-	<ShashlichnikCaveCollapsing>Cave is collapsing.</ShashlichnikCaveCollapsing>
+	<ShashlichnikCaveCollapsing>Cave is collapsing</ShashlichnikCaveCollapsing>
 	<ShashlichnikCaveCollapsingDesc>Cave is collapsing! Extract your colonitsts as fast as possible.</ShashlichnikCaveCollapsingDesc>
 	<ShashlichnikMessageCaveExitCollapsed>Exit collapsed, but there may be another way out...</ShashlichnikMessageCaveExitCollapsed>
 	<ShashlichnikMessageCaveCollapsed>Cave collapsed.</ShashlichnikMessageCaveCollapsed>
@@ -14,4 +14,6 @@
 	<ShashlichnikMapSize>Underground map size</ShashlichnikMapSize>
 	<ShashlichnikUndergroundTemperatureModifier>Underground temperature modifier</ShashlichnikUndergroundTemperatureModifier>
 	<ShashlichnikMustBeOnSurface>Must be on surface.</ShashlichnikMustBeOnSurface>
+	<ShashlichnikCaveNotDugYet>Cave has not been dug yet</ShashlichnikCaveNotDugYet>
+	<ShashlichnikCaveCollapsing>Cave is collapsing</ShashlichnikCaveCollapsing>
 </LanguageData>

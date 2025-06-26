@@ -4,10 +4,10 @@
     <defName>ShashlichnikDigCaveEntrance</defName>
     <label>dig cave entry</label>
     <giverClass>Shashlichnik.WorkGiver_DigCaveEntrance</giverClass>
-    <workType>BasicWorker</workType>
+    <workType>Mining</workType>
     <verb>dig</verb>
     <gerund>digging</gerund>
-    <priorityInType>600</priorityInType>
+    <priorityInType>45</priorityInType>
     <requiredCapacities>
       <li>Manipulation</li>
     </requiredCapacities>

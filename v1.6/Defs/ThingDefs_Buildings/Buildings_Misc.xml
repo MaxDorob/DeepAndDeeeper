@@ -14,7 +14,7 @@
 		<designationCategory>Misc</designationCategory>
 		<drawerType>RealtimeOnly</drawerType>
 		<graphicData>
-			<graphicClass>Graphic_Single</graphicClass>
+			<graphicClass>Graphic_Indexed</graphicClass>
 			<texPath>Things/Buildings/CavernHole</texPath>
 			<drawSize>(4,4)</drawSize>
 		</graphicData>

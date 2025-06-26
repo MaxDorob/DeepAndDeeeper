@@ -28,6 +28,7 @@
 			<li>ShashlichnikUnderground_Caves</li>
 			<li>RockChunks</li>
 			<li>ShashlichnikScatterShrines</li>
+			<li>ShashlichnikUndergroundInterest_LostPawn</li>
 			<li>ShashlichnikUndergroundInterest_Chemfuel</li>
 			<li>ShashlichnikUndergroundInterest_CorpsePile</li>
 			<li>ShashlichnikUndergroundInterest_CorpseGear</li>
@@ -92,6 +93,13 @@
 		<genStep Class="Shashlichnik.GenStep_ExitToSurfaceInterest"/>
 	</GenStepDef>
 
+	<GenStepDef>
+		<defName>ShashlichnikUndergroundInterest_LostPawn</defName>
+		<order>649</order>
+		<genStep Class="Shashlichnik.GenStep_CaveInterest_LostPawn" >
+			<distanceToPlayer>50</distanceToPlayer>
+		</genStep>
+	</GenStepDef>
 
 	<GenStepDef>
 		<defName>ShashlichnikUndergroundInterest_Chemfuel</defName>

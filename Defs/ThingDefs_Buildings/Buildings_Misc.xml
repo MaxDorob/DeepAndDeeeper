@@ -20,9 +20,10 @@
 		</graphicData>
 		<altitudeLayer>FloorEmplacement</altitudeLayer>
 		<passability>PassThroughOnly</passability>
-		<holdsRoof>true</holdsRoof>
+		<holdsRoof>false</holdsRoof>
 		<destroyable>true</destroyable>
 		<useHitPoints>true</useHitPoints>
+		<constructEffect>ConstructDirt</constructEffect>
 		<building>
 			<isEdifice>true</isEdifice>
 			<deconstructible>false</deconstructible>

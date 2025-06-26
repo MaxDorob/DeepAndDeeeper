@@ -33,6 +33,7 @@
 			<li>ShashlichnikUndergroundInterest_CorpseGear</li>
 			<li>ShashlichnikUndergroundInterest_Mushrooms</li>
 			<li>ShashlichnikUndergroundInterest_Hive</li>
+			<li>ShashlichnikUndergroundInterest_SingleCryptosleepPod</li>
 			<li MayRequire="RimWorld.Ludeon.Anomaly">ShashlichnikUndergroundInterest_Fleshbeasts</li>
 			<li>Plants</li>
 			<li>Fog</li>
@@ -126,6 +127,12 @@
 		<defName>ShashlichnikUndergroundInterest_Fleshbeasts</defName>
 		<order>655</order>
 		<genStep Class="Shashlichnik.GenStep_CaveInterest_Fleshbeasts" />
+	</GenStepDef>
+
+	<GenStepDef>
+		<defName>ShashlichnikUndergroundInterest_SingleCryptosleepPod</defName>
+		<order>656</order>
+		<genStep Class="Shashlichnik.GenStep_CaveInterest_SingleCryptosleep" />
 	</GenStepDef>
 
 

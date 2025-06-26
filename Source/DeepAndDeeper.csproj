@@ -59,6 +59,7 @@
     <Compile Include="GenStep_CaveInterest_Fleshbeasts.cs" />
     <Compile Include="GenStep_CaveInterest_Hive.cs" />
     <Compile Include="GenStep_CaveInterest_Mushrooms.cs" />
+    <Compile Include="GenStep_CaveInterest_SingleCryptosleep.cs" />
     <Compile Include="GenStep_Caves.cs" />
     <Compile Include="GenStep_ExitToSurfaceInterest.cs" />
     <Compile Include="GenStep_FindCaveExit.cs" />

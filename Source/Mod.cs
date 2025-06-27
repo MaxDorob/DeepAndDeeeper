@@ -27,6 +27,7 @@ namespace Shashlichnik
         public override void DoSettingsWindowContents(Rect inRect)
         {
             base.DoSettingsWindowContents(inRect);
+            inRect = inRect.ContractedBy(Margin);
             var y = inRect.yMin;
             if (ModsConfig.AnomalyActive)
             {

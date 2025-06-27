@@ -37,6 +37,10 @@ namespace Shashlichnik
             Settings.mapSize = (int)Widgets.HorizontalSlider(new Rect(inRect.x, y, inRect.width, buttonSize.y), Settings.mapSize, 100, 400, label: "ShashlichnikMapSize".Translate() + ": " + Settings.mapSize.ToString(), roundTo: 1);
             y += buttonSize.y + Margin;
             Settings.undergroundTemperatureModifier = Widgets.HorizontalSlider(new Rect(inRect.x, y, inRect.width, buttonSize.y), Settings.undergroundTemperatureModifier, 0.2f, 1.5f, label: "ShashlichnikUndergroundTemperatureModifier".Translate() + ": " + Settings.undergroundTemperatureModifier.ToStringByStyle(ToStringStyle.FloatOne), roundTo: 0.1f);
+            y += buttonSize.y + Margin;
+            Widgets.CheckboxLabeled(new Rect(inRect.x, y, inRect.width, buttonSize.y), "ShashlichnikStabilitySystemEnabled".Translate(), ref Settings.stabilitySystemEnabled);
+            y += buttonSize.y;
+            Widgets.CheckboxLabeled(new Rect(inRect.x, y, inRect.width, buttonSize.y), "ShashlichnikLandslidesEnabled".Translate(), ref Settings.landslidesEnabled);
         }
         public override string SettingsCategory()
         {

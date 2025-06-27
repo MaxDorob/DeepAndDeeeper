@@ -16,4 +16,6 @@
 	<ShashlichnikMustBeOnSurface>Должно быть установлено на поверхности.</ShashlichnikMustBeOnSurface>
 	<ShashlichnikCaveNotDugYet>Пещера еще не выкопана</ShashlichnikCaveNotDugYet>
 	<ShashlichnikCaveCollapsing>Пещера обрушается</ShashlichnikCaveCollapsing>
+	<ShashlichnikStabilitySystemEnabled>Система стабильности включена</ShashlichnikStabilitySystemEnabled>
+	<ShashlichnikLandslidesEnabled>Оползни включены</ShashlichnikLandslidesEnabled>
 </LanguageData>

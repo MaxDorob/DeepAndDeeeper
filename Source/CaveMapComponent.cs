@@ -68,6 +68,10 @@ namespace Shashlichnik
         {
             get
             {
+                if (!Mod.Settings.stabilitySystemEnabled)
+                {
+                    return 1f;
+                }
                 if (stabilityPercentCached >= 1000f)
                 {
                     var countToCollapse = InitialRockCount / 5f;
@@ -129,12 +133,16 @@ namespace Shashlichnik
         };
         private void ProcessStability()
         {
+            if (!Mod.Settings.stabilitySystemEnabled)
+            {
+                return;
+            }
             if (StabilityPercent <= 0.01f)
             {
                 caveEntrance.BeginCollapsing();
                 return;
             }
-            if (Rand.Chance(LandslideChance))
+            if (Mod.Settings.landslidesEnabled && Rand.Chance(LandslideChance))
             {
                 QueueLandslide(landslideTicksRange.RandomInRange, true);
             }

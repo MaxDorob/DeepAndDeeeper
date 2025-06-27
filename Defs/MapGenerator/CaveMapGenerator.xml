@@ -54,8 +54,7 @@
 	<GenStepDef>
 		<defName>ShashlichnikUnderground_RocksFromGrid</defName>
 		<order>200</order>
-		<genStep Class="GenStep_RocksFromGrid">
-			<overrideBlotchesPer10kCells>10</overrideBlotchesPer10kCells>
+		<genStep Class="Shashlichnik.GenStep_RocksFromGrid">
 		</genStep>
 	</GenStepDef>
 

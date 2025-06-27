@@ -18,4 +18,6 @@
 	<ShashlichnikCaveCollapsing>Cave is collapsing</ShashlichnikCaveCollapsing>
 	<ShashlichnikStabilitySystemEnabled>Stability system enabled</ShashlichnikStabilitySystemEnabled>
 	<ShashlichnikLandslidesEnabled>Landslides enabled</ShashlichnikLandslidesEnabled>
+		<ShashlichnikMineableModifier>Mineable resources modifier</ShashlichnikMineableModifier>
+	<ShashlichnikMineableModifierExplanation>Adjusts the amount of resources on the underground map. A value of 4 is equivalent to a flat map, while a value of 15 corresponds to mountainous terrain.\nDefault is 7.</ShashlichnikMineableModifierExplanation>
 </LanguageData>

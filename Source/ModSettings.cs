@@ -21,14 +21,16 @@ namespace Shashlichnik
         public float undergroundTemperatureModifier = 0.6f;
         public bool stabilitySystemEnabled = true;
         public bool landslidesEnabled = true;
+        public float mineableModifier = 7;
         public override void ExposeData()
         {
             base.ExposeData();
             Scribe_Values.Look(ref mapSize, nameof(mapSize), 150);
             Scribe_Values.Look(ref undergroundTemperatureModifier, nameof(undergroundTemperatureModifier), 0.6f);
             Scribe_Values.Look(ref enableAnomalyEffects, nameof(enableAnomalyEffects), true);
-            Scribe_Values.Look(ref  landslidesEnabled, nameof(landslidesEnabled), true);
+            Scribe_Values.Look(ref landslidesEnabled, nameof(landslidesEnabled), true);
             Scribe_Values.Look(ref stabilitySystemEnabled, nameof(stabilitySystemEnabled), true);
+            Scribe_Values.Look(ref mineableModifier, nameof(mineableModifier), 7f);
         }
     }
 }

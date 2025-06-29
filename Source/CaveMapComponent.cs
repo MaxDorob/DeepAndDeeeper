@@ -160,6 +160,11 @@ namespace Shashlichnik
         };
         private void ProcessCollapsing()
         {
+            if (!this.map.listerThings.GetThingsOfType<CaveExit>().Any(x => x.caveEntrance != null) && map.mapPawns.FreeColonistsAndPrisonersSpawnedCount <= 0)
+            {
+                FinishCollapsing();
+            }
+
             float mtb = HoursToShakeMTBTicksCurve.Evaluate(caveEntrance.TicksUntilCollapse / 2500f);
             if (map == Find.CurrentMap)
             {
@@ -243,7 +248,7 @@ namespace Shashlichnik
         }
         public void Notify_ExitDestroyed(CaveEntrance sender)
         {
-            if (this.map.listerThings.GetThingsOfType<CaveExit>().Except(sender.caveExit).Any())
+            if (this.map.listerThings.GetThingsOfType<CaveExit>().Except(sender.caveExit).Any() && map.mapPawns.FreeColonistsAndPrisonersCount > 0)
             {
                 var cell = sender.caveExit.Position;
                 Messages.Message("ShashlichnikMessageCaveExitCollapsed".Translate(), new TargetInfo(cell, map, false), MessageTypeDefOf.NeutralEvent, true);
@@ -258,19 +263,23 @@ namespace Shashlichnik
             }
             else
             {
-                DamageInfo damageInfo = new DamageInfo(DamageDefOf.Crush, 99999f, 999f, -1f, null, null, null, DamageInfo.SourceCategory.ThingOrUnknown, null, true, true, QualityCategory.Normal, true);
-                for (int i = map.mapPawns.AllPawns.Count - 1; i >= 0; i--)
-                {
-                    Pawn pawn = map.mapPawns.AllPawns[i];
-                    pawn.TakeDamage(damageInfo);
-                    if (!pawn.Dead)
-                    {
-                        pawn.Kill(new DamageInfo?(damageInfo), null);
-                    }
-                }
-                PocketMapUtility.DestroyPocketMap(map);
+                FinishCollapsing();
                 Messages.Message("ShashlichnikMessageCaveCollapsed".Translate(), new TargetInfo(sender.Position, sender.Map, false), MessageTypeDefOf.NeutralEvent, true);
             }
+        }
+        protected void FinishCollapsing()
+        {
+            DamageInfo damageInfo = new DamageInfo(DamageDefOf.Crush, 99999f, 999f, -1f, null, null, null, DamageInfo.SourceCategory.ThingOrUnknown, null, true, true, QualityCategory.Normal, true);
+            for (int i = map.mapPawns.AllPawns.Count - 1; i >= 0; i--)
+            {
+                Pawn pawn = map.mapPawns.AllPawns[i];
+                pawn.TakeDamage(damageInfo);
+                if (!pawn.Dead)
+                {
+                    pawn.Kill(new DamageInfo?(damageInfo), null);
+                }
+            }
+            PocketMapUtility.DestroyPocketMap(map);
         }
         public static IntRange landslideTicksRange = new IntRange(GenDate.TicksPerHour, GenDate.TicksPerHour * 2);
         public static IntRange collapseTicksRange = new IntRange(GenDate.TicksPerHour / 10, GenDate.TicksPerHour);

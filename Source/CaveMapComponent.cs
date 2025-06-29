@@ -58,7 +58,6 @@ namespace Shashlichnik
                 if (initialRockCount <= 0)
                 {
                     initialRockCount = CurrentRockCount;
-                    Log.Message($"Recalculated count of rocks: {initialRockCount}");
                 }
                 return initialRockCount;
             }

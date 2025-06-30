@@ -69,6 +69,7 @@
     <Compile Include="GenStep_UndergroundLakes.cs" />
     <Compile Include="JobDriver_Dig.cs" />
     <Compile Include="JobGiver_ExitMap_Patch.cs" />
+    <Compile Include="JobGiver_LeaveCave.cs" />
     <Compile Include="MapTemperature_Patch.cs" />
     <Compile Include="Mod.cs" />
     <Compile Include="ModSettings.cs" />

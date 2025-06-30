@@ -63,6 +63,14 @@ namespace Shashlichnik
             {
                 yield return gizmo;
             }
+            yield return new Command_Toggle
+            {
+                defaultLabel = "ShashlichnikExitIfNoJob".Translate(),
+                defaultDesc = "ShashlichnikExitIfNoJobDesc".Translate(),
+                icon = CaveExit.ExitCaveTex.Texture,
+                isActive = () => exitIfNoJob,
+                toggleAction = () => exitIfNoJob = !exitIfNoJob
+            };
             yield return new Command_Action
             {
                 defaultLabel = "ViewSurface".Translate(),
@@ -79,6 +87,7 @@ namespace Shashlichnik
         {
             base.ExposeData();
             Scribe_References.Look(ref caveEntrance, nameof(caveEntrance), false);
+            Scribe_Values.Look(ref exitIfNoJob, nameof(exitIfNoJob), false);
         }
 
         private static readonly CachedTexture ExitCaveTex = new CachedTexture("UI/Overlays/Arrow");
@@ -88,6 +97,7 @@ namespace Shashlichnik
         private static readonly Vector3 RopeDrawOffset = new Vector3(0f, 1f, 1f);
 
         public CaveEntrance caveEntrance;
+        public bool exitIfNoJob = false;
 
         [Unsaved(false)]
         private Graphic cachedRopeGraphic;

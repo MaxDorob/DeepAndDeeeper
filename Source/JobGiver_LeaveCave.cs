@@ -45,7 +45,7 @@ namespace Shashlichnik
             var caveComp = pawn.Map.GetComponent<CaveMapComponent>();
             if (caveComp != null)
             {
-                if (caveComp.caveExit != null && caveComp.caveExit.Spawned)
+                if (caveComp.caveExit != null && caveComp.caveExit.Spawned && caveComp.caveExit.exitIfNoJob)
                 {
                     var job = JobMaker.MakeJob(JobDefOf.EnterPortal, caveComp.caveExit);
                     return new ThinkResult(job, this);

@@ -20,4 +20,6 @@
 	<ShashlichnikLandslidesEnabled>Оползни включены</ShashlichnikLandslidesEnabled>
 	<ShashlichnikMineableModifier>Модификатор полезных ископаемых</ShashlichnikMineableModifier>
 	<ShashlichnikMineableModifierExplanation>Регулирует количество ресурсов на подземной карте. Значение 4 эквиваленто количеству на равниной карте, а значение 15 соответсвует горной местности.\nПо умолчанию 7.</ShashlichnikMineableModifierExplanation>
+	<ShashlichnikExitIfNoJob>Выходить если нет работы</ShashlichnikExitIfNoJob>
+	<ShashlichnikExitIfNoJobDesc>Колонисты будут выходить на поверхность если здесь не осталось работы</ShashlichnikExitIfNoJobDesc>
 </LanguageData>

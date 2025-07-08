@@ -48,6 +48,7 @@
     <Compile Include="CaveExitSurfaceInterest.cs" />
     <Compile Include="CaveMapComponent.cs" />
     <Compile Include="CompEffecter_NonFogged.cs" />
+    <Compile Include="DebugActions.cs" />
     <Compile Include="DefModExtension_CaveStabilitizer.cs" />
     <Compile Include="DefsOf.cs" />
     <Compile Include="GenStep_CaveEntrance.cs" />

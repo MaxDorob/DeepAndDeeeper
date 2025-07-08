@@ -228,6 +228,13 @@ namespace Shashlichnik
             return true;
         }
 
+        public override string GetInspectString()
+        {
+            var sb = new StringBuilder(base.GetInspectString());
+            sb.AppendLine("WorkLeft".Translate() + ": " + ((float)ticksToOpen).ToStringWorkAmount());
+            return sb.ToString();
+        }
+
         public override Map GetOtherMap()
         {
             if (cave == null)

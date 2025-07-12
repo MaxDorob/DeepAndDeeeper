@@ -11,7 +11,12 @@ using Verse.Sound;
 
 namespace Shashlichnik
 {
-    public class CaveExit : MapPortal
+    public class CaveExit :
+#if v16
+        PocketMapExit
+#else
+        MapPortal
+#endif
     {
 #if v16
         public override string EnterString

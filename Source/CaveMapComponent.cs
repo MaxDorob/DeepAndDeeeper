@@ -108,7 +108,7 @@ namespace Shashlichnik
                     sustainer.End();
                 }
             }
-            if (caveEntrance.IsCollapsing)
+            if (IsCollapsing)
             {
                 ProcessCollapsing();
             }
@@ -157,14 +157,23 @@ namespace Shashlichnik
                 true
             }
         };
+        public bool IsCollapsing => collapseTick.HasValue;
+        public int TicksUntilCollapse
+        {
+            get
+            {
+                return this.collapseTick.Value - Find.TickManager.TicksGame;
+            }
+        }
         private void ProcessCollapsing()
         {
-            if (!this.map.listerThings.GetThingsOfType<CaveExit>().Any(x => x.caveEntrance != null) && map.mapPawns.FreeColonistsAndPrisonersSpawnedCount <= 0)
+            if (TicksUntilCollapse <= 0 || (!this.map.listerThings.GetThingsOfType<CaveExit>().Any(x => x.caveEntrance != null) && map.mapPawns.FreeColonistsAndPrisonersSpawnedCount <= 0))
             {
                 FinishCollapsing();
+                return;
             }
 
-            float mtb = HoursToShakeMTBTicksCurve.Evaluate(caveEntrance.TicksUntilCollapse / 2500f);
+            float mtb = HoursToShakeMTBTicksCurve.Evaluate(TicksUntilCollapse / 2500f);
             if (map == Find.CurrentMap)
             {
                 if (caveEntrance.CollapseStage == 1)
@@ -234,26 +243,23 @@ namespace Shashlichnik
                 }
             }
         }
-        public void Notify_BeginCollapsing(CaveEntrance sender, int collapseDurationTicks)
+        public void BeginCollapsing(CaveEntrance sender)
         {
-            foreach (var otherExit in this.map.listerThings.GetThingsOfType<CaveExit>())
+            if (IsCollapsing)
             {
-                otherExit.caveEntrance?.BeginCollapsing(collapseDurationTicks, false);
+                return;
             }
+            collapseTick = Find.TickManager.TicksGame + CollapseDurationTicks.RandomInRange;
             SoundDefOf.UndercaveRumble?.PlayOneShotOnCamera(map);
             Find.CameraDriver.shaker.DoShake(0.2f, 120);
             var letter = LetterMaker.MakeLetter("ShashlichnikCaveCollapsing".Translate(), "ShashlichnikCaveCollapsingDesc".Translate(), LetterDefOf.ThreatBig, new LookTargets(caveExit));
             Find.LetterStack.ReceiveLetter(letter);
         }
-        public void Notify_ExitDestroyed(CaveEntrance sender)
+        public void Notify_ExitDestroyed(CaveExit caveExit, IntVec3 cell)
         {
-            if (this.map.listerThings.GetThingsOfType<CaveExit>().Except(sender.caveExit).Any() && map.mapPawns.FreeColonistsAndPrisonersCount > 0)
+            if (this.map.listerThings.GetThingsOfType<CaveExit>().Except(caveExit).Any() && map.mapPawns.FreeColonistsAndPrisonersCount > 0)
             {
-                var cell = sender.caveExit.Position;
                 Messages.Message("ShashlichnikMessageCaveExitCollapsed".Translate(), new TargetInfo(cell, map, false), MessageTypeDefOf.NeutralEvent, true);
-                Thing.allowDestroyNonDestroyable = true;
-                sender.caveExit.Destroy(DestroyMode.Vanish);
-                Thing.allowDestroyNonDestroyable = false;
                 QueueSingleLandslide(cell, Rand.Range(10, 120));
                 foreach (var landslideCell in GenAdj.CellsAdjacentCardinal(cell, Rot4.North, IntVec2.One))
                 {
@@ -263,7 +269,7 @@ namespace Shashlichnik
             else
             {
                 FinishCollapsing();
-                Messages.Message("ShashlichnikMessageCaveCollapsed".Translate(), new TargetInfo(sender.Position, sender.Map, false), MessageTypeDefOf.NeutralEvent, true);
+                Messages.Message("ShashlichnikMessageCaveCollapsed".Translate(), new TargetInfo(caveExit.Position, caveExit.Map, false), MessageTypeDefOf.NeutralEvent, true);
             }
         }
         protected void FinishCollapsing()
@@ -276,6 +282,13 @@ namespace Shashlichnik
                 if (!pawn.Dead)
                 {
                     pawn.Kill(new DamageInfo?(damageInfo), null);
+                }
+            }
+            foreach (var caveExit in map.listerThings.GetThingsOfType<CaveExit>())
+            {
+                if (!caveExit.Destroyed)
+                {
+                    caveExit.Destroy(DestroyMode.KillFinalize);
                 }
             }
             PocketMapUtility.DestroyPocketMap(map);
@@ -344,11 +357,15 @@ namespace Shashlichnik
             Scribe_References.Look(ref caveEntrance, nameof(caveEntrance), false);
             Scribe_References.Look(ref caveExit, nameof(caveExit), false);
             Scribe_Collections.Look(ref queuedLandslides, nameof(queuedLandslides), LookMode.Value, LookMode.Value);
+            Scribe_Values.Look(ref collapseTick , nameof(collapseTick), null);
+            
         }
 
+        private static readonly IntRange CollapseDurationTicks = new IntRange(GenDate.TicksPerHour * 3, GenDate.TicksPerHour * 7);
         public Dictionary<IntVec3, int> queuedLandslides = new Dictionary<IntVec3, int>();
         public CaveEntrance caveEntrance;
         public CaveExit caveExit;
         public int initialRockCount;
+        public int? collapseTick;
     }
 }

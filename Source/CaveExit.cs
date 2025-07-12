@@ -83,6 +83,22 @@ namespace Shashlichnik
             };
         }
 
+        public override void Destroy(DestroyMode mode = DestroyMode.Vanish)
+        {
+            var cell = Position;
+            Thing.allowDestroyNonDestroyable = true;
+            base.Destroy(mode);
+            Thing.allowDestroyNonDestroyable = false;
+            if (Map != null && !Map.Disposed)
+            {
+                Map.GetComponent<CaveMapComponent>().Notify_ExitDestroyed(this, cell);
+            }
+            if (caveEntrance != null && !caveEntrance.Destroyed)
+            {
+                caveEntrance.Destroy(mode);
+            }
+        }
+
         public override void ExposeData()
         {
             base.ExposeData();

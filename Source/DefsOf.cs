@@ -9,6 +9,7 @@ using Verse;
 namespace Shashlichnik
 {
     [RimWorld.DefOf]
+#pragma warning disable 649
     internal static class DefsOf
     {
         public static ThingDef          ShashlichnikCaveExit;
@@ -26,4 +27,5 @@ namespace Shashlichnik
         public static SoundDef          ShashlichnikVanillaCollapsingStage2;
         public static SitePartDef       ShashlichnikCaveEnter;
     }
+#pragma warning restore 649
 }

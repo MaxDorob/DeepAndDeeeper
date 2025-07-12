@@ -81,7 +81,7 @@ namespace Shashlichnik
                 }
                 ticksToOpen = value;
                 tickOpened = Find.TickManager.TicksGame;
-                if (value <= 0)
+                if (value <= 0 && cave == null)
                 {
                     GenerateUndercave();
                 }

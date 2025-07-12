@@ -15,19 +15,6 @@ namespace Shashlichnik
     public class CaveMapComponent : UndercaveMapComponent
     {
         public List<EffecterDef> ambient = [DefsOf.ShashlichnikCaveCeilingDebris];
-        public Map SourceMap
-        {
-            get
-            {
-                PocketMapParent pocketMapParent = map.Parent as PocketMapParent;
-                if (pocketMapParent == null)
-                {
-                    return null;
-                }
-                return pocketMapParent.sourceMap;
-            }
-        }
-
         public CaveMapComponent(Map map) : base(map)
         {
         }

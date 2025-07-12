@@ -114,8 +114,5 @@ namespace Shashlichnik
 
         public CaveEntrance caveEntrance;
         public bool exitIfNoJob = false;
-
-        [Unsaved(false)]
-        private Graphic cachedRopeGraphic;
     }
 }

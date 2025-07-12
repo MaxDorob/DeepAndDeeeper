@@ -146,7 +146,7 @@ namespace Shashlichnik
                 QueueLandslide(landslideTicksRange.RandomInRange, true);
             }
         }
-        SimpleCurve HoursToShakeMTBTicksCurve = new SimpleCurve()
+        new SimpleCurve HoursToShakeMTBTicksCurve = new SimpleCurve()
         {
             {
                 new CurvePoint(14f, 500f),

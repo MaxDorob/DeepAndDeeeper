@@ -49,6 +49,7 @@
 		<placeWorkers>
 			<li>Shashlichnik.PlaceWorker_Surface</li>
 		</placeWorkers>
+		<portal IgnoreIfNoMatchingField="True"></portal>
 	</ThingDef>
 
 	<ThingDef Name="CaveExit" ParentName="BuildingBase">
@@ -91,10 +92,12 @@
 				<effecterDef>UndercaveMapExitLightshafts</effecterDef>
 			</li>
 		</comps>
+		<portal IgnoreIfNoMatchingField="True"></portal>
 	</ThingDef>
 
 	<ThingDef ParentName="CaveExit">
 		<defName>ShashlichnikCaveExitToSurfaceInterest</defName>
 		<thingClass>Shashlichnik.CaveExitSurfaceInterest</thingClass>
+		<portal IgnoreIfNoMatchingField="True"></portal>
 	</ThingDef>
 </Defs>

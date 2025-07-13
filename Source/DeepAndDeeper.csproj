@@ -99,7 +99,7 @@
     <LangVersion>12</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release1.6|AnyCPU'">
-    <OutputPath>..\v1.6\Assemblies\</OutputPath>
+    <OutputPath>..\v1.6r2\Assemblies\</OutputPath>
     <DefineConstants>TRACE;v16</DefineConstants>
     <Optimize>true</Optimize>
     <DebugType>pdbonly</DebugType>

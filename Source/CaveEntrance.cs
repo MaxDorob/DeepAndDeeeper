@@ -210,9 +210,11 @@ namespace Shashlichnik
         public void GenerateUndercave()
         {
             var mapSize = Mod.Settings.mapSize;
+            PocketMapUtility.currentlyGeneratingPortal = this;
             cave = PocketMapUtility.GeneratePocketMap(new IntVec3(mapSize, 1, mapSize), DefsOf.ShashlichnikUnderground, null, base.Map);
             caveExit = cave.listerThings.ThingsOfDef(DefsOf.ShashlichnikCaveExit).First() as CaveExit;
             caveExit.caveEntrance = this;
+            PocketMapUtility.currentlyGeneratingPortal = null;
         }
 
         public override bool IsEnterable(out string reason)

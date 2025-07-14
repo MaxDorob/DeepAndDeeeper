@@ -15,7 +15,6 @@
 	<ShashlichnikUndergroundTemperatureModifier>Underground temperature modifier</ShashlichnikUndergroundTemperatureModifier>
 	<ShashlichnikMustBeOnSurface>Must be on surface.</ShashlichnikMustBeOnSurface>
 	<ShashlichnikCaveNotDugYet>Cave has not been dug yet</ShashlichnikCaveNotDugYet>
-	<ShashlichnikCaveCollapsing>Cave is collapsing</ShashlichnikCaveCollapsing>
 	<ShashlichnikStabilitySystemEnabled>Stability system enabled</ShashlichnikStabilitySystemEnabled>
 	<ShashlichnikLandslidesEnabled>Landslides enabled</ShashlichnikLandslidesEnabled>
 	<ShashlichnikMineableModifier>Mineable resources modifier</ShashlichnikMineableModifier>

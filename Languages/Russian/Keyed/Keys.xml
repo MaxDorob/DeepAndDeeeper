@@ -22,4 +22,6 @@
 	<ShashlichnikMineableModifierExplanation>Регулирует количество ресурсов на подземной карте. Значение 4 эквиваленто количеству на равниной карте, а значение 15 соответсвует горной местности.\nПо умолчанию 7.</ShashlichnikMineableModifierExplanation>
 	<ShashlichnikExitIfNoWork>Выходить если нет работы</ShashlichnikExitIfNoWork>
 	<ShashlichnikExitIfNoWorkDesc>Колонисты будут выходить на поверхность если здесь не осталось работы</ShashlichnikExitIfNoWorkDesc>
+	<ShashlichnikAutoEnter>Входить по желанию</ShashlichnikAutoEnter>
+	<ShashlichnikAutoEnterDesc>Колонисты будут спускаться в пещеру автоматически при наличии работы снизу (только добыча и переноска)</ShashlichnikAutoEnterDesc>
 </LanguageData>

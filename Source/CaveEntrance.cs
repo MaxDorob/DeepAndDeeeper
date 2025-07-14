@@ -94,6 +94,7 @@ namespace Shashlichnik
             Scribe_References.Look(ref cave, nameof(cave), false);
             Scribe_References.Look(ref caveExit, nameof(caveExit), false);
             Scribe_Values.Look(ref ticksToOpen, nameof(ticksToOpen));
+            Scribe_Values.Look(ref autoEnter, nameof(autoEnter), false);
             BackwardCompatibility();
         }
 #pragma warning disable 0618
@@ -303,6 +304,14 @@ namespace Shashlichnik
                         CameraJumper.TryJumpAndSelect(caveExit, CameraJumper.MovementMode.Pan);
                     }
                 };
+                yield return new Command_Toggle
+                {
+                    defaultLabel = "ShashlichnikAutoEnter".Translate(),
+                    defaultDesc = "ShashlichnikAutoEnterDesc".Translate(),
+                    icon = enterTex,
+                    isActive = () => autoEnter,
+                    toggleAction = () => autoEnter = !autoEnter
+                };
             }
             if (ticksToOpen > 0 && DebugSettings.ShowDevGizmos)
             {
@@ -343,5 +352,6 @@ namespace Shashlichnik
         internal Sustainer collapseSustainer;
         internal Effecter collapseEffecter1;
         internal Effecter collapseEffecter2;
+        public bool autoEnter;
     }
 }

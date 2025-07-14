@@ -22,4 +22,6 @@
 	<ShashlichnikMineableModifierExplanation>Adjusts the amount of resources on the underground map. A value of 4 is equivalent to a flat map, while a value of 15 corresponds to mountainous terrain.\nDefault is 7.</ShashlichnikMineableModifierExplanation>
 	<ShashlichnikExitIfNoWork>Exit if no work</ShashlichnikExitIfNoWork>
 	<ShashlichnikExitIfNoWorkDesc>Colonists will go the surface if there's no work left</ShashlichnikExitIfNoWorkDesc>
+	<ShashlichnikAutoEnter>Enter at will</ShashlichnikAutoEnter>
+	<ShashlichnikAutoEnterDesc>Colonist will automatically enter the cave if there's a work to do (mining and hauling only)</ShashlichnikAutoEnterDesc>
 </LanguageData>

@@ -13,4 +13,45 @@
     </requiredCapacities>
   </WorkGiverDef>
 
+	<WorkGiverDef>
+		<defName>ShashlichnikGoDownIfJobUnderground_Miner</defName>
+		<label>go down for mining</label>
+		<giverClass>Shashlichnik.WorkGiver_GoDownIfJobUnderground_Miner</giverClass>
+		<workType>Mining</workType>
+		<directOrderable>false</directOrderable>
+		<verb>go down</verb>
+		<gerund>going down</gerund>
+		<priorityInType>43</priorityInType>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+	</WorkGiverDef>
+
+	<WorkGiverDef>
+		<defName>ShashlichnikGoDownIfJobUnderground_Haul</defName>
+		<label>go down for hauling</label>
+		<giverClass>Shashlichnik.WorkGiver_GoDownIfJobUnderground_Haul</giverClass>
+		<workType>Hauling</workType>
+		<directOrderable>false</directOrderable>
+		<verb>go down</verb>
+		<gerund>going down</gerund>
+		<priorityInType>43</priorityInType>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+	</WorkGiverDef>
+
+	<WorkGiverDef>
+		<defName>ShashlichnikGoDownIfJobUnderground_HaulToPortal</defName>
+		<label>go down for hauling</label>
+		<giverClass>Shashlichnik.WorkGiver_GoDownIfJobUnderground_HaulToPortal</giverClass>
+		<workType>Hauling</workType>
+		<directOrderable>false</directOrderable>
+		<verb>go down</verb>
+		<gerund>going down</gerund>
+		<priorityInType>43</priorityInType>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+	</WorkGiverDef>
 </Defs>

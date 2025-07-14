@@ -80,6 +80,10 @@
     <Compile Include="ScatterValidator_OtherBuildings.cs" />
     <Compile Include="Site_ShouldRemoveMap_Patch.cs" />
     <Compile Include="WorkGiver_DigCaveEntrance.cs" />
+    <Compile Include="WorkGiver_GoDownIfJobUnderground.cs" />
+    <Compile Include="WorkGiver_GoDownIfJobUnderground_Haul.cs" />
+    <Compile Include="WorkGiver_GoDownIfJobUnderground_HaulToPortal.cs" />
+    <Compile Include="WorkGiver_GoDownIfJobUnderground_Miner.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Krafs.Publicizer">

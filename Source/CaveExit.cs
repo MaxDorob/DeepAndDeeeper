@@ -70,8 +70,8 @@ namespace Shashlichnik
             }
             yield return new Command_Toggle
             {
-                defaultLabel = "ShashlichnikExitIfNoJob".Translate(),
-                defaultDesc = "ShashlichnikExitIfNoJobDesc".Translate(),
+                defaultLabel = "ShashlichnikExitIfNoWork".Translate(),
+                defaultDesc = "ShashlichnikExitIfNoWorkDesc".Translate(),
                 icon = CaveExit.ExitCaveTex.Texture,
                 isActive = () => exitIfNoJob,
                 toggleAction = () => exitIfNoJob = !exitIfNoJob

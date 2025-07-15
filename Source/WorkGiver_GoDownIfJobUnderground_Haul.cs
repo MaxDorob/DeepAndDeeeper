@@ -14,9 +14,13 @@ namespace Shashlichnik
         {
             return caveExit.Map.listerHaulables.ThingsPotentiallyNeedingHauling();
         }
+        public override bool ShouldSkip(Pawn pawn, bool forced = false)
+        {
+            return pawn.Map.listerBuildings.AllColonistBuildingsOfType<CaveEntrance>().All(x=>x.Map.listerHaulables.ThingsPotentiallyNeedingHauling().Count == 0);
+        }
         protected override bool IsTargetAvailable(Thing target, Map map, IntVec3 startPos, Pawn forPawn)
         {
-            return base.IsTargetAvailable(target, map, startPos, forPawn) && StoreUtility.TryFindBestBetterStorageFor(target, null, map, StoreUtility.CurrentStoragePriorityOf(target), forPawn.Faction, out _, out _);
+            return base.IsTargetAvailable(target, map, startPos, forPawn) && StoreUtility.TryFindBestBetterStorageFor(target, null, map, StoreUtility.CurrentStoragePriorityOf(target), forPawn.Faction, out _, out _, false);
         }
     }
 }

@@ -24,7 +24,7 @@ namespace Shashlichnik
 
         public override bool ShouldSkip(Pawn pawn, bool forced = false)
         {
-            return base.ShouldSkip(pawn, forced);
+            return !pawn.Map.listerBuildings.AllColonistBuildingsOfType<CaveEntrance>().Any();
         }
         public override bool HasJobOnThing(Pawn pawn, Thing t, bool forced = false)
         {
@@ -58,7 +58,7 @@ namespace Shashlichnik
             return !target.IsForbidden(forPawn) &&
                         !IsAlreadyReserved(target) &&
                         (!forPawn.playerSettings.allowedAreas.TryGetValue(map, out var caveArea) || caveArea[target.Position]) &&
-                        CheckCellBasedReachability(map, startPos, target, PathEndMode, TraverseParms.For(TraverseMode.PassDoors));
+                        map.reachability.CanReach(startPos, target.Position, PathEndMode.ClosestTouch, TraverseParms.For(TraverseMode.ByPawn));
         }
         protected bool IsAlreadyReserved(Thing target)
         {
@@ -67,37 +67,6 @@ namespace Shashlichnik
                 return true;
             }
             if (Find.Maps.SelectMany(x=>x.mapPawns.FreeColonistsSpawned).Any(x=>x.CurJob?.targetB == target))
-            {
-                return true;
-            }
-            return false;
-        }
-        private static bool CheckCellBasedReachability(Map map, IntVec3 start, LocalTargetInfo dest, PathEndMode peMode, TraverseParms traverseParams)
-        {
-            IntVec3 foundCell = IntVec3.Invalid;
-            Region[] directRegionGrid = map.regionGrid.DirectGrid;
-            PathGrid pathGrid = map.pathing.For(traverseParams).pathGrid;
-            CellIndices cellIndices = map.cellIndices;
-            map.floodFiller.FloodFill(start, (IntVec3 c) =>
-            {
-                int num = cellIndices.CellToIndex(c);
-                if (!pathGrid.WalkableFast(num))
-                {
-                    return false;
-                }
-
-                Region region = directRegionGrid[num];
-                return region == null || region.Allows(traverseParams, false);
-            }, (c) =>
-            {
-                if (ReachabilityImmediate.CanReachImmediate(c, dest, map, peMode, traverseParams.pawn))
-                {
-                    foundCell = c;
-                    return true;
-                }
-                return false;
-            });
-            if (foundCell.IsValid)
             {
                 return true;
             }

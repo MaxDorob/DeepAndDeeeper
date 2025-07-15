@@ -24,7 +24,7 @@ namespace Shashlichnik
 
         public override bool ShouldSkip(Pawn pawn, bool forced = false)
         {
-            return !pawn.Map.listerBuildings.AllColonistBuildingsOfType<CaveEntrance>().Any();
+            return !pawn.Map.listerBuildings.AllColonistBuildingsOfType<CaveEntrance>().Any(x => x.autoEnter);
         }
         public override bool HasJobOnThing(Pawn pawn, Thing t, bool forced = false)
         {

@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Alert_CaveStability.cs" />
+    <Compile Include="BackCompatibilityConverter_ForceLoadUnderground.cs" />
     <Compile Include="CaveEntrance.cs" />
     <Compile Include="CaveExit.cs" />
     <Compile Include="CaveExitSurfaceInterest.cs" />

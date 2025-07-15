@@ -104,13 +104,8 @@ namespace Shashlichnik
             if (Scribe.mode == LoadSaveMode.LoadingVars)
             {
                 Scribe_Values.Look(ref collapseTick, nameof(collapseTick), 0, false);
-                Scribe_Values.Look(ref isCollapsing, nameof(isCollapsing), false, false);
-                if (isCollapsing && CaveMapComponent != null)
-                {
-                    CaveMapComponent.collapseTick = this.collapseTick;
-                }
+                Scribe_Values.Look(ref isCollapsing, nameof(isCollapsing), false, false);   
             }
-
         }
 #pragma warning restore 0618
 
@@ -187,17 +182,6 @@ namespace Shashlichnik
             {
                 caveExit.Destroy(mode);
             }
-        }
-
-        public override void SpawnSetup(Map map, bool respawningAfterLoad)
-        {
-            base.SpawnSetup(map, respawningAfterLoad);
-#pragma warning disable 0618
-            if (respawningAfterLoad && isCollapsing && CaveMapComponent != null)
-            {
-                CaveMapComponent.collapseTick = this.collapseTick;
-            }
-#pragma warning restore 0618
         }
 
         public void BeginCollapsing()
@@ -342,11 +326,11 @@ namespace Shashlichnik
 
         public int tickOpened = -999999;
         [Obsolete($"Use {nameof(CaveMapComponent)}.{nameof(Shashlichnik.CaveMapComponent.collapseTick)} instead")]
-        public int collapseTick = -999999;
+        internal int collapseTick = -999999;
         private int ticksToOpen = tickToOpenConst;
         public const int tickToOpenConst = GenDate.TicksPerHour * 36;
         [Obsolete($"Use {nameof(CaveMapComponent)}.{nameof(Shashlichnik.CaveMapComponent.IsCollapsing)} instead")]
-        private bool isCollapsing;
+        internal bool isCollapsing;
         public Map cave;
         public CaveExit caveExit;
         internal Sustainer collapseSustainer;

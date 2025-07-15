@@ -17,7 +17,7 @@ namespace Shashlichnik
         {
             if (t is CaveEntrance entrance && entrance.autoEnter && entrance.caveExit != null && (!entrance.caveExit.exitIfNoJob || pawn.timetable.CurrentAssignment != TimeAssignmentDefOf.Sleep) && TryFindFirstAvailableJobTargetAt(entrance.caveExit, pawn, out var targetThing))
             {
-                return JobMaker.MakeJob(JobDefOf.EnterPortal, t, targetThing); //I'd like to use ReservationManager, but it is designed to work with the pawn on the same map only - there's no cross-map reservations
+                return JobMaker.MakeJob(DefsOf.ShashlichnikEnterPortalForJob, t, targetThing); //I'd like to use ReservationManager, but it is designed to work with the pawn on the same map only - there's no cross-map reservations
             }
             return null;
         }
@@ -63,10 +63,6 @@ namespace Shashlichnik
         protected bool IsAlreadyReserved(Thing target)
         {
             if (target?.Map?.reservationManager?.TryGetReserver(target, Faction.OfPlayer, out var reserver) ?? false)
-            {
-                return true;
-            }
-            if (Find.Maps.SelectMany(x=>x.mapPawns.FreeColonistsSpawned).Any(x=>x.CurJob?.targetB == target))
             {
                 return true;
             }

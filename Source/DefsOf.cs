@@ -26,6 +26,7 @@ namespace Shashlichnik
         public static SoundDef          ShashlichnikVanillaCollapsingStage1;
         public static SoundDef          ShashlichnikVanillaCollapsingStage2;
         public static SitePartDef       ShashlichnikCaveEnter;
+        public static JobDef            ShashlichnikEnterPortalForJob;
     }
 #pragma warning restore 649
 }

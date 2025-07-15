@@ -24,4 +24,6 @@
 	<ShashlichnikExitIfNoWorkDesc>Колонисты будут выходить на поверхность если здесь не осталось работы</ShashlichnikExitIfNoWorkDesc>
 	<ShashlichnikAutoEnter>Входить по желанию</ShashlichnikAutoEnter>
 	<ShashlichnikAutoEnterDesc>Колонисты будут спускаться в пещеру автоматически при наличии работы снизу (только добыча и переноска)</ShashlichnikAutoEnterDesc>
+	<WeAreRich>Мы богаты!</WeAreRich>
+	<ShashlichnikShutUp>Заткнитесь!</ShashlichnikShutUp>
 </LanguageData>

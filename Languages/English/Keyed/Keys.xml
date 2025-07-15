@@ -23,4 +23,6 @@
 	<ShashlichnikExitIfNoWorkDesc>Colonists will go the surface if there's no work left</ShashlichnikExitIfNoWorkDesc>
 	<ShashlichnikAutoEnter>Enter at will</ShashlichnikAutoEnter>
 	<ShashlichnikAutoEnterDesc>Colonist will automatically enter the cave if there's a work to do (mining and hauling only)</ShashlichnikAutoEnterDesc>
+	<WeAreRich>We're rich!</WeAreRich>
+	<ShashlichnikShutUp>Shut up!</ShashlichnikShutUp>
 </LanguageData>

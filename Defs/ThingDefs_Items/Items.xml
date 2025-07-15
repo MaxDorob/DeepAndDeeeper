@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="ResourceBase">
+    <defName>ShashlichnikCompressedGold</defName>
+    <label>compressed gold</label>
+    <description>A huge piece of gold. We're rich!</description>
+		<tickerType>Normal</tickerType>
+    <graphicData>
+      <texPath>Things/Item/Resource/Gold</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+			<texPath>Things/Item/Health/HealthItem</texPath>
+			<drawSize>1.3</drawSize>
+			<color>(255,235,122)</color>
+    </graphicData>
+    <soundInteract>Silver_Drop</soundInteract>
+    <soundDrop>Silver_Drop</soundDrop>
+    <useHitPoints>false</useHitPoints>
+    <healthAffectsPrice>false</healthAffectsPrice>
+    <statBases>
+      <MarketValue>1500</MarketValue>
+      <RoyalFavorValue>1.5</RoyalFavorValue>
+      <Mass>8</Mass>
+			<Beauty>35</Beauty>
+    </statBases>
+    <stackLimit>1</stackLimit>
+    <burnableByRecipe>false</burnableByRecipe>
+    <possessionCount>80</possessionCount>
+    <allowedArchonexusCount>1</allowedArchonexusCount>
+		<comps>
+			<li Class="Shashlichnik.Spammer_CompProperties">
+			</li>
+		</comps>
+  </ThingDef>
+
+</Defs>

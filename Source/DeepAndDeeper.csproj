@@ -80,7 +80,9 @@
     <Compile Include="PlaceWorker_Surface.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScatterValidator_OtherBuildings.cs" />
+    <Compile Include="ShutUpLetter.cs" />
     <Compile Include="Site_ShouldRemoveMap_Patch.cs" />
+    <Compile Include="SpammerComp.cs" />
     <Compile Include="WorkGiver_DigCaveEntrance.cs" />
     <Compile Include="WorkGiver_GoDownIfJobUnderground.cs" />
     <Compile Include="WorkGiver_GoDownIfJobUnderground_Haul.cs" />

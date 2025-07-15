@@ -19,7 +19,7 @@ namespace Shashlichnik
 #endif
             )
         {
-            if (__instance.isPocketMap && __instance.parent is PocketMapParent pocketMapParent && pocketMapParent.Map.GetComponent<CaveMapComponent>() != null)
+            if (__instance.isPocketMap && __instance.parent is PocketMapParent pocketMapParent && pocketMapParent.sourceMap != null && pocketMapParent.Map?.GetComponent<CaveMapComponent>() != null)
             {
                 __result = pocketMapParent.sourceMap.Tile;
                 return false;

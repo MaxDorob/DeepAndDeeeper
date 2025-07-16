@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Verse;
+using Verse.AI;
 
 namespace Shashlichnik
 {
@@ -28,6 +29,11 @@ namespace Shashlichnik
         public static SitePartDef       ShashlichnikCaveEnter;
         public static JobDef            ShashlichnikEnterPortalForJob;
         public static LetterDef         ShashlichnikPositiveEventShutUp;
+        public static ThingDef          Beer;
+        public static PawnKindDef       ShashlichnikDeepDiver;
+        public static DutyDef           ShashlichnikMineForever;
+        [MayRequire("det.stoneborn")]
+        public static FactionDef        OutlanderRoughStoneborn;
     }
 #pragma warning restore 649
 }

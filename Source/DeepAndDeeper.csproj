@@ -63,6 +63,7 @@
     <Compile Include="GenStep_CaveInterest_Mushrooms.cs" />
     <Compile Include="GenStep_CaveInterest_SingleCryptosleep.cs" />
     <Compile Include="GenStep_Caves.cs" />
+    <Compile Include="GenStep_DeepDiver.cs" />
     <Compile Include="GenStep_ExitToSurfaceInterest.cs" />
     <Compile Include="GenStep_FindCaveExit.cs" />
     <Compile Include="GenStep_CaveInterest_LostPawn.cs" />
@@ -71,8 +72,14 @@
     <Compile Include="GenStep_UndergroundLakes.cs" />
     <Compile Include="JobDriver_Dig.cs" />
     <Compile Include="JobDriver_EnterPortalForJob.cs" />
+    <Compile Include="JobGiver_DigClosestCluster.cs" />
+    <Compile Include="JobGiver_DrinkBeer.cs" />
+    <Compile Include="JobGiver_ExitMapPortal.cs" />
     <Compile Include="JobGiver_ExitMap_Patch.cs" />
     <Compile Include="JobGiver_LeaveCave.cs" />
+    <Compile Include="JobGiver_LootAround.cs" />
+    <Compile Include="LordJob_MineClusters.cs" />
+    <Compile Include="LordToil_MineClusters.cs" />
     <Compile Include="MapInfo_Tile_Patch.cs" />
     <Compile Include="MapTemperature_Patch.cs" />
     <Compile Include="Mod.cs" />

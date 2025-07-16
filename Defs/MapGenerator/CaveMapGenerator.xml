@@ -35,6 +35,7 @@
 			<li>ShashlichnikUndergroundInterest_Mushrooms</li>
 			<li>ShashlichnikUndergroundInterest_Hive</li>
 			<li>ShashlichnikUndergroundInterest_SingleCryptosleepPod</li>
+			<li>ShashlichnikUndergroundInterest_DeepDiver</li>
 			<li MayRequire="RimWorld.Ludeon.Anomaly">ShashlichnikUndergroundInterest_Fleshbeasts</li>
 			<li>Plants</li>
 			<li>Fog</li>
@@ -99,7 +100,15 @@
 			<distanceToPlayer>50</distanceToPlayer>
 		</genStep>
 	</GenStepDef>
-
+	
+	<GenStepDef>
+		<defName>ShashlichnikUndergroundInterest_DeepDiver</defName>
+		<order>648</order>
+		<genStep Class="Shashlichnik.GenStep_DeepDiver" >
+			<distanceToPlayer>35</distanceToPlayer>
+		</genStep>
+	</GenStepDef>
+	
 	<GenStepDef>
 		<defName>ShashlichnikUndergroundInterest_Chemfuel</defName>
 		<order>650</order>

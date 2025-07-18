@@ -21,7 +21,7 @@ namespace Shashlichnik
         {
             get
             {
-                return CaveMapComponent?.IsCollapsing ?? false;
+                return CaveMapComponent?.IsCollapsing ?? this.Map.GetComponent<CaveMapComponent>()?.IsCollapsing ?? false;
             }
         }
         private static IEnumerable<MapGeneratorDef> GeneratorsByLevel

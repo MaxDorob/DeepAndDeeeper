@@ -24,6 +24,22 @@ namespace Shashlichnik
                 return CaveMapComponent?.IsCollapsing ?? false;
             }
         }
+        private static IEnumerable<MapGeneratorDef> GeneratorsByLevel
+        {
+            get
+            {
+                yield return DefsOf.ShashlichnikUnderground;
+                yield return DefsOf.ShashlichnikUndergroundLvl2;
+            }
+        }
+        protected MapGeneratorDef MapGeneratorDef
+        {
+            get
+            {
+                return GeneratorsByLevel.ElementAtOrDefault(Level) ?? GeneratorsByLevel.Last(); 
+            }
+        }
+        public int Level => Map.GetComponent<CaveMapComponent>()?.caveEntrance?.Level + 1 ?? 0;
         public int CollapseTick => CaveMapComponent?.collapseTick ?? -999999;
         private CaveMapComponent caveMapComponent;
         public CaveMapComponent CaveMapComponent
@@ -104,7 +120,7 @@ namespace Shashlichnik
             if (Scribe.mode == LoadSaveMode.LoadingVars)
             {
                 Scribe_Values.Look(ref collapseTick, nameof(collapseTick), 0, false);
-                Scribe_Values.Look(ref isCollapsing, nameof(isCollapsing), false, false);   
+                Scribe_Values.Look(ref isCollapsing, nameof(isCollapsing), false, false);
             }
         }
 #pragma warning restore 0618
@@ -184,11 +200,11 @@ namespace Shashlichnik
             }
         }
 
-        public void BeginCollapsing()
+        public void BeginCollapsing(bool silent = false, int? forcedCollapseTick = null)
         {
             if (!IsCollapsing)
             {
-                CaveMapComponent.BeginCollapsing(this);
+                CaveMapComponent?.BeginCollapsing(this, silent, forcedCollapseTick);
             }
         }
 
@@ -198,7 +214,7 @@ namespace Shashlichnik
 #if v16
             PocketMapUtility.currentlyGeneratingPortal = this;
 #endif
-            cave = PocketMapUtility.GeneratePocketMap(new IntVec3(mapSize, 1, mapSize), DefsOf.ShashlichnikUnderground, null, base.Map);
+            cave = PocketMapUtility.GeneratePocketMap(new IntVec3(mapSize, 1, mapSize), MapGeneratorDef, null, base.Map);
             caveExit = cave.listerThings.ThingsOfDef(DefsOf.ShashlichnikCaveExit).First() as CaveExit;
             caveExit.caveEntrance = this;
 #if v16

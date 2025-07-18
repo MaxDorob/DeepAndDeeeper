@@ -16,6 +16,7 @@ namespace Shashlichnik
         public static ThingDef          ShashlichnikCaveExit;
         public static ThingDef          ShashlichnikCaveExitToSurfaceInterest;
         public static MapGeneratorDef   ShashlichnikUnderground;
+        public static MapGeneratorDef   ShashlichnikUndergroundLvl2;
         public static ThingDef          ShashlichnikCaveEntrance;
         public static JobDef            ShashlichnikDigCaveEntrance;
         public static EffecterDef       ShashlichnikImpactDustCloud;

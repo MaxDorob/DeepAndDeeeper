@@ -230,13 +230,21 @@ namespace Shashlichnik
                 }
             }
         }
-        public void BeginCollapsing(CaveEntrance sender)
+        public void BeginCollapsing(CaveEntrance sender, bool silent = false, int? forcedCollapseTick = null)
         {
             if (IsCollapsing)
             {
                 return;
             }
-            collapseTick = Find.TickManager.TicksGame + CollapseDurationTicks.RandomInRange;
+            collapseTick = forcedCollapseTick ?? Find.TickManager.TicksGame + CollapseDurationTicks.RandomInRange;
+            foreach (var caveEntrance in map.listerThings.GetThingsOfType<CaveEntrance>())
+            {
+                caveEntrance.BeginCollapsing(true);
+            }
+            if (silent)
+            {
+                return;
+            }
             SoundDefOf.UndercaveRumble?.PlayOneShotOnCamera(map);
             Find.CameraDriver.shaker.DoShake(0.2f, 120);
             var letter = LetterMaker.MakeLetter("ShashlichnikCaveCollapsing".Translate(), "ShashlichnikCaveCollapsingDesc".Translate(), LetterDefOf.ThreatBig, new LookTargets(caveExit));

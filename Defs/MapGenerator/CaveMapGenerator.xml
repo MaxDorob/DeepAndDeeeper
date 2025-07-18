@@ -1,8 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-	<MapGeneratorDef Name="ShashlichnikUnderground">
-		<defName>ShashlichnikUnderground</defName>
+	<MapGeneratorDef Abstract="True" Name="ShashlichnikUndergroundBase">
 		<label>underground</label>
 		<isUnderground>true</isUnderground>
 		<forceCaves>true</forceCaves>
@@ -24,21 +23,34 @@
 			<li>ShashlichnikUndergroundTorches</li>
 			<li>ShashlichnikUndergroundLakes</li>
 			<li>ShashlichnikFindCaveExit</li>
-			<li>ShashlichnikCaveExitToSurfaceInterest</li>
+			<!--<li>ShashlichnikCaveExitToSurfaceInterest</li>-->
 			<li>ShashlichnikUnderground_Caves</li>
 			<li>RockChunks</li>
 			<li>ShashlichnikScatterShrines</li>
 			<li>ShashlichnikUndergroundInterest_LostPawn</li>
 			<li>ShashlichnikUndergroundInterest_Chemfuel</li>
-			<li>ShashlichnikUndergroundInterest_CorpsePile</li>
-			<li>ShashlichnikUndergroundInterest_CorpseGear</li>
+			<li>ShashlichnikWayDown</li>
+			<!--<li>ShashlichnikUndergroundInterest_CorpsePile</li>-->
+			<!--<li>ShashlichnikUndergroundInterest_CorpseGear</li>-->
 			<li>ShashlichnikUndergroundInterest_Mushrooms</li>
-			<li>ShashlichnikUndergroundInterest_Hive</li>
-			<li>ShashlichnikUndergroundInterest_SingleCryptosleepPod</li>
+			<!--<li>ShashlichnikUndergroundInterest_Hive</li>-->
+			<!--<li>ShashlichnikUndergroundInterest_SingleCryptosleepPod</li>-->
 			<li>ShashlichnikUndergroundInterest_DeepDiver</li>
 			<li MayRequire="RimWorld.Ludeon.Anomaly">ShashlichnikUndergroundInterest_Fleshbeasts</li>
 			<li>Plants</li>
 			<li>Fog</li>
+		</genSteps>
+	</MapGeneratorDef>
+	
+	<MapGeneratorDef ParentName="ShashlichnikUndergroundBase">
+		<defName>ShashlichnikUnderground</defName>
+		<genSteps>
+			<li>ShashlichnikCaveExitToSurfaceInterest</li>
+			<li>ShashlichnikUndergroundInterest_CorpsePile</li>
+			<li>ShashlichnikUndergroundInterest_CorpseGear</li>
+			<li>ShashlichnikUndergroundInterest_Hive</li>
+			<li>ShashlichnikUndergroundInterest_SingleCryptosleepPod</li>
+			<li MayRequire="RimWorld.Ludeon.Anomaly">ShashlichnikUndergroundInterest_Fleshbeasts</li>
 		</genSteps>
 	</MapGeneratorDef>
 
@@ -91,6 +103,14 @@
 		<defName>ShashlichnikCaveExitToSurfaceInterest</defName>
 		<order>301</order>
 		<genStep Class="Shashlichnik.GenStep_ExitToSurfaceInterest"/>
+	</GenStepDef>
+
+	<GenStepDef>
+		<defName>ShashlichnikWayDown</defName>
+		<order>302</order>
+		<genStep Class="Shashlichnik.GenStep_WayDown">
+			<distanceToPlayer>70</distanceToPlayer>
+		</genStep>
 	</GenStepDef>
 
 	<GenStepDef>

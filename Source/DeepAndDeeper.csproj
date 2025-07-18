@@ -70,6 +70,7 @@
     <Compile Include="GenStep_RocksFromGrid.cs" />
     <Compile Include="GenStep_UndergroundTorches.cs" />
     <Compile Include="GenStep_UndergroundLakes.cs" />
+    <Compile Include="GenStep_WayDown.cs" />
     <Compile Include="JobDriver_Dig.cs" />
     <Compile Include="JobDriver_EnterPortalForJob.cs" />
     <Compile Include="JobGiver_DigClosestCluster.cs" />

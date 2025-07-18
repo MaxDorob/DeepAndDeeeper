@@ -269,7 +269,6 @@ namespace Shashlichnik
             else
             {
                 FinishCollapsing();
-                Messages.Message("ShashlichnikMessageCaveCollapsed".Translate(), new TargetInfo(caveExit.Position, caveExit.Map, false), MessageTypeDefOf.NeutralEvent, true);
             }
         }
         protected void FinishCollapsing()
@@ -284,6 +283,7 @@ namespace Shashlichnik
                     pawn.Kill(new DamageInfo?(damageInfo), null);
                 }
             }
+            Messages.Message("ShashlichnikMessageCaveCollapsed".Translate(), new TargetInfo(caveExit.caveEntrance?.Position ?? IntVec3.Invalid, caveExit.caveEntrance?.Map, false), MessageTypeDefOf.NeutralEvent, true);
             foreach (var caveExit in map.listerThings.GetThingsOfType<CaveExit>())
             {
                 if (!caveExit.Destroyed)

@@ -154,7 +154,12 @@ namespace Shashlichnik
         }
         private void ProcessCollapsing()
         {
-            if (TicksUntilCollapse <= 0 || (!this.map.listerThings.GetThingsOfType<CaveExit>().Any(x => x.caveEntrance != null) && map.mapPawns.FreeColonistsAndPrisonersSpawnedCount <= 0))
+            if (TicksUntilCollapse <= 0)
+            {
+                FinishCollapsing();
+                return;
+            }
+            if (Gen.IsHashIntervalTick(map, 1800) && map.mapPawns.FreeColonistsAndPrisonersSpawnedCount <= 0 && !this.map.listerThings.GetThingsOfType<CaveExit>().Any(x => x.caveEntrance != null))
             {
                 FinishCollapsing();
                 return;

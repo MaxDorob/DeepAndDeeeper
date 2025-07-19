@@ -357,8 +357,8 @@ namespace Shashlichnik
             Scribe_References.Look(ref caveEntrance, nameof(caveEntrance), false);
             Scribe_References.Look(ref caveExit, nameof(caveExit), false);
             Scribe_Collections.Look(ref queuedLandslides, nameof(queuedLandslides), LookMode.Value, LookMode.Value);
-            Scribe_Values.Look(ref collapseTick , nameof(collapseTick), null);
-            
+            Scribe_Values.Look(ref collapseTick, nameof(collapseTick), null);
+
         }
 
         private static readonly IntRange CollapseDurationTicks = new IntRange(GenDate.TicksPerHour * 3, GenDate.TicksPerHour * 7);

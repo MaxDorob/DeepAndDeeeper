@@ -18,28 +18,44 @@ namespace Shashlichnik
                 {
                     yield return item;
                 }
-                yield return Option_ShutUp;
+                foreach (var item in ShutUpOptions)
+                {
+                    yield return item;
+                }
             }
         }
-        protected DiaOption Option_ShutUp
+        protected IEnumerable<string> ShutUpOptionStrings
         {
             get
             {
-                DiaOption diaOption = new DiaOption("ShashlichnikShutUp".Translate());
-                diaOption.action = delegate ()
+                yield return "ShashlichnikShutUp".Translate();
+                yield return "ShashlichnikShutUp1".Translate();
+                yield return "ShashlichnikShutUp2".Translate();
+                yield return "ShashlichnikShutUp3".Translate();
+            }
+        }
+        protected IEnumerable<DiaOption> ShutUpOptions
+        {
+            get
+            {
+                foreach (var optionString in ShutUpOptionStrings.TakeRandomDistinct(2))
                 {
-                    foreach (var target in lookTargets.targets)
+                    DiaOption diaOption = new DiaOption(optionString);
+                    diaOption.action = delegate ()
                     {
-                        var spammer = target.Thing?.TryGetComp<SpammerComp>();
-                        if (spammer != null)
+                        foreach (var target in lookTargets.targets)
                         {
-                            spammer.messagesLeft = 0;
+                            var spammer = target.Thing?.TryGetComp<SpammerComp>();
+                            if (spammer != null)
+                            {
+                                spammer.messagesLeft = 0;
+                            }
                         }
-                    }
-                    Find.LetterStack.RemoveLetter(this);
-                };
-                diaOption.resolveTree = true;
-                return diaOption;
+                        Find.LetterStack.RemoveLetter(this);
+                    };
+                    diaOption.resolveTree = true;
+                    yield return diaOption;
+                }
             }
         }
     }

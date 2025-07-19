@@ -26,4 +26,7 @@
 	<ShashlichnikAutoEnterDesc>Колонисты будут спускаться в пещеру автоматически при наличии работы снизу (только добыча и переноска)</ShashlichnikAutoEnterDesc>
 	<WeAreRich>Мы богаты!</WeAreRich>
 	<ShashlichnikShutUp>Заткнитесь!</ShashlichnikShutUp>
+	<ShashlichnikShutUp1>Да, да, вы богаты! Время двигаться дальше, у меня тут Руковдство дышит в шею!</ShashlichnikShutUp1>
+	<ShashlichnikShutUp2>Тик так, команда...! Время не резиновое!</ShashlichnikShutUp2>
+	<ShashlichnikShutUp3>Я говорил им, что позволять вам самим забирать золото, это ошибка...</ShashlichnikShutUp3>
 </LanguageData>

@@ -11,6 +11,7 @@
 			<li>ShashlichnikUndergroundInterest_SingleCryptosleepPod</li>
 			<li>ShashlichnikUnderground_RewardLvl3</li>
 			<li MayRequire="Ludeon.RimWorld.Anomaly">ShashlichnikUndergroundInterest_Noctol</li>
+			<li MayRequire="Ludeon.RimWorld.Anomaly">ShashlichnikUndergroundInterest_Metalhorror</li>
 		</genSteps>
 	</MapGeneratorDef>
 
@@ -31,6 +32,35 @@
 		</genStep>
 	</GenStepDef>
 	
+	<GenStepDef MayRequire="Ludeon.RimWorld.Anomaly">
+		<defName>ShashlichnikUndergroundInterest_Metalhorror</defName>
+		<order>654</order>
+		<genStep Class="Shashlichnik.GenStep_CaveInterest_Mutant">
+			<MinDistApart>1</MinDistApart>
+			<mutant>Metalhorror</mutant>
+			<countChances Inherit="False">
+				<li>
+					<count>0</count>
+					<chance>0.11</chance>
+				</li>
+				<li>
+					<count>1</count>
+					<chance>0.55</chance>
+				</li>
+				<li>
+					<count>2</count>
+					<chance>0.34</chance>
+				</li>
+			</countChances>
+			<subCountChances Inherit="False">
+				<li>
+					<count>1</count>
+					<chance>1</chance>
+				</li>
+			</subCountChances>
+		</genStep>
+	</GenStepDef>
+
 	<!--Reward-->
 	<ThingSetMakerDef>
 		<defName>ShashlichnikUndergroundLvl3Reward</defName>

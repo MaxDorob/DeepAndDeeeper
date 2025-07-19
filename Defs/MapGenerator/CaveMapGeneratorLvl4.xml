@@ -10,7 +10,7 @@
 			<li>ShashlichnikUndergroundInterest_Hive</li>
 			<li>ShashlichnikUndergroundInterest_SingleCryptosleepPod</li>
 			<li>ShashlichnikUnderground_RewardLvl4</li>
-			<li MayRequire="RimWorld.Ludeon.Anomaly">ShashlichnikUndergroundInterest_Fleshbeasts</li>
+			<li MayRequire="Ludeon.RimWorld.Anomaly">ShashlichnikUndergroundInterest_Metalhorror</li>
 		</genSteps>
 	</MapGeneratorDef>
 

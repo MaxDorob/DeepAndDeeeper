@@ -39,7 +39,7 @@ namespace Shashlichnik
                 return GeneratorsByLevel.ElementAtOrDefault(Level) ?? GeneratorsByLevel.Last(); 
             }
         }
-        public int Level => Map.GetComponent<CaveMapComponent>()?.caveEntrance?.Level + 1 ?? 0;
+        public int Level => Map?.GetComponent<CaveMapComponent>()?.caveEntrance?.Level + 1 ?? 0;
         public int CollapseTick => CaveMapComponent?.collapseTick ?? -999999;
         private CaveMapComponent caveMapComponent;
         public CaveMapComponent CaveMapComponent
@@ -192,6 +192,10 @@ namespace Shashlichnik
         {
             Map map = base.Map;
             Collapse();
+            if (!IsCollapsing)
+            {
+                BeginCollapsing();
+            }
             base.Destroy(mode);
             EffecterDefOf.ImpactDustCloud?.Spawn(base.Position, map, 1f).Cleanup();
             if (caveExit != null && !caveExit.Destroyed)

@@ -241,8 +241,11 @@ namespace Shashlichnik
         public override string GetInspectString()
         {
             var sb = new StringBuilder(base.GetInspectString());
-            sb.AppendLineIfNotEmpty();
-            sb.Append("WorkLeft".Translate() + ": " + ((float)ticksToOpen).ToStringWorkAmount());
+            if (TicksToOpen > 0)
+            {
+                sb.AppendLineIfNotEmpty();
+                sb.Append("WorkLeft".Translate() + ": " + ((float)ticksToOpen).ToStringWorkAmount());
+            }
             return sb.ToString();
         }
 

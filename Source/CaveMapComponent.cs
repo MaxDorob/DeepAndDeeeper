@@ -81,6 +81,20 @@ namespace Shashlichnik
         public float BuildingsImpact => StabilizedCells.Count() * 0.00065f;
         public float LandslideChance => landslideChancePerStability.Evaluate(StabilityPercent);
 
+        public int WastepackPoints
+        {
+            get
+            {
+                if (!ModsConfig.BiotechActive)
+                {
+                    return 0;
+                }
+                int result = map.listerThings.ThingsOfDef(ThingDefOf.Wastepack).Count;
+                result += map.pollutionGrid.grid.TrueCount;
+                return result;
+            }
+        }
+
         public override void MapComponentTick()
         {
             if (map.IsHashIntervalTick(GenDate.TicksPerHour))
@@ -275,6 +289,15 @@ namespace Shashlichnik
                 FinishCollapsing();
             }
         }
+        public static SimpleCurve infestationScaleCurve = new SimpleCurve()
+        {
+            new CurvePoint(0.0f, 0.0f),
+            new CurvePoint(59.9f, 0.0f),
+            new CurvePoint(60f, 0.8f),
+            new CurvePoint(300f, 1.5f),
+            new CurvePoint(800f, 2.5f),
+            new CurvePoint(10000f, 2.5f)
+        };
         protected void FinishCollapsing()
         {
             DamageInfo damageInfo = new DamageInfo(DamageDefOf.Crush, 99999f, 999f, -1f, null, null, null, DamageInfo.SourceCategory.ThingOrUnknown, null, true, true, QualityCategory.Normal, true);
@@ -288,6 +311,24 @@ namespace Shashlichnik
                 }
             }
             Messages.Message("ShashlichnikMessageCaveCollapsed".Translate(), new TargetInfo(caveExit.caveEntrance?.Position ?? IntVec3.Invalid, caveExit.caveEntrance?.Map, false), MessageTypeDefOf.NeutralEvent, true);
+            var infestationScale = infestationScaleCurve.Evaluate(WastepackPoints);
+            if (caveEntrance.Level == 0 && infestationScale > 0.5f)
+            {
+                StorytellerComp storytellerComp = Find.Storyteller.storytellerComps.FirstOrDefault((StorytellerComp x) => x is StorytellerComp_OnOffCycle || x is StorytellerComp_RandomMain);
+                if (storytellerComp != null)
+                {
+                    IncidentParms parms = storytellerComp.GenerateParms(IncidentCategoryDefOf.ThreatBig, this.SourceMap);
+                    parms.points *= infestationScale;
+                    parms.forced = true;
+                    parms.infestationLocOverride = caveEntrance.Position;
+                    var incidentDef = IncidentDefOf.Infestation;
+                    incidentDef.Worker.TryExecute(parms);
+                }
+                else
+                {
+                    Log.Warning($"storytellerComp was null for some reason. Storyteller: {Find.Storyteller.def?.defName}");
+                }
+            }
             foreach (var caveExit in map.listerThings.GetThingsOfType<CaveExit>())
             {
                 if (!caveExit.Destroyed)

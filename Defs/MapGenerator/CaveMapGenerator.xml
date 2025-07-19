@@ -160,6 +160,7 @@
 	</GenStepDef>
 
 	<GenStepDef MayRequire="RimWorld.Ludeon.Anomaly">
+	<GenStepDef MayRequire="Ludeon.RimWorld.Anomaly">
 		<defName>ShashlichnikUndergroundInterest_Fleshbeasts</defName>
 		<order>655</order>
 		<genStep Class="Shashlichnik.GenStep_CaveInterest_Fleshbeasts" />

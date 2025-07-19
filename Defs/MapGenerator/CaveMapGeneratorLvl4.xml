@@ -11,6 +11,7 @@
 			<li>ShashlichnikUndergroundInterest_SingleCryptosleepPod</li>
 			<li>ShashlichnikUnderground_RewardLvl4</li>
 			<li MayRequire="Ludeon.RimWorld.Anomaly">ShashlichnikUndergroundInterest_Metalhorror</li>
+			<li MayRequire="Ludeon.RimWorld.Anomaly">ShashlichnikUndergroundInterest_Revenant</li>
 		</genSteps>
 	</MapGeneratorDef>
 
@@ -28,6 +29,31 @@
 		<genStep Class="Shashlichnik.GenStep_LevelReward">
 			<reward>ShashlichnikUndergroundLvl4Reward</reward>
 			<countOfRewards>1~2</countOfRewards> <!--No cheap rewards-->
+		</genStep>
+	</GenStepDef>
+	
+		<GenStepDef MayRequire="Ludeon.RimWorld.Anomaly">
+		<defName>ShashlichnikUndergroundInterest_Revenant</defName>
+		<order>655</order>
+		<genStep Class="Shashlichnik.GenStep_CaveInterest_Mutant">
+			<MinDistApart>1</MinDistApart>
+			<mutant>Revenant</mutant>
+			<countChances Inherit="False">
+				<li>
+					<count>0</count>
+					<chance>0.88</chance>
+				</li>
+				<li>
+					<count>1</count>
+					<chance>0.12</chance>
+				</li>
+			</countChances>
+			<subCountChances Inherit="False">
+				<li>
+					<count>1</count>
+					<chance>1</chance>
+				</li>
+			</subCountChances>
 		</genStep>
 	</GenStepDef>
 	

@@ -220,6 +220,10 @@ namespace Shashlichnik
         };
         private void ProcessLandslide()
         {
+            if (map?.Disposed ?? true)
+            {
+                return;
+            }
             foreach (var landslide in queuedLandslides.ToList())
             {
                 queuedLandslides[landslide.Key]--;

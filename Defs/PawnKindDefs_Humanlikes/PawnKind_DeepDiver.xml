@@ -29,6 +29,7 @@
 		<weaponTags Inherit="False">
 			<li>IndustrialGunAdvanced</li>
 			<li>GunHeavy</li>
+			<li>Binkl_DRG_weapon</li>
 		</weaponTags>
 	</PawnKindDef>
 

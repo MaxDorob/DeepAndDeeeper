@@ -67,22 +67,6 @@
 					</thingSetMaker>
 				</li>
 
-				<!-- Luciferium -->
-				<!--
-				<li>
-					<weight>1</weight>
-					<thingSetMaker Class="ThingSetMaker_StackCount">
-						<fixedParams>
-							<filter>
-								<thingDefs>
-									<li>Luciferium</li>
-								</thingDefs>
-							</filter>
-							<countRange>5~12</countRange>
-						</fixedParams>
-					</thingSetMaker>
-				</li>
-				-->
 
 				<!-- Silver -->
 				<li>

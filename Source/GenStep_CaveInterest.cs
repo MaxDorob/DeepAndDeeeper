@@ -51,7 +51,7 @@ namespace Shashlichnik
             new CountChance() {count = 2, chance = 0.125f},
         };
         protected virtual int Count => CountChanceUtility.RandomCount(countChances);
-        protected virtual int SubCount => CountChanceUtility.RandomCount(countChances);
+        protected virtual int SubCount => CountChanceUtility.RandomCount(subCountChances);
         public List<CountChance> subCountChances = new List<CountChance>()
         {
             new CountChance() {count = 1, chance = 0.25f},

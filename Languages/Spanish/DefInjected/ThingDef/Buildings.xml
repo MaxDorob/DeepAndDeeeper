@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+	<ShashlichnikCaveEntrance.label>Entrada de la cueva</ShashlichnikCaveEntrance.label>
+	<ShashlichnikCaveEntrance.description>Un agujero que conecta la superficie con la red de cuevas subterraneas. Es posible bajar hacia las cuevas subterraneas.</ShashlichnikCaveEntrance.description>
+
+	<ShashlichnikCaveExit.label>Salida de la cueva</ShashlichnikCaveExit.label>
+	<ShashlichnikCaveExit.description>Una cuerda que conecta con la superficie.</ShashlichnikCaveExit.description>
+
+</LanguageData>

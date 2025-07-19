@@ -16,7 +16,6 @@
 		</pocketMapProperties>
 		<genSteps>
 			<li>ElevationFertility</li>
-			<li>ShashlichnikUnderground_RocksFromGrid</li>
 			<li>Terrain</li>
 			<!--<li>CavesTerrain</li>-->
 			<li>ShashlichnikUnderground_ScatterRuinsSimple</li>
@@ -45,6 +44,7 @@
 	<MapGeneratorDef ParentName="ShashlichnikUndergroundBase">
 		<defName>ShashlichnikUnderground</defName>
 		<genSteps>
+			<li>ShashlichnikUnderground_RocksFromGrid</li>
 			<li>ShashlichnikCaveExitToSurfaceInterest</li>
 			<li>ShashlichnikUndergroundInterest_CorpsePile</li>
 			<li>ShashlichnikUndergroundInterest_CorpseGear</li>

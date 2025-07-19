@@ -4,6 +4,7 @@
 	<MapGeneratorDef ParentName="ShashlichnikUndergroundBase">
 		<defName>ShashlichnikUndergroundLvl2</defName>
 		<genSteps>
+			<li>ShashlichnikUnderground_RocksFromGridLvl2</li>
 			<li>ShashlichnikUndergroundInterest_CorpsePile</li>
 			<li>ShashlichnikUndergroundInterest_CorpseGear</li>
 			<li>ShashlichnikUndergroundInterest_Hive</li>
@@ -12,4 +13,11 @@
 		</genSteps>
 	</MapGeneratorDef>
 
+	<GenStepDef>
+		<defName>ShashlichnikUnderground_RocksFromGridLvl2</defName>
+		<order>200</order>
+		<genStep Class="Shashlichnik.GenStep_RocksFromGrid">
+			<mineableModifier>1.3</mineableModifier>
+		</genStep>
+	</GenStepDef>
 </Defs>

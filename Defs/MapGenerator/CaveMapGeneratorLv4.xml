@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<MapGeneratorDef ParentName="ShashlichnikUndergroundBase">
+		<defName>ShashlichnikUndergroundLvl4</defName>
+		<genSteps>
+			<li>ShashlichnikUnderground_RocksFromGridLvl4</li>
+			<li>ShashlichnikUndergroundInterest_CorpsePile</li>
+			<li>ShashlichnikUndergroundInterest_CorpseGear</li>
+			<li>ShashlichnikUndergroundInterest_Hive</li>
+			<li>ShashlichnikUndergroundInterest_SingleCryptosleepPod</li>
+			<li>ShashlichnikUnderground_RewardLvl4</li>
+			<li MayRequire="RimWorld.Ludeon.Anomaly">ShashlichnikUndergroundInterest_Fleshbeasts</li>
+		</genSteps>
+	</MapGeneratorDef>
+
+	<GenStepDef>
+		<defName>ShashlichnikUnderground_RocksFromGridLvl4</defName>
+		<order>200</order>
+		<genStep Class="Shashlichnik.GenStep_RocksFromGrid">
+			<mineableModifier>2.3</mineableModifier>
+		</genStep>
+	</GenStepDef>
+
+	<GenStepDef>
+		<defName>ShashlichnikUnderground_RewardLvl4</defName>
+		<order>302</order>
+		<genStep Class="Shashlichnik.GenStep_LevelReward">
+			<reward>ShashlichnikUndergroundLvl4Reward</reward>
+			<countOfRewards>1~2</countOfRewards> <!--No cheap rewards-->
+		</genStep>
+	</GenStepDef>
+	
+	<!--Reward-->
+	<ThingSetMakerDef>
+		<defName>ShashlichnikUndergroundLvl4Reward</defName>
+		<root Class="ThingSetMaker_RandomOption">
+			<options>
+
+				<!-- Luciferium -->				
+				<li>
+					<weight>0.66</weight>
+					<thingSetMaker Class="ThingSetMaker_StackCount">
+						<fixedParams>
+							<filter>
+								<thingDefs>
+									<li>Luciferium</li>
+								</thingDefs>
+							</filter>
+							<countRange>3~5</countRange>
+						</fixedParams>
+					</thingSetMaker>
+				</li>
+
+				<!-- Components -->
+				<li>
+					<weight>1</weight>
+					<thingSetMaker Class="ThingSetMaker_StackCount">
+						<fixedParams>
+							<filter>
+								<thingDefs>
+									<li>ComponentIndustrial</li>
+								</thingDefs>
+							</filter>
+							<countRange>6~15</countRange>
+						</fixedParams>
+					</thingSetMaker>
+				</li>
+				
+				<!-- Advanced components -->
+				<li>
+					<weight>0.55</weight>
+					<thingSetMaker Class="ThingSetMaker_StackCount">
+						<fixedParams>
+							<filter>
+								<thingDefs>
+									<li>ComponentSpacer</li>
+								</thingDefs>
+							</filter>
+							<countRange>1~3</countRange>
+						</fixedParams>
+					</thingSetMaker>
+				</li>
+
+				<!-- Ultratech meds -->
+				<li>
+					<weight>0.15</weight>
+					<thingSetMaker Class="ThingSetMaker_StackCount">
+						<fixedParams>
+							<filter>
+								<thingDefs>
+									<li>MedicineUltratech</li>
+								</thingDefs>
+							</filter>
+							<countRange>1~4</countRange>
+						</fixedParams>
+					</thingSetMaker>
+				</li>
+				
+				<!-- Weapons -->
+				<li>
+					<weight>0.55</weight>
+					<thingSetMaker Class="ThingSetMaker_MarketValue">
+						<fixedParams>
+							<filter>
+								<categories>
+									<li>Weapons</li>
+								</categories>
+								<disallowedThingDefs>
+									<li>WoodLog</li>
+								</disallowedThingDefs>
+								<thingSetMakerTagsToDisallow>
+									<li>RewardStandardHighFreq</li>
+									<li>RewardStandardCore</li>
+								</thingSetMakerTagsToDisallow>
+							</filter>
+							<totalMarketValueRange>1000~2000</totalMarketValueRange>
+						</fixedParams>
+					</thingSetMaker>
+				</li>
+				
+				<!-- We're rich -->
+				<li>
+					<weight>0.75</weight>
+					<thingSetMaker Class="ThingSetMaker_StackCount">
+						<fixedParams>
+							<filter>
+								<thingDefs>
+									<li>ShashlichnikCompressedGold</li>
+								</thingDefs>
+							</filter>
+							<countRange>1~1</countRange>
+						</fixedParams>
+					</thingSetMaker>
+				</li>
+
+			</options>
+		</root>
+	</ThingSetMakerDef>
+</Defs>

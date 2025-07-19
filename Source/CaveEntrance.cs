@@ -31,6 +31,7 @@ namespace Shashlichnik
                 yield return DefsOf.ShashlichnikUnderground;
                 yield return DefsOf.ShashlichnikUndergroundLvl2;
                 yield return DefsOf.ShashlichnikUndergroundLvl3;
+                yield return DefsOf.ShashlichnikUndergroundLvl4;
             }
         }
         protected MapGeneratorDef MapGeneratorDef

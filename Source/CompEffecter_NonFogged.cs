@@ -12,7 +12,7 @@ namespace Shashlichnik
     {
         public override void CompTick()
         {
-            if (parent.Position.Fogged(parent.Map) || !Mod.Settings.AnomalyEffectsEnabled)
+            if (parent.Position.Fogged(parent.Map) || parent.Map.GetComponent<CaveMapComponent>()?.caveEntrance?.Level > 0 || !Mod.Settings.AnomalyEffectsEnabled)
             {
                 return;
             }

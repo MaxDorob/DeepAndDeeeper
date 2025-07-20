@@ -8,8 +8,13 @@ using Verse;
 
 namespace Shashlichnik
 {
+    [StaticConstructorOnStartup]
     internal class BackCompatibilityConverter_ForceLoadUnderground : BackCompatibilityConverter
     {
+        static BackCompatibilityConverter_ForceLoadUnderground()
+        {
+            BackCompatibility.conversionChain.Add(new BackCompatibilityConverter_ForceLoadUnderground());
+        }
         public override bool AppliesToVersion(int majorVer, int minorVer)
         {
             return true;
@@ -22,7 +27,7 @@ namespace Shashlichnik
 
         public override Type GetBackCompatibleType(Type baseType, string providedClassName, XmlNode node)
         {
-            return baseType;
+            return null;
         }
 
         public override void PostExposeData(object obj)
@@ -32,7 +37,7 @@ namespace Shashlichnik
         public override void PostLoadSavegame(string loadingVersion)
         {
             base.PostLoadSavegame(loadingVersion);
-            foreach (var entrance in Find.Maps.SelectMany(x=>x.listerThings.GetThingsOfType<CaveEntrance>()))
+            foreach (var entrance in Find.Maps.SelectMany(x => x.listerThings.GetThingsOfType<CaveEntrance>()).ToList())
             {
                 var caveComp = entrance.CaveMapComponent;
                 if (caveComp != null && entrance.isCollapsing)
@@ -41,6 +46,18 @@ namespace Shashlichnik
                     caveComp.collapseTick = entrance.collapseTick;
                 }
                 entrance.isCollapsing = false;
+            }
+            foreach (var map in Find.Maps.ToList())
+            {
+                var tracker = map.GetComponent<CaveEntranceTracker>();
+                var entrances = map.listerThings.ThingsInGroup(ThingRequestGroup.MapPortal).OfType<CaveEntrance>().ToList();
+                foreach (var entrance in entrances)
+                {
+                    if (!tracker.cavesOpened.ContainsKey(entrance.Position))
+                    {
+                        tracker.Notify_OpenedAt(entrance.Position);
+                    }
+                }
             }
         }
 #pragma warning restore 0618

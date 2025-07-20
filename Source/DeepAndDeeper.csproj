@@ -130,7 +130,7 @@
   <Choose>
     <When Condition="'$(Configuration)'=='Release1.6'">
       <ItemGroup>
-        <PackageReference Include="Krafs.Rimworld.Ref" Version="1.6.4491-beta" GeneratePathProperty="true" />
+        <PackageReference Include="Krafs.Rimworld.Ref" Version="1.6.4523" GeneratePathProperty="true" />
       </ItemGroup>
     </When>
     <Otherwise>

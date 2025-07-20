@@ -86,7 +86,6 @@ namespace Shashlichnik
         public float distanceToPlayer = 5f;
         public int InterestPointSize = 20;
         public float MinDistApart = 10f;
-        public IntRange InterestPointCountRange = new IntRange(0, 3);
      
     }
 }

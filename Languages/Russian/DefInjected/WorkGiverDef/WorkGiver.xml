@@ -5,4 +5,16 @@
 	<ShashlichnikDigCaveEntrance.verb>копать</ShashlichnikDigCaveEntrance.verb>
 	<ShashlichnikDigCaveEntrance.gerund>копать</ShashlichnikDigCaveEntrance.gerund>
 
+	<ShashlichnikGoDownIfJobUnderground_Miner.label>спускаться в пещеру для горных работ</ShashlichnikGoDownIfJobUnderground_Miner.label>
+	<ShashlichnikGoDownIfJobUnderground_Miner.verb>спуститься</ShashlichnikGoDownIfJobUnderground_Miner.verb>
+	<ShashlichnikGoDownIfJobUnderground_Miner.gerund>спускается</ShashlichnikGoDownIfJobUnderground_Miner.gerund>
+
+	<ShashlichnikGoDownIfJobUnderground_Haul.label>спускаться в пещеру для переноски</ShashlichnikGoDownIfJobUnderground_Haul.label>
+	<ShashlichnikGoDownIfJobUnderground_Haul.verb>спуститься</ShashlichnikGoDownIfJobUnderground_Haul.verb>
+	<ShashlichnikGoDownIfJobUnderground_Haul.gerund>спускается</ShashlichnikGoDownIfJobUnderground_Haul.gerund>
+
+	<ShashlichnikGoDownIfJobUnderground_HaulToPortal.label>спускаться в пещеру для переноски</ShashlichnikGoDownIfJobUnderground_HaulToPortal.label>
+	<ShashlichnikGoDownIfJobUnderground_HaulToPortal.verb>спуститься</ShashlichnikGoDownIfJobUnderground_HaulToPortal.verb>
+	<ShashlichnikGoDownIfJobUnderground_HaulToPortal.gerund>спускается</ShashlichnikGoDownIfJobUnderground_HaulToPortal.gerund>
+
 </LanguageData>

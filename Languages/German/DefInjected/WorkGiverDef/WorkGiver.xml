@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+    <ShashlichnikDigCaveEntrance.label>Höhleneingang graben</ShashlichnikDigCaveEntrance.label>
+    <ShashlichnikDigCaveEntrance.verb>graben</ShashlichnikDigCaveEntrance.verb>
+    <ShashlichnikDigCaveEntrance.gerund>gräbt</ShashlichnikDigCaveEntrance.gerund>
+
+    <ShashlichnikGoDownIfJobUnderground_Miner.label>Hinuntergehen zum Graben</ShashlichnikGoDownIfJobUnderground_Miner.label>
+    <ShashlichnikGoDownIfJobUnderground_Miner.verb>hinuntergehen</ShashlichnikGoDownIfJobUnderground_Miner.verb>
+    <ShashlichnikGoDownIfJobUnderground_Miner.gerund>geht hinunter</ShashlichnikGoDownIfJobUnderground_Miner.gerund>
+
+    <ShashlichnikGoDownIfJobUnderground_Haul.label>Hinuntergehen zum Transportieren</ShashlichnikGoDownIfJobUnderground_Haul.label>
+    <ShashlichnikGoDownIfJobUnderground_Haul.verb>hinuntergehen</ShashlichnikGoDownIfJobUnderground_Haul.verb>
+    <ShashlichnikGoDownIfJobUnderground_Haul.gerund>geht hinunter</ShashlichnikGoDownIfJobUnderground_Haul.gerund>
+
+    <ShashlichnikGoDownIfJobUnderground_HaulToPortal.label>Hinuntergehen zum Transportieren</ShashlichnikGoDownIfJobUnderground_HaulToPortal.label>
+    <ShashlichnikGoDownIfJobUnderground_HaulToPortal.verb>hinuntergehen</ShashlichnikGoDownIfJobUnderground_HaulToPortal.verb>
+    <ShashlichnikGoDownIfJobUnderground_HaulToPortal.gerund>geht hinunter</ShashlichnikGoDownIfJobUnderground_HaulToPortal.gerund>
+
+</LanguageData>

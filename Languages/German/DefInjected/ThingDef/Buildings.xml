@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+    <ShashlichnikCaveEntrance.label>Höhleneingang</ShashlichnikCaveEntrance.label>
+    <ShashlichnikCaveEntrance.description>Ein Loch, das die Oberfläche mit dem unterirdischen Höhlensystem verbindet. Es ist möglich, in die Höhlen hinabzusteigen.</ShashlichnikCaveEntrance.description>
+
+    <ShashlichnikCaveExit.label>Höhlenausgang</ShashlichnikCaveExit.label>
+    <ShashlichnikCaveExit.description>Ein Seil, welches mit der Oberfläche verbunden ist.</ShashlichnikCaveExit.description>
+
+</LanguageData>

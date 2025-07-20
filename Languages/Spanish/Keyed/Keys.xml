@@ -19,4 +19,13 @@
 	<ShashlichnikLandslidesEnabled>Derrumbes activados</ShashlichnikLandslidesEnabled>
 	<ShashlichnikMineableModifier>Modificador de recursos minables</ShashlichnikMineableModifier>
 	<ShashlichnikMineableModifierExplanation>Ajusta el numero de recursos del mapa subterraneo. El valor 4 corresponde a un mapa plano, mientras que un valor de 15 equivale a un mapa montañoso.\nPredeterminado es 7.</ShashlichnikMineableModifierExplanation>
+	<ShashlichnikExitIfNoWork>Salir si no hay trabajo</ShashlichnikExitIfNoWork>
+	<ShashlichnikExitIfNoWorkDesc>Los colonos irán a la superficie si no queda trabajo por hacer</ShashlichnikExitIfNoWorkDesc>
+	<ShashlichnikAutoEnter>Entrar automáticamente</ShashlichnikAutoEnter>
+	<ShashlichnikAutoEnterDesc>El colono entrará automáticamente a la cueva si hay trabajo por hacer (solo minería y transporte)</ShashlichnikAutoEnterDesc>
+	<WeAreRich>¡Somos ricos!</WeAreRich>
+	<ShashlichnikShutUp>¡Cállense!</ShashlichnikShutUp>
+	<ShashlichnikShutUp1>Sí, sí, ya sé que son ricos. ¡Muévanse ya, que tengo a Gerencia respirándome en la nuca!</ShashlichnikShutUp1>
+	<ShashlichnikShutUp2>¡Rápido, equipo! ¡No nos estamos haciendo más jóvenes!</ShashlichnikShutUp2>
+	<ShashlichnikShutUp3>Ya les dije que dejarles quedarse con el oro era un error...</ShashlichnikShutUp3>
 </LanguageData>

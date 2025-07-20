@@ -7,7 +7,7 @@
 			<li>ShashlichnikUnderground_RocksFromGridLvl3</li>
 			<li>ShashlichnikUndergroundInterest_CorpsePile</li>
 			<li>ShashlichnikUndergroundInterest_CorpseGear</li>
-			<li>ShashlichnikUndergroundInterest_Hive</li>
+			<li>ShashlichnikUndergroundInterest_HiveLvl3</li>
 			<li>ShashlichnikUndergroundInterest_SingleCryptosleepPod</li>
 			<li>ShashlichnikUnderground_RewardLvl3</li>
 			<li MayRequire="Ludeon.RimWorld.Anomaly">ShashlichnikUndergroundInterest_Noctol</li>
@@ -20,6 +20,41 @@
 		<order>200</order>
 		<genStep Class="Shashlichnik.GenStep_RocksFromGrid">
 			<mineableModifier>1.7</mineableModifier>
+		</genStep>
+	</GenStepDef>
+
+	<GenStepDef>
+		<defName>ShashlichnikUndergroundInterest_HiveLvl3</defName>
+		<order>655</order>
+		<genStep Class="Shashlichnik.GenStep_CaveInterest_Hive">
+			<countChances Inherit="False">
+				<li>
+					<count>1</count>
+					<chance>0.55</chance>
+				</li>
+				<li>
+					<count>2</count>
+					<chance>0.34</chance>
+				</li>
+				<li>
+					<count>3</count>
+					<chance>0.11</chance>
+				</li>
+			</countChances>
+			<subCountChances Inherit="False">
+				<li>
+					<count>1</count>
+					<chance>0.33</chance>
+				</li>
+				<li>
+					<count>2</count>
+					<chance>0.34</chance>
+				</li>
+				<li>
+					<count>3</count>
+					<chance>0.34</chance>
+				</li>
+			</subCountChances>
 		</genStep>
 	</GenStepDef>
 

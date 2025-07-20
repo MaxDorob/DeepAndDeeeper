@@ -155,8 +155,33 @@
 
 	<GenStepDef>
 		<defName>ShashlichnikUndergroundInterest_Hive</defName>
-		<order>654</order>
-		<genStep Class="Shashlichnik.GenStep_CaveInterest_Hive" />
+		<order>655</order>
+		<genStep Class="Shashlichnik.GenStep_CaveInterest_Hive">
+			<countChances Inherit="False">
+				<li>
+					<count>0</count>
+					<chance>0.34</chance>
+				</li>
+				<li>
+					<count>1</count>
+					<chance>0.55</chance>
+				</li>
+				<li>
+					<count>2</count>
+					<chance>0.11</chance>
+				</li>
+			</countChances>
+			<subCountChances Inherit="False">
+				<li>
+					<count>1</count>
+					<chance>0.66</chance>
+				</li>
+				<li>
+					<count>2</count>
+					<chance>0.34</chance>
+				</li>
+			</subCountChances>
+		</genStep>
 	</GenStepDef>
 
 	<GenStepDef MayRequire="Ludeon.RimWorld.Anomaly">

@@ -5,7 +5,8 @@
 		<defName>ShashlichnikDeepDiver</defName>
 		<label>deep diver</label>
 		<initialResistanceRange>6~10</initialResistanceRange>
-		<defaultFactionDef MayRequire="det.stoneborn">OutlanderRoughStoneborn</defaultFactionDef>
+		<defaultFactionDef IgnoreIfNoMatchingField="True" MayRequire="det.stoneborn">OutlanderRoughStoneborn</defaultFactionDef>
+		<defaultFactionType IgnoreIfNoMatchingField="True" MayRequire="det.stoneborn">OutlanderRoughStoneborn</defaultFactionType>
 		<xenotypeSet MayRequire="det.stoneborn">
 			<xenotypeChances MayRequire="det.stoneborn">
 				<Stoneborn MayRequire="det.stoneborn">999</Stoneborn>

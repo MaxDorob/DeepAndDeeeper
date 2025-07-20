@@ -206,7 +206,32 @@
 	<GenStepDef MayRequire="Ludeon.RimWorld.Anomaly">
 		<defName>ShashlichnikUndergroundInterest_Fleshbeasts</defName>
 		<order>655</order>
-		<genStep Class="Shashlichnik.GenStep_CaveInterest_Fleshbeasts" />
+		<genStep Class="Shashlichnik.GenStep_CaveInterest_Fleshbeasts">
+			<countChances Inherit="False">
+				<li>
+					<count>0</count>
+					<chance>0.34</chance>
+				</li>
+				<li>
+					<count>1</count>
+					<chance>0.55</chance>
+				</li>
+				<li>
+					<count>2</count>
+					<chance>0.11</chance>
+				</li>
+			</countChances>
+			<subCountChances Inherit="False">
+				<li>
+					<count>3</count>
+					<chance>0.89</chance>
+				</li>
+				<li>
+					<count>4</count>
+					<chance>0.11</chance>
+				</li>
+			</subCountChances>
+		</genStep>
 	</GenStepDef>
 
 	<GenStepDef>

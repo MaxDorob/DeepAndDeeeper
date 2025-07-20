@@ -45,6 +45,7 @@
     <Compile Include="Alert_CaveStability.cs" />
     <Compile Include="BackCompatibilityConverter_ForceLoadUnderground.cs" />
     <Compile Include="CaveEntrance.cs" />
+    <Compile Include="CaveEntranceTracker.cs" />
     <Compile Include="CaveExit.cs" />
     <Compile Include="CaveExitSurfaceInterest.cs" />
     <Compile Include="CaveMapComponent.cs" />
@@ -87,6 +88,8 @@
     <Compile Include="MapTemperature_Patch.cs" />
     <Compile Include="Mod.cs" />
     <Compile Include="ModSettings.cs" />
+    <Compile Include="PlaceWorker_CloseToOtherCaverns.cs" />
+    <Compile Include="PlaceWorker_StableEnough.cs" />
     <Compile Include="PlaceWorker_Surface.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScatterValidator_OtherBuildings.cs" />

@@ -103,6 +103,10 @@ namespace Shashlichnik
                 {
                     GenerateUndercave();
                 }
+                if (value <= 0)
+                {
+                    Map.GetComponent<CaveEntranceTracker>().Notify_OpenedAt(Position);
+                }
             }
         }
         public override void ExposeData()

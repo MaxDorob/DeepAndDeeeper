@@ -48,6 +48,8 @@
 		</comps>
 		<placeWorkers>
 			<li>Shashlichnik.PlaceWorker_Surface</li>
+			<li>Shashlichnik.PlaceWorker_CloseToOtherCaverns</li>
+			<li>Shashlichnik.PlaceWorker_StableEnough</li>
 		</placeWorkers>
 		<portal IgnoreIfNoMatchingField="True"></portal>
 	</ThingDef>

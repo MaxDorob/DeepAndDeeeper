@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<PawnKindDef ParentName="MercenaryGunnerBase">
+		<defName>ShashlichnikDeepDiver</defName>
+		<label>deep diver</label>
+		<initialResistanceRange>6~10</initialResistanceRange>
+		<defaultFactionDef MayRequire="det.stoneborn">OutlanderRoughStoneborn</defaultFactionDef>
+		<xenotypeSet MayRequire="det.stoneborn">
+			<xenotypeChances MayRequire="det.stoneborn">
+				<Stoneborn MayRequire="det.stoneborn">999</Stoneborn>
+			</xenotypeChances>
+		</xenotypeSet>
+		<isFighter>false</isFighter>
+		<apparelMoney>1250~3500</apparelMoney>
+		<weaponMoney>700~2100</weaponMoney>
+		<inventoryOptions>
+			<thingDef>Beer</thingDef>
+			<countRange>6~17</countRange>
+		</inventoryOptions>
+		<invNutrition>5</invNutrition>
+		<apparelTags Inherit="False">
+			<li>IndustrialBasic</li>
+			<li>IndustrialAdvanced</li>
+			<li>IndustrialMilitaryBasic</li>
+			<li>IndustrialMilitaryAdvanced</li>
+			<li>SpacerMilitary</li>
+		</apparelTags>
+		<weaponTags Inherit="False">
+			<li>IndustrialGunAdvanced</li>
+			<li>GunHeavy</li>
+			<li>Binkl_DRG_weapon</li>
+		</weaponTags>
+	</PawnKindDef>
+
+
+</Defs>

@@ -15,9 +15,19 @@
 	<ShashlichnikUndergroundTemperatureModifier>Underground temperature modifier</ShashlichnikUndergroundTemperatureModifier>
 	<ShashlichnikMustBeOnSurface>Must be on surface.</ShashlichnikMustBeOnSurface>
 	<ShashlichnikCaveNotDugYet>Cave has not been dug yet</ShashlichnikCaveNotDugYet>
-	<ShashlichnikCaveCollapsing>Cave is collapsing</ShashlichnikCaveCollapsing>
 	<ShashlichnikStabilitySystemEnabled>Stability system enabled</ShashlichnikStabilitySystemEnabled>
 	<ShashlichnikLandslidesEnabled>Landslides enabled</ShashlichnikLandslidesEnabled>
-		<ShashlichnikMineableModifier>Mineable resources modifier</ShashlichnikMineableModifier>
+	<ShashlichnikMineableModifier>Mineable resources modifier</ShashlichnikMineableModifier>
 	<ShashlichnikMineableModifierExplanation>Adjusts the amount of resources on the underground map. A value of 4 is equivalent to a flat map, while a value of 15 corresponds to mountainous terrain.\nDefault is 7.</ShashlichnikMineableModifierExplanation>
+	<ShashlichnikExitIfNoWork>Exit if no work</ShashlichnikExitIfNoWork>
+	<ShashlichnikExitIfNoWorkDesc>Colonists will go the surface if there's no work left</ShashlichnikExitIfNoWorkDesc>
+	<ShashlichnikAutoEnter>Enter at will</ShashlichnikAutoEnter>
+	<ShashlichnikAutoEnterDesc>Colonist will automatically enter the cave if there's a work to do (mining and hauling only)</ShashlichnikAutoEnterDesc>
+	<WeAreRich>We're rich!</WeAreRich>
+	<ShashlichnikShutUp>Shut up!</ShashlichnikShutUp>
+	<ShashlichnikShutUp1>Yes, yes, you're rich. Time to get a move on, I got Management\nbreathing down my neck here!</ShashlichnikShutUp1>
+	<ShashlichnikShutUp2>Tick tock, team...! We're not getting any younger here!</ShashlichnikShutUp2>
+	<ShashlichnikShutUp3>I told them letting you keep the gold for yourselves was a mistake...</ShashlichnikShutUp3>
+	<ShashlichnikNotStableYet>The ground there is not stable enough yet, try again later</ShashlichnikNotStableYet>
+	<ShashlichnikCloseToOtherCavern>Close to other caverns</ShashlichnikCloseToOtherCavern>
 </LanguageData>

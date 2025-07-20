@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <DutyDef>
+    <defName>ShashlichnikMineForever</defName>
+    <thinkNode Class="ThinkNode_Priority">
+      <subNodes>
+				<li Class="ThinkNode_Subtree">
+					<treeDef>SatisfyBasicNeedsAndWork</treeDef>
+					<priority>10</priority>
+				</li>
+        <li Class="Shashlichnik.JobGiver_DrinkBeer">
+        </li>
+				<li Class="Shashlichnik.JobGiver_LootAround">
+				</li>
+        <li Class="Shashlichnik.JobGiver_DigClosestCluster">
+        </li>
+				<li Class="Shashlichnik.JobGiver_ExitMapPortal">
+					<forceCanDig>true</forceCanDig>
+				</li>
+      </subNodes>
+    </thinkNode>
+  </DutyDef>
+
+</Defs>

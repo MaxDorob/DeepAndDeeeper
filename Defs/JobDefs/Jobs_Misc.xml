@@ -7,5 +7,12 @@
     <reportString>digging.</reportString>
 		<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
   </JobDef>
-  
+
+	<JobDef>
+		<defName>ShashlichnikEnterPortalForJob</defName>
+		<driverClass>Shashlichnik.JobDriver_EnterPortalForJob</driverClass>
+		<dropThingBeforeJob>false</dropThingBeforeJob>
+		<carryThingAfterJob>true</carryThingAfterJob>
+		<reportString>entering TargetA.</reportString>
+	</JobDef>
 </Defs>

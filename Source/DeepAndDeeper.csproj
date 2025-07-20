@@ -43,11 +43,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Alert_CaveStability.cs" />
+    <Compile Include="BackCompatibilityConverter_ForceLoadUnderground.cs" />
     <Compile Include="CaveEntrance.cs" />
+    <Compile Include="CaveEntranceTracker.cs" />
     <Compile Include="CaveExit.cs" />
     <Compile Include="CaveExitSurfaceInterest.cs" />
     <Compile Include="CaveMapComponent.cs" />
     <Compile Include="CompEffecter_NonFogged.cs" />
+    <Compile Include="DebugActions.cs" />
     <Compile Include="DefModExtension_CaveStabilitizer.cs" />
     <Compile Include="DefsOf.cs" />
     <Compile Include="GenStep_CaveEntrance.cs" />
@@ -59,24 +62,45 @@
     <Compile Include="GenStep_CaveInterest_Fleshbeasts.cs" />
     <Compile Include="GenStep_CaveInterest_Hive.cs" />
     <Compile Include="GenStep_CaveInterest_Mushrooms.cs" />
+    <Compile Include="GenStep_CaveInterest_Mutant.cs" />
     <Compile Include="GenStep_CaveInterest_SingleCryptosleep.cs" />
     <Compile Include="GenStep_Caves.cs" />
+    <Compile Include="GenStep_DeepDiver.cs" />
     <Compile Include="GenStep_ExitToSurfaceInterest.cs" />
     <Compile Include="GenStep_FindCaveExit.cs" />
     <Compile Include="GenStep_CaveInterest_LostPawn.cs" />
+    <Compile Include="GenStep_LevelReward.cs" />
     <Compile Include="GenStep_RocksFromGrid.cs" />
     <Compile Include="GenStep_UndergroundTorches.cs" />
     <Compile Include="GenStep_UndergroundLakes.cs" />
+    <Compile Include="GenStep_WayDown.cs" />
     <Compile Include="JobDriver_Dig.cs" />
+    <Compile Include="JobDriver_EnterPortalForJob.cs" />
+    <Compile Include="JobGiver_DigClosestCluster.cs" />
+    <Compile Include="JobGiver_DrinkBeer.cs" />
+    <Compile Include="JobGiver_ExitMapPortal.cs" />
     <Compile Include="JobGiver_ExitMap_Patch.cs" />
+    <Compile Include="JobGiver_LeaveCave.cs" />
+    <Compile Include="JobGiver_LootAround.cs" />
+    <Compile Include="LordJob_MineClusters.cs" />
+    <Compile Include="LordToil_MineClusters.cs" />
+    <Compile Include="MapInfo_Tile_Patch.cs" />
     <Compile Include="MapTemperature_Patch.cs" />
     <Compile Include="Mod.cs" />
     <Compile Include="ModSettings.cs" />
+    <Compile Include="PlaceWorker_CloseToOtherCaverns.cs" />
+    <Compile Include="PlaceWorker_StableEnough.cs" />
     <Compile Include="PlaceWorker_Surface.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScatterValidator_OtherBuildings.cs" />
+    <Compile Include="ShutUpLetter.cs" />
     <Compile Include="Site_ShouldRemoveMap_Patch.cs" />
+    <Compile Include="SpammerComp.cs" />
     <Compile Include="WorkGiver_DigCaveEntrance.cs" />
+    <Compile Include="WorkGiver_GoDownIfJobUnderground.cs" />
+    <Compile Include="WorkGiver_GoDownIfJobUnderground_Haul.cs" />
+    <Compile Include="WorkGiver_GoDownIfJobUnderground_HaulToPortal.cs" />
+    <Compile Include="WorkGiver_GoDownIfJobUnderground_Miner.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Krafs.Publicizer">
@@ -97,7 +121,7 @@
     <LangVersion>12</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release1.6|AnyCPU'">
-    <OutputPath>..\v1.6\Assemblies\</OutputPath>
+    <OutputPath>..\v1.6r2\Assemblies\</OutputPath>
     <DefineConstants>TRACE;v16</DefineConstants>
     <Optimize>true</Optimize>
     <DebugType>pdbonly</DebugType>
@@ -109,7 +133,7 @@
   <Choose>
     <When Condition="'$(Configuration)'=='Release1.6'">
       <ItemGroup>
-        <PackageReference Include="Krafs.Rimworld.Ref" Version="1.6.4491-beta" GeneratePathProperty="true" />
+        <PackageReference Include="Krafs.Rimworld.Ref" Version="1.6.4523" GeneratePathProperty="true" />
       </ItemGroup>
     </When>
     <Otherwise>

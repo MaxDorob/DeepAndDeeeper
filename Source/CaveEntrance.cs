@@ -21,7 +21,34 @@ namespace Shashlichnik
         {
             get
             {
-                return isCollapsing;
+                return CaveMapComponent?.IsCollapsing ?? this.Map.GetComponent<CaveMapComponent>()?.IsCollapsing ?? false;
+            }
+        }
+        private static IEnumerable<MapGeneratorDef> GeneratorsByLevel
+        {
+            get
+            {
+                yield return DefsOf.ShashlichnikUnderground;
+                yield return DefsOf.ShashlichnikUndergroundLvl2;
+                yield return DefsOf.ShashlichnikUndergroundLvl3;
+                yield return DefsOf.ShashlichnikUndergroundLvl4;
+            }
+        }
+        protected MapGeneratorDef MapGeneratorDef
+        {
+            get
+            {
+                return GeneratorsByLevel.ElementAtOrDefault(Level) ?? GeneratorsByLevel.Last(); 
+            }
+        }
+        public int Level => Map?.GetComponent<CaveMapComponent>()?.caveEntrance?.Level + 1 ?? 0;
+        public int CollapseTick => CaveMapComponent?.collapseTick ?? -999999;
+        private CaveMapComponent caveMapComponent;
+        public CaveMapComponent CaveMapComponent
+        {
+            get
+            {
+                return caveMapComponent ??= GetOtherMap()?.GetComponent<CaveMapComponent>();
             }
         }
 
@@ -29,7 +56,7 @@ namespace Shashlichnik
         {
             get
             {
-                if (collapseTick - Find.TickManager.TicksGame >= 3600)
+                if (CollapseTick - Find.TickManager.TicksGame >= 3600)
                 {
                     return 1;
                 }
@@ -37,13 +64,7 @@ namespace Shashlichnik
             }
         }
 
-        public int TicksUntilCollapse
-        {
-            get
-            {
-                return collapseTick - Find.TickManager.TicksGame;
-            }
-        }
+
 
         public override Texture2D EnterTex
         {
@@ -78,19 +99,37 @@ namespace Shashlichnik
                 }
                 ticksToOpen = value;
                 tickOpened = Find.TickManager.TicksGame;
+                if (value <= 0 && cave == null)
+                {
+                    GenerateUndercave();
+                }
+                if (value <= 0)
+                {
+                    Map.GetComponent<CaveEntranceTracker>().Notify_OpenedAt(Position);
+                }
             }
         }
         public override void ExposeData()
         {
             base.ExposeData();
             Scribe_Values.Look(ref tickOpened, nameof(tickOpened), 0, false);
-            Scribe_Values.Look(ref collapseTick, nameof(collapseTick), 0, false);
-            Scribe_Values.Look(ref isCollapsing, nameof(isCollapsing), false, false);
             Scribe_References.Look(ref cave, nameof(cave), false);
             Scribe_References.Look(ref caveExit, nameof(caveExit), false);
-            Scribe_Values.Look(ref beenEntered, nameof(beenEntered), false, false);
             Scribe_Values.Look(ref ticksToOpen, nameof(ticksToOpen));
+            Scribe_Values.Look(ref autoEnter, nameof(autoEnter), false);
+            BackwardCompatibility();
         }
+#pragma warning disable 0618
+        private void BackwardCompatibility()
+        {
+
+            if (Scribe.mode == LoadSaveMode.LoadingVars)
+            {
+                Scribe_Values.Look(ref collapseTick, nameof(collapseTick), 0, false);
+                Scribe_Values.Look(ref isCollapsing, nameof(isCollapsing), false, false);
+            }
+        }
+#pragma warning restore 0618
 
         public override void Tick()
         {
@@ -130,10 +169,6 @@ namespace Shashlichnik
                 {
                     effecter2.EffectTick(this, this);
                 }
-                if (Find.TickManager.TicksGame >= collapseTick)
-                {
-                    Destroy(DestroyMode.KillFinalize);
-                }
                 return;
             }
 
@@ -157,67 +192,48 @@ namespace Shashlichnik
             {
                 EffecterDefOf.PitGateAboveGroundCollapsed?.Spawn(base.Position, base.Map, 1f);
             }
-
-            if (cave != null && !cave.Disposed)
-            {
-                cave.GetComponent<CaveMapComponent>().Notify_ExitDestroyed(this);
-            }
         }
 
         public override void Destroy(DestroyMode mode = DestroyMode.Vanish)
         {
-            if (mode == DestroyMode.Vanish)
-            {
-                base.Destroy(mode);
-                return;
-            }
             Map map = base.Map;
             Collapse();
+            if (!IsCollapsing)
+            {
+                BeginCollapsing();
+            }
             base.Destroy(mode);
             EffecterDefOf.ImpactDustCloud?.Spawn(base.Position, map, 1f).Cleanup();
+            if (caveExit != null && !caveExit.Destroyed)
+            {
+                caveExit.Destroy(mode);
+            }
         }
 
-
-        public void BeginCollapsing()
+        public void BeginCollapsing(bool silent = false, int? forcedCollapseTick = null)
         {
-            if (!isCollapsing)
+            if (!IsCollapsing)
             {
-                BeginCollapsing(CaveEntrance.CollapseDurationTicks.RandomInRange);
+                CaveMapComponent?.BeginCollapsing(this, silent, forcedCollapseTick);
             }
         }
-        public void BeginCollapsing(int randomInRange, bool notify = true)
-        {
-            if (isCollapsing)
-            {
-                return;
-            }
-            randomInRange *= 1 - ticksToOpen / tickToOpenConst;
-            collapseTick = Find.TickManager.TicksGame + randomInRange;
-            Map map = cave;
-            isCollapsing = true;
-            if (notify && map != null)
-            {
-                map.GetComponent<CaveMapComponent>().Notify_BeginCollapsing(this, randomInRange);
-            }
-        }
-
-
 
         public void GenerateUndercave()
         {
             var mapSize = Mod.Settings.mapSize;
-            cave = PocketMapUtility.GeneratePocketMap(new IntVec3(mapSize, 1, mapSize), DefsOf.ShashlichnikUnderground, null, base.Map);
+#if v16
+            PocketMapUtility.currentlyGeneratingPortal = this;
+#endif
+            cave = PocketMapUtility.GeneratePocketMap(new IntVec3(mapSize, 1, mapSize), MapGeneratorDef, null, base.Map);
             caveExit = cave.listerThings.ThingsOfDef(DefsOf.ShashlichnikCaveExit).First() as CaveExit;
             caveExit.caveEntrance = this;
+#if v16
+            PocketMapUtility.currentlyGeneratingPortal = null;
+#endif
         }
 
         public override bool IsEnterable(out string reason)
         {
-            if (isCollapsing && !beenEntered)
-            {
-                reason = "ShashlichnikCaveCollapsing".Translate();
-                return false;
-            }
             if (TicksToOpen > 0)
             {
                 reason = "ShashlichnikCaveNotDugYet".Translate();
@@ -228,9 +244,20 @@ namespace Shashlichnik
             return true;
         }
 
+        public override string GetInspectString()
+        {
+            var sb = new StringBuilder(base.GetInspectString());
+            if (TicksToOpen > 0)
+            {
+                sb.AppendLineIfNotEmpty();
+                sb.Append("WorkLeft".Translate() + ": " + ((float)ticksToOpen).ToStringWorkAmount());
+            }
+            return sb.ToString();
+        }
+
         public override Map GetOtherMap()
         {
-            if (cave == null)
+            if (cave == null && TicksToOpen <= 0)
             {
                 GenerateUndercave();
             }
@@ -250,6 +277,10 @@ namespace Shashlichnik
         public override void PostApplyDamage(DamageInfo dinfo, float totalDamageDealt)
         {
             base.PostApplyDamage(dinfo, totalDamageDealt);
+            if (TicksToOpen > 0)
+            {
+                return;
+            }
             var collapseChance = 2 * (MaxHitPoints - HitPoints) / MaxHitPoints;
             if (Rand.Chance(collapseChance))
             {
@@ -260,10 +291,6 @@ namespace Shashlichnik
         public override void OnEntered(Pawn pawn)
         {
             base.OnEntered(pawn);
-            if (!beenEntered)
-            {
-                beenEntered = true;
-            }
             if (Find.CurrentMap == base.Map)
             {
                 SoundDefOf.TraversePitGate?.PlayOneShot(this);
@@ -294,6 +321,14 @@ namespace Shashlichnik
                         CameraJumper.TryJumpAndSelect(caveExit, CameraJumper.MovementMode.Pan);
                     }
                 };
+                yield return new Command_Toggle
+                {
+                    defaultLabel = "ShashlichnikAutoEnter".Translate(),
+                    defaultDesc = "ShashlichnikAutoEnterDesc".Translate(),
+                    icon = enterTex,
+                    isActive = () => autoEnter,
+                    toggleAction = () => autoEnter = !autoEnter
+                };
             }
             if (ticksToOpen > 0 && DebugSettings.ShowDevGizmos)
             {
@@ -303,7 +338,7 @@ namespace Shashlichnik
                     action = () => TicksToOpen = 0
                 };
             }
-            if (isCollapsing)
+            if (IsCollapsing)
             {
                 yield break;
             }
@@ -311,27 +346,29 @@ namespace Shashlichnik
             {
                 yield break;
             }
-            yield return new Command_Action
+            if (cave != null)
             {
-                defaultLabel = "DEV: Collapse cave",
-                action = new Action(() => BeginCollapsing())
-            };
+                yield return new Command_Action
+                {
+                    defaultLabel = "DEV: Collapse cave",
+                    action = new Action(() => BeginCollapsing())
+                };
+            }
         }
 
 
-        private static readonly IntRange CollapseDurationTicks = new IntRange(GenDate.TicksPerHour * 3, GenDate.TicksPerHour * 7);
         public int tickOpened = -999999;
-        public int collapseTick = -999999;
+        [Obsolete($"Use {nameof(CaveMapComponent)}.{nameof(Shashlichnik.CaveMapComponent.collapseTick)} instead")]
+        internal int collapseTick = -999999;
         private int ticksToOpen = tickToOpenConst;
         public const int tickToOpenConst = GenDate.TicksPerHour * 36;
-        private bool isCollapsing;
+        [Obsolete($"Use {nameof(CaveMapComponent)}.{nameof(Shashlichnik.CaveMapComponent.IsCollapsing)} instead")]
+        internal bool isCollapsing;
         public Map cave;
         public CaveExit caveExit;
-#if !v16
-        internal bool beenEntered;
-#endif
         internal Sustainer collapseSustainer;
         internal Effecter collapseEffecter1;
         internal Effecter collapseEffecter2;
+        public bool autoEnter;
     }
 }

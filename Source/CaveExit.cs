@@ -11,7 +11,12 @@ using Verse.Sound;
 
 namespace Shashlichnik
 {
-    public class CaveExit : MapPortal
+    public class CaveExit :
+#if v16
+        PocketMapExit
+#else
+        MapPortal
+#endif
     {
 #if v16
         public override string EnterString
@@ -63,6 +68,14 @@ namespace Shashlichnik
             {
                 yield return gizmo;
             }
+            yield return new Command_Toggle
+            {
+                defaultLabel = "ShashlichnikExitIfNoWork".Translate(),
+                defaultDesc = "ShashlichnikExitIfNoWorkDesc".Translate(),
+                icon = CaveExit.ExitCaveTex.Texture,
+                isActive = () => exitIfNoJob,
+                toggleAction = () => exitIfNoJob = !exitIfNoJob
+            };
             yield return new Command_Action
             {
                 defaultLabel = "ViewSurface".Translate(),
@@ -75,10 +88,27 @@ namespace Shashlichnik
             };
         }
 
+        public override void Destroy(DestroyMode mode = DestroyMode.Vanish)
+        {
+            var cell = Position;
+            Thing.allowDestroyNonDestroyable = true;
+            base.Destroy(mode);
+            Thing.allowDestroyNonDestroyable = false;
+            if (Map != null && !Map.Disposed)
+            {
+                Map.GetComponent<CaveMapComponent>().Notify_ExitDestroyed(this, cell);
+            }
+            if (caveEntrance != null && !caveEntrance.Destroyed)
+            {
+                caveEntrance.Destroy(mode);
+            }
+        }
+
         public override void ExposeData()
         {
             base.ExposeData();
             Scribe_References.Look(ref caveEntrance, nameof(caveEntrance), false);
+            Scribe_Values.Look(ref exitIfNoJob, nameof(exitIfNoJob), false);
         }
 
         private static readonly CachedTexture ExitCaveTex = new CachedTexture("UI/Overlays/Arrow");
@@ -88,8 +118,6 @@ namespace Shashlichnik
         private static readonly Vector3 RopeDrawOffset = new Vector3(0f, 1f, 1f);
 
         public CaveEntrance caveEntrance;
-
-        [Unsaved(false)]
-        private Graphic cachedRopeGraphic;
+        public bool exitIfNoJob = false;
     }
 }

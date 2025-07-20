@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<ShashlichnikCaveAboutToCollapse>La cueva esta a punto de colapsar</ShashlichnikCaveAboutToCollapse>
+	<ShashlichnikCaveUnstable>La cueva luce inestable</ShashlichnikCaveUnstable>
+	<ShashlichnikCaveStabilityAdvice>La cueva se vuelve mas inestable con el tiempo. Seguir minando tambien puede reducir la estabilidad de la cueva.\nPuedes contruir columnas para mejorar ligeramente la estabilidad.\nEntre mas baja la estabilidad mas probables son los derrumbes.\nCuando la estabilidad llega a cero la cueva colapsara</ShashlichnikCaveStabilityAdvice>
+	<ShashlichnikEnterCave>Entrar en la cueva</ShashlichnikEnterCave>
+	<ShashlichnikExitCave>Salir de la cueva</ShashlichnikExitCave>
+	<ShashlichnikCaveCollapsingDesc>¡La cueva esta colapsando! Extrae a tus colonos tan rapido como sea posible.</ShashlichnikCaveCollapsingDesc>
+	<ShashlichnikMessageCaveExitCollapsed>Entrada colapsada, pero deberia haber otra salida...</ShashlichnikMessageCaveExitCollapsed>
+	<ShashlichnikMessageCaveCollapsed>Cueva colapsada.</ShashlichnikMessageCaveCollapsed>
+	<ShashlichnikLandslideIncoming>El techo de la cueva parece inestable, ten cuidado de los derrumbes.</ShashlichnikLandslideIncoming>
+	<ShashlichnikEnableAnomalyEffects>Activa mas efecto de Anomaly</ShashlichnikEnableAnomalyEffects>
+	<ShashlichnikMapSize>Tamaño del mapa subterraneo</ShashlichnikMapSize>
+	<ShashlichnikUndergroundTemperatureModifier>Modificador de temperatura subterranea</ShashlichnikUndergroundTemperatureModifier>
+	<ShashlichnikMustBeOnSurface>Deberia estar en la superficie.</ShashlichnikMustBeOnSurface>
+	<ShashlichnikCaveNotDugYet>La cueva no a sido cavada todavia</ShashlichnikCaveNotDugYet>
+	<ShashlichnikCaveCollapsing>La cueva esta colapsando</ShashlichnikCaveCollapsing>
+	<ShashlichnikStabilitySystemEnabled>Sistema de estabilidad activado</ShashlichnikStabilitySystemEnabled>
+	<ShashlichnikLandslidesEnabled>Derrumbes activados</ShashlichnikLandslidesEnabled>
+	<ShashlichnikMineableModifier>Modificador de recursos minables</ShashlichnikMineableModifier>
+	<ShashlichnikMineableModifierExplanation>Ajusta el numero de recursos del mapa subterraneo. El valor 4 corresponde a un mapa plano, mientras que un valor de 15 equivale a un mapa montañoso.\nPredeterminado es 7.</ShashlichnikMineableModifierExplanation>
+	<ShashlichnikExitIfNoWork>Salir si no hay trabajo</ShashlichnikExitIfNoWork>
+	<ShashlichnikExitIfNoWorkDesc>Los colonos irán a la superficie si no queda trabajo por hacer</ShashlichnikExitIfNoWorkDesc>
+	<ShashlichnikAutoEnter>Entrar automáticamente</ShashlichnikAutoEnter>
+	<ShashlichnikAutoEnterDesc>El colono entrará automáticamente a la cueva si hay trabajo por hacer (solo minería y transporte)</ShashlichnikAutoEnterDesc>
+	<WeAreRich>¡Somos ricos!</WeAreRich>
+	<ShashlichnikShutUp>¡Cállense!</ShashlichnikShutUp>
+	<ShashlichnikShutUp1>Sí, sí, ya sé que son ricos. ¡Muévanse ya, que tengo a Gerencia respirándome en la nuca!</ShashlichnikShutUp1>
+	<ShashlichnikShutUp2>¡Rápido, equipo! ¡No nos estamos haciendo más jóvenes!</ShashlichnikShutUp2>
+	<ShashlichnikShutUp3>Ya les dije que dejarles quedarse con el oro era un error...</ShashlichnikShutUp3>
+</LanguageData>

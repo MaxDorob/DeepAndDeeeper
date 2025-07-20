@@ -12,9 +12,10 @@ namespace Shashlichnik
     /// </summary>
     public class GenStep_RocksFromGrid : RimWorld.GenStep_RocksFromGrid
     {
+        public float mineableModifier = 1f;
         public override void Generate(Verse.Map map, Verse.GenStepParams parms)
         {
-            this.overrideBlotchesPer10kCells = Mod.Settings.mineableModifier;
+            this.overrideBlotchesPer10kCells = Mod.Settings.mineableModifier * mineableModifier;
             base.Generate(map, parms);
         }
     }

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+    <ShashlichnikCaveAboutToCollapse>Die Höhle wird gleich einstürzen</ShashlichnikCaveAboutToCollapse>
+    <ShashlichnikCaveUnstable>Die Höhle schaut instabil aus</ShashlichnikCaveUnstable>
+    <ShashlichnikCaveStabilityAdvice>Die Höhle wird mit der Zeit instabiler. Auch durch den Abbau kann die Stabilität abnehmen.\nDu kannst Säulen bauen, um die Stabilität leicht zu verbessern.\nJe geringer die Stabilität, desto häufiger treten Erdrutsche auf.\nWenn die Stabilität null erreicht, stürzt die Höhle ein</ShashlichnikCaveStabilityAdvice>
+    <ShashlichnikEnterCave>Höhle betreten</ShashlichnikEnterCave>
+    <ShashlichnikExitCave>Höhle verlassen</ShashlichnikExitCave>
+    <ShashlichnikCaveCollapsing>Höhle stürzt ein</ShashlichnikCaveCollapsing>
+    <ShashlichnikCaveCollapsingDesc>Die Höhle stürzt ein! Bringe deine Kolonisten so schnell wie möglich in Sicherheit.</ShashlichnikCaveCollapsingDesc>
+    <ShashlichnikMessageCaveExitCollapsed>Ausgang eingestürzt, aber vielleicht gibt es einen anderen Weg hinaus...</ShashlichnikMessageCaveExitCollapsed>
+    <ShashlichnikMessageCaveCollapsed>Höhle eingestürzt.</ShashlichnikMessageCaveCollapsed>
+    <ShashlichnikLandslideIncoming>Das Dach der Höhle sieht instabil aus, Vorsicht vor Erdrutschen.</ShashlichnikLandslideIncoming>
+    <ShashlichnikEnableAnomalyEffects>Mehr Effekte von Anomaly aktivieren</ShashlichnikEnableAnomalyEffects>
+    <ShashlichnikMapSize>Größe der unterirdischen Karte</ShashlichnikMapSize>
+    <ShashlichnikUndergroundTemperatureModifier>Temperaturmodifikator unterirdisch</ShashlichnikUndergroundTemperatureModifier>
+    <ShashlichnikMustBeOnSurface>Muss sich an der Oberfläche befinden.</ShashlichnikMustBeOnSurface>
+    <ShashlichnikCaveNotDugYet>Die Höhle wurde noch nicht gegraben</ShashlichnikCaveNotDugYet>
+    <ShashlichnikStabilitySystemEnabled>Stabilitätssystem aktiviert</ShashlichnikStabilitySystemEnabled>
+    <ShashlichnikLandslidesEnabled>Erdrutsche aktiviert</ShashlichnikLandslidesEnabled>
+    <ShashlichnikMineableModifier>Modifikator für abbaubare Ressourcen</ShashlichnikMineableModifier>
+    <ShashlichnikMineableModifierExplanation>Passt die Menge an Ressourcen auf der unterirdischen Karte an. Ein Wert von 4 entspricht einer flachen Karte, ein Wert von 15 einem gebirgigen Gelände.\nStandardwert ist 7.</ShashlichnikMineableModifierExplanation>
+    <ShashlichnikExitIfNoWork>Verlassen bei keiner Arbeit</ShashlichnikExitIfNoWork>
+    <ShashlichnikExitIfNoWorkDesc>Kolonisten gehen an die Oberfläche, wenn es keine Arbeit mehr gibt</ShashlichnikExitIfNoWorkDesc>
+    <ShashlichnikAutoEnter>Automatisch betreten</ShashlichnikAutoEnter>
+    <ShashlichnikAutoEnterDesc>Kolonisten betreten automatisch die Höhle, wenn es dort Arbeit gibt (nur Abbau und Transport)</ShashlichnikAutoEnterDesc>
+    <WeAreRich>Wir sind reich!</WeAreRich>
+    <ShashlichnikShutUp>Halt's Maul!</ShashlichnikShutUp>
+    <ShashlichnikShutUp1>Ja, ja, du bist reich. Jetzt beweg dich, das Management\nbreathing sitzt mir im Nacken!</ShashlichnikShutUp1>
+    <ShashlichnikShutUp2>Zeit ist Geld, Leute...! Und Geld haben wir nicht!</ShashlichnikShutUp2>
+    <ShashlichnikShutUp3>Ich hab es ihnen gesagt, dass es ein Fehler war, dass du das Gold behältst...</ShashlichnikShutUp3>
+    <ShashlichnikNotStableYet>Der Boden dort ist noch nicht stabil genug, versuch es später erneut</ShashlichnikNotStableYet>
+    <ShashlichnikCloseToOtherCavern>Zu nah an anderen Höhlen</ShashlichnikCloseToOtherCavern>
+</LanguageData>

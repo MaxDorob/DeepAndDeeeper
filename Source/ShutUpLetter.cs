@@ -38,7 +38,11 @@ namespace Shashlichnik
         {
             get
             {
-                foreach (var optionString in ShutUpOptionStrings.TakeRandomDistinct(2))
+                foreach (var optionString in ShutUpOptionStrings
+#if v16
+                    .TakeRandomDistinct(2)
+#endif
+                    )
                 {
                     DiaOption diaOption = new DiaOption(optionString);
                     diaOption.action = delegate ()

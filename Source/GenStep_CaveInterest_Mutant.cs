@@ -32,14 +32,20 @@ namespace Shashlichnik
         }
         protected override bool TrySpawnInterestAt(Map map, IntVec3 thingPos)
         {
-            var pawn = PawnGenerator.GeneratePawn(mutant, FactionUtility.DefaultFactionFrom(mutant.defaultFactionDef));
+            var pawn = PawnGenerator.GeneratePawn(mutant, FactionUtility.DefaultFactionFrom(mutant.
+#if v16
+                defaultFactionDef
+#else
+                defaultFactionType
+#endif
+                ));
             GenSpawn.Spawn(pawn, thingPos, map);
             if (pawn.Spawned && pawn.Faction != null && pawn.Faction != Faction.OfPlayer)
             {
                 Lord lord = null;
                 if (pawn.Map.mapPawns.SpawnedPawnsInFaction(pawn.Faction).Any((Pawn p) => p != pawn))
                 {
-                    Pawn otherPawn = (Pawn)GenClosest.ClosestThing_Global(pawn.Position, pawn.Map.mapPawns.SpawnedPawnsInFaction(pawn.Faction), 99999f, (Thing p) => p != pawn && ((Pawn)p).GetLord() != null, null, false);
+                    Pawn otherPawn = (Pawn)GenClosest.ClosestThing_Global(pawn.Position, pawn.Map.mapPawns.SpawnedPawnsInFaction(pawn.Faction), validator: (Thing p) => p != pawn && ((Pawn)p).GetLord() != null);
                     lord = otherPawn?.GetLord();
                 }
                 if (lord == null || !lord.CanAddPawn(pawn))

@@ -23,8 +23,9 @@ namespace Shashlichnik
             }
             foreach (var thing in rewards)
             {
-                if (CellFinder.TryFindRandomCellNear(MapGenerator.PlayerStartSpot, map, 15, c => c.Standable(map) && GenSpawn.CanSpawnAt(thing.def, c, map, canWipeEdifices: false), out var cell, 600))
+                if (CellFinder.TryFindRandomCellNear(MapGenerator.PlayerStartSpot, map, 15, c => c.Standable(map), out var cell, 600))
                 {
+                    cell = CellFinder.FindNoWipeSpawnLocNear(cell, map, thing.def, Rot4.Random, 6);
                     GenSpawn.Spawn(thing, cell, map);
                 }
                 else

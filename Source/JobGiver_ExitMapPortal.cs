@@ -6,7 +6,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Verse;
 using Verse.AI;
-using static Unity.IO.LowLevel.Unsafe.AsyncReadManagerMetrics;
 
 namespace Shashlichnik
 {
@@ -26,7 +25,13 @@ namespace Shashlichnik
                     return null;
                 }
 
-                using (PawnPath pawnPath = pawn.Map.pathFinder.FindPathNow(pawn.Position, c, TraverseParms.For(pawn, Danger.Deadly, TraverseMode.PassAllDestroyableThings, false, false, false, true), null, PathEndMode.OnCell, null))
+                using (PawnPath pawnPath = pawn.Map.pathFinder.
+#if v16
+                    FindPathNow
+#else
+                    FindPath
+#endif
+                    (pawn.Position, c, TraverseParms.For(pawn, Danger.Deadly, TraverseMode.PassAllDestroyableThings)))
                 {
                     IntVec3 cellBeforeBlocker;
                     Thing thing = pawnPath.FirstBlockingBuilding(out cellBeforeBlocker, pawn);

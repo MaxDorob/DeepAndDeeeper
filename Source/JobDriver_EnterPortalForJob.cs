@@ -20,7 +20,9 @@ namespace Shashlichnik
             {
                 ReservationManager.Reservation reservation = new ReservationManager.Reservation(pawn, job, 1, -1, TargetB, null);
                 map.reservationManager.reservations.Add(reservation);
+#if v16
                 map.events.Notify_ReservationAdded(reservation);
+#endif
                 return true;
             }
             return false;

@@ -9,7 +9,7 @@
 	<ShashlichnikCaveCollapsingDesc>Пещера рушится! Колонистам следует выбраться из пещеры как можно быстрее.</ShashlichnikCaveCollapsingDesc>
 	<ShashlichnikMessageCaveExitCollapsed>Выход из пещеры обрушился, но должен быть еще один...</ShashlichnikMessageCaveExitCollapsed>
 	<ShashlichnikMessageCaveCollapsed>Пещера обрушилась.</ShashlichnikMessageCaveCollapsed>
-	<ShashlichnikLandslideIncoming>Потолок пещеры выглядит нестабильным, следует оласаться обвала.</ShashlichnikLandslideIncoming>
+	<ShashlichnikLandslideIncoming>Потолок пещеры выглядит нестабильным, следует опасаться обвала.</ShashlichnikLandslideIncoming>
 	<ShashlichnikEnableAnomalyEffects>Включить дополнительные эффекты из Anomaly</ShashlichnikEnableAnomalyEffects>
 	<ShashlichnikMapSize>Размер карты под землей</ShashlichnikMapSize>
 	<ShashlichnikUndergroundTemperatureModifier>Модификатор температуры под землей</ShashlichnikUndergroundTemperatureModifier>

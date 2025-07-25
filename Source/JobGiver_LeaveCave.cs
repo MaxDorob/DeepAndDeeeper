@@ -38,7 +38,8 @@ namespace Shashlichnik
             {
                 return 10f;
             }
-            throw new NotImplementedException();
+            Log.WarningOnce("There are unknown TimeAssignmentDef: " + timeAssignmentDef.defName, 8281037);
+            return 0f;
         }
         public override ThinkResult TryIssueJobPackage(Pawn pawn, JobIssueParams jobParams)
         {

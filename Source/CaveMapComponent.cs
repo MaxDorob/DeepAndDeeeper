@@ -14,12 +14,22 @@ namespace Shashlichnik
 {
     public class CaveMapComponent : UndercaveMapComponent
     {
+        internal static Dictionary<Map, CaveMapComponent> cachedComponents = new Dictionary<Map, CaveMapComponent>();
         public List<EffecterDef> ambient = [DefsOf.ShashlichnikCaveCeilingDebris];
         public CaveMapComponent(Map map) : base(map)
         {
         }
 
-
+        public override void FinalizeInit()
+        {
+            base.FinalizeInit();
+            cachedComponents.Add(this.map, this);
+        }
+        public override void MapRemoved()
+        {
+            base.MapRemoved();
+            cachedComponents.Remove(this.map);
+        }
         public override void MapGenerated()
         {
             Map sourceMap = SourceMap;

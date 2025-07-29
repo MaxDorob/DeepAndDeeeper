@@ -15,10 +15,11 @@ namespace Shashlichnik
         {
             public static bool Prefix(MapTemperature __instance, ref float __result)
             {
-                var caveComp = __instance.map.GetComponent<CaveMapComponent>();
-                if (caveComp?.SourceMap != null )
+                //var caveComp = __instance.map.GetComponent<CaveMapComponent>();
+                Map sourceMap;
+                if (CaveMapComponent.cachedComponents.TryGetValue(__instance.map, out var caveComp) && (sourceMap = caveComp.SourceMap) != null)
                 {
-                    __result = caveComp.SourceMap.mapTemperature.OutdoorTemp * Mod.Settings.undergroundTemperatureModifier;
+                    __result = sourceMap.mapTemperature.OutdoorTemp * Mod.Settings.undergroundTemperatureModifier;
                     return false;
                 }
                 return true;
@@ -31,10 +32,10 @@ namespace Shashlichnik
         {
             public static bool Prefix(MapTemperature __instance, ref float __result)
             {
-                var caveComp = __instance.map.GetComponent<CaveMapComponent>();
-                if (caveComp?.SourceMap != null)
+                Map sourceMap;
+                if (CaveMapComponent.cachedComponents.TryGetValue(__instance.map, out var caveComp) && (sourceMap = caveComp.SourceMap) != null)
                 {
-                    __result = caveComp.SourceMap.mapTemperature.SeasonalTemp * Mod.Settings.undergroundTemperatureModifier;
+                    __result = sourceMap.mapTemperature.SeasonalTemp * Mod.Settings.undergroundTemperatureModifier;
                     return false;
                 }
                 return true;

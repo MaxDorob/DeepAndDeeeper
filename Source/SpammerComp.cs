@@ -18,13 +18,13 @@ namespace Shashlichnik
         public override void CompTick()
         {
             base.CompTick();
-            if (messagesLeft != 0 && !parent.Position.Fogged(parent.Map) && nextMessageTick < Find.TickManager.TicksGame)
+            if (messagesLeft != 0 && !parent.Position.Fogged(parent.MapHeld) && nextMessageTick < Find.TickManager.TicksGame)
             {
                 if (messagesLeft < 0)
                 {
                     messagesLeft = Props.totalMessagesCount;
                 }
-                var spammers = parent.Map.mapPawns.FreeColonists.Where(p => p.Position.InHorDistOf(parent.Position, Props.distance)).ToList();
+                var spammers = parent.MapHeld.mapPawns.FreeColonists.Where(p => p.Position.InHorDistOf(parent.PositionHeld, Props.distance)).ToList();
                 if (spammers.Count > 0)
                 {
                     var letter = LetterMaker.MakeLetter("WeAreRich".Translate(), "WeAreRich".Translate(), Props.totalMessagesCount - messagesLeft > Props.messagesBeforeShutUp ? DefsOf.ShashlichnikPositiveEventShutUp : LetterDefOf.PositiveEvent, new LookTargets((new Thing[] { parent }).Union(spammers)));

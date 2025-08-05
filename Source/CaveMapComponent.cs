@@ -34,7 +34,14 @@ namespace Shashlichnik
         {
             Map sourceMap = SourceMap;
 
-            caveEntrance = sourceMap?.listerThings?.ThingsOfDef(DefsOf.ShashlichnikCaveEntrance).FirstOrDefault() as CaveEntrance;
+            caveEntrance =
+#if v16
+            PocketMapUtility.
+#else
+            CaveEntrance.
+#endif
+                currentlyGeneratingPortal
+                as CaveEntrance;
             caveExit = map.listerThings.ThingsOfDef(DefsOf.ShashlichnikCaveExit).FirstOrDefault() as CaveExit;
             if (caveEntrance == null)
             {

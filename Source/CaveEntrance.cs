@@ -217,19 +217,23 @@ namespace Shashlichnik
                 CaveMapComponent?.BeginCollapsing(this, silent, forcedCollapseTick);
             }
         }
-
+#if !v16
+        public static CaveEntrance currentlyGeneratingPortal;
+#endif
         public void GenerateUndercave()
         {
             var mapSize = Mod.Settings.mapSize;
 #if v16
-            PocketMapUtility.currentlyGeneratingPortal = this;
+            PocketMapUtility.
 #endif
+                currentlyGeneratingPortal = this;
             cave = PocketMapUtility.GeneratePocketMap(new IntVec3(mapSize, 1, mapSize), MapGeneratorDef, null, base.Map);
             caveExit = cave.listerThings.ThingsOfDef(DefsOf.ShashlichnikCaveExit).First() as CaveExit;
             caveExit.caveEntrance = this;
 #if v16
-            PocketMapUtility.currentlyGeneratingPortal = null;
+            PocketMapUtility.
 #endif
+                currentlyGeneratingPortal = null;
         }
 
         public override bool IsEnterable(out string reason)

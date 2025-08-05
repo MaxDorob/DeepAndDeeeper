@@ -14,7 +14,7 @@ namespace Shashlichnik
         public override void Generate(Map map, GenStepParams parms)
         {
 
-            if (Rand.Chance(chance) && CellFinder.TryFindRandomCell(map, (IntVec3 cell) => MapGenerator.PlayerStartSpot.DistanceTo(cell) > 40f && (float)cell.DistanceToEdge(map) > ClearRadius + 1f, out var intVec))
+            if (CaveExitSurfaceInterest.sitesChances.Any() && Rand.Chance(chance) && CellFinder.TryFindRandomCell(map, (IntVec3 cell) => MapGenerator.PlayerStartSpot.DistanceTo(cell) > 40f && (float)cell.DistanceToEdge(map) > ClearRadius + 1f, out var intVec))
             {
                 foreach (IntVec3 c in GenRadial.RadialCellsAround(intVec, ClearRadius, true))
                 {

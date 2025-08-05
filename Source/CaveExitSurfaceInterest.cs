@@ -13,16 +13,20 @@ namespace Shashlichnik
     {
         static CaveExitSurfaceInterest()
         {
+            sitesChances = new Dictionary<SitePartDef, float>();
+
+            if (ModsConfig.IdeologyActive)
+            {
+                sitesChances.Add(SitePartDefOf.AncientComplex, 0.5f);
+            }
+
             if (ModsConfig.BiotechActive)
             {
                 sitesChances.Add(SitePartDefOf.AncientComplex_Mechanitor, 0.1f);
             }
         }
         Site site;
-        static Dictionary<SitePartDef, float> sitesChances = new Dictionary<SitePartDef, float>()
-        {
-            { SitePartDefOf.AncientComplex, 0.5f }
-        };
+        public static Dictionary<SitePartDef, float> sitesChances;
         public override Map GetOtherMap()
         {
             Map map = null;

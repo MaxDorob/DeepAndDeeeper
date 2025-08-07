@@ -15,7 +15,7 @@ namespace Shashlichnik
         public override ThingRequest PotentialWorkThingRequest => ThingRequest.ForDef(DefsOf.ShashlichnikCaveEntrance);
         public override Job JobOnThing(Pawn pawn, Thing t, bool forced = false)
         {
-            if (t is CaveEntrance entrance && entrance.autoEnter && entrance.caveExit != null && (!entrance.caveExit.exitIfNoJob || pawn.timetable.CurrentAssignment != TimeAssignmentDefOf.Sleep) && TryFindFirstAvailableJobTargetAt(entrance.caveExit, pawn, out var targetThing))
+            if (t is CaveEntrance entrance && entrance.autoEnter && entrance.caveExit != null && (!entrance.caveExit.exitIfNoJob || pawn.timetable?.CurrentAssignment != TimeAssignmentDefOf.Sleep) && TryFindFirstAvailableJobTargetAt(entrance.caveExit, pawn, out var targetThing))
             {
                 return JobMaker.MakeJob(DefsOf.ShashlichnikEnterPortalForJob, t, targetThing);
             }
@@ -28,7 +28,7 @@ namespace Shashlichnik
         }
         public override bool HasJobOnThing(Pawn pawn, Thing t, bool forced = false)
         {
-            if (t is CaveEntrance entrance && entrance.autoEnter && entrance.caveExit != null && (!entrance.caveExit.exitIfNoJob || pawn.timetable.CurrentAssignment != TimeAssignmentDefOf.Sleep) && TryFindFirstAvailableJobTargetAt(entrance.caveExit, pawn, out var targetThing))
+            if (t is CaveEntrance entrance && entrance.autoEnter && entrance.caveExit != null && (!entrance.caveExit.exitIfNoJob || pawn.timetable?.CurrentAssignment != TimeAssignmentDefOf.Sleep) && TryFindFirstAvailableJobTargetAt(entrance.caveExit, pawn, out var targetThing))
             {
                 if (TryFindFirstAvailableJobTargetAt(entrance.caveExit, pawn, out _))
                 {

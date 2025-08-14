@@ -49,7 +49,21 @@ namespace Shashlichnik
                     return true;
                 }
             }
-
+            // Nested cave entrances, check if their maps have available targets for jobs.
+            if (Mod.Settings.enableNestedJobSearch)
+            {
+                foreach (var nestedEntrance in map.listerThings.ThingsOfDef(DefsOf.ShashlichnikCaveEntrance))
+                {
+                    if (nestedEntrance is not CaveEntrance { autoEnter: true, caveExit: {} nestedExit })
+                    {
+                        continue;
+                    }
+                    if (TryFindFirstAvailableJobTargetAt(nestedExit, forPawn, out result))
+                    {
+                        return true;
+                    }
+                }
+            }
             result = null;
             return false;
         }

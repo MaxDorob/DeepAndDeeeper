@@ -43,9 +43,18 @@ namespace Shashlichnik
             y += buttonSize.y + Margin;
             Settings.undergroundTemperatureModifier = Widgets.HorizontalSlider(new Rect(inRect.x, y, inRect.width, buttonSize.y), Settings.undergroundTemperatureModifier, 0.2f, 1.5f, label: "ShashlichnikUndergroundTemperatureModifier".Translate() + ": " + Settings.undergroundTemperatureModifier.ToStringByStyle(ToStringStyle.FloatOne), roundTo: 0.1f);
             y += buttonSize.y + Margin;
+            Widgets.HorizontalSlider(new Rect(inRect.x, y, inRect.width, buttonSize.y), ref Settings.nestedCaveEntranceChance, new FloatRange(0f, 1f), "ShashlichnikNestedCaveEntranceChance".Translate() + ": " + Settings.nestedCaveEntranceChance.ToStringByStyle(ToStringStyle.FloatTwo), roundTo: 0.01f);
+            y += buttonSize.y + Margin;
+
             Widgets.CheckboxLabeled(new Rect(inRect.x, y, inRect.width, buttonSize.y), "ShashlichnikStabilitySystemEnabled".Translate(), ref Settings.stabilitySystemEnabled);
             y += buttonSize.y;
             Widgets.CheckboxLabeled(new Rect(inRect.x, y, inRect.width, buttonSize.y), "ShashlichnikLandslidesEnabled".Translate(), ref Settings.landslidesEnabled);
+            y += buttonSize.y;
+
+            var rect = new Rect(inRect.x, y, inRect.width, buttonSize.y);
+            Widgets.CheckboxLabeled(rect, "ShashlichnikNestedJobSearch".Translate(), ref Settings.enableNestedJobSearch);
+            TooltipHandler.TipRegion(rect, new TipSignal("ShashlichnikNestedJobSearchExplanation".Translate()));
+            y += buttonSize.y;
         }
         public override string SettingsCategory()
         {

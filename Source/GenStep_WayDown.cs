@@ -14,8 +14,8 @@ namespace Shashlichnik
         {
             countChances = new List<RimWorld.CountChance>
             {
-                new CountChance() {count = 0, chance = 0.15f},
-                new CountChance() {count = 1, chance = 0.85f},
+                // Note: Get updated to be settings value on generation call
+                new CountChance() {count = 1, chance = 1f},
             };
             subCountChances = new List<CountChance>()
             {
@@ -30,9 +30,15 @@ namespace Shashlichnik
         }
         protected override bool CellValidator(Map map, IntVec3 c) => !c.InHorDistOf(MapGenerator.PlayerStartSpot, distanceToPlayer) && c.DistanceToEdge(map) > 5 && !AllInterestCenters.Any((IntVec3 p) => c.InHorDistOf(p, MinDistApart));
         const float ClearRadius = 3f;
+
+        public override void Generate(Map map, GenStepParams parms)
+        {
+            countChances[0] = countChances[0] with { chance = Mod.Settings.nestedCaveEntranceChance };
+            base.Generate(map, parms);
+        }
+
         protected override bool TrySpawnInterestAt(Map map, IntVec3 intVec)
         {
-
             foreach (IntVec3 c in GenRadial.RadialCellsAround(intVec, ClearRadius, true))
             {
                 foreach (Thing thing in from t in c.GetThingList(map).ToList<Thing>()

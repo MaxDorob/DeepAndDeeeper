@@ -4,5 +4,8 @@
     <exclude>.git</exclude>
     <exclude>.vs</exclude>
     <exclude>Source</exclude>
+    <exclude>v1.5\Assemblies\0Harmony.pdb</exclude>
+    <exclude>v1.5\Assemblies\DeepAndDeeper.pdb</exclude>
+    <exclude>v1.6</exclude>
   </Excluded>
 </Configuration>

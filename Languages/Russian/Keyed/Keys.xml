@@ -31,4 +31,7 @@
 	<ShashlichnikShutUp3>Я говорил им, что позволять вам самим забирать золото, это ошибка...</ShashlichnikShutUp3>
 	<ShashlichnikNotStableYet>Земля здесь недостаточно стабильная, попробуйте еще раз позже</ShashlichnikNotStableYet>
 	<ShashlichnikCloseToOtherCavern>Слишком близко к другим пещерам</ShashlichnikCloseToOtherCavern>
+	<ShashlichnikNestedCaveEntranceChance>Шанс появления спуска в пещерах</ShashlichnikNestedCaveEntranceChance>
+	<ShashlichnikNestedJobSearch>Рекурсивный поиск работы в пещерах</ShashlichnikNestedJobSearch>
+	<ShashlichnikNestedJobSearchExplanation>При наличии в пещере спусков, у которых указано "Входить по желанию", будет также производиться проверка на наличие работы в этих спусках.</ShashlichnikNestedJobSearchExplanation>
 </LanguageData>

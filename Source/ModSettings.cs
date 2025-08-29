@@ -22,6 +22,10 @@ namespace Shashlichnik
         public bool stabilitySystemEnabled = true;
         public bool landslidesEnabled = true;
         public float mineableModifier = 7;
+
+        public float nestedCaveEntranceChance = 0.85f;
+        public bool enableNestedJobSearch = true;
+
         public override void ExposeData()
         {
             base.ExposeData();
@@ -31,6 +35,8 @@ namespace Shashlichnik
             Scribe_Values.Look(ref landslidesEnabled, nameof(landslidesEnabled), true);
             Scribe_Values.Look(ref stabilitySystemEnabled, nameof(stabilitySystemEnabled), true);
             Scribe_Values.Look(ref mineableModifier, nameof(mineableModifier), 7f);
+            Scribe_Values.Look(ref nestedCaveEntranceChance, nameof(nestedCaveEntranceChance), 0.85f);
+            Scribe_Values.Look(ref enableNestedJobSearch, nameof(enableNestedJobSearch), true);
         }
     }
 }

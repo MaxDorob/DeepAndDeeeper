@@ -19,6 +19,9 @@
 	<ShashlichnikLandslidesEnabled>Landslides enabled</ShashlichnikLandslidesEnabled>
 	<ShashlichnikMineableModifier>Mineable resources modifier</ShashlichnikMineableModifier>
 	<ShashlichnikMineableModifierExplanation>Adjusts the amount of resources on the underground map. A value of 4 is equivalent to a flat map, while a value of 15 corresponds to mountainous terrain.\nDefault is 7.</ShashlichnikMineableModifierExplanation>
+	<ShashlichnikNestedCaveEntranceChance>Nested Cave Entrance Spawn Chance</ShashlichnikNestedCaveEntranceChance>
+	<ShashlichnikNestedJobSearch>Nested Job Search</ShashlichnikNestedJobSearch>
+	<ShashlichnikNestedJobSearchExplanation>If multiple layers of cave entrances all have 'Enter at will' enabled, whether or not colonist will look for jobs in the nested deeper layers of cave.</ShashlichnikNestedJobSearchExplanation>
 	<ShashlichnikExitIfNoWork>Exit if no work</ShashlichnikExitIfNoWork>
 	<ShashlichnikExitIfNoWorkDesc>Colonists will go the surface if there's no work left</ShashlichnikExitIfNoWorkDesc>
 	<ShashlichnikAutoEnter>Enter at will</ShashlichnikAutoEnter>

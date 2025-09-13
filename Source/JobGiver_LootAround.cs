@@ -16,7 +16,7 @@ namespace Shashlichnik
         {
             return 8.6f;
         }
-        public override Job TryGiveJob(Pawn pawn)
+        protected override Job TryGiveJob(Pawn pawn)
         {
             if (TryFindBestItemToSteal(pawn.Position, pawn.Map, 9.9f, out var item, pawn))
             {

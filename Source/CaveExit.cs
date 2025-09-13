@@ -30,7 +30,7 @@ namespace Shashlichnik
             }
         }
 
-        public override Texture2D EnterTex
+        protected override Texture2D EnterTex
         {
             get
             {

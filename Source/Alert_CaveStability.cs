@@ -46,7 +46,7 @@ namespace Shashlichnik
             }
             return sb.ToString();
         }
-        public override Color BGColor
+        protected override Color BGColor
         {
             get
             {

@@ -66,7 +66,7 @@ namespace Shashlichnik
 
 
 
-        public override Texture2D EnterTex
+        protected override Texture2D EnterTex
         {
             get
             {
@@ -131,7 +131,7 @@ namespace Shashlichnik
         }
 #pragma warning restore 0618
 
-        public override void Tick()
+        protected override void Tick()
         {
             base.Tick();
             if (IsCollapsing)

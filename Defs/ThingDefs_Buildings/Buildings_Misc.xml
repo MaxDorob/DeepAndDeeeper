@@ -54,7 +54,7 @@
 		<portal IgnoreIfNoMatchingField="True"></portal>
 	</ThingDef>
 
-	<ThingDef Name="CaveExit" ParentName="BuildingBase">
+	<ThingDef Name="ShashlichnikCaveExit" ParentName="BuildingBase">
 		<defName>ShashlichnikCaveExit</defName>
 		<label>cave exit</label>
 		<description>A rope line which links to the surface above.</description>
@@ -97,7 +97,7 @@
 		<portal IgnoreIfNoMatchingField="True"></portal>
 	</ThingDef>
 
-	<ThingDef ParentName="CaveExit">
+	<ThingDef ParentName="ShashlichnikCaveExit">
 		<defName>ShashlichnikCaveExitToSurfaceInterest</defName>
 		<thingClass>Shashlichnik.CaveExitSurfaceInterest</thingClass>
 		<portal IgnoreIfNoMatchingField="True"></portal>

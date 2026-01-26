@@ -85,7 +85,7 @@ namespace Shashlichnik
                 return "ShashlichnikEnterCave".Translate();
             }
         }
-        public int TicksToOpen
+        public float TicksToOpen
         {
             get
             {
@@ -364,7 +364,7 @@ namespace Shashlichnik
         public int tickOpened = -999999;
         [Obsolete($"Use {nameof(CaveMapComponent)}.{nameof(Shashlichnik.CaveMapComponent.collapseTick)} instead")]
         internal int collapseTick = -999999;
-        private int ticksToOpen = tickToOpenConst;
+        private float ticksToOpen = tickToOpenConst;
         public const int tickToOpenConst = GenDate.TicksPerHour * 36;
         [Obsolete($"Use {nameof(CaveMapComponent)}.{nameof(Shashlichnik.CaveMapComponent.IsCollapsing)} instead")]
         internal bool isCollapsing;

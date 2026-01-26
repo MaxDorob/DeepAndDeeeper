@@ -22,11 +22,12 @@ namespace Shashlichnik
             Toil digToil = ToilMaker.MakeToil("MakeNewToils");
             digToil.defaultCompleteMode = ToilCompleteMode.Never;
             digToil.tickAction = DigCaveEntrance;
+            digToil.activeSkill = () => SkillDefOf.Mining;
             yield return digToil.WithProgressBar(TargetIndex.A, () => 1f - ((float)CaveEntrance.TicksToOpen - 1) / CaveEntrance.tickToOpenConst);
         }
         private void DigCaveEntrance()
         {
-            CaveEntrance.TicksToOpen--;
+            CaveEntrance.TicksToOpen -= pawn.GetStatValue(StatDefOf.MiningSpeed) * 0.5f;
             if (pawn.IsHashIntervalTick(80))
             {
                 graveDigEffect = Rand.Bool ? EffecterDefOf.BuryPawn.Spawn() : EffecterDefOf.Mine.Spawn();

@@ -130,16 +130,7 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Choose>
-    <When Condition="'$(Configuration)'=='Release1.6'">
-      <ItemGroup>
-        <PackageReference Include="Krafs.Rimworld.Ref" Version="1.6.4523" GeneratePathProperty="true" />
-      </ItemGroup>
-    </When>
-    <Otherwise>
-      <ItemGroup>
-        <PackageReference Include="Krafs.Rimworld.Ref" Version="1.5.4063" GeneratePathProperty="true" />
-      </ItemGroup>
-    </Otherwise>
-  </Choose>
+	<ItemGroup>
+		<PackageReference Include="Krafs.Rimworld.Ref" Version="1.6.4523" GeneratePathProperty="true" />
+	</ItemGroup>
 </Project>

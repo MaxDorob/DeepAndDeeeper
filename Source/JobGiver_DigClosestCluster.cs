@@ -20,7 +20,7 @@ namespace Shashlichnik
             ore = pawn.Map.listerThings.GetThingsOfType<Mineable>().Where(x => x.def != ThingDefOf.MineableSteel && x.def.building.isResourceRock && pawn.CanReserve(x)).OrderBy(m => (m.Position - pawn.Position).LengthHorizontalSquared).FirstOrDefault();
             return ore != null;
         }
-        public override Job TryGiveJob(Pawn pawn)
+        protected override Job TryGiveJob(Pawn pawn)
         {
             if (TryFindClosestOre(pawn, out Thing ore))
             {

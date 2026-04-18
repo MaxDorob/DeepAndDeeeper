@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ScenarioDef ParentName="ScenarioBase">
+    <defName>Shashlichnik_BuriedAlive</defName>
+    <label>BuriedAlive</label>
+    <description>TODO.</description>
+    <scenario>
+      <summary>A lost people in caverns.</summary>
+      <playerFaction>
+        <factionDef>PlayerColony</factionDef>
+      </playerFaction>
+      <parts Inherit="False">
+        
+        <!-- Layers --> <!--Not sure if i need it yet...-->
+        <!--<li Class="ScenPart_PlanetLayer">
+          <def>PlanetLayerFixed</def>
+          <tag>Shashlichnik_Caverns</tag>
+          <layer>Shashlichnik_Caverns</layer>
+          <settingsDef>Shashlichnik_Caverns</settingsDef>
+          <hide>true</hide>
+          <connections>
+            <Surface>
+              <zoomMode>ZoomIn</zoomMode>
+            </Surface>
+          </connections>
+        </li>-->
+        
+        <!-- Game start dialog -->
+        <li Class="ScenPart_GameStartDialog">
+          <def>GameStartDialog</def>
+          <text>An expedition to the caverns quickly became a hell on the ground (or actully under the ground)\n\nTODO.</text>
+          <closeSound>GameStartSting</closeSound>
+        </li>
+
+        <!-- Config pages -->
+        <li Class="ScenPart_ConfigPage_ConfigureStartingPawns">
+          <def>ConfigPage_ConfigureStartingPawns</def>
+          <pawnCount>2</pawnCount>
+          <pawnChoiceCount>8</pawnChoiceCount>
+          <allowedDevelopmentalStages>Adult, Child</allowedDevelopmentalStages>
+          <requiredSkills>
+            <li>Mining</li>
+          </requiredSkills>
+        </li>
+
+        <li Class="ScenPart_ForcedMap">
+          <def>ForcedMap</def>
+          <mapGenerator>Shashlichnik_BuriedAliveCavern</mapGenerator>
+          <layerDef>Shashlichnik_Caverns</layerDef>
+        </li>
+
+        <!-- Player starting stuff spawn method-->
+        <li Class="ScenPart_PlayerPawnsArriveMethod">
+          <def>PlayerPawnsArriveMethod</def>
+          <method>Standing</method>
+        </li>
+
+        <!-- Starting research -->
+        <li Class="ScenPart_StartingResearch">
+          <def>StartingResearch</def>
+          <project>Stonecutting</project>
+        </li>
+
+        <!-- Player starting things -->
+        <li Class="ScenPart_StartingThing_Defined">
+          <def>StartingThing_Defined</def>
+          <thingDef>Bedroll</thingDef>
+          <count>1</count>
+        </li>
+        <li Class="ScenPart_StartingThing_Defined">
+          <def>StartingThing_Defined</def>
+          <thingDef>MealSurvivalPack</thingDef>
+          <count>30</count>
+        </li>
+        <li Class="ScenPart_StartingThing_Defined">
+          <def>StartingThing_Defined</def>
+          <thingDef>MedicineIndustrial</thingDef>
+          <count>5</count>
+        </li>
+        <li Class="ScenPart_StartingThing_Defined">
+          <def>StartingThing_Defined</def>
+          <thingDef>ComponentIndustrial</thingDef>
+          <count>5</count>
+        </li>
+        <li Class="ScenPart_StartingThing_Defined">
+          <def>StartingThing_Defined</def>
+          <thingDef>Gun_Autopistol</thingDef>
+        </li>
+				<!--TODO: add CE bullets-->
+				
+				<!--TODO: add starting hediffs, like a bruises-->
+				
+				<!--TODO: add dead mate corpses-->
+      </parts>
+    </scenario>
+  </ScenarioDef>
+
+</Defs>

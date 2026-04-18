@@ -52,6 +52,12 @@ namespace Shashlichnik
             y += buttonSize.y;
 
             var rect = new Rect(inRect.x, y, inRect.width, buttonSize.y);
+            Widgets.CheckboxLabeled(rect,
+                "ShashlichnikDaDIgnoreSurfaceRequirement".Translate(), ref Settings.ignoreSurfaceRequirement);
+            TooltipHandler.TipRegion(rect, new TipSignal("ShashlichnikDaDIgnoreSurfaceRequirementExplanation".Translate()));
+            y += buttonSize.y;
+
+            rect = new Rect(inRect.x, y, inRect.width, buttonSize.y);
             Widgets.CheckboxLabeled(rect, "ShashlichnikNestedJobSearch".Translate(), ref Settings.enableNestedJobSearch);
             TooltipHandler.TipRegion(rect, new TipSignal("ShashlichnikNestedJobSearchExplanation".Translate()));
             y += buttonSize.y;

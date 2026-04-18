@@ -33,4 +33,6 @@
 	<ShashlichnikShutUp3>I told them letting you keep the gold for yourselves was a mistake...</ShashlichnikShutUp3>
 	<ShashlichnikNotStableYet>The ground there is not stable enough yet, try again later</ShashlichnikNotStableYet>
 	<ShashlichnikCloseToOtherCavern>Close to other caverns</ShashlichnikCloseToOtherCavern>
+	<ShashlichnikDaDIgnoreSurfaceRequirement>Remove surface-only limitation</ShashlichnikDaDIgnoreSurfaceRequirement>
+	<ShashlichnikDaDIgnoreSurfaceRequirementExplanation>Remove the limitation on construction of cave entrances to allow the construction of cave entrances underground.</ShashlichnikDaDIgnoreSurfaceRequirementExplanation>
 </LanguageData>

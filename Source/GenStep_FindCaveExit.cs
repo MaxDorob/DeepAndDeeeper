@@ -53,7 +53,7 @@ namespace Shashlichnik
                 }
             }
             GenSpawn.Spawn(ThingMaker.MakeThing(DefsOf.ShashlichnikCaveExit, null), exitCell, map, WipeMode.Vanish);
-            MapGenerator.PlayerStartSpot = exitCell;
+            MapGenerator.PlayerStartSpot = CellFinder.StandableCellNear(exitCell, map, ClearRadius);
         }
 
         public const float ClearRadius = 4.5f;

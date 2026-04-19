@@ -38,7 +38,7 @@ namespace Shashlichnik
             Settings.mapSize = (int)Widgets.HorizontalSlider(new Rect(inRect.x, y, inRect.width, buttonSize.y), Settings.mapSize, 100, 400, label: "ShashlichnikMapSize".Translate() + ": " + Settings.mapSize.ToString(), roundTo: 1);
             y += buttonSize.y + Margin;
             var sliderRect = new Rect(inRect.x, y, inRect.width, buttonSize.y);
-            Widgets.HorizontalSlider(sliderRect, ref Settings.mineableModifier, new FloatRange(2f, 15f), "ShashlichnikMineableModifier".Translate() + ": " + Settings.mineableModifier.ToStringByStyle(ToStringStyle.FloatOne), roundTo: 0.5f);
+            Widgets.HorizontalSlider(sliderRect, ref Settings.mineableModifier, new FloatRange(2f, 32f), "ShashlichnikMineableModifier".Translate() + ": " + Settings.mineableModifier.ToStringByStyle(ToStringStyle.FloatOne), roundTo: 0.5f);
             TooltipHandler.TipRegion(sliderRect, new TipSignal("ShashlichnikMineableModifierExplanation".Translate()));
             y += buttonSize.y + Margin;
             Settings.undergroundTemperatureModifier = Widgets.HorizontalSlider(new Rect(inRect.x, y, inRect.width, buttonSize.y), Settings.undergroundTemperatureModifier, 0.2f, 1.5f, label: "ShashlichnikUndergroundTemperatureModifier".Translate() + ": " + Settings.undergroundTemperatureModifier.ToStringByStyle(ToStringStyle.FloatOne), roundTo: 0.1f);

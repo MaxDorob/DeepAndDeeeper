@@ -1,6 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
+	<ScenPartDef>
+		<defName>ShashlichnikPlayerPawnsArriveMethod</defName>
+		<label>arrival method</label>
+		<category>Fixed</category>
+		<scenPartClass>Shashlichnik.ScenPart_PlayerPawnsArriveMethod</scenPartClass>
+		<summaryPriority>470</summaryPriority>
+	</ScenPartDef>
+	
   <ScenarioDef ParentName="ScenarioBase">
     <defName>Shashlichnik_BuriedAlive</defName>
     <label>BuriedAlive</label>
@@ -25,7 +33,7 @@
             </Surface>
           </connections>
         </li>-->
-        
+				
         <!-- Game start dialog -->
         <li Class="ScenPart_GameStartDialog">
           <def>GameStartDialog</def>
@@ -46,13 +54,13 @@
 
         <li Class="ScenPart_ForcedMap">
           <def>ForcedMap</def>
-          <mapGenerator>Shashlichnik_BuriedAliveCavern</mapGenerator>
-          <layerDef>Shashlichnik_Caverns</layerDef>
+          <mapGenerator>ShashlichnikScenarioUnderground</mapGenerator>
+          <layerDef>Surface</layerDef>
         </li>
 
         <!-- Player starting stuff spawn method-->
-        <li Class="ScenPart_PlayerPawnsArriveMethod">
-          <def>PlayerPawnsArriveMethod</def>
+        <li Class="Shashlichnik.ScenPart_PlayerPawnsArriveMethod">
+          <def>ShashlichnikPlayerPawnsArriveMethod</def>
           <method>Standing</method>
         </li>
 
@@ -67,6 +75,7 @@
           <def>StartingThing_Defined</def>
           <thingDef>Bedroll</thingDef>
           <count>1</count>
+					<stuff>Cloth</stuff>
         </li>
         <li Class="ScenPart_StartingThing_Defined">
           <def>StartingThing_Defined</def>

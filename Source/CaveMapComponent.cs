@@ -79,7 +79,7 @@ namespace Shashlichnik
                 {
                     var countToCollapse = InitialRockCount / 5f;
                     var minedCount = InitialRockCount - CurrentRockCount;
-                    var tickPassed = Find.TickManager.TicksGame - caveEntrance.tickOpened;
+                    var tickPassed = Find.TickManager.TicksGame - map.generationTick;
                     var buildingsImpact = BuildingsImpact;
                     stabilityPercentCached = Mathf.Min(1f + buildingsImpact - minedCount / countToCollapse - tickPassed / (GenDate.TicksPerDay * 12f), 1.0f);
                 }

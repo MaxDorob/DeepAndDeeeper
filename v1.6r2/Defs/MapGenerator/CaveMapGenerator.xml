@@ -1,0 +1,405 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<MapGeneratorDef Abstract="True" Name="ShashlichnikUndergroundBase">
+		<label>underground</label>
+		<isUnderground>true</isUnderground>
+		<forceCaves>true</forceCaves>
+		<ignoreAreaRevealedLetter>true</ignoreAreaRevealedLetter>
+		<disableCallAid>true</disableCallAid>
+		<customMapComponents>
+			<li>Shashlichnik.CaveMapComponent</li>
+		</customMapComponents>
+		<pocketMapProperties>
+			<biome>ShashlichnikUnderground</biome>
+			<temperature>15</temperature>
+		</pocketMapProperties>
+		<genSteps>
+			<li>ElevationFertility</li>
+			<li>Terrain</li>
+			<!--<li>CavesTerrain</li>-->
+			<li>ShashlichnikUnderground_ScatterRuinsSimple</li>
+			<li>ShashlichnikUndergroundTorches</li>
+			<li>ShashlichnikUndergroundLakes</li>
+			<li>ShashlichnikFindCaveExit</li>
+			<!--<li>ShashlichnikCaveExitToSurfaceInterest</li>-->
+			<li>ShashlichnikUnderground_Caves</li>
+			<li>RockChunks</li>
+			<li>ShashlichnikScatterShrines</li>
+			<li>ShashlichnikUndergroundInterest_LostPawn</li>
+			<li>ShashlichnikUndergroundInterest_Chemfuel</li>
+			<li>ShashlichnikWayDown</li>
+			<!--<li>ShashlichnikUndergroundInterest_CorpsePile</li>-->
+			<!--<li>ShashlichnikUndergroundInterest_CorpseGear</li>-->
+			<li>ShashlichnikUndergroundInterest_Mushrooms</li>
+			<!--<li>ShashlichnikUndergroundInterest_Hive</li>-->
+			<!--<li>ShashlichnikUndergroundInterest_SingleCryptosleepPod</li>-->
+			<li>ShashlichnikUndergroundInterest_DeepDiver</li>
+			<li MayRequire="Ludeon.RimWorld.Anomaly">ShashlichnikUndergroundInterest_Fleshbeasts</li>
+			<li MayRequire="Ludeon.RimWorld.Odyssey">ShashlichnikAncientMiningCharge</li>
+			<li>Plants</li>
+			<li>Fog</li>
+		</genSteps>
+	</MapGeneratorDef>
+	
+	<MapGeneratorDef ParentName="ShashlichnikUndergroundBase">
+		<defName>ShashlichnikUnderground</defName>
+		<genSteps>
+			<li>ShashlichnikUnderground_RocksFromGrid</li>
+			<li>ShashlichnikCaveExitToSurfaceInterest</li>
+			<li>ShashlichnikUndergroundInterest_CorpsePile</li>
+			<li>ShashlichnikUndergroundInterest_CorpseGear</li>
+			<li>ShashlichnikUndergroundInterest_Hive</li>
+			<li>ShashlichnikUndergroundInterest_SingleCryptosleepPod</li>
+			<li>ShashlichnikUnderground_UnstableAreaLvl1</li>
+			<li MayRequire="Ludeon.RimWorld.Anomaly">ShashlichnikUndergroundInterest_Sightstealer</li>
+		</genSteps>
+	</MapGeneratorDef>
+
+	<GenStepDef>
+		<defName>ShashlichnikUnderground_Caves</defName>
+		<order>11</order>
+		<genStep Class="Shashlichnik.GenStep_Caves">
+			<branchChance>0.001</branchChance>
+			<minTunnelWidth>3</minTunnelWidth>
+			<widthOffsetPerCell>0.008</widthOffsetPerCell>
+		</genStep>
+	</GenStepDef>
+
+	<GenStepDef>
+		<defName>ShashlichnikUnderground_RocksFromGrid</defName>
+		<order>200</order>
+		<genStep Class="Shashlichnik.GenStep_RocksFromGrid">
+		</genStep>
+	</GenStepDef>
+
+	<!-- Underground ruins -->
+	<GenStepDef>
+		<defName>ShashlichnikUnderground_ScatterRuinsSimple</defName>
+		<order>249</order>
+		<genStep Class="GenStep_ScatterRuinsSimple">
+			<allowInWaterBiome>false</allowInWaterBiome>
+			<countPer10kCellsRange>0~2</countPer10kCellsRange>
+			<mustBeStandable>true</mustBeStandable>
+			<canBeOnEdge>true</canBeOnEdge>
+			<ruinSizeChanceCurve>
+				<points>
+					<li>(6, 0)</li>
+					<li>(6.001, 4)</li>
+					<li>(10, 0)</li>
+				</points>
+			</ruinSizeChanceCurve>
+			<minSpacing>44</minSpacing>
+			<destroyChanceExp>3</destroyChanceExp>
+			<clearSurroundingArea>true</clearSurroundingArea>
+		</genStep>
+	</GenStepDef>
+
+	<GenStepDef>
+		<defName>ShashlichnikFindCaveExit</defName>
+		<order>300</order>
+		<genStep Class="Shashlichnik.GenStep_FindCaveExit"/>
+	</GenStepDef>
+
+	<GenStepDef>
+		<defName>ShashlichnikCaveExitToSurfaceInterest</defName>
+		<order>301</order>
+		<genStep Class="Shashlichnik.GenStep_ExitToSurfaceInterest"/>
+	</GenStepDef>
+
+	<GenStepDef>
+		<defName>ShashlichnikWayDown</defName>
+		<order>302</order>
+		<genStep Class="Shashlichnik.GenStep_WayDown">
+			<distanceToPlayer>70</distanceToPlayer>
+		</genStep>
+	</GenStepDef>
+
+	<GenStepDef>
+		<defName>ShashlichnikUndergroundInterest_LostPawn</defName>
+		<order>649</order>
+		<genStep Class="Shashlichnik.GenStep_CaveInterest_LostPawn" >
+			<distanceToPlayer>50</distanceToPlayer>
+		</genStep>
+	</GenStepDef>
+	
+	<GenStepDef>
+		<defName>ShashlichnikUndergroundInterest_DeepDiver</defName>
+		<order>648</order>
+		<genStep Class="Shashlichnik.GenStep_DeepDiver" >
+			<distanceToPlayer>35</distanceToPlayer>
+		</genStep>
+	</GenStepDef>
+	
+	<GenStepDef>
+		<defName>ShashlichnikUndergroundInterest_Chemfuel</defName>
+		<order>650</order>
+		<genStep Class="Shashlichnik.GenStep_CaveInterest_Chemfuel" />
+	</GenStepDef>
+
+	<GenStepDef>
+		<defName>ShashlichnikUndergroundInterest_CorpsePile</defName>
+		<order>651</order>
+		<genStep Class="Shashlichnik.GenStep_CaveInterest_CorpsePile">
+			<countChances Inherit="False">
+				<li>
+					<count>0</count>
+					<chance>0.41</chance>
+				</li>
+				<li>
+					<count>1</count>
+					<chance>0.35</chance>
+				</li>
+				<li>
+					<count>2</count>
+					<chance>0.24</chance>
+				</li>
+			</countChances>
+			<subCountChances Inherit="False"> <!--Count of groups-->
+				<li>
+					<count>1</count>
+					<chance>0.77</chance>
+				</li>
+				<li>
+					<count>2</count>
+					<chance>0.23</chance>
+				</li>
+			</subCountChances>
+		</genStep>
+	</GenStepDef>
+
+	<GenStepDef>
+		<defName>ShashlichnikUndergroundInterest_CorpseGear</defName>
+		<order>652</order>
+		<genStep Class="Shashlichnik.GenStep_CaveInterest_CorpseGear">
+			<countChances Inherit="False">
+				<li>
+					<count>0</count>
+					<chance>0.34</chance>
+				</li>
+				<li>
+					<count>1</count>
+					<chance>0.55</chance>
+				</li>
+				<li>
+					<count>2</count>
+					<chance>0.11</chance>
+				</li>
+			</countChances>
+			<subCountChances Inherit="False">
+				<li>
+					<count>1</count>
+					<chance>1</chance>
+				</li>
+			</subCountChances>
+		</genStep>
+	</GenStepDef>
+
+	<GenStepDef>
+		<defName>ShashlichnikUndergroundInterest_Mushrooms</defName>
+		<order>653</order>
+		<genStep Class="Shashlichnik.GenStep_CaveInterest_Mushrooms" />
+	</GenStepDef>
+
+	<GenStepDef>
+		<defName>ShashlichnikUndergroundInterest_Hive</defName>
+		<order>655</order>
+		<genStep Class="Shashlichnik.GenStep_CaveInterest_Hive">
+			<countChances Inherit="False">
+				<li>
+					<count>0</count>
+					<chance>0.34</chance>
+				</li>
+				<li>
+					<count>1</count>
+					<chance>0.55</chance>
+				</li>
+				<li>
+					<count>2</count>
+					<chance>0.11</chance>
+				</li>
+			</countChances>
+			<subCountChances Inherit="False">
+				<li>
+					<count>1</count>
+					<chance>0.66</chance>
+				</li>
+				<li>
+					<count>2</count>
+					<chance>0.34</chance>
+				</li>
+			</subCountChances>
+		</genStep>
+	</GenStepDef>
+
+	<GenStepDef MayRequire="Ludeon.RimWorld.Anomaly">
+		<defName>ShashlichnikUndergroundInterest_Sightstealer</defName>
+		<order>654</order>
+		<genStep Class="Shashlichnik.GenStep_CaveInterest_Mutant">
+			<MinDistApart>1</MinDistApart>
+			<mutant>Sightstealer</mutant>
+			<subCountChances Inherit="False">
+				<li>
+					<count>2</count>
+					<chance>0.66</chance>
+				</li>
+				<li>
+					<count>3</count>
+					<chance>0.34</chance>
+				</li>
+			</subCountChances>
+		</genStep>
+	</GenStepDef>
+	
+	<GenStepDef MayRequire="Ludeon.RimWorld.Anomaly">
+		<defName>ShashlichnikUndergroundInterest_Fleshbeasts</defName>
+		<order>655</order>
+		<genStep Class="Shashlichnik.GenStep_CaveInterest_Fleshbeasts">
+			<countChances Inherit="False">
+				<li>
+					<count>0</count>
+					<chance>0.34</chance>
+				</li>
+				<li>
+					<count>1</count>
+					<chance>0.55</chance>
+				</li>
+				<li>
+					<count>2</count>
+					<chance>0.11</chance>
+				</li>
+			</countChances>
+			<subCountChances Inherit="False"> <!--Count of groups-->
+				<li>
+					<count>1</count>
+					<chance>0.89</chance>
+				</li>
+				<li>
+					<count>2</count>
+					<chance>0.11</chance>
+				</li>
+			</subCountChances>
+		</genStep>
+	</GenStepDef>
+
+	<GenStepDef>
+		<defName>ShashlichnikUndergroundInterest_SingleCryptosleepPod</defName>
+		<order>656</order>
+		<genStep Class="Shashlichnik.GenStep_CaveInterest_SingleCryptosleep" />
+	</GenStepDef>
+
+	<GenStepDef>
+		<defName>ShashlichnikUnderground_UnstableAreaLvl1</defName>
+		<order>700</order>
+		<genStep Class="Shashlichnik.GenStep_UnstableArea">
+			<threshold>0.45</threshold>
+		</genStep>
+	</GenStepDef>
+
+
+
+	<GenStepDef>
+		<defName>ShashlichnikScatterShrines</defName>
+		<order>400</order>
+		<genStep Class="GenStep_ScatterShrines">
+			<allowInWaterBiome>false</allowInWaterBiome>
+			<countPer10kCellsRange>
+				<min>0.12</min>
+				<max>0.25</max>
+			</countPer10kCellsRange>
+			<canBeOnEdge>true</canBeOnEdge>
+			<validators>
+				<li Class="Shashlichnik.ScatterValidator_OtherBuildings"/>
+			</validators>
+		</genStep>
+	</GenStepDef>
+
+	<GenStepDef>
+		<defName>ShashlichnikUndergroundTorches</defName>
+		<order>298</order>
+		<genStep Class="Shashlichnik.GenStep_UndergroundTorches"/>
+	</GenStepDef>
+
+	<GenStepDef>
+		<defName>ShashlichnikUndergroundLakes</defName>
+		<order>299</order>
+		<genStep Class="Shashlichnik.GenStep_UndergroundLakes"/>
+	</GenStepDef>
+
+
+	<GenStepDef MayRequire="Ludeon.RimWorld.Odyssey" ParentName="QuarryDebris">
+		<defName>ShashlichnikAncientMiningCharge</defName>
+		<genStep Class="GenStep_ScatterThings">
+			<thingDef>AncientMiningCharge</thingDef>
+			<countPer10kCellsRange>1~3</countPer10kCellsRange>
+			<minSpacing>1</minSpacing>
+		</genStep>
+	</GenStepDef>
+
+	<BiomeDef>
+		<defName>ShashlichnikUnderground</defName>
+		<label>underground</label>
+		<description>Ordinary caves, at least at first glance.</description>
+		<generatesNaturally>false</generatesNaturally>
+		<animalDensity>0</animalDensity>
+		<plantDensity>0.20</plantDensity>
+		<wildAnimalsCanWanderInto>false</wildAnimalsCanWanderInto>
+		<baseWeatherCommonalities>
+			<ShashlichnikUnderground>1</ShashlichnikUnderground>
+		</baseWeatherCommonalities>
+		<diseaseMtbDays>80</diseaseMtbDays>
+		<terrainPatchMakers>
+			<li MayRequire="Ludeon.RimWorld.Odyssey">
+				<perlinFrequency>0.015</perlinFrequency>
+				<isPond>true</isPond>
+				<thresholds>
+					<li>
+						<terrain>VolcanicRock</terrain>
+						<min>0.6</min>
+						<max>0.9</max>
+					</li>
+					<li>
+						<terrain>LavaDeep</terrain>
+						<min>0.9</min>
+						<max>999</max>
+					</li>
+				</thresholds>
+			</li>
+		</terrainPatchMakers>
+		<diseases>
+			<li>
+				<diseaseInc>Disease_Flu</diseaseInc>
+				<commonality>100</commonality>
+			</li>
+			<li>
+				<diseaseInc>Disease_Plague</diseaseInc>
+				<commonality>80</commonality>
+			</li>
+			<li>
+				<diseaseInc>Disease_FibrousMechanites</diseaseInc>
+				<commonality>40</commonality>
+			</li>
+			<li>
+				<diseaseInc>Disease_SensoryMechanites</diseaseInc>
+				<commonality>40</commonality>
+			</li>
+			<li>
+				<diseaseInc>Disease_GutWorms</diseaseInc>
+				<commonality>30</commonality>
+			</li>
+			<li>
+				<diseaseInc>Disease_MuscleParasites</diseaseInc>
+				<commonality>30</commonality>
+			</li>
+			<li>
+				<diseaseInc>Disease_AnimalFlu</diseaseInc>
+				<commonality>100</commonality>
+			</li>
+			<li>
+				<diseaseInc>Disease_AnimalPlague</diseaseInc>
+				<commonality>80</commonality>
+			</li>
+		</diseases>
+	</BiomeDef>
+
+</Defs>

@@ -25,6 +25,7 @@ namespace Shashlichnik
 
         public float nestedCaveEntranceChance = 0.85f;
         public bool enableNestedJobSearch = true;
+        public bool ignoreSurfaceRequirement = false;
 
         public override void ExposeData()
         {
@@ -37,6 +38,7 @@ namespace Shashlichnik
             Scribe_Values.Look(ref mineableModifier, nameof(mineableModifier), 7f);
             Scribe_Values.Look(ref nestedCaveEntranceChance, nameof(nestedCaveEntranceChance), 0.85f);
             Scribe_Values.Look(ref enableNestedJobSearch, nameof(enableNestedJobSearch), true);
+            Scribe_Values.Look(ref ignoreSurfaceRequirement, nameof(ignoreSurfaceRequirement), false);
         }
     }
 }

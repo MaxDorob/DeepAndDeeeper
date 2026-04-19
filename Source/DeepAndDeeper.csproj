@@ -73,6 +73,7 @@
     <Compile Include="GenStep_RocksFromGrid.cs" />
     <Compile Include="GenStep_UndergroundTorches.cs" />
     <Compile Include="GenStep_UndergroundLakes.cs" />
+    <Compile Include="GenStep_UnstableArea.cs" />
     <Compile Include="GenStep_WayDown.cs" />
     <Compile Include="JobDriver_Dig.cs" />
     <Compile Include="JobDriver_EnterPortalForJob.cs" />
@@ -130,7 +131,7 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-	<ItemGroup>
-		<PackageReference Include="Krafs.Rimworld.Ref" Version="1.6.4523" GeneratePathProperty="true" />
-	</ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Krafs.Rimworld.Ref" Version="1.6.4523" GeneratePathProperty="true" />
+  </ItemGroup>
 </Project>

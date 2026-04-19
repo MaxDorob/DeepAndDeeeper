@@ -18,13 +18,21 @@ namespace Shashlichnik
         private bool IsObsolete(int createdAtTick) => Math.Abs(createdAtTick - Find.TickManager.TicksGame) > GenDate.TicksPerDay * 40; // 40 days until you can dig there another cave
 
         private IEnumerable<IntVec3> cachedBlockedCells;
+        private HashSet<IntVec3> constantlyBlockedCells;
+        public HashSet<IntVec3> ConstantlyBlockedCells
+        {
+            get
+            {
+                return constantlyBlockedCells ??= new HashSet<IntVec3>();
+            }
+        }
         public IEnumerable<IntVec3> BlockedCells
         {
             get
             {
                 if (cachedBlockedCells == null)
                 {
-                    cachedBlockedCells = cavesOpened.Keys.Where(k => !IsObsolete(cavesOpened[k])).SelectMany(center => GenRadial.RadialCellsAround(center, blockRadius, true)).ToList();
+                    cachedBlockedCells = cavesOpened.Keys.Where(k => !IsObsolete(cavesOpened[k])).SelectMany(center => GenRadial.RadialCellsAround(center, blockRadius, true)).Union(ConstantlyBlockedCells).ToList();
                 }
                 return cachedBlockedCells;
             }
@@ -54,11 +62,16 @@ namespace Shashlichnik
         public override void ExposeData()
         {
             base.ExposeData();
+            if (Scribe.mode == LoadSaveMode.LoadingVars)
+            {
+                constantlyBlockedCells ??= new HashSet<IntVec3>();
+            }
             if (Scribe.mode == LoadSaveMode.Saving)
             {
                 RemoveObsolete();
             }
             Scribe_Collections.Look(ref cavesOpened, nameof(cavesOpened));
+            Scribe_Collections.Look(ref constantlyBlockedCells, nameof(constantlyBlockedCells));
         }
     }
 }

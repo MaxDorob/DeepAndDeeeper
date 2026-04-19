@@ -47,7 +47,18 @@ namespace Shashlichnik
         {
             return caveEntrance.Position;
         }
-
+        public override void SpawnSetup(Map map, bool respawningAfterLoad)
+        {
+            if (!respawningAfterLoad && PocketMapUtility.currentlyGeneratingPortal == null)
+            {
+                PocketMapUtility.currentlyGeneratingPortal = this;
+            }
+            base.SpawnSetup(map, respawningAfterLoad);
+            if (PocketMapUtility.currentlyGeneratingPortal == this)
+            {
+                PocketMapUtility.currentlyGeneratingPortal = null;
+            }
+        }
         public override void OnEntered(Pawn pawn)
         {   
             base.OnEntered(pawn);

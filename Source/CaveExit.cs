@@ -54,6 +54,19 @@ namespace Shashlichnik
 
         public override Map GetOtherMap()
         {
+            if (caveEntrance == null)
+            {
+                var mapSize = Mod.Settings.mapSize;
+                PocketMapUtility.currentlyGeneratingPortal = this;
+                var caveComp = base.Map.GetComponent<CaveMapComponent>();
+                var level = caveComp?.Level + 1 ?? 0;
+                var map = PocketMapUtility.GeneratePocketMap(new IntVec3(mapSize, 1, mapSize), DefsOf.ShashlichnikScenarioUndergroundLvl2, null, base.Map);
+                caveEntrance = map.listerThings.ThingsOfDef(DefsOf.ShashlichnikCaveEntrance).Last() as CaveEntrance;
+                caveEntrance.caveExit = this;
+                caveEntrance.cave = map;
+                caveEntrance.TicksToOpen = 0;
+                PocketMapUtility.currentlyGeneratingPortal = null;
+            }
             return caveEntrance.Map;
         }
 

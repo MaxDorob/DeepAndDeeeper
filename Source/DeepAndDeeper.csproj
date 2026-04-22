@@ -54,6 +54,7 @@
     <Compile Include="DefModExtension_CaveStabilitizer.cs" />
     <Compile Include="DefsOf.cs" />
     <Compile Include="GenStep_CaveEntrance.cs" />
+    <Compile Include="GenStep_CaveEntranceAtPlayerSpot.cs" />
     <Compile Include="GenStep_CaveInterest.cs" />
     <Compile Include="GenStep_CaveInterest_Anomaly.cs" />
     <Compile Include="GenStep_CaveInterest_Chemfuel.cs" />

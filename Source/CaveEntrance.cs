@@ -24,24 +24,6 @@ namespace Shashlichnik
                 return CaveMapComponent?.IsCollapsing ?? this.Map.GetComponent<CaveMapComponent>()?.IsCollapsing ?? false;
             }
         }
-        private static IEnumerable<MapGeneratorDef> GeneratorsByLevel
-        {
-            get
-            {
-                yield return DefsOf.ShashlichnikUnderground;
-                yield return DefsOf.ShashlichnikUndergroundLvl2;
-                yield return DefsOf.ShashlichnikUndergroundLvl3;
-                yield return DefsOf.ShashlichnikUndergroundLvl4;
-            }
-        }
-        protected MapGeneratorDef MapGeneratorDef
-        {
-            get
-            {
-                return GeneratorsByLevel.ElementAtOrDefault(Level) ?? GeneratorsByLevel.Last(); 
-            }
-        }
-        public int Level => Map?.GetComponent<CaveMapComponent>()?.caveEntrance?.Level + 1 ?? 0;
         public int CollapseTick => CaveMapComponent?.collapseTick ?? -999999;
         private CaveMapComponent caveMapComponent;
         public CaveMapComponent CaveMapComponent
@@ -227,7 +209,8 @@ namespace Shashlichnik
             PocketMapUtility.
 #endif
                 currentlyGeneratingPortal = this;
-            cave = PocketMapUtility.GeneratePocketMap(new IntVec3(mapSize, 1, mapSize), MapGeneratorDef, null, base.Map);
+            var level = base.Map.GetComponent<CaveMapComponent>()?.Level + 1?? 0;
+            cave = PocketMapUtility.GeneratePocketMap(new IntVec3(mapSize, 1, mapSize), CaveMapComponent.MapGeneratorDef(level), null, base.Map);
             caveExit = cave.listerThings.ThingsOfDef(DefsOf.ShashlichnikCaveExit).First() as CaveExit;
             caveExit.caveEntrance = this;
 #if v16

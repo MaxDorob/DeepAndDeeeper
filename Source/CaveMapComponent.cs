@@ -54,7 +54,21 @@ namespace Shashlichnik
                 return;
             }
         }
-
+        private static IEnumerable<MapGeneratorDef> GeneratorsByLevel
+        {
+            get
+            {
+                yield return DefsOf.ShashlichnikUnderground;
+                yield return DefsOf.ShashlichnikUndergroundLvl2;
+                yield return DefsOf.ShashlichnikUndergroundLvl3;
+                yield return DefsOf.ShashlichnikUndergroundLvl4;
+            }
+        }
+        public static MapGeneratorDef MapGeneratorDef(int level)
+        {
+            return GeneratorsByLevel.ElementAtOrDefault(level) ?? GeneratorsByLevel.Last();
+        }
+        public int Level => forcedLevel ?? caveEntrance?.Map.GetComponent<CaveMapComponent>()?.Level + 1 ?? 0;
         public int InitialRockCount
         {
             get
@@ -420,6 +434,7 @@ namespace Shashlichnik
             Scribe_References.Look(ref caveExit, nameof(caveExit), false);
             Scribe_Collections.Look(ref queuedLandslides, nameof(queuedLandslides), LookMode.Value, LookMode.Value);
             Scribe_Values.Look(ref collapseTick, nameof(collapseTick), null);
+            Scribe_Values.Look(ref forcedLevel, nameof(forcedLevel));
 
         }
 
@@ -428,6 +443,7 @@ namespace Shashlichnik
         public CaveEntrance caveEntrance;
         public CaveExit caveExit;
         public int initialRockCount;
+        public int? forcedLevel;
         public int? collapseTick;
     }
 }

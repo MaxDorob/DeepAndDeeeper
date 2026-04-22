@@ -341,9 +341,9 @@ namespace Shashlichnik
                     pawn.Kill(new DamageInfo?(damageInfo), null);
                 }
             }
-            Messages.Message("ShashlichnikMessageCaveCollapsed".Translate(), new TargetInfo(caveExit.caveEntrance?.Position ?? IntVec3.Invalid, caveExit.caveEntrance?.Map, false), MessageTypeDefOf.NeutralEvent, true);
+            Messages.Message("ShashlichnikMessageCaveCollapsed".Translate(), new TargetInfo(caveExit.caveEntrance?.Position ?? IntVec3.Invalid, caveEntrance?.Map, false), MessageTypeDefOf.NeutralEvent, true);
             var infestationScale = infestationScaleCurve.Evaluate(WastepackPoints);
-            if (caveEntrance.Level == 0 && infestationScale > 0.5f)
+            if (caveEntrance != null && caveEntrance.Map.GetComponent<CaveMapComponent>() == null && infestationScale > 0.5f)
             {
                 StorytellerComp storytellerComp = Find.Storyteller.storytellerComps.FirstOrDefault((StorytellerComp x) => x is StorytellerComp_OnOffCycle || x is StorytellerComp_RandomMain);
                 if (storytellerComp != null)

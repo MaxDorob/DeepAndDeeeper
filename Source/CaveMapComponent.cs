@@ -95,9 +95,21 @@ namespace Shashlichnik
                     var minedCount = InitialRockCount - CurrentRockCount;
                     var tickPassed = Find.TickManager.TicksGame - map.generationTick;
                     var buildingsImpact = BuildingsImpact;
-                    stabilityPercentCached = Mathf.Min(1f + buildingsImpact - minedCount / countToCollapse - tickPassed / (GenDate.TicksPerDay * 12f), 1.0f);
+                    stabilityPercentCached = Mathf.Min(1f + buildingsImpact - minedCount / countToCollapse - tickPassed / ((float)StabilityTicks), 1.0f);
                 }
                 return stabilityPercentCached;
+            }
+        }
+        private int? stabilityTicksCached;
+        private int StabilityTicks
+        {
+            get
+            {
+                if (stabilityTicksCached == null)
+                {
+                    stabilityTicksCached = (map.generatorDef.GetModExtension<CaveParams>()?.daysToCollapse ?? 12) * GenDate.TicksPerDay;
+                }
+                return stabilityTicksCached.Value;
             }
         }
         public IEnumerable<Building> StabilityBuildings

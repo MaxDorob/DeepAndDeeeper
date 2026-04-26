@@ -1,4 +1,5 @@
 ﻿using RimWorld;
+using RimWorld.Planet;
 using Shashlichnik;
 using System;
 using System.Collections.Generic;
@@ -59,15 +60,48 @@ namespace Shashlichnik
                 var mapSize = Mod.Settings.mapSize;
                 PocketMapUtility.currentlyGeneratingPortal = this;
                 var caveComp = base.Map.GetComponent<CaveMapComponent>();
-                var level = caveComp?.Level + 1 ?? 0;
-                var map = PocketMapUtility.GeneratePocketMap(new IntVec3(mapSize, 1, mapSize), DefsOf.ShashlichnikScenarioUndergroundLvl2, null, base.Map);
+                var mapGenerator = base.Map.generatorDef.GetModExtension<CaveParams>()?.caveExitMapGenerator;
+                Map map;
+                if (mapGenerator != null)
+                {
+                    map = PocketMapUtility.GeneratePocketMap(new IntVec3(mapSize, 1, mapSize), mapGenerator, null, base.Map);
+                }
+                else
+                {
+                    Settlement newHome = SettleUtility.AddNewHome(base.Map.Tile, Faction.OfPlayer);
+                    map = GenerateSurfaceMap(base.Map.Tile, null, null);
+                }
                 caveEntrance = map.listerThings.ThingsOfDef(DefsOf.ShashlichnikCaveEntrance).Last() as CaveEntrance;
-                caveEntrance.caveExit = this;
-                caveEntrance.cave = map;
-                caveEntrance.TicksToOpen = 0;
+                if (caveEntrance != null)
+                {
+                    caveEntrance.caveExit = this;
+                    caveEntrance.cave = map;
+                    caveEntrance.TicksToOpen = 0; 
+                }
+                else
+                {
+                    Log.Error($"caveEntrance is null");
+                }
                 PocketMapUtility.currentlyGeneratingPortal = null;
             }
             return caveEntrance.Map;
+        }
+
+        private Map GenerateSurfaceMap(PlanetTile tile, WorldObjectDef suggestedMapParentDef, IEnumerable<GenStepWithParams> extraGenStepDefs = null)
+        {
+            MapParent mapParent = Find.WorldObjects.MapParentAt(tile);
+            if (mapParent == null) //There must be the settlement...
+            {
+                if (suggestedMapParentDef == null)
+                {
+                    Log.Error(string.Format("Tried to get or generate map at {0}, but there isn't any MapParent world object here and map parent def argument is null.", tile));
+                    return null;
+                }
+                mapParent = (MapParent)WorldObjectMaker.MakeWorldObject(suggestedMapParentDef);
+                mapParent.Tile = tile;
+                Find.WorldObjects.Add(mapParent);
+            }
+            return MapGenerator.GenerateMap(Find.World.info.initialMapSize, mapParent, mapParent.MapGeneratorDef, mapParent.ExtraGenStepDefs.ConcatIfNotNull(extraGenStepDefs ?? Enumerable.Empty<GenStepWithParams>()));
         }
 
         public override IntVec3 GetDestinationLocation()
@@ -87,7 +121,7 @@ namespace Shashlichnik
             }
         }
         public override void OnEntered(Pawn pawn)
-        {   
+        {
             base.OnEntered(pawn);
             if (Find.CurrentMap == base.Map)
             {

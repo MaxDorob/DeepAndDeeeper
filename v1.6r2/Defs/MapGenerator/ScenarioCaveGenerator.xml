@@ -15,6 +15,12 @@
 			<li MayRequire="Ludeon.RimWorld.Anomaly">ShashlichnikUndergroundInterest_Sightstealer</li>
 		</genSteps>
 		<validScenarioMap>true</validScenarioMap>
+		<modExtensions>
+			<li Class="Shashlichnik.CaveParams">
+				<caveExitMapGenerator>ShashlichnikScenarioUndergroundLvl2</caveExitMapGenerator>
+				<daysToCollapse>210</daysToCollapse> <!--3.5 years-->
+			</li>
+		</modExtensions>
 	</MapGeneratorDef>
 
 	<MapGeneratorDef ParentName="ShashlichnikUndergroundBase">
@@ -34,7 +40,7 @@
 	
 	<GenStepDef>
 		<defName>ShashlichnikDaDFindPlayerStartSpot</defName>
-		<order>850</order>
+		<order>301</order>
 		<genStep Class="Shashlichnik.GenStep_FindPlayerStartSpot"/>
 	</GenStepDef>
 

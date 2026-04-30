@@ -30,6 +30,7 @@ namespace Shashlichnik
         public static SoundDef          ShashlichnikVanillaCollapsingStage1;
         public static SoundDef          ShashlichnikVanillaCollapsingStage2;
         public static SitePartDef       ShashlichnikCaveEnter;
+        public static GenStepDef        ShashlichnikDaDSpawnEntranceAtSurface;
         public static JobDef            ShashlichnikEnterPortalForJob;
         public static LetterDef         ShashlichnikPositiveEventShutUp;
         public static ThingDef          Beer;

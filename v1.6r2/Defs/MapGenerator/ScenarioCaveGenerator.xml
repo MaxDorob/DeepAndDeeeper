@@ -50,4 +50,9 @@
 		<genStep Class="Shashlichnik.GenStep_CaveEntranceAtPlayerSpot"/>
 	</GenStepDef>
 
+	<GenStepDef>
+		<defName>ShashlichnikDaDSpawnEntranceAtSurface</defName>
+		<order>1601</order>
+		<genStep Class="Shashlichnik.GenStep_CaveEntrance"/>
+	</GenStepDef>
 </Defs>

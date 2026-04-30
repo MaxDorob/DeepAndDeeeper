@@ -68,10 +68,18 @@ namespace Shashlichnik
                 }
                 else
                 {
-                    Settlement newHome = SettleUtility.AddNewHome(base.Map.Tile, Faction.OfPlayer);
-                    map = GenerateSurfaceMap(base.Map.Tile, null, null);
+                    var tile = base.Map.Tile;
+                    var coreMap = FindCoreMap(Map);
+                    var originalMP = coreMap.Parent;
+
+                    PocketMapParent pocketMapParent = WorldObjectMaker.MakeWorldObject(WorldObjectDefOf.PocketMap) as PocketMapParent;
+                    coreMap.info.parent = pocketMapParent;
+                    Find.World.pocketMaps.Add(pocketMapParent);
+                    map = GenerateSurfaceMap(tile, null, [new GenStepWithParams(DefsOf.ShashlichnikDaDSpawnEntranceAtSurface, default)]);
+                    
+                    pocketMapParent.sourceMap = map;
                 }
-                caveEntrance = map.listerThings.ThingsOfDef(DefsOf.ShashlichnikCaveEntrance).Last() as CaveEntrance;
+                caveEntrance = map.listerThings.ThingsOfDef(DefsOf.ShashlichnikCaveEntrance).LastOrDefault() as CaveEntrance;
                 if (caveEntrance != null)
                 {
                     caveEntrance.caveExit = this;
@@ -85,6 +93,15 @@ namespace Shashlichnik
                 PocketMapUtility.currentlyGeneratingPortal = null;
             }
             return caveEntrance.Map;
+        }
+
+        private Map FindCoreMap(Map map)
+        {
+            while(map.Parent is PocketMapParent pocketParent)
+            {
+                map = pocketParent.sourceMap;
+            }
+            return map;
         }
 
         private Map GenerateSurfaceMap(PlanetTile tile, WorldObjectDef suggestedMapParentDef, IEnumerable<GenStepWithParams> extraGenStepDefs = null)

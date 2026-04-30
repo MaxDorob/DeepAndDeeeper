@@ -70,6 +70,11 @@ namespace Shashlichnik
                 {
                     var tile = base.Map.Tile;
                     var coreMap = FindCoreMap(Map);
+                    coreMap.info.isPocketMap = true;
+                    coreMap.pocketTileInfo = new Tile
+                    {
+                        PrimaryBiome = coreMap.generatorDef.pocketMapProperties.biome
+                    };
                     var originalMP = coreMap.Parent;
 
                     PocketMapParent pocketMapParent = WorldObjectMaker.MakeWorldObject(WorldObjectDefOf.PocketMap) as PocketMapParent;

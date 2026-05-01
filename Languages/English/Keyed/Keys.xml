@@ -35,4 +35,7 @@
 	<ShashlichnikCloseToOtherCavern>Close to other caverns</ShashlichnikCloseToOtherCavern>
 	<ShashlichnikDaDIgnoreSurfaceRequirement>Remove surface-only limitation</ShashlichnikDaDIgnoreSurfaceRequirement>
 	<ShashlichnikDaDIgnoreSurfaceRequirementExplanation>Remove the limitation on construction of cave entrances to allow the construction of cave entrances underground.</ShashlichnikDaDIgnoreSurfaceRequirementExplanation>
+	<ShashlichnikDaDCaveSizeMapWarning>Map size is less than recommended</ShashlichnikDaDCaveSizeMapWarning>
+	<ShashlichnikDaDCaveSizeMapWarningDescription>Map size, specified in Deep And Deeper mod settings, is less than recommended. Do you want to change it to recommended?</ShashlichnikDaDCaveSizeMapWarningDescription>
+	<ShashlichnikDadCaveSizeSetToRecommended>Set to recommended</ShashlichnikDadCaveSizeSetToRecommended>
 </LanguageData>

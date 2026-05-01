@@ -33,4 +33,7 @@
 	<ShashlichnikCloseToOtherCavern>Слишком близко к другим пещерам</ShashlichnikCloseToOtherCavern>
 	<ShashlichnikDaDIgnoreSurfaceRequirement>Убрать ограничение на строительство</ShashlichnikDaDIgnoreSurfaceRequirement>
 	<ShashlichnikDaDIgnoreSurfaceRequirementExplanation>Убрать ограничение на строительство входа в пещеру, таким образом позволив строить вход на следующие уровни.</ShashlichnikDaDIgnoreSurfaceRequirementExplanation>
+	<ShashlichnikDaDCaveSizeMapWarning>Размер карты меньше рекомендуемого</ShashlichnikDaDCaveSizeMapWarning>
+	<ShashlichnikDaDCaveSizeMapWarningDescription>Размер карты, указанный в настройках Deep And Deeper, меньше рекомендуемого. Хотите установить рекомендуемый размер карты?</ShashlichnikDaDCaveSizeMapWarningDescription>
+	<ShashlichnikDadCaveSizeSetToRecommended>Установить рекомендуемый</ShashlichnikDadCaveSizeSetToRecommended>
 </LanguageData>

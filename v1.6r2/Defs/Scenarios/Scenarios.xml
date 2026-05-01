@@ -14,7 +14,14 @@
 		<label>cave stability days</label>
 		<category>Misc</category>
 		<scenPartClass>Shashlichnik.ScenPart_CaveStabilityDays</scenPartClass>
-		<scenPartClass>ScenPart_GameStartDialog</scenPartClass>
+		<maxUses>1</maxUses>
+	</ScenPartDef>
+
+	<ScenPartDef>
+		<defName>ShashlichnikDaDCaveMapSize</defName>
+		<label>cave map size</label>
+		<category>Fixed</category>
+		<scenPartClass>Shashlichnik.ScenPart_ScenarioCaveMapSize</scenPartClass>
 		<maxUses>1</maxUses>
 	</ScenPartDef>
 	
@@ -50,10 +57,13 @@
           <closeSound>GameStartSting</closeSound>
         </li>
 
-				<!-- Game start dialog -->
 				<li Class="Shashlichnik.ScenPart_CaveStabilityDays">
 					<def>ShashlichnikDaDCaveStabilityDays</def>
 					<stabilityDays>210</stabilityDays>
+				</li>
+
+				<li Class="Shashlichnik.ScenPart_ScenarioCaveMapSize">
+					<def>ShashlichnikDaDCaveMapSize</def>
 				</li>
 
         <!-- Config pages -->

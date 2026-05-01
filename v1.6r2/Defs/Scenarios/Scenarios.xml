@@ -13,6 +13,7 @@
 		<defName>ShashlichnikDaDCaveStabilityDays</defName>
 		<label>cave stability days</label>
 		<category>Misc</category>
+		<scenPartClass>Shashlichnik.ScenPart_CaveStabilityDays</scenPartClass>
 		<scenPartClass>ScenPart_GameStartDialog</scenPartClass>
 		<maxUses>1</maxUses>
 	</ScenPartDef>

@@ -28,7 +28,6 @@
 		<modExtensions>
 			<li Class="Shashlichnik.CaveParams">
 				<caveExitMapGenerator>ShashlichnikScenarioUndergroundLvl2</caveExitMapGenerator>
-				<daysToCollapse>210</daysToCollapse> <!--3.5 years-->
 			</li>
 		</modExtensions>
 	</MapGeneratorDef>

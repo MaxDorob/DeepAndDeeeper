@@ -107,7 +107,7 @@ namespace Shashlichnik
             {
                 if (stabilityTicksCached == null)
                 {
-                    stabilityTicksCached = (map.generatorDef.GetModExtension<CaveParams>()?.daysToCollapse ?? 12) * GenDate.TicksPerDay;
+                    stabilityTicksCached = (Find.Scenario.AllParts.OfType<ScenPart_CaveStabilityDays>().FirstOrDefault()?.stabilityDays ?? 12) * GenDate.TicksPerDay;
                 }
                 return stabilityTicksCached.Value;
             }

@@ -8,6 +8,14 @@
 		<scenPartClass>Shashlichnik.ScenPart_PlayerPawnsArriveMethod</scenPartClass>
 		<summaryPriority>470</summaryPriority>
 	</ScenPartDef>
+
+	<ScenPartDef>
+		<defName>ShashlichnikDaDCaveStabilityDays</defName>
+		<label>cave stability days</label>
+		<category>Misc</category>
+		<scenPartClass>ScenPart_GameStartDialog</scenPartClass>
+		<maxUses>1</maxUses>
+	</ScenPartDef>
 	
   <ScenarioDef ParentName="ScenarioBase">
     <defName>Shashlichnik_BuriedAlive</defName>
@@ -40,6 +48,12 @@
           <text>An expedition to the caverns quickly became a hell on the ground (or actully under the ground)\n\nTODO.</text>
           <closeSound>GameStartSting</closeSound>
         </li>
+
+				<!-- Game start dialog -->
+				<li Class="Shashlichnik.ScenPart_CaveStabilityDays">
+					<def>ShashlichnikDaDCaveStabilityDays</def>
+					<stabilityDays>210</stabilityDays>
+				</li>
 
         <!-- Config pages -->
         <li Class="ScenPart_ConfigPage_ConfigureStartingPawns">

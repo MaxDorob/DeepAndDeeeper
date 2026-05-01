@@ -98,6 +98,7 @@
     <Compile Include="ScatterValidator_OtherBuildings.cs" />
     <Compile Include="GenStep_FindPlayerStartSpot.cs" />
     <Compile Include="ScenPart_PlayerPawnsArriveMethod.cs" />
+    <Compile Include="ScenPart_CaveStabilityDays.cs" />
     <Compile Include="ShutUpLetter.cs" />
     <Compile Include="Site_ShouldRemoveMap_Patch.cs" />
     <Compile Include="SpammerComp.cs" />

@@ -9,7 +9,6 @@ namespace Shashlichnik
 {
     public class CaveParams : DefModExtension //Not sure if this must be GenStep or DefModExt
     {
-        public int? daysToCollapse;
         public MapGeneratorDef caveExitMapGenerator;
     }
 }

@@ -136,6 +136,13 @@
 		<order>642</order>
 		<genStep Class="Shashlichnik.GenStep_LostGroup" >
 			<distanceToPlayer>35</distanceToPlayer>
+			<availableKindDefs>
+				<li>Slave</li>
+				<li>Colonist</li>
+				<li>ShashlichnikDeepDiver</li>
+				<li>Villager</li>
+				<li>Drifter</li>
+			</availableKindDefs>
 		</genStep>
 	</GenStepDef>
 	

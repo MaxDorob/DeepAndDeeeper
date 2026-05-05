@@ -10,4 +10,9 @@
     <arriveSound>LetterArrive_Good</arriveSound>
   </LetterDef>
 
+	<LetterDef ParentName="CustomChoiceLetterBase">
+		<defName>ShashlichnikLostGroupWantsToJoin</defName>
+		<letterClass>Shashlichnik.ChoiceLetter_AcceptLostGroup</letterClass>
+	</LetterDef>
+
 </Defs>

@@ -36,4 +36,6 @@
 	<ShashlichnikDaDCaveSizeMapWarning>Размер карты меньше рекомендуемого</ShashlichnikDaDCaveSizeMapWarning>
 	<ShashlichnikDaDCaveSizeMapWarningDescription>Размер карты, указанный в настройках Deep And Deeper, меньше рекомендуемого. Хотите установить рекомендуемый размер карты?</ShashlichnikDaDCaveSizeMapWarningDescription>
 	<ShashlichnikDadCaveSizeSetToRecommended>Установить рекомендуемый</ShashlichnikDadCaveSizeSetToRecommended>
+	<ShashlichnikLetterLabelLostGroupJoins>Потерянная группа хочет присоедениться</ShashlichnikLetterLabelLostGroupJoins>
+	<ShashlichnikTextLabelLostGroupJoins>Люди из потерянной группы хотят присоедениться. Можем мы ли мы им доверять? Хотите ли вы их принять?</ShashlichnikTextLabelLostGroupJoins>
 </LanguageData>

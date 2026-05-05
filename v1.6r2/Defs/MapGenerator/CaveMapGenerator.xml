@@ -130,6 +130,14 @@
 			<distanceToPlayer>35</distanceToPlayer>
 		</genStep>
 	</GenStepDef>
+
+	<GenStepDef>
+		<defName>ShashlichnikUndergroundInterest_LostGroup</defName>
+		<order>642</order>
+		<genStep Class="Shashlichnik.GenStep_LostGroup" >
+			<distanceToPlayer>35</distanceToPlayer>
+		</genStep>
+	</GenStepDef>
 	
 	<GenStepDef>
 		<defName>ShashlichnikUndergroundInterest_Chemfuel</defName>

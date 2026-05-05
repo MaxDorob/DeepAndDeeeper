@@ -33,6 +33,7 @@ namespace Shashlichnik
         public static GenStepDef        ShashlichnikDaDSpawnEntranceAtSurface;
         public static JobDef            ShashlichnikEnterPortalForJob;
         public static LetterDef         ShashlichnikPositiveEventShutUp;
+        public static LetterDef         ShashlichnikLostGroupWantsToJoin;
         public static ThingDef          Beer;
         public static PawnKindDef       ShashlichnikDeepDiver;
         public static DutyDef           ShashlichnikMineForever;

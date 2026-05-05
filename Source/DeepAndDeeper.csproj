@@ -49,6 +49,7 @@
     <Compile Include="CaveExit.cs" />
     <Compile Include="CaveExitSurfaceInterest.cs" />
     <Compile Include="CaveMapComponent.cs" />
+    <Compile Include="ChoiceLetter_AcceptLostGroup.cs" />
     <Compile Include="CompEffecter_NonFogged.cs" />
     <Compile Include="DebugActions.cs" />
     <Compile Include="DefModExtension_CaveStabilitizer.cs" />
@@ -66,6 +67,7 @@
     <Compile Include="GenStep_CaveInterest_Mutant.cs" />
     <Compile Include="GenStep_CaveInterest_SingleCryptosleep.cs" />
     <Compile Include="GenStep_Caves.cs" />
+    <Compile Include="GenStep_LostGroup.cs" />
     <Compile Include="GenStep_DeepDiver.cs" />
     <Compile Include="GenStep_ExitToSurfaceInterest.cs" />
     <Compile Include="GenStep_FindCaveExit.cs" />
@@ -85,6 +87,7 @@
     <Compile Include="JobGiver_ExitMap_Patch.cs" />
     <Compile Include="JobGiver_LeaveCave.cs" />
     <Compile Include="JobGiver_LootAround.cs" />
+    <Compile Include="LordJob_DefendPointAndAskToJoin.cs" />
     <Compile Include="LordJob_MineClusters.cs" />
     <Compile Include="LordToil_MineClusters.cs" />
     <Compile Include="MapInfo_Tile_Patch.cs" />

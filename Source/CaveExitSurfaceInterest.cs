@@ -72,7 +72,7 @@ namespace Shashlichnik
 
             return caveEntrance?.Position ?? new IntVec3(3, 0, 3);
         }
-        protected Map OriginalMap => this.Map.GetComponent<CaveMapComponent>().caveEntrance.Map;
+        protected Map OriginalMap => this.Map.GetComponent<CaveMapComponent>().caveEntrance?.Map;
         public override void ExposeData()
         {
             base.ExposeData();

@@ -112,6 +112,18 @@ namespace Shashlichnik
                 return stabilityTicksCached.Value;
             }
         }
+        public int CollapseTick => collapseTick ?? -999999;
+        public int CollapseStage
+        {
+            get
+            {
+                if (CollapseTick - Find.TickManager.TicksGame >= 3600)
+                {
+                    return 1;
+                }
+                return 2;
+            }
+        }
         public IEnumerable<Building> StabilityBuildings
         {
             get
@@ -182,7 +194,15 @@ namespace Shashlichnik
             }
             if (StabilityPercent <= 0.01f)
             {
-                caveEntrance.BeginCollapsing();
+                if (caveEntrance != null)
+                {
+                    caveEntrance.BeginCollapsing();
+                }
+                else
+                {
+                    this.BeginCollapsing(null);
+                }
+
                 return;
             }
             if (Mod.Settings.landslidesEnabled && Rand.Chance(LandslideChance))
@@ -225,7 +245,7 @@ namespace Shashlichnik
             float mtb = HoursToShakeMTBTicksCurve.Evaluate(TicksUntilCollapse / 2500f);
             if (map == Find.CurrentMap)
             {
-                if (caveEntrance.CollapseStage == 1)
+                if (CollapseStage == 1)
                 {
                     if (collapsingSustainer == null || collapsingSustainer.Ended)
                     {

@@ -24,25 +24,12 @@ namespace Shashlichnik
                 return CaveMapComponent?.IsCollapsing ?? this.Map.GetComponent<CaveMapComponent>()?.IsCollapsing ?? false;
             }
         }
-        public int CollapseTick => CaveMapComponent?.collapseTick ?? -999999;
         private CaveMapComponent caveMapComponent;
         public CaveMapComponent CaveMapComponent
         {
             get
             {
                 return caveMapComponent ??= GetOtherMap()?.GetComponent<CaveMapComponent>();
-            }
-        }
-
-        public int CollapseStage
-        {
-            get
-            {
-                if (CollapseTick - Find.TickManager.TicksGame >= 3600)
-                {
-                    return 1;
-                }
-                return 2;
             }
         }
 
@@ -116,16 +103,16 @@ namespace Shashlichnik
         public override void Tick()
         {
             base.Tick();
-            if (IsCollapsing)
+            if (CaveMapComponent != null && IsCollapsing)
             {
-                if (CollapseStage == 1)
+                if (CaveMapComponent.CollapseStage == 1)
                 {
                     if (collapseEffecter1 == null)
                     {
                         collapseEffecter1 = DefsOf.ShashlichnikCaveEntranceCollapseStage1?.Spawn(this, base.Map, 1f);
                     }
                 }
-                else if (CollapseStage == 2)
+                else if (CaveMapComponent.CollapseStage == 2)
                 {
                     if (collapseSustainer == null && Mod.Settings.AnomalyEffectsEnabled)
                     {

@@ -399,7 +399,14 @@ namespace Shashlichnik
                     caveExit.Destroy(DestroyMode.KillFinalize);
                 }
             }
-            PocketMapUtility.DestroyPocketMap(map);
+            if (map.IsPocketMap)
+            {
+                PocketMapUtility.DestroyPocketMap(map);
+            }
+            else
+            {
+                map.Parent.Destroy();
+            }
         }
         public static IntRange landslideTicksRange = new IntRange(GenDate.TicksPerHour, GenDate.TicksPerHour * 2);
         public static IntRange collapseTicksRange = new IntRange(GenDate.TicksPerHour / 10, GenDate.TicksPerHour);

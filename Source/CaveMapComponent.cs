@@ -101,7 +101,7 @@ namespace Shashlichnik
             }
         }
         private int? stabilityTicksCached;
-        private int StabilityTicks
+        public int StabilityTicks
         {
             get
             {

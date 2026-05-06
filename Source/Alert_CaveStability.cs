@@ -40,7 +40,7 @@ namespace Shashlichnik
                     sb.AppendLine($"DEV: stability {cave.StabilityPercent.ToStringPercent()}");
                     sb.AppendLine($"DEV: landslide chance per tick {cave.LandslideChance}");
                     sb.AppendLine($"DEV: mined count{cave.InitialRockCount - cave.CurrentRockCount}");
-                    sb.AppendLine($"DEV: {(Find.TickManager.TicksGame - (float)cave.caveEntrance.tickOpened) / (GenDate.TicksPerDay * 12)}");
+                    sb.AppendLine($"DEV: {(Find.TickManager.TicksGame - (float)cave.map.generationTick) / cave.StabilityTicks}");
                     sb.AppendLine($"DEV: buildings {cave.BuildingsImpact.ToStringPercent()}");
                 }
             }

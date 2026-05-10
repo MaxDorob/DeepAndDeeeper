@@ -14,7 +14,7 @@ namespace Shashlichnik
         public Alert_Cave() : base() { }
         public override string GetLabel()
         {
-            var caveComp = Find.CurrentMap.GetComponent<CaveMapComponent>();
+            var caveComp = Find.CurrentMap?.GetComponent<CaveMapComponent>();
             if (caveComp != null)
             {
                 if (caveComp.StabilityPercent < criticalStability)
@@ -31,7 +31,7 @@ namespace Shashlichnik
         public override TaggedString GetExplanation()
         {
             var sb = new StringBuilder();
-            var cave = Find.CurrentMap.GetComponent<CaveMapComponent>();
+            var cave = Find.CurrentMap?.GetComponent<CaveMapComponent>();
             if (cave != null)
             {
                 sb.AppendLine("ShashlichnikCaveStabilityAdvice".Translate());
@@ -51,7 +51,7 @@ namespace Shashlichnik
         {
             get
             {
-                if (Find.CurrentMap.GetComponent<CaveMapComponent>()?.StabilityPercent < criticalStability)
+                if (Find.CurrentMap?.GetComponent<CaveMapComponent>()?.StabilityPercent < criticalStability)
                 {
                     float num = Pulser.PulseBrightness(0.5f, Pulser.PulseBrightness(0.5f, 0.6f));
                     return new Color(num, num, num) * Color.red;
@@ -61,10 +61,10 @@ namespace Shashlichnik
             }
         }
 
-        public override AlertPriority Priority => (Find.CurrentMap.GetComponent<CaveMapComponent>()?.StabilityPercent < criticalStability) ? AlertPriority.Critical : AlertPriority.Medium;
+        public override AlertPriority Priority => (Find.CurrentMap?.GetComponent<CaveMapComponent>()?.StabilityPercent < criticalStability) ? AlertPriority.Critical : AlertPriority.Medium;
         public override AlertReport GetReport()
         {
-            var caveComp = Find.CurrentMap.GetComponent<CaveMapComponent>();
+            var caveComp = Find.CurrentMap?.GetComponent<CaveMapComponent>();
             return caveComp != null && (caveComp.StabilityPercent < dangerousStability || Prefs.DevMode);
         }
         public const float criticalStability = 0.3f;

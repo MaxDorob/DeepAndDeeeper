@@ -327,6 +327,14 @@ namespace Shashlichnik
             {
                 caveEntrance.BeginCollapsing(true);
             }
+            foreach (var caveExit in map.listerThings.GetThingsOfType<CaveExit>())
+            {
+                var comp = caveExit.caveEntrance?.Map.GetComponent<CaveMapComponent>();
+                if (comp != null)
+                {
+                    comp.BeginCollapsing(null, silent: true);
+                }
+            }
             if (silent)
             {
                 return;

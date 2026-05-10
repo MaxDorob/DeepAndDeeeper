@@ -42,7 +42,7 @@ namespace Shashlichnik
 
             MapGenerator.PlayerStartSpot = spot;
 
-            foreach (var cell in GenRadial.RadialCellsAround(spot, 5.5f, true))
+            foreach (var cell in GenRadial.RadialCellsAround(spot, 5.5f, true).Where(c => c.InBounds(map)))
             {
                 if (cell.DistanceTo(spot) < 3.4f)
                 {

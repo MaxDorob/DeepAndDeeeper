@@ -159,6 +159,7 @@
 			<li>ShashlichnikUnderground_UnstableAreaLvl4</li>
 			<li>ShashlichnikUnderground_RewardLvl4</li>
 			<li>ShashlichnikUndergroundInterest_HiveLvl3</li>
+			<li>ShashlichnikUndergroundInterest_DeepDiver</li>
 			<li MayRequire="Ludeon.RimWorld.Anomaly">ShashlichnikUndergroundInterest_Metalhorror</li>
 			<li MayRequire="Ludeon.RimWorld.Anomaly">ShashlichnikUndergroundInterest_Revenant</li>
 		</genSteps>
@@ -176,6 +177,7 @@
 			<li>ShashlichnikUnderground_UnstableAreaLvl4</li>
 			<li>ShashlichnikUnderground_RewardLvl4</li>
 			<li>ShashlichnikUndergroundInterest_HiveLvl3</li>
+			<li>ShashlichnikUndergroundInterest_DeepDiver</li>
 			<li MayRequire="Ludeon.RimWorld.Anomaly">ShashlichnikUndergroundInterest_Metalhorror</li>
 			<li MayRequire="Ludeon.RimWorld.Anomaly">ShashlichnikUndergroundInterest_Revenant</li>
 		</genSteps>

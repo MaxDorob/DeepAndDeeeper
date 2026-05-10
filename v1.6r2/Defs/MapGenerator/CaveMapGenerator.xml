@@ -34,7 +34,6 @@
 			<li>ShashlichnikUndergroundInterest_Mushrooms</li>
 			<!--<li>ShashlichnikUndergroundInterest_Hive</li>-->
 			<!--<li>ShashlichnikUndergroundInterest_SingleCryptosleepPod</li>-->
-			<li>ShashlichnikUndergroundInterest_DeepDiver</li>
 			<li MayRequire="Ludeon.RimWorld.Anomaly">ShashlichnikUndergroundInterest_Fleshbeasts</li>
 			<li MayRequire="Ludeon.RimWorld.Odyssey">ShashlichnikAncientMiningCharge</li>
 			<li>Plants</li>
@@ -52,6 +51,7 @@
 			<li>ShashlichnikUndergroundInterest_Hive</li>
 			<li>ShashlichnikUndergroundInterest_SingleCryptosleepPod</li>
 			<li>ShashlichnikUnderground_UnstableAreaLvl1</li>
+			<li>ShashlichnikUndergroundInterest_DeepDiver</li>
 			<li MayRequire="Ludeon.RimWorld.Anomaly">ShashlichnikUndergroundInterest_Sightstealer</li>
 		</genSteps>
 	</MapGeneratorDef>

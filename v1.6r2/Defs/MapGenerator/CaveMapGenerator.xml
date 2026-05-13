@@ -29,6 +29,7 @@
 			<li>ShashlichnikUndergroundInterest_LostPawn</li>
 			<li>ShashlichnikUndergroundInterest_Chemfuel</li>
 			<li>ShashlichnikWayDown</li>
+			<li>ShashlichnikSoilAndGravel</li>
 			<!--<li>ShashlichnikUndergroundInterest_CorpsePile</li>-->
 			<!--<li>ShashlichnikUndergroundInterest_CorpseGear</li>-->
 			<li>ShashlichnikUndergroundInterest_Mushrooms</li>
@@ -339,6 +340,12 @@
 		<defName>ShashlichnikUndergroundLakes</defName>
 		<order>299</order>
 		<genStep Class="Shashlichnik.GenStep_UndergroundLakes"/>
+	</GenStepDef>
+
+	<GenStepDef>
+		<defName>ShashlichnikSoilAndGravel</defName>
+		<order>299</order>
+		<genStep Class="Shashlichnik.GenStep_SoilAndGravel"/>
 	</GenStepDef>
 
 

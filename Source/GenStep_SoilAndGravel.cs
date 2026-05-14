@@ -19,6 +19,10 @@ namespace Shashlichnik
             var perlin = new Perlin(frequency: 0.0463, lacunarity: 0.71, persistence: 0.79, octaves: 2, 9203, QualityMode.Medium);
             foreach (var cell in map.AllCells)
             {
+                if (ModsConfig.OdysseyActive && GenRadial.RadialCellsAround(cell, 3.5f, true).Where(c => c.InBounds(map)).Any(c => map.terrainGrid.TerrainAt(c).defName.Contains("Lava")))
+                {
+                    continue;
+                }
                 var value = perlin.GetValue(cell);
                 if (value < gravelThreshold)
                 {

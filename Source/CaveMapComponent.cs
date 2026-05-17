@@ -43,11 +43,6 @@ namespace Shashlichnik
                 currentlyGeneratingPortal
                 as CaveEntrance;
             caveExit = map.listerThings.ThingsOfDef(DefsOf.ShashlichnikCaveExit).FirstOrDefault() as CaveExit;
-            if (caveEntrance == null)
-            {
-                Log.Warning("Cave entrance was not found after generating cave, if this map was created via dev tools you can ignore this");
-                return;
-            }
             if (caveExit == null)
             {
                 Log.Error("Cave exit was not found after generating cave");

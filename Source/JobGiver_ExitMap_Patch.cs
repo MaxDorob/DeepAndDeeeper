@@ -9,7 +9,7 @@ using Verse.AI;
 
 namespace Shashlichnik
 {
-    [HarmonyLib.HarmonyPatch(typeof(JobGiver_ExitMap), nameof(JobGiver_ExitMap.TryGiveJob))]
+    [HarmonyLib.HarmonyPatch(typeof(JobGiver_ExitMap), "TryGiveJob")]
     internal static class JobGiver_ExitMap_Patch //Similar functionally was added at 1.6 tho
     {
         public static bool Prefix(Pawn pawn, ref Job __result)

@@ -15,7 +15,7 @@ namespace Shashlichnik
         public override void PreMapGenerate()
         {
             base.PreMapGenerate();
-            original = new IntVec3(Find.GameInitData.mapSize, 0, Find.GameInitData.mapSize);
+            original = new IntVec3(Find.GameInitData.mapSize, 1, Find.GameInitData.mapSize);
             Find.GameInitData.mapSize = Mod.Settings.mapSize;
         }
         public override IEnumerable<Page> GetConfigPages()

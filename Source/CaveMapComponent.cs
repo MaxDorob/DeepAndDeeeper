@@ -43,6 +43,11 @@ namespace Shashlichnik
                 currentlyGeneratingPortal
                 as CaveEntrance;
             caveExit = map.listerThings.ThingsOfDef(DefsOf.ShashlichnikCaveExit).FirstOrDefault() as CaveExit;
+            this.map.info.isPocketMap = true;
+            map.pocketTileInfo = new Tile
+            {
+                PrimaryBiome = map.generatorDef.pocketMapProperties.biome
+            };
             if (caveExit == null)
             {
                 Log.Error("Cave exit was not found after generating cave");

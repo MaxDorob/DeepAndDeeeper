@@ -83,8 +83,10 @@ namespace Shashlichnik
                 if (caveEntrance != null)
                 {
                     caveEntrance.caveExit = this;
-                    caveEntrance.cave = map;
-                    caveEntrance.TicksToOpen = 0; 
+                    caveEntrance.exit = this;
+                    caveEntrance.cave = this.Map;
+                    caveEntrance.pocketMap = this.Map;
+                    caveEntrance.TicksToOpen = 0;
                 }
                 else
                 {

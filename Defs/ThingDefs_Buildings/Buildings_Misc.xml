@@ -51,7 +51,9 @@
 			<li>Shashlichnik.PlaceWorker_CloseToOtherCaverns</li>
 			<li>Shashlichnik.PlaceWorker_StableEnough</li>
 		</placeWorkers>
-		<portal IgnoreIfNoMatchingField="True"></portal>
+		<portal IgnoreIfNoMatchingField="True">
+			<pocketMapGenerator>ShashlichnikUnderground</pocketMapGenerator>
+		</portal>
 	</ThingDef>
 
 	<ThingDef Name="ShashlichnikCaveExit" ParentName="BuildingBase">

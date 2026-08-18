@@ -61,25 +61,42 @@ namespace Shashlichnik
                 PocketMapUtility.currentlyGeneratingPortal = this;
                 var caveComp = base.Map.GetComponent<CaveMapComponent>();
                 var mapGenerator = base.Map.generatorDef.GetModExtension<CaveParams>()?.caveExitMapGenerator;
-                Map map;
+                Map newMap;
                 if (mapGenerator != null)
                 {
-                    map = PocketMapUtility.GeneratePocketMap(new IntVec3(mapSize, 1, mapSize), mapGenerator, null, base.Map);
+                    newMap = PocketMapUtility.GeneratePocketMap(new IntVec3(mapSize, 1, mapSize), mapGenerator, null, base.Map);
+                    if (this.Map.Parent is Settlement)
+                    {
+                        var settlementParent = this.Map.info.parent;
+                        var thisMap = this.Map;
+                        thisMap.info.parent = newMap.info.parent;
+                        if (thisMap.info.parent is PocketMapParent pocketMapParent)
+                        {
+                            pocketMapParent.sourceMap = newMap;
+                        }
+                        thisMap.info.isPocketMap = true;
+                        newMap.info.isPocketMap = false;
+                        newMap.info.parent = settlementParent;
+                    }
+
+                    
                 }
                 else
                 {
                     var tile = base.Map.Tile;
-                    var coreMap = FindCoreMap(Map);
+                    var coreMap = this.Map;
                     var originalMP = coreMap.Parent;
 
                     PocketMapParent pocketMapParent = WorldObjectMaker.MakeWorldObject(WorldObjectDefOf.PocketMap) as PocketMapParent;
                     coreMap.info.parent = pocketMapParent;
+                    coreMap.info.isPocketMap = true;
                     Find.World.pocketMaps.Add(pocketMapParent);
-                    map = GenerateSurfaceMap(tile, null, [new GenStepWithParams(DefsOf.ShashlichnikDaDSpawnEntranceAtSurface, default)]);
+                    newMap = GenerateSurfaceMap(tile, null, [new GenStepWithParams(DefsOf.ShashlichnikDaDSpawnEntranceAtSurface, default)]);
                     
-                    pocketMapParent.sourceMap = map;
+                    pocketMapParent.sourceMap = newMap;
                 }
-                caveEntrance = map.listerThings.ThingsOfDef(DefsOf.ShashlichnikCaveEntrance).LastOrDefault() as CaveEntrance;
+
+                caveEntrance = newMap.listerThings.ThingsOfDef(DefsOf.ShashlichnikCaveEntrance).LastOrDefault() as CaveEntrance;
                 if (caveEntrance != null)
                 {
                     caveEntrance.caveExit = this;
@@ -87,6 +104,7 @@ namespace Shashlichnik
                     caveEntrance.cave = this.Map;
                     caveEntrance.pocketMap = this.Map;
                     caveEntrance.TicksToOpen = 0;
+                    caveComp.caveEntrance ??= caveEntrance;
                 }
                 else
                 {
@@ -95,15 +113,6 @@ namespace Shashlichnik
                 PocketMapUtility.currentlyGeneratingPortal = null;
             }
             return caveEntrance.Map;
-        }
-
-        private Map FindCoreMap(Map map)
-        {
-            while(map.Parent is PocketMapParent pocketParent)
-            {
-                map = pocketParent.sourceMap;
-            }
-            return map;
         }
 
         private Map GenerateSurfaceMap(PlanetTile tile, WorldObjectDef suggestedMapParentDef, IEnumerable<GenStepWithParams> extraGenStepDefs = null)

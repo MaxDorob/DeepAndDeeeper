@@ -325,14 +325,14 @@ namespace Shashlichnik
             collapseTick = forcedCollapseTick ?? Find.TickManager.TicksGame + CollapseDurationTicks.RandomInRange;
             foreach (var caveEntrance in map.listerThings.GetThingsOfType<CaveEntrance>())
             {
-                caveEntrance.BeginCollapsing(true);
+                caveEntrance.BeginCollapsing(true, collapseTick);
             }
             foreach (var caveExit in map.listerThings.GetThingsOfType<CaveExit>())
             {
                 var comp = caveExit.caveEntrance?.Map.GetComponent<CaveMapComponent>();
                 if (comp != null)
                 {
-                    comp.BeginCollapsing(null, silent: true);
+                    comp.BeginCollapsing(sender, silent: true, collapseTick);
                 }
             }
             if (silent)
@@ -371,6 +371,10 @@ namespace Shashlichnik
         };
         protected void FinishCollapsing()
         {
+            if (map.Disposed)
+            {
+                return;
+            }
             DamageInfo damageInfo = new DamageInfo(DamageDefOf.Crush, 99999f, 999f, -1f, null, null, null, DamageInfo.SourceCategory.ThingOrUnknown, null, true, true, QualityCategory.Normal, true);
             for (int i = map.mapPawns.AllPawns.Count - 1; i >= 0; i--)
             {

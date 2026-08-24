@@ -7,6 +7,7 @@
 		<forceCaves>true</forceCaves>
 		<ignoreAreaRevealedLetter>true</ignoreAreaRevealedLetter>
 		<disableCallAid>true</disableCallAid>
+		<disableShadows>true</disableShadows>
 		<customMapComponents>
 			<li>Shashlichnik.CaveMapComponent</li>
 		</customMapComponents>

@@ -51,18 +51,6 @@ namespace Shashlichnik
                         thing.Destroy();
                     }
                 }
-                else
-                {
-                    var chance = 0.6f;
-                    if (cell.GetEdifice(map) != null)
-                    {
-                        chance = 0.06f;
-                    }
-                    if (Rand.Chance(chance))
-                    {
-                        RoofCollapserImmediate.DropRoofInCells(cell, map, null);
-                    }
-                }
             }
         }
 

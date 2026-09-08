@@ -22,6 +22,8 @@
 			<li>ShashlichnikUndergroundInterest_SingleCryptosleepPod</li>
 			<li>ShashlichnikUnderground_UnstableAreaLvl1</li>
 			<li>ShashlichnikDaDFindPlayerStartSpot</li>
+			<li>ShashlichnikDaDRoofDrops</li>
+			<li>ShashlichnikDaDRoofDrops_NearStartSpot</li>
 			<li MayRequire="Ludeon.RimWorld.Anomaly">ShashlichnikUndergroundInterest_Sightstealer</li>
 		</genSteps>
 		<validScenarioMap>true</validScenarioMap>
@@ -188,6 +190,27 @@
 		<order>301</order>
 		<genStep Class="Shashlichnik.GenStep_FindPlayerStartSpot"/>
 	</GenStepDef>
+
+	<GenStepDef>
+		<defName>ShashlichnikDaDRoofDrops</defName>
+		<order>302</order>
+		<genStep Class="Shashlichnik.GenStep_RoofDrops"/>
+	</GenStepDef>
+
+	<GenStepDef>
+		<defName>ShashlichnikDaDRoofDrops_NearStartSpot</defName>
+		<order>302</order>
+
+		<genStep Class="Shashlichnik.GenStep_RoofDrops">
+			<inDistFromPlayerSpot>3~14</inDistFromPlayerSpot>
+			<frequency>0.198</frequency>
+			<lacunarity>3.63</lacunarity>
+			<persistence>1.04</persistence>
+			<octaves>8</octaves>
+			<chanceModifier>0.46</chanceModifier>
+		</genStep>
+	</GenStepDef>
+
 
 	<GenStepDef>
 		<defName>ShashlichnikDaDSpawnEntranceAtStartSpot</defName>

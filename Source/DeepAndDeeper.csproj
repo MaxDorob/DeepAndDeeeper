@@ -82,6 +82,8 @@
     <Compile Include="GenStep_UnstableArea.cs" />
     <Compile Include="GenStep_WayDown.cs" />
     <Compile Include="Harmony_DefaultThreatPointsNow.cs" />
+    <Compile Include="Harmony_MapIncidentTags.cs" />
+    <Compile Include="IncidentWorker_CaveRaid.cs" />
     <Compile Include="JobDriver_Dig.cs" />
     <Compile Include="JobDriver_EnterPortalForJob.cs" />
     <Compile Include="JobGiver_DigClosestCluster.cs" />
@@ -97,6 +99,8 @@
     <Compile Include="MapTemperature_Patch.cs" />
     <Compile Include="Mod.cs" />
     <Compile Include="ModSettings.cs" />
+    <Compile Include="PawnsArrivalModeWorker_CaveEdgeWalkIn.cs" />
+    <Compile Include="PawnsArrivalModeWorker_CaveRoofDrop.cs" />
     <Compile Include="PlaceWorker_CloseToOtherCaverns.cs" />
     <Compile Include="PlaceWorker_StableEnough.cs" />
     <Compile Include="PlaceWorker_Surface.cs" />

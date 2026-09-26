@@ -37,6 +37,8 @@ namespace Shashlichnik
         public static ThingDef          Beer;
         public static PawnKindDef       ShashlichnikDeepDiver;
         public static DutyDef           ShashlichnikMineForever;
+        public static RaidStrategyDef   ShashlichnikCaveRaid;
+        public static IncidentTargetTagDef ShashlichnikMap_Cave;
         [MayRequire("det.stoneborn")]
         public static FactionDef        OutlanderRoughStoneborn;
     }

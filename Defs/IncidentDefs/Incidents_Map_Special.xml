@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<IncidentTargetTagDef>
+		<defName>ShashlichnikMap_Cave</defName>
+	</IncidentTargetTagDef>
+	
+	<IncidentDef>
+		<defName>ShashlichnikCaveRaid</defName>
+		<label>enemy raid</label>
+		<workerClass>Shashlichnik.IncidentWorker_CaveRaid</workerClass>
+		<!--<workerClass>IncidentWorker_RaidEnemy</workerClass>-->
+		<targetTags>
+			<li>ShashlichnikMap_Cave</li>
+		</targetTags>
+		<baseChance>1.0</baseChance>
+		<pointsScaleable>true</pointsScaleable>
+		<category>ThreatBig</category>
+		<tale>Raid</tale>
+		<ignoreRecentSelectionWeighting>true</ignoreRecentSelectionWeighting>
+		<canOccurOnAllPlanetLayers>true</canOccurOnAllPlanetLayers>
+	</IncidentDef>
+
+	<RaidStrategyDef ParentName="ImmediateAttack">
+		<defName>ShashlichnikCaveRaid</defName>
+		<workerClass>RaidStrategyWorker_ImmediateAttack</workerClass>
+		<arriveModes Inherit="False">
+			<li>ShashlichnikCaveEdgeWalkIn</li>
+			<li>ShashlichnikCaveDrop</li>
+		</arriveModes>
+		<letterLabelEnemy>Raid</letterLabelEnemy>
+		<arrivalTextEnemy>They are attacking immediately.</arrivalTextEnemy>
+		<letterLabelFriendly>Friendlies</letterLabelFriendly>
+		<arrivalTextFriendly>They are moving in to help you immediately.</arrivalTextFriendly>
+	</RaidStrategyDef>
+
+	<PawnsArrivalModeDef>
+		<defName>ShashlichnikCaveEdgeWalkIn</defName>
+		<workerClass>Shashlichnik.PawnsArrivalModeWorker_CaveEdgeWalkIn</workerClass>
+		<selectionWeightCurve>
+			<points>
+				<li>(0, 1.0)</li>
+				<li>(300, 1.0)</li>
+				<li>(700, 0.4)</li>
+			</points>
+		</selectionWeightCurve>
+		<textEnemy>A group of {0} from {1} have arrived nearby.</textEnemy>
+		<textFriendly>A group of friendly {0} from {1} have arrived nearby.</textFriendly>
+		<textWillArrive>{0_pawnsPluralDef} will arrive on foot.</textWillArrive>
+		<walkIn>false</walkIn>
+		<biomeWhitelist>
+			<li>ShashlichnikUnderground</li>
+		</biomeWhitelist>
+	</PawnsArrivalModeDef>
+
+	<PawnsArrivalModeDef>
+		<defName>ShashlichnikCaveDrop</defName>
+		<workerClass>Shashlichnik.PawnsArrivalModeWorker_CaveRoofDrop</workerClass>
+		<selectionWeightCurve>
+			<points>
+				<li>(0, 1.0)</li>
+				<li>(300, 1.0)</li>
+				<li>(700, 0.4)</li>
+			</points>
+		</selectionWeightCurve>
+		<textEnemy>A group of {0} from {1} falled nearby from the roof.</textEnemy>
+		<textFriendly>A group of friendly {0} from {1} falled nearby from the roof.</textFriendly>
+		<biomeWhitelist>
+			<li>ShashlichnikUnderground</li>
+		</biomeWhitelist>
+	</PawnsArrivalModeDef>
+</Defs>

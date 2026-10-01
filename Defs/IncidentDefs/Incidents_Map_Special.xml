@@ -5,6 +5,8 @@
 		<defName>ShashlichnikMap_Cave</defName>
 	</IncidentTargetTagDef>
 	
+	<!--Raids-->
+	
 	<IncidentDef>
 		<defName>ShashlichnikCaveRaid</defName>
 		<label>enemy raid</label>
@@ -69,4 +71,19 @@
 			<li>ShashlichnikUnderground</li>
 		</biomeWhitelist>
 	</PawnsArrivalModeDef>
+	
+	<!--Population increase event-->
+
+	<IncidentDef>
+		<defName>ShashlichnikWandererJoin_FallRoof</defName>
+		<label>join</label>
+		<category>Misc</category>
+		<targetTags>
+			<li>ShashlichnikMap_Cave</li>
+		</targetTags>
+		<workerClass>IncidentWorker_GiveQuest</workerClass>
+		<questScriptDef>ShashlichnikWandererJoin_RoofFall</questScriptDef>
+		<baseChance>0.4</baseChance>
+		<populationEffect>IncreaseEasy</populationEffect>
+	</IncidentDef>
 </Defs>

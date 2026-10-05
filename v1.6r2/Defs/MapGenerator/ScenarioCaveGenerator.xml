@@ -55,6 +55,7 @@
 		<defName>ShashlichnikScenarioUndergroundLvl3</defName>
 		<genSteps>
 			<li>ShashlichnikUndergroundInterest_Hive</li>
+			<li>ShashlichnikUndergroundInterest_LostHostileGroup</li>
 			<li>ShashlichnikUnderground_RocksFromGridLvl2</li>
 			<li>ShashlichnikUnderground_UnstableAreaLvl2</li>
 			<li>ShashlichnikUnderground_RewardLvl2</li>
@@ -72,6 +73,7 @@
 		<defName>ShashlichnikScenarioUndergroundLvl4</defName>
 		<genSteps>
 			<li>ShashlichnikUndergroundInterest_LostGroup</li>
+			<li>ShashlichnikUndergroundInterest_LostHostileGroup</li>
 			<li>ShashlichnikUnderground_RocksFromGridLvl2</li>
 			<li>ShashlichnikUnderground_UnstableAreaLvl2</li>
 			<li>ShashlichnikUnderground_RewardLvl2</li>
@@ -88,6 +90,7 @@
 	<MapGeneratorDef ParentName="ShashlichnikScenarioUndergroundBase">
 		<defName>ShashlichnikScenarioUndergroundLvl5</defName>
 		<genSteps>
+			<li>ShashlichnikUndergroundInterest_LostHostileGroup</li>
 			<li>ShashlichnikUnderground_RocksFromGridLvl3</li>
 			<li>ShashlichnikUnderground_UnstableAreaLvl3</li>
 			<li>ShashlichnikUnderground_RewardLvl3</li>
@@ -122,6 +125,7 @@
 		<defName>ShashlichnikScenarioUndergroundLvl7</defName>
 		<genSteps>
 			<li>ShashlichnikUndergroundInterest_LostGroup</li>
+			<li>ShashlichnikUndergroundInterest_LostHostileGroup</li>
 			<li>ShashlichnikUnderground_RocksFromGridLvl4</li>
 			<li>ShashlichnikUnderground_UnstableAreaLvl3</li>
 			<li>ShashlichnikUnderground_RewardLvl4</li>
@@ -140,6 +144,7 @@
 		<defName>ShashlichnikScenarioUndergroundLvl8</defName>
 		<genSteps>
 			<li>ShashlichnikUndergroundInterest_LostGroup</li>
+			<li>ShashlichnikUndergroundInterest_LostHostileGroup</li>
 			<li>ShashlichnikUnderground_RocksFromGridLvl4</li>
 			<li>ShashlichnikUnderground_UnstableAreaLvl4</li>
 			<li>ShashlichnikUnderground_RewardLvl4</li>
@@ -157,6 +162,7 @@
 	<MapGeneratorDef ParentName="ShashlichnikScenarioUndergroundBase">
 		<defName>ShashlichnikScenarioUndergroundLvl9</defName>
 		<genSteps>
+			<li>ShashlichnikUndergroundInterest_LostHostileGroup</li>
 			<li>ShashlichnikUnderground_RocksFromGridLvl4</li>
 			<li>ShashlichnikUnderground_UnstableAreaLvl4</li>
 			<li>ShashlichnikUnderground_RewardLvl4</li>

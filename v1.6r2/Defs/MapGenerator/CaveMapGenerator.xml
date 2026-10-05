@@ -147,6 +147,19 @@
 			</availableKindDefs>
 		</genStep>
 	</GenStepDef>
+
+	<GenStepDef>
+		<defName>ShashlichnikUndergroundInterest_LostHostileGroup</defName>
+		<order>642</order>
+		<genStep Class="Shashlichnik.GenStep_LostHostileGroup" >
+			<distanceToPlayer>40</distanceToPlayer>
+			<availableKindDefs>
+				<li>Slave</li>
+				<li>Villager</li>
+				<li>Drifter</li>
+			</availableKindDefs>
+		</genStep>
+	</GenStepDef>
 	
 	<GenStepDef>
 		<defName>ShashlichnikUndergroundInterest_Chemfuel</defName>

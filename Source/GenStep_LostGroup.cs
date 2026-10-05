@@ -29,21 +29,34 @@ namespace Shashlichnik
         }
 
         public IntRange pawnsCount = new IntRange(1, 3);
+        public IntRange mealCount = new IntRange(3, 9);
         public List<PawnKindDef> availableKindDefs;
+        protected virtual LordJob CreateLordJob() => new LordJob_DefendPointAndAskToJoin();
+        protected virtual Faction GetRandomGroupFaction() => null;
         protected override bool TrySpawnInterestAt(Map map, IntVec3 thingPos)
         {
-            Faction faction = null;
+            Faction faction = GetRandomGroupFaction();
             var pawns = new List<Pawn>();
             var count = pawnsCount.RandomInRange;
             for (int i = 0; i < count; i++)
             {
-                var pawn = PawnGenerator.GeneratePawn(availableKindDefs.RandomElement(), faction);
+                var pawn = PawnGenerator.GeneratePawn(faction?.RandomPawnKind() ?? availableKindDefs.RandomElement(), faction);
                 pawns.Add(pawn);
-                GenSpawn.Spawn(pawn, thingPos, map); 
+                GenSpawn.Spawn(pawn, thingPos, map);
+                PostProcessPawn(pawn);
             }
-            var lord = LordMaker.MakeNewLord(faction, new LordJob_DefendPointAndAskToJoin(), map, null);
+            var lord = LordMaker.MakeNewLord(faction, CreateLordJob(), map, null);
             lord.AddPawns(pawns);
             return true;
+        }
+        protected virtual void PostProcessPawn(Pawn pawn)
+        {
+            var count = mealCount.RandomInRange;
+            for (int i = 0; i < count; i++)
+            {
+                PawnInventoryGenerator.GiveRandomFood(pawn);
+            }
+            PawnInventoryGenerator.GiveDrugsIfAddicted(pawn);
         }
     }
 }

@@ -27,8 +27,8 @@
 	
   <ScenarioDef ParentName="ScenarioBase">
     <defName>Shashlichnik_BuriedAlive</defName>
-    <label>BuriedAlive</label>
-    <description>TODO.</description>
+    <label>Buried Alive</label>
+    <description>You’re going to some old shaft. That must be a small reconnaissance mission for a few days, no more. What treasures and dangers are hidden down there?\n\nWhat could possibly go wrong...</description>
     <scenario>
       <summary>A lost people in caverns.</summary>
       <playerFaction>
@@ -53,7 +53,7 @@
         <!-- Game start dialog -->
         <li Class="ScenPart_GameStartDialog">
           <def>GameStartDialog</def>
-          <text>An expedition to the caverns quickly became a hell on the ground (or actully under the ground)\n\nTODO.</text>
+          <text>The expedition was supposed to be routine. The shaft was old but the tunnel system promised something worth investigating, and then the mountain moved. A landslide tore through the tunnels, sealing the expedition team underground. Most of the others were killed or simply vanished beneath the rubble. Somehow, two survivors remain. They have food. They have equipment. They have a few supplies scavenged from the wreckage.\n\nWhat they don't have is an easy way out...</text>
           <closeSound>GameStartSting</closeSound>
         </li>
 

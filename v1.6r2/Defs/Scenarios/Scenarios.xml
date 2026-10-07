@@ -24,6 +24,13 @@
 		<scenPartClass>Shashlichnik.ScenPart_ScenarioCaveMapSize</scenPartClass>
 		<maxUses>1</maxUses>
 	</ScenPartDef>
+
+	<ScenPartDef>
+		<defName>ShashlichnikInitialDamage</defName>
+		<label>initial damage</label>
+		<category>Misc</category>
+		<scenPartClass>Shashlichnik.ScenPart_InitialSmallDamage</scenPartClass>
+	</ScenPartDef>
 	
   <ScenarioDef ParentName="ScenarioBase">
     <defName>Shashlichnik_BuriedAlive</defName>
@@ -122,8 +129,11 @@
           <thingDef>Gun_Autopistol</thingDef>
         </li>
 				<!--TODO: add CE bullets-->
-				
-				<!--TODO: add starting hediffs, like a bruises-->
+
+
+				<li Class="Shashlichnik.ScenPart_InitialSmallDamage">
+					<def>ShashlichnikInitialDamage</def>
+				</li>
 				
 				<!--TODO: add dead mate corpses-->
       </parts>

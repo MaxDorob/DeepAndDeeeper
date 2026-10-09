@@ -24,6 +24,7 @@
 			<li>ShashlichnikDaDFindPlayerStartSpot</li>
 			<li>ShashlichnikDaDRoofDrops</li>
 			<li>ShashlichnikDaDRoofDrops_NearStartSpot</li>
+			<li>ShashlichnikCorpsesMearPlayerSpot</li>
 			<li MayRequire="Ludeon.RimWorld.Anomaly">ShashlichnikUndergroundInterest_Sightstealer</li>
 		</genSteps>
 		<validScenarioMap>true</validScenarioMap>
@@ -228,5 +229,12 @@
 		<defName>ShashlichnikDaDSpawnEntranceAtSurface</defName>
 		<order>1601</order>
 		<genStep Class="Shashlichnik.GenStep_CaveEntrance"/>
+	</GenStepDef>
+
+
+	<GenStepDef>
+		<defName>ShashlichnikCorpsesMearPlayerSpot</defName>
+		<order>1800</order>
+		<genStep Class="Shashlichnik.GenStep_CorpsesNearPlayerSpot"/>
 	</GenStepDef>
 </Defs>

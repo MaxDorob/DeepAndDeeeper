@@ -135,7 +135,6 @@
 					<def>ShashlichnikInitialDamage</def>
 				</li>
 				
-				<!--TODO: add dead mate corpses-->
       </parts>
     </scenario>
   </ScenarioDef>

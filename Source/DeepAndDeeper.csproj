@@ -67,6 +67,7 @@
     <Compile Include="GenStep_CaveInterest_Mutant.cs" />
     <Compile Include="GenStep_CaveInterest_SingleCryptosleep.cs" />
     <Compile Include="GenStep_Caves.cs" />
+    <Compile Include="GenStep_CorpsesNearPlayerSpot.cs" />
     <Compile Include="GenStep_LostGroup.cs" />
     <Compile Include="GenStep_DeepDiver.cs" />
     <Compile Include="GenStep_ExitToSurfaceInterest.cs" />

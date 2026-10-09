@@ -56,9 +56,12 @@ namespace Shashlichnik
                 }
             }
 
-            foreach(Thing thing in list.SelectMany(l => l))
+            foreach (Thing thing in list.SelectMany(l => l))
             {
-                GenPlace.TryPlaceThing(thing, cell, map, ThingPlaceMode.Radius, null, null, null, 2);
+                if (!CellFinder.TryRandomClosewalkCellNear(cell, map, 5, out var cellToSpawn) || !GenPlace.TryPlaceThing(thing, cellToSpawn, map, ThingPlaceMode.Near, null, null, null, 7))
+                {
+                    Log.Error($"Failed to spawn {thing} at cell {cell}");
+                }
             }
 
         }

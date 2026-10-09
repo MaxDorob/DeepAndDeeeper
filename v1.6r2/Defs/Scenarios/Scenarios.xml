@@ -37,7 +37,7 @@
     <label>Buried Alive</label>
     <description>You’re going to some old shaft. That must be a small reconnaissance mission for a few days, no more. What treasures and dangers are hidden down there?\n\nWhat could possibly go wrong...</description>
     <scenario>
-      <summary>A lost people in caverns.</summary>
+      <summary>A lost group in caverns.</summary>
       <playerFaction>
         <factionDef>PlayerColony</factionDef>
       </playerFaction>

@@ -128,7 +128,12 @@
           <def>StartingThing_Defined</def>
           <thingDef>Gun_Autopistol</thingDef>
         </li>
-				<!--TODO: add CE bullets-->
+
+				<li MayRequire="CETeam.CombatExtended" Class="ScenPart_StartingThing_Defined">
+					<def>StartingThing_Defined</def>
+					<thingDef>Ammo_45ACP_FMJ</thingDef>
+					<count>120</count>
+				</li>
 
 
 				<li Class="Shashlichnik.ScenPart_InitialSmallDamage">

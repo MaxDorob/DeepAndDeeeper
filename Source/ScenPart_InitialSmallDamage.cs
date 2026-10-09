@@ -29,6 +29,7 @@ namespace Shashlichnik
 
             foreach (var pawn in Find.GameInitData.startingAndOptionalPawns)
             {
+                var shockThreshold = pawn.GetStatValue(StatDefOf.PainShockThreshold, true, -1);
                 var count = Rand.Range(2, 5);
                 for (int i = 0; i < count; i++)
                 {
@@ -36,6 +37,11 @@ namespace Shashlichnik
                     var dInfo = new DamageInfo(damDef, damage.RandomInRange, category: DamageInfo.SourceCategory.Collapse);
                     dInfo.SetBodyRegion(BodyPartHeight.Top, BodyPartDepth.Outside);
                     pawn.TakeDamage(dInfo);
+                    var currentPain = pawn.health.hediffSet.PainTotal;
+                    if (currentPain > shockThreshold * 0.7f) // don't let pawn instantly collapse
+                    {
+                        break;
+                    }
                 }
             }
         }

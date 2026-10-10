@@ -30,19 +30,31 @@ namespace Shashlichnik
                 return "ShashlichnikExitCave".Translate();
             }
         }
-        public bool WayToSurface
+        public virtual bool WayToSurface
         {
             get
             {
                 if (wayToSurface == null)
                 {
-                    wayToSurface = caveEntrance?.Map.GetComponent<CaveMapComponent>() == null;
+                    if (caveEntrance != null)
+                    {
+                        wayToSurface = caveEntrance.Map.GetComponent<CaveMapComponent>() == null;
+                    }
+                    else
+                    {
+                        var caveParams = Map.generatorDef.GetModExtension<CaveParams>();
+                        if (caveParams != null)
+                        {
+                            wayToSurface = caveParams.caveExitMapGenerator == null;
+                        }
+                        else
+                        {
+                            Log.Warning($"Failed to check if {this} is way to surface.");
+                            wayToSurface = true;
+                        }
+                    }
                 }
                 return wayToSurface.Value;
-            }
-            set
-            {
-                wayToSurface = value;
             }
         }
         public override Texture2D EnterTex
@@ -209,7 +221,6 @@ namespace Shashlichnik
             base.ExposeData();
             Scribe_References.Look(ref caveEntrance, nameof(caveEntrance), false);
             Scribe_Values.Look(ref exitIfNoJob, nameof(exitIfNoJob), false);
-            Scribe_Values.Look(ref wayToSurface, nameof(wayToSurface), null);
         }
 
         private static readonly CachedTexture ExitCaveTex = new CachedTexture("UI/Overlays/Arrow");

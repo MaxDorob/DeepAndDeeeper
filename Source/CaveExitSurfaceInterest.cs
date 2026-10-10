@@ -67,6 +67,7 @@ namespace Shashlichnik
             }
             return map ?? GetOrGenerateMapUtility.GetOrGenerateMap(site.Tile, null);
         }
+        public override bool WayToSurface => true;
         public override IntVec3 GetDestinationLocation()
         {
 

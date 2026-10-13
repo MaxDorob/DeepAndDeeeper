@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "DeepAndDeeper": {
+      "commandName": "Project"
+    },
+    "Launch Debugged Rimworld": {
+      "commandName": "Executable",
+      "executablePath": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\RimWorld.exe"
+    }
+  }
+}

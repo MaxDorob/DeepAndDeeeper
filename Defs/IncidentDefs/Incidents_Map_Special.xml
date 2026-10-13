@@ -86,4 +86,17 @@
 		<baseChance>0.4</baseChance>
 		<populationEffect>IncreaseEasy</populationEffect>
 	</IncidentDef>
+	
+	<!--Helping incidents-->
+
+	<IncidentDef>
+		<defName>ShashlichnikInterestHint</defName>
+		<label>strange noise</label>
+		<category>Misc</category>
+		<targetTags>
+			<li>ShashlichnikMap_Cave</li>
+		</targetTags>
+		<workerClass>Shashlichnik.IncidentWorker_InterestHint</workerClass>
+		<baseChance>2</baseChance>
+	</IncidentDef>
 </Defs>

@@ -25,6 +25,8 @@
 	<ShashlichnikExitIfNoWork>Exit if no work</ShashlichnikExitIfNoWork>
 	<ShashlichnikCaveHintSound>Strange sound</ShashlichnikCaveHintSound>
 	<ShashlichnikCaveHintSoundDesc>{PAWN_labelShort} has heard something on the other side of this cave wall.\n\n{PAWN_pronoun} unfortunately cannot tell exactly what the sound is. It could be movement, machinery, airflow from an exit or something else.</ShashlichnikCaveHintSoundDesc>
+	<ShashlichnikCaveHintMarks>Markings on the wall</ShashlichnikCaveHintMarks>
+	<ShashlichnikCaveHintMarksDesc>{PAWN_labelShort} has spotted some familiar markings on the cave wall, this is near something of interest!\n\n{PAWN_pronoun} unfortunately does not recall exactly what the object of interest is. It could be a way up, or something else.</ShashlichnikCaveHintMarksDesc>
 	<ShashlichnikExitIfNoWorkDesc>Colonists will go the surface if there's no work left</ShashlichnikExitIfNoWorkDesc>
 	<ShashlichnikAutoEnter>Enter at will</ShashlichnikAutoEnter>
 	<ShashlichnikAutoEnterDesc>Colonist will automatically enter the cave if there's a work to do (mining and hauling only)</ShashlichnikAutoEnterDesc>

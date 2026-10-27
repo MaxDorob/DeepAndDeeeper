@@ -20,11 +20,11 @@ namespace Shashlichnik
             bool patched = false;
             for (var i = 0; i < list.Count; i++)
             {
-                if (!patched && list[i].Calls(targetMethod))
+                if (!patched && i > 2 && list[i - 2].Calls(targetMethod))
                 {
-                    yield return new CodeInstruction(OpCodes.Ldarg_0);
+                    yield return new CodeInstruction(OpCodes.Ldloc_0);
                     yield return CodeInstruction.Call(typeof(Harmony_DefaultThreatPointsNow), nameof(ParentIsNull));
-                    yield return new CodeInstruction(OpCodes.Brtrue_S, list[i + 1].operand);
+                    yield return new CodeInstruction(OpCodes.Brtrue_S, list[i - 1].operand);
                     patched = true;
                 }
                 yield return list[i];

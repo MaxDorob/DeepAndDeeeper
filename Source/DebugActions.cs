@@ -66,5 +66,30 @@ namespace Shashlichnik
                 Log.Warning("Current map is not cave");
             }
         }
+
+        [DebugAction("Deep And Deeper", "Clear fog and generate next level", actionType = DebugActionType.Action, allowedGameStates = AllowedGameStates.PlayingOnMap)]
+        public static void ClearFogAndGenerateNextLevel()
+        {
+            DebugToolsGeneral.ClearAllFog();
+            var map = Find.CurrentMap;
+            foreach (var exit in map.listerThings.GetThingsOfType<CaveExit>().Where(x => x is not CaveExitSurfaceInterest))
+            {
+                var newMap = exit.GetOtherMap();
+                Current.Game.CurrentMap = newMap;
+            }
+        }
+
+        [DebugAction("Deep And Deeper", "Recurisive clear fog and generate next level", actionType = DebugActionType.Action, allowedGameStates = AllowedGameStates.PlayingOnMap)]
+        public static void ClearFogAndGenerateNextLevelRecursive()
+        {
+            DebugToolsGeneral.ClearAllFog();
+            var map = Find.CurrentMap;
+            foreach (var exit in map.listerThings.GetThingsOfType<CaveExit>().Where(x => x is not CaveExitSurfaceInterest))
+            {
+                var newMap = exit.GetOtherMap();
+                Current.Game.CurrentMap = newMap;
+                ClearFogAndGenerateNextLevelRecursive();
+            }
+        }
     }
 }

@@ -79,7 +79,7 @@ namespace Shashlichnik
             }
         }
 
-        [DebugAction("Deep And Deeper", "Recurisive clear fog and generate next level", actionType = DebugActionType.Action, allowedGameStates = AllowedGameStates.PlayingOnMap)]
+        [DebugAction("Deep And Deeper", "Recursive clear fog and generate next level", actionType = DebugActionType.Action, allowedGameStates = AllowedGameStates.PlayingOnMap)]
         public static void ClearFogAndGenerateNextLevelRecursive()
         {
             DebugToolsGeneral.ClearAllFog();

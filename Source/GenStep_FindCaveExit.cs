@@ -32,7 +32,7 @@ namespace Shashlichnik
                     return FindCellForExit(map, false);
                 }
             }
-            if (CellFinder.TryFindRandomCell(map, (IntVec3 cell) => cell.DistanceToEdge(map) > ClearRadius + 1f, out result) && result.InBounds(map))
+            if (CellFinder.TryFindRandomCell(map, (IntVec3 cell) => cell.GetTerrain(map).passability == Traversability.Standable && cell.DistanceToEdge(map) > ClearRadius + 1f, out result) && result.InBounds(map))
             {
                 return result;
             }

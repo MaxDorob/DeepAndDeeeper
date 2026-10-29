@@ -9,25 +9,12 @@
 		<GenerateDependencyFile>false</GenerateDependencyFile>
 	</PropertyGroup>
 	<ItemGroup>
-		<Reference Include="Assembly-CSharp">
-			<HintPath>..\..\..\Assembly-CSharp.dll</HintPath>
-			<Private>False</Private>
-		</Reference>
-		<Reference Include="UnityStubs">
-			<HintPath>..\..\..\UnityStubs.dll</HintPath>
-			<Private>False</Private>
-		</Reference>
-		<Reference Include="Waylith">
-			<HintPath>..\..\..\Waylith.dll</HintPath>
-			<Private>False</Private>
-		</Reference>
-	</ItemGroup>
-  <ItemGroup>
     <PackageReference Include="Krafs.Publicizer">
       <Version>2.3.0</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="Krafs.Rimworld.Ref" Version="1.7.4990-unstable" />
     <PackageReference Include="Lib.Harmony">
       <Version>3.0.0-rc.2</Version>
       <IncludeAssets>compile</IncludeAssets>

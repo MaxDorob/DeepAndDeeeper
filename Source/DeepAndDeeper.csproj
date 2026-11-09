@@ -30,6 +30,7 @@
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
     <TargetFramework>net10.0</TargetFramework>
+    <RootNamespace>Shashlichnik</RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net10.0|AnyCPU'">
     <OutputPath>..\v1.6r2\Assemblies\</OutputPath>

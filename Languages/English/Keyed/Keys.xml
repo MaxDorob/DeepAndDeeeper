@@ -44,4 +44,5 @@
 	<ShashlichnikDadCaveSizeSetToRecommended>Set to recommended</ShashlichnikDadCaveSizeSetToRecommended>
 	<ShashlichnikLetterLabelLostGroupJoins>Lost group wants to join you</ShashlichnikLetterLabelLostGroupJoins>
 	<ShashlichnikTextLabelLostGroupJoins>People from the lost group wnats to join and help you. Can we trust them? Would do you like to accept them?</ShashlichnikTextLabelLostGroupJoins>
+	<ShashlichnikRandomItemSummary>One item from a list:</ShashlichnikRandomItemSummary>
 </LanguageData>

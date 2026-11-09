@@ -38,4 +38,5 @@
 	<ShashlichnikDadCaveSizeSetToRecommended>Установить рекомендуемый</ShashlichnikDadCaveSizeSetToRecommended>
 	<ShashlichnikLetterLabelLostGroupJoins>Потерянная группа хочет присоедениться</ShashlichnikLetterLabelLostGroupJoins>
 	<ShashlichnikTextLabelLostGroupJoins>Люди из потерянной группы хотят присоедениться. Можем мы ли мы им доверять? Хотите ли вы их принять?</ShashlichnikTextLabelLostGroupJoins>
+	<ShashlichnikRandomItemSummary>Один предмет из списка:</ShashlichnikRandomItemSummary>
 </LanguageData>

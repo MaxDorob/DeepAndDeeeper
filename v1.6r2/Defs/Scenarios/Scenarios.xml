@@ -128,6 +128,16 @@
           <def>StartingThing_Defined</def>
           <thingDef>Gun_Autopistol</thingDef>
         </li>
+				<li Class="Shashlichnik.ScenPart_RandomStartingThing">
+					<def>StartingThing_Defined</def>
+					<things>
+						<li>AIPersonaCore</li>
+						<li>MechSerumResurrector</li>
+						<li>ArchotechEye</li>
+						<li>ArchotechArm</li>
+						<li>ArchotechLeg</li>
+					</things>
+				</li>
 
 				<li MayRequire="CETeam.CombatExtended" Class="ScenPart_StartingThing_Defined">
 					<def>StartingThing_Defined</def>

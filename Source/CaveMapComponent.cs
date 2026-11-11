@@ -173,7 +173,7 @@ namespace Shashlichnik
                 ProcessStability();
             }
 
-            if (caveEntrance != null && Find.CurrentMap == map)
+            if (Find.CurrentMap == map)
             {
                 ProcessAmbient();
             }

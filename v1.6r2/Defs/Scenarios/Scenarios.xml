@@ -106,7 +106,7 @@
         <li Class="ScenPart_StartingThing_Defined">
           <def>StartingThing_Defined</def>
           <thingDef>Bedroll</thingDef>
-          <count>1</count>
+          <count>4</count>
 					<stuff>Cloth</stuff>
         </li>
         <li Class="ScenPart_StartingThing_Defined">
@@ -117,7 +117,7 @@
         <li Class="ScenPart_StartingThing_Defined">
           <def>StartingThing_Defined</def>
           <thingDef>MedicineIndustrial</thingDef>
-          <count>5</count>
+          <count>6</count>
         </li>
         <li Class="ScenPart_StartingThing_Defined">
           <def>StartingThing_Defined</def>
@@ -128,6 +128,11 @@
           <def>StartingThing_Defined</def>
           <thingDef>Gun_Autopistol</thingDef>
         </li>
+				<li Class="ScenPart_StartingThing_Defined">
+					<def>StartingThing_Defined</def>
+					<thingDef>MeleeWeapon_Knife</thingDef>
+					<stuff>Steel</stuff>
+				</li>
 				<li Class="Shashlichnik.ScenPart_RandomStartingThing">
 					<def>StartingThing_Defined</def>
 					<things>

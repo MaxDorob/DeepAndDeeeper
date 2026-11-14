@@ -181,7 +181,9 @@ namespace Shashlichnik
         }
         SimpleCurve landslideChancePerStability = new SimpleCurve()
         {
-            {new CurvePoint(1.0f, 1f / GenDate.TicksPerDay), true }, // 1 landslide per day
+            {new CurvePoint(1.0f, 0f), true }, // 0 landslide per day
+            {new CurvePoint(0.951f, 0f), true }, // 0 landslide per day
+            {new CurvePoint(0.95f, 1f / GenDate.TicksPerDay), true }, // 1 landslide per day
             {new CurvePoint(0.5f, 4f / GenDate.TicksPerDay), true }, // ~4 per day
             {new CurvePoint(0.2f, 12f / GenDate.TicksPerDay), true }, // ~12 per day
             {new CurvePoint(0.0f, 1f / GenDate.TicksPerHour), true } // 24 per day

@@ -1,23 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<TargetFrameworks>net10.0</TargetFrameworks>
 		<Version>1.2.1.9</Version>
 		<Company />
 		<Authors />
 		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
 		<GenerateDependencyFile>false</GenerateDependencyFile>
+		<Configurations>Release;Release1.7</Configurations>
 	</PropertyGroup>
 	<ItemGroup>
     <PackageReference Include="Krafs.Publicizer">
       <Version>2.3.0</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
-    <PackageReference Include="Krafs.Rimworld.Ref" Version="1.7.4990-unstable" />
-    <PackageReference Include="Lib.Harmony">
-      <Version>3.0.0-rc.2</Version>
-      <IncludeAssets>compile</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
   </ItemGroup>
@@ -32,8 +26,40 @@
     <TargetFramework>net10.0</TargetFramework>
     <RootNamespace>Shashlichnik</RootNamespace>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net10.0|AnyCPU'">
+	<PropertyGroup Condition="'$(Configuration)'=='Release'">
+		<TargetFrameworks>net48</TargetFrameworks>
+	</PropertyGroup>
+	<ItemGroup Condition="'$(Configuration)'=='Release'">
+		<PackageReference Include="Krafs.Rimworld.Ref" Version="1.6.4871" />
+		<PackageReference Include="Lib.Harmony">
+			<Version>2.4.3</Version>
+			<IncludeAssets>compile</IncludeAssets>
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
+	</ItemGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <OutputPath>..\v1.6r2\Assemblies\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;v16</DefineConstants>
+    <Optimize>false</Optimize>
+    <DebugType>embedded</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>latest</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)'=='Release1.7'">
+		<TargetFrameworks>net10.0</TargetFrameworks>
+	</PropertyGroup>
+	<ItemGroup Condition="'$(Configuration)'=='Release1.7'">
+		<PackageReference Include="Krafs.Rimworld.Ref" Version="1.7.4990-unstable" />
+		<PackageReference Include="Lib.Harmony">
+			<Version>3.0.0-rc.2</Version>
+			<IncludeAssets>compile</IncludeAssets>
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
+	</ItemGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release1.7|AnyCPU'">
+    <OutputPath>..\v1.7\Assemblies\</OutputPath>
     <DefineConstants>DEBUG;TRACE;v16</DefineConstants>
     <Optimize>false</Optimize>
     <DebugType>embedded</DebugType>

@@ -21,7 +21,7 @@ namespace Shashlichnik
                 int age = (int)(GenDate.TicksPerHour * Rand.Range(0.5f, 2f));
                 if (CellFinder.TryFindRandomCellNear(MapGenerator.PlayerStartSpot, map, 18, c => c.Standable(map) && c.GetFirstThing<Thing>(map) == null, out var loc))
                 {
-                    var corpse = GeneratePawnCorpse(Faction.OfPlayer, age);
+                    var corpse = GeneratePawnCorpse(!loc.Fogged(map) ? Faction.OfPlayer : null, age);
                     GenSpawn.Spawn(corpse, loc, map);
                 }
             }

@@ -30,11 +30,15 @@ namespace Shashlichnik
         public static SoundDef          ShashlichnikVanillaCollapsingStage1;
         public static SoundDef          ShashlichnikVanillaCollapsingStage2;
         public static SitePartDef       ShashlichnikCaveEnter;
+        public static GenStepDef        ShashlichnikDaDSpawnEntranceAtSurface;
         public static JobDef            ShashlichnikEnterPortalForJob;
         public static LetterDef         ShashlichnikPositiveEventShutUp;
+        public static LetterDef         ShashlichnikLostGroupWantsToJoin;
         public static ThingDef          Beer;
         public static PawnKindDef       ShashlichnikDeepDiver;
         public static DutyDef           ShashlichnikMineForever;
+        public static RaidStrategyDef   ShashlichnikCaveRaid;
+        public static IncidentTargetTagDef ShashlichnikMap_Cave;
         [MayRequire("det.stoneborn")]
         public static FactionDef        OutlanderRoughStoneborn;
     }

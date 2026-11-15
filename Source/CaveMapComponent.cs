@@ -43,18 +43,32 @@ namespace Shashlichnik
                 currentlyGeneratingPortal
                 as CaveEntrance;
             caveExit = map.listerThings.ThingsOfDef(DefsOf.ShashlichnikCaveExit).FirstOrDefault() as CaveExit;
-            if (caveEntrance == null)
+            this.map.info.isPocketMap = true;
+            map.pocketTileInfo = new Tile
             {
-                Log.Warning("Cave entrance was not found after generating cave, if this map was created via dev tools you can ignore this");
-                return;
-            }
+                PrimaryBiome = map.generatorDef.pocketMapProperties.biome
+            };
             if (caveExit == null)
             {
                 Log.Error("Cave exit was not found after generating cave");
                 return;
             }
         }
-
+        private static IEnumerable<MapGeneratorDef> GeneratorsByLevel
+        {
+            get
+            {
+                yield return DefsOf.ShashlichnikUnderground;
+                yield return DefsOf.ShashlichnikUndergroundLvl2;
+                yield return DefsOf.ShashlichnikUndergroundLvl3;
+                yield return DefsOf.ShashlichnikUndergroundLvl4;
+            }
+        }
+        public static MapGeneratorDef MapGeneratorDef(int level)
+        {
+            return GeneratorsByLevel.ElementAtOrDefault(level) ?? GeneratorsByLevel.Last();
+        }
+        public int Level => forcedLevel ?? caveEntrance?.Map.GetComponent<CaveMapComponent>()?.Level + 1 ?? 0;
         public int InitialRockCount
         {
             get
@@ -79,11 +93,35 @@ namespace Shashlichnik
                 {
                     var countToCollapse = InitialRockCount / 5f;
                     var minedCount = InitialRockCount - CurrentRockCount;
-                    var tickPassed = Find.TickManager.TicksGame - caveEntrance.tickOpened;
+                    var tickPassed = Find.TickManager.TicksGame - map.generationTick;
                     var buildingsImpact = BuildingsImpact;
-                    stabilityPercentCached = Mathf.Min(1f + buildingsImpact - minedCount / countToCollapse - tickPassed / (GenDate.TicksPerDay * 12f), 1.0f);
+                    stabilityPercentCached = Mathf.Min(1f + buildingsImpact - minedCount / countToCollapse - tickPassed / ((float)StabilityTicks), 1.0f);
                 }
                 return stabilityPercentCached;
+            }
+        }
+        private int? stabilityTicksCached;
+        public int StabilityTicks
+        {
+            get
+            {
+                if (stabilityTicksCached == null)
+                {
+                    stabilityTicksCached = (Find.Scenario.AllParts.OfType<ScenPart_CaveStabilityDays>().FirstOrDefault()?.stabilityDays ?? 12) * GenDate.TicksPerDay;
+                }
+                return stabilityTicksCached.Value;
+            }
+        }
+        public int CollapseTick => collapseTick ?? -999999;
+        public int CollapseStage
+        {
+            get
+            {
+                if (CollapseTick - Find.TickManager.TicksGame >= 3600)
+                {
+                    return 1;
+                }
+                return 2;
             }
         }
         public IEnumerable<Building> StabilityBuildings
@@ -135,7 +173,7 @@ namespace Shashlichnik
                 ProcessStability();
             }
 
-            if (caveEntrance != null && Find.CurrentMap == map)
+            if (Find.CurrentMap == map)
             {
                 ProcessAmbient();
             }
@@ -143,7 +181,9 @@ namespace Shashlichnik
         }
         SimpleCurve landslideChancePerStability = new SimpleCurve()
         {
-            {new CurvePoint(1.0f, 1f / GenDate.TicksPerDay), true }, // 1 landslide per day
+            {new CurvePoint(1.0f, 0f), true }, // 0 landslide per day
+            {new CurvePoint(0.951f, 0f), true }, // 0 landslide per day
+            {new CurvePoint(0.95f, 1f / GenDate.TicksPerDay), true }, // 1 landslide per day
             {new CurvePoint(0.5f, 4f / GenDate.TicksPerDay), true }, // ~4 per day
             {new CurvePoint(0.2f, 12f / GenDate.TicksPerDay), true }, // ~12 per day
             {new CurvePoint(0.0f, 1f / GenDate.TicksPerHour), true } // 24 per day
@@ -156,7 +196,15 @@ namespace Shashlichnik
             }
             if (StabilityPercent <= 0.01f)
             {
-                caveEntrance.BeginCollapsing();
+                if (caveEntrance != null)
+                {
+                    caveEntrance.BeginCollapsing();
+                }
+                else
+                {
+                    this.BeginCollapsing(null);
+                }
+
                 return;
             }
             if (Mod.Settings.landslidesEnabled && Rand.Chance(LandslideChance))
@@ -199,7 +247,7 @@ namespace Shashlichnik
             float mtb = HoursToShakeMTBTicksCurve.Evaluate(TicksUntilCollapse / 2500f);
             if (map == Find.CurrentMap)
             {
-                if (caveEntrance.CollapseStage == 1)
+                if (CollapseStage == 1)
                 {
                     if (collapsingSustainer == null || collapsingSustainer.Ended)
                     {
@@ -279,7 +327,15 @@ namespace Shashlichnik
             collapseTick = forcedCollapseTick ?? Find.TickManager.TicksGame + CollapseDurationTicks.RandomInRange;
             foreach (var caveEntrance in map.listerThings.GetThingsOfType<CaveEntrance>())
             {
-                caveEntrance.BeginCollapsing(true);
+                caveEntrance.BeginCollapsing(true, collapseTick);
+            }
+            foreach (var caveExit in map.listerThings.GetThingsOfType<CaveExit>())
+            {
+                var comp = caveExit.caveEntrance?.Map.GetComponent<CaveMapComponent>();
+                if (comp != null)
+                {
+                    comp.BeginCollapsing(sender, silent: true, collapseTick);
+                }
             }
             if (silent)
             {
@@ -287,7 +343,7 @@ namespace Shashlichnik
             }
             SoundDefOf.UndercaveRumble?.PlayOneShotOnCamera(map);
             Find.CameraDriver.shaker.DoShake(0.2f, 120);
-            var letter = LetterMaker.MakeLetter("ShashlichnikCaveCollapsing".Translate(), "ShashlichnikCaveCollapsingDesc".Translate(), LetterDefOf.ThreatBig, new LookTargets(caveExit));
+            var letter = LetterMaker.MakeLetter("ShashlichnikCaveCollapsing".Translate(), "ShashlichnikCaveCollapsingDesc".Translate(), LetterDefOf.ThreatBig, !caveExit.Fogged() ? new LookTargets(caveExit) : null);
             Find.LetterStack.ReceiveLetter(letter);
         }
         public void Notify_ExitDestroyed(CaveExit caveExit, IntVec3 cell)
@@ -317,6 +373,10 @@ namespace Shashlichnik
         };
         protected void FinishCollapsing()
         {
+            if (map.Disposed)
+            {
+                return;
+            }
             DamageInfo damageInfo = new DamageInfo(DamageDefOf.Crush, 99999f, 999f, -1f, null, null, null, DamageInfo.SourceCategory.ThingOrUnknown, null, true, true, QualityCategory.Normal, true);
             for (int i = map.mapPawns.AllPawns.Count - 1; i >= 0; i--)
             {
@@ -327,9 +387,9 @@ namespace Shashlichnik
                     pawn.Kill(new DamageInfo?(damageInfo), null);
                 }
             }
-            Messages.Message("ShashlichnikMessageCaveCollapsed".Translate(), new TargetInfo(caveExit.caveEntrance?.Position ?? IntVec3.Invalid, caveExit.caveEntrance?.Map, false), MessageTypeDefOf.NeutralEvent, true);
+            Messages.Message("ShashlichnikMessageCaveCollapsed".Translate(), new TargetInfo(caveExit.caveEntrance?.Position ?? IntVec3.Invalid, caveEntrance?.Map, false), MessageTypeDefOf.NeutralEvent, true);
             var infestationScale = infestationScaleCurve.Evaluate(WastepackPoints);
-            if (caveEntrance.Level == 0 && infestationScale > 0.5f)
+            if (caveEntrance != null && caveEntrance.Map.GetComponent<CaveMapComponent>() == null && infestationScale > 0.5f)
             {
                 StorytellerComp storytellerComp = Find.Storyteller.storytellerComps.FirstOrDefault((StorytellerComp x) => x is StorytellerComp_OnOffCycle || x is StorytellerComp_RandomMain);
                 if (storytellerComp != null)
@@ -353,7 +413,14 @@ namespace Shashlichnik
                     caveExit.Destroy(DestroyMode.KillFinalize);
                 }
             }
-            PocketMapUtility.DestroyPocketMap(map);
+            if (map.IsPocketMap)
+            {
+                PocketMapUtility.DestroyPocketMap(map);
+            }
+            else
+            {
+                map.Parent.Destroy();
+            }
         }
         public static IntRange landslideTicksRange = new IntRange(GenDate.TicksPerHour, GenDate.TicksPerHour * 2);
         public static IntRange collapseTicksRange = new IntRange(GenDate.TicksPerHour / 10, GenDate.TicksPerHour);
@@ -420,6 +487,7 @@ namespace Shashlichnik
             Scribe_References.Look(ref caveExit, nameof(caveExit), false);
             Scribe_Collections.Look(ref queuedLandslides, nameof(queuedLandslides), LookMode.Value, LookMode.Value);
             Scribe_Values.Look(ref collapseTick, nameof(collapseTick), null);
+            Scribe_Values.Look(ref forcedLevel, nameof(forcedLevel));
 
         }
 
@@ -428,6 +496,7 @@ namespace Shashlichnik
         public CaveEntrance caveEntrance;
         public CaveExit caveExit;
         public int initialRockCount;
+        public int? forcedLevel;
         public int? collapseTick;
     }
 }

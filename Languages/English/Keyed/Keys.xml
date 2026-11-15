@@ -23,6 +23,10 @@
 	<ShashlichnikNestedJobSearch>Nested Job Search</ShashlichnikNestedJobSearch>
 	<ShashlichnikNestedJobSearchExplanation>If multiple layers of cave entrances all have 'Enter at will' enabled, whether or not colonist will look for jobs in the nested deeper layers of cave.</ShashlichnikNestedJobSearchExplanation>
 	<ShashlichnikExitIfNoWork>Exit if no work</ShashlichnikExitIfNoWork>
+	<ShashlichnikCaveHintSound>Strange sound</ShashlichnikCaveHintSound>
+	<ShashlichnikCaveHintSoundDesc>{PAWN_labelShort} has heard something on the other side of this cave wall.\n\n{PAWN_pronoun} unfortunately cannot tell exactly what the sound is. It could be movement, machinery, airflow from an exit or something else.</ShashlichnikCaveHintSoundDesc>
+	<ShashlichnikCaveHintMarks>Markings on the wall</ShashlichnikCaveHintMarks>
+	<ShashlichnikCaveHintMarksDesc>{PAWN_labelShort} has spotted some familiar markings on the cave wall, this is near something of interest!\n\n{PAWN_pronoun} unfortunately does not recall exactly what the object of interest is. It could be a way up, or something else.</ShashlichnikCaveHintMarksDesc>
 	<ShashlichnikExitIfNoWorkDesc>Colonists will go the surface if there's no work left</ShashlichnikExitIfNoWorkDesc>
 	<ShashlichnikAutoEnter>Enter at will</ShashlichnikAutoEnter>
 	<ShashlichnikAutoEnterDesc>Colonist will automatically enter the cave if there's a work to do (mining and hauling only)</ShashlichnikAutoEnterDesc>
@@ -35,4 +39,10 @@
 	<ShashlichnikCloseToOtherCavern>Close to other caverns</ShashlichnikCloseToOtherCavern>
 	<ShashlichnikDaDIgnoreSurfaceRequirement>Remove surface-only limitation</ShashlichnikDaDIgnoreSurfaceRequirement>
 	<ShashlichnikDaDIgnoreSurfaceRequirementExplanation>Remove the limitation on construction of cave entrances to allow the construction of cave entrances underground.</ShashlichnikDaDIgnoreSurfaceRequirementExplanation>
+	<ShashlichnikDaDCaveSizeMapWarning>Map size is less than recommended</ShashlichnikDaDCaveSizeMapWarning>
+	<ShashlichnikDaDCaveSizeMapWarningDescription>Map size, specified in Deep And Deeper mod settings, is less than recommended. Do you want to change it to recommended?</ShashlichnikDaDCaveSizeMapWarningDescription>
+	<ShashlichnikDadCaveSizeSetToRecommended>Set to recommended</ShashlichnikDadCaveSizeSetToRecommended>
+	<ShashlichnikLetterLabelLostGroupJoins>Lost group wants to join you</ShashlichnikLetterLabelLostGroupJoins>
+	<ShashlichnikTextLabelLostGroupJoins>People from the lost group wnats to join and help you. Can we trust them? Would do you like to accept them?</ShashlichnikTextLabelLostGroupJoins>
+	<ShashlichnikRandomItemSummary>One item from a list:</ShashlichnikRandomItemSummary>
 </LanguageData>

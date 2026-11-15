@@ -7,6 +7,7 @@
 		<forceCaves>true</forceCaves>
 		<ignoreAreaRevealedLetter>true</ignoreAreaRevealedLetter>
 		<disableCallAid>true</disableCallAid>
+		<disableShadows>true</disableShadows>
 		<customMapComponents>
 			<li>Shashlichnik.CaveMapComponent</li>
 		</customMapComponents>
@@ -29,12 +30,12 @@
 			<li>ShashlichnikUndergroundInterest_LostPawn</li>
 			<li>ShashlichnikUndergroundInterest_Chemfuel</li>
 			<li>ShashlichnikWayDown</li>
+			<li>ShashlichnikSoilAndGravel</li>
 			<!--<li>ShashlichnikUndergroundInterest_CorpsePile</li>-->
 			<!--<li>ShashlichnikUndergroundInterest_CorpseGear</li>-->
 			<li>ShashlichnikUndergroundInterest_Mushrooms</li>
 			<!--<li>ShashlichnikUndergroundInterest_Hive</li>-->
 			<!--<li>ShashlichnikUndergroundInterest_SingleCryptosleepPod</li>-->
-			<li>ShashlichnikUndergroundInterest_DeepDiver</li>
 			<li MayRequire="Ludeon.RimWorld.Anomaly">ShashlichnikUndergroundInterest_Fleshbeasts</li>
 			<li MayRequire="Ludeon.RimWorld.Odyssey">ShashlichnikAncientMiningCharge</li>
 			<li>Plants</li>
@@ -52,6 +53,7 @@
 			<li>ShashlichnikUndergroundInterest_Hive</li>
 			<li>ShashlichnikUndergroundInterest_SingleCryptosleepPod</li>
 			<li>ShashlichnikUnderground_UnstableAreaLvl1</li>
+			<li>ShashlichnikUndergroundInterest_DeepDiver</li>
 			<li MayRequire="Ludeon.RimWorld.Anomaly">ShashlichnikUndergroundInterest_Sightstealer</li>
 		</genSteps>
 	</MapGeneratorDef>
@@ -128,6 +130,34 @@
 		<order>648</order>
 		<genStep Class="Shashlichnik.GenStep_DeepDiver" >
 			<distanceToPlayer>35</distanceToPlayer>
+		</genStep>
+	</GenStepDef>
+
+	<GenStepDef>
+		<defName>ShashlichnikUndergroundInterest_LostGroup</defName>
+		<order>642</order>
+		<genStep Class="Shashlichnik.GenStep_LostGroup" >
+			<distanceToPlayer>35</distanceToPlayer>
+			<availableKindDefs>
+				<li>Slave</li>
+				<li>Colonist</li>
+				<li>ShashlichnikDeepDiver</li>
+				<li>Villager</li>
+				<li>Drifter</li>
+			</availableKindDefs>
+		</genStep>
+	</GenStepDef>
+
+	<GenStepDef>
+		<defName>ShashlichnikUndergroundInterest_LostHostileGroup</defName>
+		<order>642</order>
+		<genStep Class="Shashlichnik.GenStep_LostHostileGroup" >
+			<distanceToPlayer>40</distanceToPlayer>
+			<availableKindDefs>
+				<li>Slave</li>
+				<li>Villager</li>
+				<li>Drifter</li>
+			</availableKindDefs>
 		</genStep>
 	</GenStepDef>
 	
@@ -324,6 +354,12 @@
 		<defName>ShashlichnikUndergroundLakes</defName>
 		<order>299</order>
 		<genStep Class="Shashlichnik.GenStep_UndergroundLakes"/>
+	</GenStepDef>
+
+	<GenStepDef>
+		<defName>ShashlichnikSoilAndGravel</defName>
+		<order>299</order>
+		<genStep Class="Shashlichnik.GenStep_SoilAndGravel"/>
 	</GenStepDef>
 
 

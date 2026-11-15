@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<MapGeneratorDef Name="ShashlichnikScenarioUndergroundBase" ParentName="ShashlichnikUndergroundBase" Abstract="True">
+		<genSteps>
+			<li>ShashlichnikUndergroundInterest_CorpsePile</li>
+			<li>ShashlichnikUndergroundInterest_CorpseGear</li>
+			<li>ShashlichnikUndergroundInterest_SingleCryptosleepPod</li>
+			<li>ShashlichnikDaDFindPlayerStartSpot</li>
+			<li>ShashlichnikDaDSpawnEntranceAtStartSpot</li>
+		</genSteps>
+	</MapGeneratorDef>
+
+	<MapGeneratorDef ParentName="ShashlichnikUndergroundBase">
+		<defName>ShashlichnikScenarioUnderground</defName>
+		<genSteps>
+			<li>ScenParts</li>
+			<li>ShashlichnikUnderground_RocksFromGrid</li>
+			<li>ShashlichnikUndergroundInterest_CorpsePile</li>
+			<li>ShashlichnikUndergroundInterest_CorpseGear</li>
+			<li>ShashlichnikUndergroundInterest_Hive</li>
+			<li>ShashlichnikUndergroundInterest_SingleCryptosleepPod</li>
+			<li>ShashlichnikUnderground_UnstableAreaLvl1</li>
+			<li>ShashlichnikDaDFindPlayerStartSpot</li>
+			<li>ShashlichnikDaDRoofDrops</li>
+			<li>ShashlichnikDaDRoofDrops_NearStartSpot</li>
+			<li>ShashlichnikCorpsesMearPlayerSpot</li>
+			<li MayRequire="Ludeon.RimWorld.Anomaly">ShashlichnikUndergroundInterest_Sightstealer</li>
+		</genSteps>
+		<validScenarioMap>true</validScenarioMap>
+		<modExtensions>
+			<li Class="Shashlichnik.CaveParams">
+				<caveExitMapGenerator>ShashlichnikScenarioUndergroundLvl2</caveExitMapGenerator>
+			</li>
+		</modExtensions>
+	</MapGeneratorDef>
+
+	<MapGeneratorDef ParentName="ShashlichnikScenarioUndergroundBase">
+		<defName>ShashlichnikScenarioUndergroundLvl2</defName>
+		<genSteps>
+			<li>ShashlichnikUndergroundInterest_LostGroup</li>
+			<li>ShashlichnikUndergroundInterest_Hive</li>
+			<li>ShashlichnikUnderground_RocksFromGridLvl2</li>
+			<li>ShashlichnikUnderground_UnstableAreaLvl2</li>
+			<li>ShashlichnikUnderground_RewardLvl2</li>
+			<li MayRequire="Ludeon.RimWorld.Anomaly">ShashlichnikUndergroundInterest_Sightstealer</li>
+		</genSteps>
+		<modExtensions>
+			<li Class="Shashlichnik.CaveParams">
+				<caveExitMapGenerator>ShashlichnikScenarioUndergroundLvl3</caveExitMapGenerator>
+			</li>
+		</modExtensions>
+	</MapGeneratorDef>
+
+	<MapGeneratorDef ParentName="ShashlichnikScenarioUndergroundBase">
+		<defName>ShashlichnikScenarioUndergroundLvl3</defName>
+		<genSteps>
+			<li>ShashlichnikUndergroundInterest_Hive</li>
+			<li>ShashlichnikUndergroundInterest_LostHostileGroup</li>
+			<li>ShashlichnikUnderground_RocksFromGridLvl2</li>
+			<li>ShashlichnikUnderground_UnstableAreaLvl2</li>
+			<li>ShashlichnikUnderground_RewardLvl2</li>
+			<li MayRequire="Ludeon.RimWorld.Anomaly">ShashlichnikUndergroundInterest_Noctol</li>
+			<li MayRequire="Ludeon.RimWorld.Anomaly">ShashlichnikUndergroundInterest_Sightstealer</li>
+		</genSteps>
+		<modExtensions>
+			<li Class="Shashlichnik.CaveParams">
+				<caveExitMapGenerator>ShashlichnikScenarioUndergroundLvl4</caveExitMapGenerator>
+			</li>
+		</modExtensions>
+	</MapGeneratorDef>
+
+	<MapGeneratorDef ParentName="ShashlichnikScenarioUndergroundBase">
+		<defName>ShashlichnikScenarioUndergroundLvl4</defName>
+		<genSteps>
+			<li>ShashlichnikUndergroundInterest_LostGroup</li>
+			<li>ShashlichnikUndergroundInterest_LostHostileGroup</li>
+			<li>ShashlichnikUnderground_RocksFromGridLvl2</li>
+			<li>ShashlichnikUnderground_UnstableAreaLvl2</li>
+			<li>ShashlichnikUnderground_RewardLvl2</li>
+			<li>ShashlichnikUndergroundInterest_HiveLvl3</li>
+			<li MayRequire="Ludeon.RimWorld.Anomaly">ShashlichnikUndergroundInterest_Noctol</li>
+		</genSteps>
+		<modExtensions>
+			<li Class="Shashlichnik.CaveParams">
+				<caveExitMapGenerator>ShashlichnikScenarioUndergroundLvl5</caveExitMapGenerator>
+			</li>
+		</modExtensions>
+	</MapGeneratorDef>
+
+	<MapGeneratorDef ParentName="ShashlichnikScenarioUndergroundBase">
+		<defName>ShashlichnikScenarioUndergroundLvl5</defName>
+		<genSteps>
+			<li>ShashlichnikUndergroundInterest_LostHostileGroup</li>
+			<li>ShashlichnikUnderground_RocksFromGridLvl3</li>
+			<li>ShashlichnikUnderground_UnstableAreaLvl3</li>
+			<li>ShashlichnikUnderground_RewardLvl3</li>
+			<li>ShashlichnikUndergroundInterest_HiveLvl3</li>
+			<li MayRequire="Ludeon.RimWorld.Anomaly">ShashlichnikUndergroundInterest_Noctol</li>
+		</genSteps>
+		<modExtensions>
+			<li Class="Shashlichnik.CaveParams">
+				<caveExitMapGenerator>ShashlichnikScenarioUndergroundLvl6</caveExitMapGenerator>
+			</li>
+		</modExtensions>
+	</MapGeneratorDef>
+
+	<MapGeneratorDef ParentName="ShashlichnikScenarioUndergroundBase">
+		<defName>ShashlichnikScenarioUndergroundLvl6</defName>
+		<genSteps>
+			<li>ShashlichnikUnderground_RocksFromGridLvl3</li>
+			<li>ShashlichnikUnderground_UnstableAreaLvl3</li>
+			<li>ShashlichnikUnderground_RewardLvl3</li>
+			<li>ShashlichnikUndergroundInterest_HiveLvl3</li>
+			<li MayRequire="Ludeon.RimWorld.Anomaly">ShashlichnikUndergroundInterest_Noctol</li>
+			<li MayRequire="Ludeon.RimWorld.Anomaly">ShashlichnikUndergroundInterest_Metalhorror</li>
+		</genSteps>
+		<modExtensions>
+			<li Class="Shashlichnik.CaveParams">
+				<caveExitMapGenerator>ShashlichnikScenarioUndergroundLvl7</caveExitMapGenerator>
+			</li>
+		</modExtensions>
+	</MapGeneratorDef>
+
+	<MapGeneratorDef ParentName="ShashlichnikScenarioUndergroundBase">
+		<defName>ShashlichnikScenarioUndergroundLvl7</defName>
+		<genSteps>
+			<li>ShashlichnikUndergroundInterest_LostGroup</li>
+			<li>ShashlichnikUndergroundInterest_LostHostileGroup</li>
+			<li>ShashlichnikUnderground_RocksFromGridLvl4</li>
+			<li>ShashlichnikUnderground_UnstableAreaLvl3</li>
+			<li>ShashlichnikUnderground_RewardLvl4</li>
+			<li>ShashlichnikUndergroundInterest_HiveLvl3</li>
+			<li MayRequire="Ludeon.RimWorld.Anomaly">ShashlichnikUndergroundInterest_Noctol</li>
+			<li MayRequire="Ludeon.RimWorld.Anomaly">ShashlichnikUndergroundInterest_Metalhorror</li>
+		</genSteps>
+		<modExtensions>
+			<li Class="Shashlichnik.CaveParams">
+				<caveExitMapGenerator>ShashlichnikScenarioUndergroundLvl8</caveExitMapGenerator>
+			</li>
+		</modExtensions>
+	</MapGeneratorDef>
+
+	<MapGeneratorDef ParentName="ShashlichnikScenarioUndergroundBase">
+		<defName>ShashlichnikScenarioUndergroundLvl8</defName>
+		<genSteps>
+			<li>ShashlichnikUndergroundInterest_LostGroup</li>
+			<li>ShashlichnikUndergroundInterest_LostHostileGroup</li>
+			<li>ShashlichnikUnderground_RocksFromGridLvl4</li>
+			<li>ShashlichnikUnderground_UnstableAreaLvl4</li>
+			<li>ShashlichnikUnderground_RewardLvl4</li>
+			<li>ShashlichnikUndergroundInterest_HiveLvl3</li>
+			<li MayRequire="Ludeon.RimWorld.Anomaly">ShashlichnikUndergroundInterest_Noctol</li>
+			<li MayRequire="Ludeon.RimWorld.Anomaly">ShashlichnikUndergroundInterest_Metalhorror</li>
+		</genSteps>
+		<modExtensions>
+			<li Class="Shashlichnik.CaveParams">
+				<caveExitMapGenerator>ShashlichnikScenarioUndergroundLvl9</caveExitMapGenerator>
+			</li>
+		</modExtensions>
+	</MapGeneratorDef>
+
+	<MapGeneratorDef ParentName="ShashlichnikScenarioUndergroundBase">
+		<defName>ShashlichnikScenarioUndergroundLvl9</defName>
+		<genSteps>
+			<li>ShashlichnikUndergroundInterest_LostHostileGroup</li>
+			<li>ShashlichnikUnderground_RocksFromGridLvl4</li>
+			<li>ShashlichnikUnderground_UnstableAreaLvl4</li>
+			<li>ShashlichnikUnderground_RewardLvl4</li>
+			<li>ShashlichnikUndergroundInterest_HiveLvl3</li>
+			<li>ShashlichnikUndergroundInterest_DeepDiver</li>
+			<li MayRequire="Ludeon.RimWorld.Anomaly">ShashlichnikUndergroundInterest_Metalhorror</li>
+			<li MayRequire="Ludeon.RimWorld.Anomaly">ShashlichnikUndergroundInterest_Revenant</li>
+		</genSteps>
+		<modExtensions>
+			<li Class="Shashlichnik.CaveParams">
+				<caveExitMapGenerator>ShashlichnikScenarioUndergroundLvl10</caveExitMapGenerator>
+			</li>
+		</modExtensions>
+	</MapGeneratorDef>
+
+	<MapGeneratorDef ParentName="ShashlichnikScenarioUndergroundBase">
+		<defName>ShashlichnikScenarioUndergroundLvl10</defName>
+		<genSteps>
+			<li>ShashlichnikUnderground_RocksFromGridLvl4</li>
+			<li>ShashlichnikUnderground_UnstableAreaLvl4</li>
+			<li>ShashlichnikUnderground_RewardLvl4</li>
+			<li>ShashlichnikUndergroundInterest_HiveLvl3</li>
+			<li>ShashlichnikUndergroundInterest_DeepDiver</li>
+			<li MayRequire="Ludeon.RimWorld.Anomaly">ShashlichnikUndergroundInterest_Metalhorror</li>
+			<li MayRequire="Ludeon.RimWorld.Anomaly">ShashlichnikUndergroundInterest_Revenant</li>
+		</genSteps>
+	</MapGeneratorDef>
+	
+	<GenStepDef>
+		<defName>ShashlichnikDaDFindPlayerStartSpot</defName>
+		<order>301</order>
+		<genStep Class="Shashlichnik.GenStep_FindPlayerStartSpot"/>
+	</GenStepDef>
+
+	<GenStepDef>
+		<defName>ShashlichnikDaDRoofDrops</defName>
+		<order>302</order>
+		<genStep Class="Shashlichnik.GenStep_RoofDrops"/>
+	</GenStepDef>
+
+	<GenStepDef>
+		<defName>ShashlichnikDaDRoofDrops_NearStartSpot</defName>
+		<order>302</order>
+
+		<genStep Class="Shashlichnik.GenStep_RoofDrops">
+			<inDistFromPlayerSpot>3~14</inDistFromPlayerSpot>
+			<frequency>0.198</frequency>
+			<lacunarity>3.63</lacunarity>
+			<persistence>1.04</persistence>
+			<octaves>8</octaves>
+			<chanceModifier>0.46</chanceModifier>
+		</genStep>
+	</GenStepDef>
+
+
+	<GenStepDef>
+		<defName>ShashlichnikDaDSpawnEntranceAtStartSpot</defName>
+		<order>851</order>
+		<genStep Class="Shashlichnik.GenStep_CaveEntranceAtPlayerSpot"/>
+	</GenStepDef>
+
+	<GenStepDef>
+		<defName>ShashlichnikDaDSpawnEntranceAtSurface</defName>
+		<order>1601</order>
+		<genStep Class="Shashlichnik.GenStep_CaveEntrance"/>
+	</GenStepDef>
+
+
+	<GenStepDef>
+		<defName>ShashlichnikCorpsesMearPlayerSpot</defName>
+		<order>1800</order>
+		<genStep Class="Shashlichnik.GenStep_CorpsesNearPlayerSpot"/>
+	</GenStepDef>
+</Defs>

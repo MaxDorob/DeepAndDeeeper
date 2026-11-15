@@ -67,12 +67,13 @@ namespace Shashlichnik
             }
             return map ?? GetOrGenerateMapUtility.GetOrGenerateMap(site.Tile, null);
         }
+        public override bool WayToSurface => true;
         public override IntVec3 GetDestinationLocation()
         {
 
             return caveEntrance?.Position ?? new IntVec3(3, 0, 3);
         }
-        protected Map OriginalMap => this.Map.GetComponent<CaveMapComponent>().caveEntrance.Map;
+        protected Map OriginalMap => this.Map.GetComponent<CaveMapComponent>().caveEntrance?.Map;
         public override void ExposeData()
         {
             base.ExposeData();

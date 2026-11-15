@@ -11,6 +11,7 @@
 			<li>ShashlichnikUndergroundInterest_SingleCryptosleepPod</li>
 			<li>ShashlichnikUnderground_RewardLvl2</li>
 			<li>ShashlichnikUnderground_UnstableAreaLvl2</li>
+			<li>ShashlichnikUndergroundInterest_DeepDiver</li>
 			<li MayRequire="Ludeon.RimWorld.Anomaly">ShashlichnikUndergroundInterest_Noctol</li>
 		</genSteps>
 	</MapGeneratorDef>

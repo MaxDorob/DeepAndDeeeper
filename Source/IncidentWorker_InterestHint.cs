@@ -19,7 +19,7 @@ namespace Shashlichnik
         {
             var map = parms.target as Map;
             var targets = HiddenInterestPoint(map).ToList();
-            if (!targets.Any())
+            if (!targets.Any() || !map.mapPawns.FreeColonistsAndPrisonersSpawned.Any())
             {
                 return false;
             }

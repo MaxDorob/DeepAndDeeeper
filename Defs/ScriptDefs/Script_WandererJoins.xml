@@ -21,6 +21,10 @@
     </questDescriptionRules>
     <everAcceptableInSpace>true</everAcceptableInSpace> <!-- Handled by quest part -->
     <root Class="Shashlichnik.QuestNode_Root_WandererJoin_RoofFall" />
+	<modExtensions>
+		<li Class="Shashlichnik.DefModExtension_CanRunInCave">
+		</li>
+	</modExtensions>
   </QuestScriptDef>
 
 </Defs>

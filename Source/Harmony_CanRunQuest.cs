@@ -11,11 +11,11 @@ namespace DeepAndDeeper
     [HarmonyLib.HarmonyPatch(typeof(QuestScriptDef), nameof(QuestScriptDef.CanRun), [typeof(Slate), typeof(IIncidentTarget)])]
     internal static class Harmony_CanRunQuest
     {
-        public static bool Prefix(IIncidentTarget target, ref bool __result)
+        public static bool Prefix(IIncidentTarget target, QuestScriptDef __instance, ref bool __result)
         {
             if (target is Map map && map.GetComponent<CaveMapComponent>() != null)
             {
-                __result = false;
+                __result = __instance.GetModExtension<DefModExtension_CanRunInCave>()?.CanRun ?? false;
                 return false;
             }
             return true;

@@ -20,5 +20,9 @@ namespace Shashlichnik
             }
             return false;
         }
+        public override void Arrive(List<Pawn> pawns, IncidentParms parms)
+        {
+            base.Arrive(pawns, parms);
+        }
     }
 }

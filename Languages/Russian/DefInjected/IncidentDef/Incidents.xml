@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+	<ShashlichnikCaveRaid.arrivalTextEnemy>Они атакуют немедленно</ShashlichnikCaveRaid.arrivalTextEnemy>
+	<ShashlichnikCaveRaid.ShashlichnikCaveRaid>Союзники</ShashlichnikCaveRaid.ShashlichnikCaveRaid>
+	<ShashlichnikCaveRaid.arrivalTextFriendly>Они идут чтобы помочь вам немедленно</ShashlichnikCaveRaid.arrivalTextFriendly>
+
+	<ShashlichnikCaveEdgeWalkIn.textEnemy>Группа {0} из {1} прибыли неподалеку</ShashlichnikCaveEdgeWalkIn.textEnemy>
+	<ShashlichnikCaveEdgeWalkIn.textFriendly>Группа дружественных {0} из {1} прибыли неподалеку</ShashlichnikCaveEdgeWalkIn.textFriendly>
+	<ShashlichnikCaveEdgeWalkIn.textWillArrive>{0_pawnsPluralDef} прибудут пешком</ShashlichnikCaveEdgeWalkIn.textWillArrive>
+
+	<ShashlichnikCaveDrop.textEnemy>Группа {0} из {1} упала с потолка неподалеку</ShashlichnikCaveDrop.textEnemy>
+	<ShashlichnikCaveDrop.textFriendly>Группа дружественных {0} из {1} упала с потолка неподалеку</ShashlichnikCaveDrop.textFriendly>
+	
+</LanguageData>

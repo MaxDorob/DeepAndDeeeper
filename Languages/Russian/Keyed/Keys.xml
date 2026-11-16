@@ -39,4 +39,9 @@
 	<ShashlichnikLetterLabelLostGroupJoins>Потерянная группа хочет присоедениться</ShashlichnikLetterLabelLostGroupJoins>
 	<ShashlichnikTextLabelLostGroupJoins>Люди из потерянной группы хотят присоедениться. Можем мы ли мы им доверять? Хотите ли вы их принять?</ShashlichnikTextLabelLostGroupJoins>
 	<ShashlichnikRandomItemSummary>Один предмет из списка:</ShashlichnikRandomItemSummary>
+	<ShashlichnikCaveHintSound>Странный звук</ShashlichnikCaveHintSound>
+	<ShashlichnikCaveHintSoundDesc>{PAWN_labelShort} послышалось что-то по ту сторону стены.\n\n{PAWN_pronoun} к сожалению не может сказать что это именно это было. Это может быть чье то движение, механизмы, воздушные потоки из выхода или что нибудь еще.</ShashlichnikCaveHintSoundDesc>
+	<ShashlichnikCaveHintMarks>Странные знаки на стене</ShashlichnikCaveHintMarks>
+	<ShashlichnikCaveHintMarksDesc>{PAWN_labelShort} видит какие то необычные символы на стене!\n\n{PAWN_pronoun} к сожалению не может сказать что именно значат эти символы. Может быть эти символы указывают направление к выходу...</ShashlichnikCaveHintMarksDesc>
+	<ShashlichnikRandomItemSummary>Один предмет из списка:</ShashlichnikRandomItemSummary>
 </LanguageData>

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+	<Shashlichnik_BuriedAlive.label>Погребенные заживо</Shashlichnik_BuriedAlive.label>
+	<Shashlichnik_BuriedAlive.scenario.name>Погребенные заживо</Shashlichnik_BuriedAlive.scenario.name>
+	<Shashlichnik_BuriedAlive.scenario.description>Ваша группа направлялась в заброшенные шахты для небольшой разведывательной операции. Всего то пара дней, не больше. Какие сокровища, реликвии и опасности ждут там снизу?\n\nЧто в теории может пойти не так...</Shashlichnik_BuriedAlive.scenario.description>
+	<Shashlichnik_BuriedAlive.scenario.summary>Потерянная группа в пещерах.</Shashlichnik_BuriedAlive.scenario.summary>
+	<Shashlichnik_BuriedAlive.scenario.parts.0.text>Экспедиция должна была быть не сложной. Шахты были старые, но туннели выглядили стоящими для исследования. Но все испортило землятрясение... Обвал застал вас в туннелях, разделив команду. Большая часть команды была убита или исчезла под завалами... Тем не менее как минимум двум членам команды все же удалось выжить. У них есть еда. У них есть снаряжение. У них есть немного продовольствия.\n\nЧего у них нет, так это легкого пути наружу...</Shashlichnik_BuriedAlive.scenario.parts.0.text>
+	
+</LanguageData>

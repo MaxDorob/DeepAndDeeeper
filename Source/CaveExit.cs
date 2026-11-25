@@ -87,7 +87,7 @@ namespace Shashlichnik
                             pocketMapParent.sourceMap = newMap;
                         }
                         thisMap.info.isPocketMap = true;
-                        newMap.info.isPocketMap = false;
+                        newMap.info.isPocketMap = true;
                         newMap.info.parent = settlementParent;
                     }
 

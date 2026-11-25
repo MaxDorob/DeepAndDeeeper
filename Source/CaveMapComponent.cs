@@ -389,7 +389,7 @@ namespace Shashlichnik
             }
             Messages.Message("ShashlichnikMessageCaveCollapsed".Translate(), new TargetInfo(caveExit.caveEntrance?.Position ?? IntVec3.Invalid, caveEntrance?.Map, false), MessageTypeDefOf.NeutralEvent, true);
             var infestationScale = infestationScaleCurve.Evaluate(WastepackPoints);
-            if (caveEntrance != null && caveEntrance.Map.GetComponent<CaveMapComponent>() == null && infestationScale > 0.5f)
+            if (caveEntrance != null && caveEntrance.Map != null && caveEntrance.Map.GetComponent<CaveMapComponent>() == null && infestationScale > 0.5f)
             {
                 StorytellerComp storytellerComp = Find.Storyteller.storytellerComps.FirstOrDefault((StorytellerComp x) => x is StorytellerComp_OnOffCycle || x is StorytellerComp_RandomMain);
                 if (storytellerComp != null)

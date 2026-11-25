@@ -9,6 +9,6 @@ namespace Shashlichnik
 {
     public class DefModExtension_CanRunInCave : DefModExtension
     {
-        public bool CanRun = true;
+        public bool canRun = true;
     }
 }

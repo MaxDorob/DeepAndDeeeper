@@ -15,7 +15,7 @@ namespace DeepAndDeeper
         {
             if (target is Map map && map.GetComponent<CaveMapComponent>() != null)
             {
-                __result = __instance.GetModExtension<DefModExtension_CanRunInCave>()?.CanRun ?? false;
+                __result = __instance.GetModExtension<DefModExtension_CanRunInCave>()?.canRun ?? false;
                 return false;
             }
             return true;

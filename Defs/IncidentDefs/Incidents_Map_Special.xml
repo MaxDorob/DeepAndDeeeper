@@ -71,6 +71,25 @@
 			<li>ShashlichnikUnderground</li>
 		</biomeWhitelist>
 	</PawnsArrivalModeDef>
+
+
+	<IncidentDef>
+		<defName>ShashlichnikCaveInfestation</defName>
+		<label>infestation</label>
+		<targetTags>
+			<li>ShashlichnikMap_Cave</li>
+		</targetTags>
+		<workerClass>Shashlichnik.IncidentWorker_CaveInfestation</workerClass>
+		<letterLabel>Infestation</letterLabel>
+		<letterText>Giant insects are tunneling towards you! They will break through in a few seconds and plant hives.\n\nThe hives will spawn more insects and more hives.\n\nIf you don't want the insects to infest the whole area, destroy the hives. But beware - the bugs will defend their home.</letterText>
+		<letterDef>ThreatBig</letterDef>
+		<baseChance>2.7</baseChance>
+		<minRefireDays>20</minRefireDays>
+		<category>ThreatBig</category>
+		<pointsScaleable>true</pointsScaleable>
+		<minThreatPoints>180</minThreatPoints>
+		<tale>Infestation</tale>
+	</IncidentDef>
 	
 	<!--Population increase event-->
 

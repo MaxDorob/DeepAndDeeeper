@@ -451,6 +451,12 @@ namespace Shashlichnik
         }
         public void QueueSingleLandslide(IntVec3 cell, int ticks)
         {
+            var building = cell.GetFirstBuilding(map);
+            if (building is CaveEntrance || building is CaveExit)
+            {
+                Log.Warning($"Tried to queue landslide onto {building}. Returning...");
+                return;
+            }
             if (!queuedLandslides.ContainsKey(cell))
             {
                 queuedLandslides.Add(cell, ticks);

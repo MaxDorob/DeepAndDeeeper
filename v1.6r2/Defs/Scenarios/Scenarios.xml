@@ -102,6 +102,11 @@
           <project>Stonecutting</project>
         </li>
 
+				<li Class="ScenPart_StartingResearch">
+					<def>StartingResearch</def>
+					<project>PackagedSurvivalMeal</project>
+				</li>
+
         <!-- Player starting things -->
         <li Class="ScenPart_StartingThing_Defined">
           <def>StartingThing_Defined</def>

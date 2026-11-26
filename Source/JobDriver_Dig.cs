@@ -14,7 +14,7 @@ namespace Shashlichnik
         private Effecter graveDigEffect;
 
         public CaveEntrance CaveEntrance => TargetA.Thing as CaveEntrance;
-        public override IEnumerable<Toil> MakeNewToils()
+        protected override IEnumerable<Toil> MakeNewToils()
         {
             this.FailOnDestroyedOrNull(TargetIndex.A);
             this.FailOn(() => CaveEntrance.TicksToOpen <= 0 || CaveEntrance.IsCollapsing);

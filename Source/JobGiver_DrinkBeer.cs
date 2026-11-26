@@ -25,7 +25,7 @@ namespace Shashlichnik
 
             return 0f;
         }
-        public override Job TryGiveJob(Pawn pawn)
+        protected override Job TryGiveJob(Pawn pawn)
         {
             if (pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.AlcoholHigh) != null)
             {

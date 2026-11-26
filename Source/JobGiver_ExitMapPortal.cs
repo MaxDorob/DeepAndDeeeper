@@ -11,7 +11,7 @@ namespace Shashlichnik
 {
     public class JobGiver_ExitMapPortal : JobGiver_ExitMapBest
     {
-        public override Job TryGiveJob(Pawn pawn)
+        protected override Job TryGiveJob(Pawn pawn)
         {
             var job = base.TryGiveJob(pawn);
             if (job != null)
@@ -47,7 +47,7 @@ namespace Shashlichnik
                 return null;
             }
         }
-        public override bool TryFindGoodExitDest(Pawn pawn, bool canDig, bool canBash, out IntVec3 dest)
+        protected override bool TryFindGoodExitDest(Pawn pawn, bool canDig, bool canBash, out IntVec3 dest)
         {
             var exits = pawn.Map.listerThings.GetThingsOfType<CaveExit>().Where(x => x.caveEntrance != null);
             Log.Message($"Trying to find exit. Found any {exits.Any()} ({exits.FirstOrDefault()?.Position})");

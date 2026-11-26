@@ -118,4 +118,23 @@
 		<workerClass>Shashlichnik.IncidentWorker_InterestHint</workerClass>
 		<baseChance>2</baseChance>
 	</IncidentDef>
+
+
+	<IncidentDef MayRequire="Ludeon.RimWorld.Biotech">
+		<defName>ShashlichnikCaveToxGas</defName>
+		<label>tox gas</label>
+		<targetTags>
+			<li>ShashlichnikMap_Cave</li>
+		</targetTags>
+		<workerClass>Shashlichnik.IncidentWorker_CaveToxGas</workerClass>
+		<letterLabel>Tox gas</letterLabel>
+		<letterText>Dangerous toxic gas flows from the roof. Move your people away from it as soon as possible.</letterText>
+		<letterDef>ThreatBig</letterDef>
+		<baseChance>1.4</baseChance>
+		<minRefireDays>15</minRefireDays>
+		<category>ThreatBig</category>
+		<!--<minThreatPoints>180</minThreatPoints>-->
+		<!--<tale></tale>-->
+	</IncidentDef>
+
 </Defs>

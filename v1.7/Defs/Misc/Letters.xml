@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <LetterDef ParentName="PositiveEvent">
+    <defName>ShashlichnikPositiveEventShutUp</defName>
+    <color>(120, 176, 216)</color>
+    <flashColor>(106, 179, 231)</flashColor>
+    <flashInterval>90</flashInterval>
+		<letterClass>Shashlichnik.ShutUpLetter</letterClass>
+    <arriveSound>LetterArrive_Good</arriveSound>
+  </LetterDef>
+
+	<LetterDef ParentName="CustomChoiceLetterBase">
+		<defName>ShashlichnikLostGroupWantsToJoin</defName>
+		<letterClass>Shashlichnik.ChoiceLetter_AcceptLostGroup</letterClass>
+	</LetterDef>
+
+</Defs>

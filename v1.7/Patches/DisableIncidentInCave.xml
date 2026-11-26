@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/IncidentDef[defName="RaidEnemy" or defName="ResourcePodCrash" or defName="RefugeePodCrash"]</xpath>
+		<value>
+			<li Class="Shashlichnik.DefModExtension_CanRunInCave">
+				<canRun>false</canRun>
+			</li>
+		</value>
+	</Operation>
+
+	
+</Patch>

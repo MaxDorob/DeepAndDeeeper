@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<ScenPartDef>
+		<defName>ShashlichnikPlayerPawnsArriveMethod</defName>
+		<label>arrival method</label>
+		<category>Fixed</category>
+		<scenPartClass>Shashlichnik.ScenPart_PlayerPawnsArriveMethod</scenPartClass>
+		<summaryPriority>470</summaryPriority>
+	</ScenPartDef>
+
+	<ScenPartDef>
+		<defName>ShashlichnikDaDCaveStabilityDays</defName>
+		<label>cave stability days</label>
+		<category>Misc</category>
+		<scenPartClass>Shashlichnik.ScenPart_CaveStabilityDays</scenPartClass>
+		<maxUses>1</maxUses>
+	</ScenPartDef>
+
+	<ScenPartDef>
+		<defName>ShashlichnikDaDCaveMapSize</defName>
+		<label>cave map size</label>
+		<category>Fixed</category>
+		<scenPartClass>Shashlichnik.ScenPart_ScenarioCaveMapSize</scenPartClass>
+		<maxUses>1</maxUses>
+	</ScenPartDef>
+
+	<ScenPartDef>
+		<defName>ShashlichnikInitialDamage</defName>
+		<label>initial damage</label>
+		<category>Misc</category>
+		<scenPartClass>Shashlichnik.ScenPart_InitialSmallDamage</scenPartClass>
+	</ScenPartDef>
+	
+  <ScenarioDef ParentName="ScenarioBase">
+    <defName>Shashlichnik_BuriedAlive</defName>
+    <label>Buried Alive</label>
+    <description>You were heading down an old shaft as a small reconnaissance mission. It was supposed to be a few days, and no more. What treasures and dangers are hidden down there?\n\nWhat could possibly go wrong...</description>
+    <scenario>
+      <summary>A lost group in caverns.</summary>
+      <playerFaction>
+        <factionDef>PlayerColony</factionDef>
+      </playerFaction>
+      <parts Inherit="False">
+        
+        <!-- Layers --> <!--Not sure if i need it yet...-->
+        <!--<li Class="ScenPart_PlanetLayer">
+          <def>PlanetLayerFixed</def>
+          <tag>Shashlichnik_Caverns</tag>
+          <layer>Shashlichnik_Caverns</layer>
+          <settingsDef>Shashlichnik_Caverns</settingsDef>
+          <hide>true</hide>
+          <connections>
+            <Surface>
+              <zoomMode>ZoomIn</zoomMode>
+            </Surface>
+          </connections>
+        </li>-->
+				
+        <!-- Game start dialog -->
+        <li Class="ScenPart_GameStartDialog">
+          <def>GameStartDialog</def>
+          <text>The expedition was supposed to be routine. The shaft was old but the tunnel system promised something worth investigating, and then the mountain moved. A landslide tore through the tunnels, sealing the expedition team underground. Most of the others were killed or simply vanished beneath the rubble. Somehow, two survivors remain. They have food. They have equipment. They have a few supplies scavenged from the wreckage.\n\nWhat they don't have is an easy way out...</text>
+          <closeSound>GameStartSting</closeSound>
+        </li>
+
+				<li Class="Shashlichnik.ScenPart_CaveStabilityDays">
+					<def>ShashlichnikDaDCaveStabilityDays</def>
+					<stabilityDays>210</stabilityDays>
+				</li>
+
+				<li Class="Shashlichnik.ScenPart_ScenarioCaveMapSize">
+					<def>ShashlichnikDaDCaveMapSize</def>
+				</li>
+
+        <!-- Config pages -->
+        <li Class="ScenPart_ConfigPage_ConfigureStartingPawns">
+          <def>ConfigPage_ConfigureStartingPawns</def>
+          <pawnCount>2</pawnCount>
+          <pawnChoiceCount>8</pawnChoiceCount>
+          <allowedDevelopmentalStages>Adult, Child</allowedDevelopmentalStages>
+          <requiredSkills>
+            <li>Mining</li>
+          </requiredSkills>
+        </li>
+
+        <li Class="ScenPart_ForcedMap">
+          <def>ForcedMap</def>
+          <mapGenerator>ShashlichnikScenarioUnderground</mapGenerator>
+          <layerDef>Surface</layerDef>
+        </li>
+
+        <!-- Player starting stuff spawn method-->
+        <li Class="Shashlichnik.ScenPart_PlayerPawnsArriveMethod">
+          <def>ShashlichnikPlayerPawnsArriveMethod</def>
+          <method>Standing</method>
+        </li>
+
+        <!-- Starting research -->
+        <li Class="ScenPart_StartingResearch">
+          <def>StartingResearch</def>
+          <project>Stonecutting</project>
+        </li>
+
+				<li Class="ScenPart_StartingResearch">
+					<def>StartingResearch</def>
+					<project>PackagedSurvivalMeal</project>
+				</li>
+
+        <!-- Player starting things -->
+        <li Class="ScenPart_StartingThing_Defined">
+          <def>StartingThing_Defined</def>
+          <thingDef>Bedroll</thingDef>
+          <count>4</count>
+					<stuff>Cloth</stuff>
+        </li>
+        <li Class="ScenPart_StartingThing_Defined">
+          <def>StartingThing_Defined</def>
+          <thingDef>MealSurvivalPack</thingDef>
+          <count>30</count>
+        </li>
+        <li Class="ScenPart_StartingThing_Defined">
+          <def>StartingThing_Defined</def>
+          <thingDef>MedicineIndustrial</thingDef>
+          <count>6</count>
+        </li>
+        <li Class="ScenPart_StartingThing_Defined">
+          <def>StartingThing_Defined</def>
+          <thingDef>ComponentIndustrial</thingDef>
+          <count>5</count>
+        </li>
+        <li Class="ScenPart_StartingThing_Defined">
+          <def>StartingThing_Defined</def>
+          <thingDef>Gun_Autopistol</thingDef>
+        </li>
+				<li Class="ScenPart_StartingThing_Defined">
+					<def>StartingThing_Defined</def>
+					<thingDef>MeleeWeapon_Knife</thingDef>
+					<stuff>Steel</stuff>
+				</li>
+				<li Class="Shashlichnik.ScenPart_RandomStartingThing">
+					<def>StartingThing_Defined</def>
+					<things>
+						<li>AIPersonaCore</li>
+						<li>MechSerumResurrector</li>
+						<li>ArchotechEye</li>
+						<li>ArchotechArm</li>
+						<li>ArchotechLeg</li>
+					</things>
+				</li>
+
+				<li MayRequire="CETeam.CombatExtended" Class="ScenPart_StartingThing_Defined">
+					<def>StartingThing_Defined</def>
+					<thingDef>Ammo_45ACP_FMJ</thingDef>
+					<count>120</count>
+				</li>
+
+
+				<li Class="Shashlichnik.ScenPart_InitialSmallDamage">
+					<def>ShashlichnikInitialDamage</def>
+				</li>
+				
+      </parts>
+    </scenario>
+  </ScenarioDef>
+
+</Defs>

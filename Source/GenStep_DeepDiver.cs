@@ -39,7 +39,7 @@ namespace Shashlichnik
 
             var pawn = PawnGenerator.GeneratePawn(DefsOf.ShashlichnikDeepDiver, faction);
             GenSpawn.Spawn(pawn, thingPos, map);
-            var lord = LordMaker.MakeNewLord(pawn.Faction, new LordJob_MineClusters(), Find.CurrentMap, null);
+            var lord = LordMaker.MakeNewLord(pawn.Faction, new LordJob_MineClusters(), map, null);
             lord.AddPawn(pawn);
             return true;
         }

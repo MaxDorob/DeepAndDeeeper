@@ -1,4 +1,5 @@
 ﻿using RimWorld;
+using RimWorld.Planet;
 using Shashlichnik;
 using System;
 using System.Collections.Generic;
@@ -29,7 +30,33 @@ namespace Shashlichnik
                 return "ShashlichnikExitCave".Translate();
             }
         }
-
+        public virtual bool WayToSurface
+        {
+            get
+            {
+                if (wayToSurface == null)
+                {
+                    if (caveEntrance != null)
+                    {
+                        wayToSurface = caveEntrance.Map.GetComponent<CaveMapComponent>() == null;
+                    }
+                    else
+                    {
+                        var caveParams = Map.generatorDef.GetModExtension<CaveParams>();
+                        if (caveParams != null)
+                        {
+                            wayToSurface = caveParams.caveExitMapGenerator == null;
+                        }
+                        else
+                        {
+                            Log.Warning($"Failed to check if {this} is way to surface.");
+                            wayToSurface = true;
+                        }
+                    }
+                }
+                return wayToSurface.Value;
+            }
+        }
         public override Texture2D EnterTex
         {
             get
@@ -40,16 +67,101 @@ namespace Shashlichnik
 
         public override Map GetOtherMap()
         {
+            if (caveEntrance == null)
+            {
+                var mapSize = Mod.Settings.mapSize;
+                PocketMapUtility.currentlyGeneratingPortal = this;
+                var caveComp = base.Map.GetComponent<CaveMapComponent>();
+                var mapGenerator = base.Map.generatorDef.GetModExtension<CaveParams>()?.caveExitMapGenerator;
+                Map newMap;
+                if (mapGenerator != null)
+                {
+                    newMap = PocketMapUtility.GeneratePocketMap(new IntVec3(mapSize, 1, mapSize), mapGenerator, null, base.Map);
+                    if (this.Map.Parent is Settlement)
+                    {
+                        var settlementParent = this.Map.info.parent;
+                        var thisMap = this.Map;
+                        thisMap.info.parent = newMap.info.parent;
+                        if (thisMap.info.parent is PocketMapParent pocketMapParent)
+                        {
+                            pocketMapParent.sourceMap = newMap;
+                        }
+                        thisMap.info.isPocketMap = true;
+                        newMap.info.isPocketMap = true;
+                        newMap.info.parent = settlementParent;
+                    }
+
+                    
+                }
+                else
+                {
+                    var tile = base.Map.Tile;
+                    var coreMap = this.Map;
+                    var originalMP = coreMap.Parent;
+
+                    PocketMapParent pocketMapParent = WorldObjectMaker.MakeWorldObject(WorldObjectDefOf.PocketMap) as PocketMapParent;
+                    coreMap.info.parent = pocketMapParent;
+                    coreMap.info.isPocketMap = true;
+                    Find.World.pocketMaps.Add(pocketMapParent);
+                    newMap = GenerateSurfaceMap(tile, null, [new GenStepWithParams(DefsOf.ShashlichnikDaDSpawnEntranceAtSurface, default)]);
+                    
+                    pocketMapParent.sourceMap = newMap;
+                }
+
+                caveEntrance = newMap.listerThings.ThingsOfDef(DefsOf.ShashlichnikCaveEntrance).LastOrDefault() as CaveEntrance;
+                if (caveEntrance != null)
+                {
+                    caveEntrance.caveExit = this;
+                    caveEntrance.exit = this;
+                    caveEntrance.cave = this.Map;
+                    caveEntrance.pocketMap = this.Map;
+                    caveEntrance.TicksToOpen = 0;
+                    caveComp.caveEntrance ??= caveEntrance;
+                }
+                else
+                {
+                    Log.Error($"caveEntrance is null");
+                }
+                PocketMapUtility.currentlyGeneratingPortal = null;
+            }
             return caveEntrance.Map;
+        }
+
+        private Map GenerateSurfaceMap(PlanetTile tile, WorldObjectDef suggestedMapParentDef, IEnumerable<GenStepWithParams> extraGenStepDefs = null)
+        {
+            MapParent mapParent = Find.WorldObjects.MapParentAt(tile);
+            if (mapParent == null) //There must be the settlement...
+            {
+                if (suggestedMapParentDef == null)
+                {
+                    Log.Error(string.Format("Tried to get or generate map at {0}, but there isn't any MapParent world object here and map parent def argument is null.", tile));
+                    return null;
+                }
+                mapParent = (MapParent)WorldObjectMaker.MakeWorldObject(suggestedMapParentDef);
+                mapParent.Tile = tile;
+                Find.WorldObjects.Add(mapParent);
+            }
+            return MapGenerator.GenerateMap(Find.World.info.initialMapSize, mapParent, mapParent.MapGeneratorDef, mapParent.ExtraGenStepDefs.ConcatIfNotNull(extraGenStepDefs ?? Enumerable.Empty<GenStepWithParams>()));
         }
 
         public override IntVec3 GetDestinationLocation()
         {
             return caveEntrance.Position;
         }
-
+        public override void SpawnSetup(Map map, bool respawningAfterLoad)
+        {
+            if (!respawningAfterLoad && PocketMapUtility.currentlyGeneratingPortal == null)
+            {
+                PocketMapUtility.currentlyGeneratingPortal = this;
+            }
+            base.SpawnSetup(map, respawningAfterLoad);
+            if (PocketMapUtility.currentlyGeneratingPortal == this)
+            {
+                PocketMapUtility.currentlyGeneratingPortal = null;
+            }
+        }
         public override void OnEntered(Pawn pawn)
-        {   
+        {
             base.OnEntered(pawn);
             if (Find.CurrentMap == base.Map)
             {
@@ -119,5 +231,6 @@ namespace Shashlichnik
 
         public CaveEntrance caveEntrance;
         public bool exitIfNoJob = false;
+        private bool? wayToSurface;
     }
 }

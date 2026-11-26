@@ -19,10 +19,14 @@ namespace Shashlichnik
 #endif
             )
         {
-            if (__instance.isPocketMap && __instance.parent is PocketMapParent pocketMapParent && pocketMapParent.sourceMap != null && CaveMapComponent.cachedComponents.ContainsKey(pocketMapParent.Map))
+            if (__instance.isPocketMap && __instance.parent is PocketMapParent pocketMapParent && pocketMapParent.sourceMap != null)
             {
-                __result = pocketMapParent.sourceMap.Tile;
-                return false;
+                var map = pocketMapParent.Map;
+                if (map != null && CaveMapComponent.cachedComponents.ContainsKey(pocketMapParent.Map))
+                {
+                    __result = pocketMapParent.sourceMap.Tile;
+                    return false; 
+                }
             }
             return true;
         }

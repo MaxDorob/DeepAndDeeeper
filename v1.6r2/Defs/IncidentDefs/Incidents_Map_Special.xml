@@ -4,9 +4,9 @@
 	<IncidentTargetTagDef>
 		<defName>ShashlichnikMap_Cave</defName>
 	</IncidentTargetTagDef>
-	
+
 	<!--Raids-->
-	
+
 	<IncidentDef>
 		<defName>ShashlichnikCaveRaid</defName>
 		<label>enemy raid</label>
@@ -15,7 +15,7 @@
 		<targetTags>
 			<li>ShashlichnikMap_Cave</li>
 		</targetTags>
-		<baseChance>1.0</baseChance>
+		<baseChance>4.0</baseChance>
 		<pointsScaleable>true</pointsScaleable>
 		<category>ThreatBig</category>
 		<tale>Raid</tale>
@@ -90,7 +90,7 @@
 		<minThreatPoints>180</minThreatPoints>
 		<tale>Infestation</tale>
 	</IncidentDef>
-	
+
 	<!--Population increase event-->
 
 	<IncidentDef>
@@ -102,10 +102,10 @@
 		</targetTags>
 		<workerClass>IncidentWorker_GiveQuest</workerClass>
 		<questScriptDef>ShashlichnikWandererJoin_RoofFall</questScriptDef>
-		<baseChance>0.4</baseChance>
+		<baseChance>1.7</baseChance>
 		<populationEffect>IncreaseEasy</populationEffect>
 	</IncidentDef>
-	
+
 	<!--Helping incidents-->
 
 	<IncidentDef>
@@ -116,7 +116,7 @@
 			<li>ShashlichnikMap_Cave</li>
 		</targetTags>
 		<workerClass>Shashlichnik.IncidentWorker_InterestHint</workerClass>
-		<baseChance>2</baseChance>
+		<baseChance>10</baseChance>
 	</IncidentDef>
 
 
@@ -130,7 +130,7 @@
 		<letterLabel>Tox gas</letterLabel>
 		<letterText>Dangerous toxic gas flows from the roof. Move your people away from it as soon as possible.</letterText>
 		<letterDef>ThreatBig</letterDef>
-		<baseChance>1.4</baseChance>
+		<baseChance>2.6</baseChance>
 		<minRefireDays>15</minRefireDays>
 		<category>ThreatBig</category>
 		<!--<minThreatPoints>180</minThreatPoints>-->
